@@ -34,4 +34,7 @@
     <!-- Quick settings -->
     <color name="qs_background_color">#ff000000</color>
     <color name="qs_dialog_add_tile_icon_color">#ffffffff</color>
+
+    <!-- Blacklist -->
+    <color name="floating_action_button_touch_tint">#80ffffff</color>
 </resources>

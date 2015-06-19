@@ -239,6 +239,14 @@
                 android:icon="@drawable/ic_settings_security"
                 />
 
+        <!-- Privacy -->
+        <dashboard-tile
+                android:id="@+id/privacy_settings_darkkat"
+                android:title="@string/privacy_settings_darkkat_title"
+                android:fragment="com.android.settings.darkkat.PrivacySettingsDarkKat"
+                android:icon="@drawable/ic_settings_privacy"
+                />
+
         <!-- Account -->
         <dashboard-tile
                 android:id="@+id/account_settings"

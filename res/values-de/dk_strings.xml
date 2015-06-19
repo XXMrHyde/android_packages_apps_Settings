@@ -445,6 +445,40 @@
     <string name="app_notification_no_ongoing_on_keyguard_title">Permanente auf Sperrbildschirm unterdrücken</string>
     <string name="app_notification_no_ongoing_on_keyguard_summary">Laufende Benachrichtigungen von dieser App nie auf dem Sperrbildschirm anzeigen</string>
 
+    <!-- Privacy settings (DarkKat) -->
+    <string name="privacy_settings_darkkat_title">Privatsphäre</string>
+
+    <!-- Blacklist settings -->
+    <string name="blacklist_title">Rufnummer-Sperrliste</string>
+    <string name="blacklist_edit_dialog_title">Gesperrte Telefonnummer bearbeiten</string>
+    <string name="blacklist_prefs">Einstellungen</string>
+    <string name="blacklist_button_delete">Löschen</string>
+    <string name="blacklist_empty_text">Es sind noch keine Einträge in der Sperrliste enthalten. Sie können Einträge hinzufügen, indem Sie das \"+\"-Symbol berühren.</string>
+    <string name="blacklist_disabled_empty_text">Um Anrufe und Nachrichten von bestimmten Nummern zu verhindern, aktivieren Sie die Rufnummer-Sperrliste.</string>
+    <string name="blacklist_summary_disabled">Deaktiviert</string>
+    <string name="blacklist_summary">Sie werden keine Anrufe oder Nachrichten von Nummern aus der Sperrliste empfangen</string>
+    <string name="blacklist_notify">Benachrichtigung anzeigen</string>
+    <string name="blacklist_private_numbers_title">Unterdrückte Nummern</string>
+    <string name="blacklist_private_numbers_summary_disabled">Anrufe mit unterdrückter Nummer nicht abweisen</string>
+    <string name="blacklist_private_numbers_summary">Eingehende <xliff:g id="type">%s</xliff:g> mit unterdrückter Nummer abweisen</string>
+    <string name="blacklist_unknown_numbers_title">Unbekannte Nummern</string>
+    <string name="blacklist_unknown_numbers_summary_disabled">Anrufe und Nachrichten von Nummern, die sich nicht in der Kontaktliste befinden, nicht abweisen</string>
+    <string name="blacklist_unknown_numbers_summary">Eingehende <xliff:g id="type">%s</xliff:g> von Nummern, die sich nicht in der Kontaktliste befinden, abweisen</string>
+    <string name="blacklist_summary_type_calls_only">Anrufe</string>
+    <string name="blacklist_summary_type_messages_only">Nachrichten</string>
+    <string name="blacklist_summary_type_calls_and_messages">Anrufe und Nachrichten</string>
+    <string name="blacklist_regex_title">Platzhalter verwenden</string>
+    <string name="blacklist_regex_summary">Einen Punkt als Platzhalter und ein Stern für Wiederholungen verwenden.\nBeispielsweise würde 123.* alle Nummern, die mit 123 beginnen, und .*123.* alle Nummern, die 123 enthalten, abweisen.</string>
+    <string name="blacklist_policy_block_calls">Eingehende Anrufe abweisen</string>
+    <string name="blacklist_policy_block_messages">Eingehende Nachrichten abweisen</string>
+    <string name="blacklist_bad_number_add">Ungültige Nummer kann nicht zur Liste der gesperrten Anrufer hinzugefügt werden</string>
+
+    <!-- Blacklist management -->
+    <string name="add_blacklist_number">Nummer hinzufügen</string>
+    <string name="remove_blacklist_number_title">Nummer entfernen</string>
+    <string name="remove_blacklist_entry">Soll diese gesperrte Nummer entfernt werden?</string>
+    <string name="select_contact">Kontakt auswählen</string>
+
     <!-- Development settings -->
 
     <!-- Advanced reboot options -->
