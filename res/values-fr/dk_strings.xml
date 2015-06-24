@@ -157,8 +157,12 @@
     <string name="battery_status_percent_style_text_next">A côté de l\'icône</string>
     <string name="battery_status_percent_style_default">Cacher (défaut)</string>
     <string name="battery_status_charge_animation_speed_title">Vitesse d\'animation de la charge</string>
+    <string name="battery_status_charge_animation_speed_very_slow">Very slow</string> <!-- Needs translation -->
     <string name="battery_status_charge_animation_speed_slow">Doucement</string>
     <string name="battery_status_charge_animation_speed_fast">Rapide</string>
+    <string name="battery_status_charge_animation_speed_very_fast">Very fast</string> <!-- Needs translation -->
+    <string name="battery_status_use_circle_fill_animation_title">Animation type</string> <!-- Needs translation -->
+    <string name="battery_status_use_circle_fill_animation_summary">Activate to use a fill animation, disable to use a offset animation</string> <!-- Needs translation -->
     <string name="battery_status_show_circle_dotted_title">Cercle en pointillés</string>
     <string name="battery_status_show_circle_dotted_summary">Activate to show the circle dotted</string>
     <string name="battery_status_circle_dot_length_title">Longueur des points du cerlce</string>

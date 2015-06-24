@@ -157,8 +157,12 @@
     <string name="battery_status_percent_style_text_next">Junto al icono</string>
     <string name="battery_status_percent_style_default">Oculto (por defecto)</string>
     <string name="battery_status_charge_animation_speed_title">Modificar la velocidad de la animación</string>
+    <string name="battery_status_charge_animation_speed_very_slow">Very slow</string> <!-- Needs translation -->
     <string name="battery_status_charge_animation_speed_slow">Lenta</string>
     <string name="battery_status_charge_animation_speed_fast">Rápida</string>
+    <string name="battery_status_charge_animation_speed_very_fast">Very fast</string> <!-- Needs translation -->
+    <string name="battery_status_use_circle_fill_animation_title">Animation type</string> <!-- Needs translation -->
+    <string name="battery_status_use_circle_fill_animation_summary">Activate to use a fill animation, disable to use a offset animation</string> <!-- Needs translation -->
     <string name="battery_status_show_circle_dotted_title">Círculo con puntos</string>
     <string name="battery_status_show_circle_dotted_summary">Mostrar el círculo con puntos</string>
     <string name="battery_status_circle_dot_length_title">Longitud del punto del círculo</string>

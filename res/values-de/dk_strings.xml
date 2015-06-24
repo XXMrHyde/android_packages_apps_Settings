@@ -157,8 +157,12 @@
     <string name="battery_status_percent_style_text_next">Neben dem Symbol</string>
     <string name="battery_status_percent_style_default">Verborgen (Standard)</string>
     <string name="battery_status_charge_animation_speed_title">Ladeanimations Geschwindigkeit</string>
+    <string name="battery_status_charge_animation_speed_very_slow">Sehr langsam</string>
     <string name="battery_status_charge_animation_speed_slow">Langsam</string>
     <string name="battery_status_charge_animation_speed_fast">Schnell</string>
+    <string name="battery_status_charge_animation_speed_very_fast">Sehr schnell</string>
+    <string name="battery_status_use_circle_fill_animation_title">Animations Typ</string>
+    <string name="battery_status_use_circle_fill_animation_summary">Aktivieren um eine Füll-Animation zu benutzen, deaktivieren um eine Versatz Animation zu benutzen</string>
     <string name="battery_status_show_circle_dotted_title">Kreis gepunktet</string>
     <string name="battery_status_show_circle_dotted_summary">Aktivieren um den Kreis gepunktet anzuzeigen</string>
     <string name="battery_status_circle_dot_length_title">Kreis Punk Länge</string>
