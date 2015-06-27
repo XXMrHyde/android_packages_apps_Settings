@@ -18,10 +18,13 @@
 
 package net.margaritov.preference.colorpicker;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.Color;
+import android.os.Bundle;
+import android.preference.DialogPreference;
 import android.preference.Preference;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -33,15 +36,17 @@ import android.widget.LinearLayout;
 import com.android.settings.R;
 
 /**
- * A preference type that allows a user to choose a time
+ * A preference type that allows a user to choose a color
  * 
  * @author Sergey Margaritov
  */
-public class ColorPickerPreference extends Preference implements
-        Preference.OnPreferenceClickListener, ColorPickerDialog.OnColorChangedListener {
+public class ColorPickerPreference extends DialogPreference implements
+        ColorPickerDialog.OnColorChangedListener {
 
     View mView;
     LinearLayout widgetFrameView;
+    ColorPickerDialog mDialog;
+
     int mDefaultValue = Color.BLACK;
     int mAndroidColor = 0x00000000;
     int mDarkKatColor = mAndroidColor;
@@ -75,7 +80,6 @@ public class ColorPickerPreference extends Preference implements
 
     private void init(Context context, AttributeSet attrs) {
         mDensity = getContext().getResources().getDisplayMetrics().density;
-        setOnPreferenceClickListener(this);
         if (attrs != null) {
             String defaultValue = attrs.getAttributeValue(androidns, "defaultValue");
             if (defaultValue.startsWith("#")) {
@@ -184,17 +188,25 @@ public class ColorPickerPreference extends Preference implements
         }
     }
 
-    public boolean onPreferenceClick(Preference preference) {
-        ColorPickerDialog picker = new ColorPickerDialog(
-                getContext(), R.style.Theme_ColorPickerDialog, getValue(),
-                mAndroidColor, mDarkKatColor);
-        picker.setOnColorChangedListener(this);
-        if (mAlphaSliderEnabled) {
-            picker.setAlphaSliderVisible(true);
-        }
-        picker.show();
+    @Override
+    protected void showDialog(Bundle state) {
+        super.showDialog(state);
 
-        return false;
+        final ColorPickerDialog pickerDialog = (ColorPickerDialog) getDialog();
+    }
+
+    @Override
+    protected Dialog createDialog() {
+        final ColorPickerDialog pickerDialog = new ColorPickerDialog(
+                getContext(), R.style.Theme_ColorPickerDialog,
+                getValue(), mAndroidColor, mDarkKatColor);
+
+        if (mAlphaSliderEnabled) {
+            pickerDialog.setAlphaSliderVisible(true);
+        }
+        pickerDialog.setOnColorChangedListener(this);
+
+        return pickerDialog;
     }
 
     /**
