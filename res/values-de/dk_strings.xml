@@ -108,8 +108,6 @@
     <string name="status_bar_clock_date_settings_summary">Die Uhr &amp; das Datum anpassen</string>
     <string name="status_bar_battery_status_settings_title">Akkustatus</string>
     <string name="status_bar_battery_status_settings_summary">Den Akkustatus anpassen</string>
-    <string name="status_bar_battery_bar_settings_title">Akkuleiste</string>
-    <string name="status_bar_battery_bar_settings_summary">Die Akkuleiste anpassen</string>
     <string name="status_bar_signal_wifi_settings_title">Netzwerk Symbole</string>
     <string name="status_bar_signal_wifi_settings_summary">Die Netzwerk Symbole anpassen</string>
     <string name="status_bar_network_speed_settings_title">Netzw.-Geschw. Anzeige</string>
@@ -147,10 +145,14 @@
 
     <!-- Status bar battery status settings -->
     <string name="battery_status_cat_circle_options_title">Kreis anpassen</string>
-    <string name="battery_status_style_title">Anzeige</string>
+    <string name="battery_status_cat_bar_options_title">Leiste anpassen</string>
+    <string name="battery_status_style_title">Standard Anzeige</string>
     <string name="battery_status_style_icon_portrait">Symbol Hochformat</string>
     <string name="battery_status_style_icon_landscape">Symbol Querformat</string>
     <string name="battery_status_style_circle">Kreis</string>
+    <string name="battery_status_bar_indicator_title">Leiste</string>
+    <string name="battery_status_bar_indicator_fill_title">Nur Füllung</string>
+    <string name="battery_status_bar_indicator_frame_fill_title">Rahmen &amp; Füllung</string>
     <string name="battery_status_percent_style_title">Position der Prozentanzeige</string>
     <string name="battery_status_percent_style_dialog_title">Wähle eine Position</string>
     <string name="battery_status_percent_style_text_inside">Im Symbol</string>
@@ -167,20 +169,13 @@
     <string name="battery_status_show_circle_dotted_summary">Aktivieren um den Kreis gepunktet anzuzeigen</string>
     <string name="battery_status_circle_dot_length_title">Kreis Punk Länge</string>
     <string name="battery_status_circle_dot_interval_title">Kreis Punk Abstand</string>
-    <string name="battery_status_battery_color_title">Füllung</string>
-
-    <!-- Status bar battery bar settings -->
-    <string name="battery_bar_indicator_title">Anzeige</string>
-    <string name="battery_bar_indicator_fill_title">Nur Füllung</string>
-    <string name="battery_bar_indicator_frame_fill_title">Rahmen &amp; Füllung</string>
-    <string name="battery_bar_thickness_title">Dicke</string>
-    <string name="battery_bar_thickness_1_dp_title">1 dp</string>
-    <string name="battery_bar_thickness_2_dp_title">2 dp</string>
-    <string name="battery_bar_thickness_3_dp_title">3 dp</string>
-    <string name="battery_bar_thickness_4_dp_title">4 dp</string>
-    <string name="battery_bar_charge_animation_speed_title">Ladeanimations Geschwindigkeit</string>
-    <string name="battery_bar_charge_animation_speed_slow">Langsam</string>
-    <string name="battery_bar_charge_animation_speed_fast">Schnell</string>
+    <string name="battery_status_bar_thickness_title">Dicke</string>
+    <string name="battery_status_bar_thickness_1_dp_title">1 dp</string>
+    <string name="battery_status_bar_thickness_2_dp_title">2 dp</string>
+    <string name="battery_status_bar_thickness_3_dp_title">3 dp</string>
+    <string name="battery_status_bar_thickness_4_dp_title">4 dp</string>
+    <string name="battery_status_battery_color_title">Füllung (Standard Anzeige)</string>
+    <string name="battery_status_bar_color_title">Füllung (Leiste)</string>
 
     <!-- Status bar signal wifi icon settings  -->
     <string name="signal_wifi_show_activity_title">Netzwerkaktivität anzeigen</string>

@@ -108,8 +108,6 @@
     <string name="status_bar_clock_date_settings_summary">Personalizar la hora y la fecha</string>
     <string name="status_bar_battery_status_settings_title">Estado de la batería</string>
     <string name="status_bar_battery_status_settings_summary">Personalizar el estado de la batería</string>
-    <string name="status_bar_battery_bar_settings_title">Battery bar</string> <!-- Needs translation -->
-    <string name="status_bar_battery_bar_settings_summary">Customize the battery bar</string> <!-- Needs translation -->
     <string name="status_bar_signal_wifi_settings_title">Iconos de red</string>
     <string name="status_bar_signal_wifi_settings_summary">Personalizar los iconos de red</string>
     <string name="status_bar_network_speed_settings_title">Indicador de velocidad de red</string>
@@ -147,10 +145,14 @@
 
     <!-- Status bar battery status settings -->
     <string name="battery_status_cat_circle_options_title">Personalizar el círculo</string>
-    <string name="battery_status_style_title">Indicador</string>
+    <string name="battery_status_cat_bar_options_title">Customize the bar</string> <!-- Needs translation -->
+    <string name="battery_status_style_title">Default indicator</string> <!-- Needs translation -->
     <string name="battery_status_style_icon_portrait">Icono vertical</string>
     <string name="battery_status_style_icon_landscape">Icono horizontal</string>
     <string name="battery_status_style_circle">Círculo</string>
+    <string name="battery_status_bar_indicator_title">Indicator</string> <!-- Needs translation -->
+    <string name="battery_status_bar_indicator_fill_title">Only fill</string> <!-- Needs translation -->
+    <string name="battery_status_bar_indicator_frame_fill_title">Frame &amp; fill</string> <!-- Needs translation -->
     <string name="battery_status_percent_style_title">Posición del texto de porcentaje</string>
     <string name="battery_status_percent_style_dialog_title">Escoger una posición</string>
     <string name="battery_status_percent_style_text_inside">Dentro del icono</string>
@@ -167,20 +169,13 @@
     <string name="battery_status_show_circle_dotted_summary">Mostrar el círculo con puntos</string>
     <string name="battery_status_circle_dot_length_title">Longitud del punto del círculo</string>
     <string name="battery_status_circle_dot_interval_title">Intervalo del punto del círculo</string>
-    <string name="battery_status_battery_color_title">Llenar</string>
-
-    <!-- Status bar battery bar settings -->
-    <string name="battery_bar_indicator_title">Indicator</string> <!-- Needs translation -->
-    <string name="battery_bar_indicator_fill_title">Only fill</string> <!-- Needs translation -->
-    <string name="battery_bar_indicator_frame_fill_title">Frame &amp; fill</string> <!-- Needs translation -->
-    <string name="battery_bar_thickness_title">Thickness</string> <!-- Needs translation -->
-    <string name="battery_bar_thickness_1_dp_title">1 dp</string> <!-- Needs translation -->
-    <string name="battery_bar_thickness_2_dp_title">2 dp</string> <!-- Needs translation -->
-    <string name="battery_bar_thickness_3_dp_title">3 dp</string> <!-- Needs translation -->
-    <string name="battery_bar_thickness_4_dp_title">4 dp</string> <!-- Needs translation -->
-    <string name="battery_bar_charge_animation_speed_title">Charging animation speed</string>
-    <string name="battery_bar_charge_animation_speed_slow">Slow</string>
-    <string name="battery_bar_charge_animation_speed_fast">Fast</string>
+    <string name="battery_status_bar_thickness_title">Thickness</string> <!-- Needs translation -->
+    <string name="battery_status_bar_thickness_1_dp_title">1 dp</string> <!-- Needs translation -->
+    <string name="battery_status_bar_thickness_2_dp_title">2 dp</string> <!-- Needs translation -->
+    <string name="battery_status_bar_thickness_3_dp_title">3 dp</string> <!-- Needs translation -->
+    <string name="battery_status_bar_thickness_4_dp_title">4 dp</string> <!-- Needs translation -->
+    <string name="battery_status_battery_color_title">Fill (default indicator)</string> <!-- Needs translation -->
+    <string name="battery_status_bar_color_title">Fill (Bar)</string> <!-- Needs translation -->
 
     <!-- Status bar signal wifi icon settings  -->
     <string name="signal_wifi_show_activity_title">Mostrar actividad de red</string>

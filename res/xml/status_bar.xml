@@ -37,12 +37,6 @@
         android:fragment="com.android.settings.darkkat.StatusBarBatteryStatusSettings" />
 
     <PreferenceScreen
-        android:key="status_bar_battery_bar_settings"
-        android:title="@string/status_bar_battery_bar_settings_title"
-        android:summary="@string/status_bar_battery_bar_settings_summary"
-        android:fragment="com.android.settings.darkkat.StatusBarBatteryBarSettings" />
-
-    <PreferenceScreen
         android:key="status_bar_signal_wifi_settings"
         android:title="@string/status_bar_signal_wifi_settings_title"
         android:summary="@string/status_bar_signal_wifi_settings_summary"

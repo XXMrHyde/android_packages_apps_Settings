@@ -225,44 +225,30 @@
         <item>5</item>
     </string-array>
 
-    <string-array name="battery_bar_indicator_entries" translatable="false">
+    <string-array name="battery_status_bar_indicator_entries" translatable="false">
         <item>@string/hidden_title</item>
-        <item>@string/battery_bar_indicator_fill_title</item>
-        <item>@string/battery_bar_indicator_frame_fill_title</item>
+        <item>@string/battery_status_bar_indicator_fill_title</item>
+        <item>@string/battery_status_bar_indicator_frame_fill_title</item>
     </string-array>
 
-    <string-array name="battery_bar_indicator_values" translatable="false">
+    <string-array name="battery_status_bar_indicator_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
     </string-array>
 
-    <string-array name="battery_bar_thickness_entries" >
-        <item>@string/battery_bar_thickness_1_dp_title</item>
-        <item>@string/battery_bar_thickness_2_dp_title</item>
-        <item>@string/battery_bar_thickness_3_dp_title</item>
-        <item>@string/battery_bar_thickness_4_dp_title</item>
+    <string-array name="battery_status_bar_thickness_entries" >
+        <item>@string/battery_status_bar_thickness_1_dp_title</item>
+        <item>@string/battery_status_bar_thickness_2_dp_title</item>
+        <item>@string/battery_status_bar_thickness_3_dp_title</item>
+        <item>@string/battery_status_bar_thickness_4_dp_title</item>
     </string-array>
 
-    <string-array name="battery_bar_thickness_values" translatable="false">
+    <string-array name="battery_status_bar_thickness_values" translatable="false">
         <item>1</item>
         <item>2</item>
         <item>3</item>
         <item>4</item>
-    </string-array>
-
-    <string-array name="battery_bar_charge_animation_speed_entries" >
-        <item>@string/disabled_title</item>
-        <item>@string/battery_bar_charge_animation_speed_slow</item>
-        <item>@string/normal_title</item>
-        <item>@string/battery_bar_charge_animation_speed_fast</item>
-    </string-array>
-
-    <string-array name="battery_bar_charge_animation_speed_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
     </string-array>
 
     <string-array name="network_speed_indicator_entries" >
