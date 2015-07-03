@@ -150,30 +150,30 @@
     <string name="battery_status_style_icon_portrait">Icono vertical</string>
     <string name="battery_status_style_icon_landscape">Icono horizontal</string>
     <string name="battery_status_style_circle">Círculo</string>
-    <string name="battery_status_bar_indicator_title">Indicator</string> <!-- Needs translation -->
-    <string name="battery_status_bar_indicator_fill_title">Only fill</string> <!-- Needs translation -->
-    <string name="battery_status_bar_indicator_frame_fill_title">Frame &amp; fill</string> <!-- Needs translation -->
+    <string name="battery_status_bar_indicator_title">Indicador</string>
+    <string name="battery_status_bar_indicator_fill_title">Sólo llenar</string>
+    <string name="battery_status_bar_indicator_frame_fill_title">Rellenar marco</string>
     <string name="battery_status_percent_style_title">Posición del texto de porcentaje</string>
     <string name="battery_status_percent_style_dialog_title">Escoger una posición</string>
     <string name="battery_status_percent_style_text_inside">Dentro del icono</string>
     <string name="battery_status_percent_style_text_next">Junto al icono</string>
     <string name="battery_status_percent_style_default">Oculto (por defecto)</string>
     <string name="battery_status_charge_animation_speed_title">Modificar la velocidad de la animación</string>
-    <string name="battery_status_charge_animation_speed_very_slow">Very slow</string> <!-- Needs translation -->
+    <string name="battery_status_charge_animation_speed_very_slow">Muy lenta</string>
     <string name="battery_status_charge_animation_speed_slow">Lenta</string>
     <string name="battery_status_charge_animation_speed_fast">Rápida</string>
-    <string name="battery_status_charge_animation_speed_very_fast">Very fast</string> <!-- Needs translation -->
+    <string name="battery_status_charge_animation_speed_very_fast">Muy rápida</string>
     <string name="battery_status_use_circle_fill_animation_title">Animation type</string> <!-- Needs translation -->
     <string name="battery_status_use_circle_fill_animation_summary">Activate to use a fill animation, disable to use a offset animation</string> <!-- Needs translation -->
     <string name="battery_status_show_circle_dotted_title">Círculo con puntos</string>
     <string name="battery_status_show_circle_dotted_summary">Mostrar el círculo con puntos</string>
     <string name="battery_status_circle_dot_length_title">Longitud del punto del círculo</string>
     <string name="battery_status_circle_dot_interval_title">Intervalo del punto del círculo</string>
-    <string name="battery_status_bar_thickness_title">Thickness</string> <!-- Needs translation -->
-    <string name="battery_status_bar_thickness_1_dp_title">1 dp</string> <!-- Needs translation -->
-    <string name="battery_status_bar_thickness_2_dp_title">2 dp</string> <!-- Needs translation -->
-    <string name="battery_status_bar_thickness_3_dp_title">3 dp</string> <!-- Needs translation -->
-    <string name="battery_status_bar_thickness_4_dp_title">4 dp</string> <!-- Needs translation -->
+    <string name="battery_status_bar_thickness_title">Espesor</string>
+    <string name="battery_status_bar_thickness_1_dp_title">1 dp</string>
+    <string name="battery_status_bar_thickness_2_dp_title">2 dp</string>
+    <string name="battery_status_bar_thickness_3_dp_title">3 dp</string>
+    <string name="battery_status_bar_thickness_4_dp_title">4 dp</string>
     <string name="battery_status_battery_color_title">Fill (default indicator)</string> <!-- Needs translation -->
     <string name="battery_status_bar_color_title">Fill (Bar)</string> <!-- Needs translation -->
 
@@ -260,64 +260,64 @@
     <string name="qs_action_no_more_tiles">No hay más casillas disponibles</string>
 
     <!-- Advanced -->
-    <string name="cat_recents_title">Recent apps view</string> <!-- Needs translation -->
-    <string name="use_slim_recents_title">Use SlimLP recents</string> <!-- Needs translation -->
-    <string name="slim_recents_settings_title">SlimLP recent apps view</string> <!-- Needs translation -->
-    <string name="android_recents_settings_title">Android Recent apps view</string> <!-- Needs translation -->
-    <string name="recents_settings_summary">Customize recent apps view</string> <!-- Needs translation -->
-    <string name="lock_clock_title">Widget del reloj</string> <!-- Needs translation -->
-    <string name="lock_clock_clock_section_title">Hora y alarma</string> <!-- Needs translation -->
-    <string name="lock_clock_clock_section_summary">Ver o cambiar cómo se muestra la hora y la alarma en el widget</string> <!-- Needs translation -->
-    <string name="lock_clock_weather_section_title">Panel del tiempo</string> <!-- Needs translation -->
-    <string name="lock_clock_weather_section_summary">Ver o cambiar cómo se muestra el tiempo en el widget</string> <!-- Needs translation -->
-    <string name="lock_clock_calendar_section_title">Eventos del Calendario</string> <!-- Needs translation -->
-    <string name="lock_clock_calendar_section_summary">Ver o cambiar cómo se muestran los eventos del calendario en el widget </string> <!-- Needs translation -->
+    <string name="cat_recents_title">Vista de aplicaciones recientes</string>
+    <string name="use_slim_recents_title">Usar aplicaciones recientes de SlimLP</string>
+    <string name="slim_recents_settings_title">Vista de aplicaciones recientes de SlimLP</string>
+    <string name="android_recents_settings_title">Vista de aplicaciones recientes de Android</string>
+    <string name="recents_settings_summary">Personalizar la vista de aplicaciones recientes</string>
+    <string name="lock_clock_title">Widget del reloj</string>
+    <string name="lock_clock_clock_section_title">Hora y alarma</string>
+    <string name="lock_clock_clock_section_summary">Ver o cambiar cómo se muestra la hora y la alarma en el widget</string>
+    <string name="lock_clock_weather_section_title">Panel del tiempo</string>
+    <string name="lock_clock_weather_section_summary">Ver o cambiar cómo se muestra el tiempo en el widget</string>
+    <string name="lock_clock_calendar_section_title">Eventos del Calendario</string>
+    <string name="lock_clock_calendar_section_summary">Ver o cambiar cómo se muestran los eventos del calendario en el widget</string>
 
      <!-- Slim recents settings -->
-    <string name="cat_appearance_title">Appearance</string> <!-- Needs translation -->
-    <string name="cat_apps_title">Apps</string> <!-- Needs translation -->
+    <string name="cat_appearance_title">Apariencia</string>
+    <string name="cat_apps_title">Aplicaciones</string>
 
     <!-- Slim recents options -->
-    <string name="slim_recents_scale_title">Size</string> <!-- Needs translation -->
-    <string name="slim_recents_expanded_mode_title">Expanded mode</string> <!-- Needs translation -->
-    <string name="slim_recents_mode_auto">Auto</string> <!-- Needs translation -->
-    <string name="slim_recents_expanded_mode_always">Always</string> <!-- Needs translation -->
-    <string name="slim_recents_expanded_mode_never">Never</string> <!-- Needs translation -->
-    <string name="slim_recents_lefty_mode_title">Show on the left edge</string> <!-- Needs translation -->
-    <string name="slim_recents_lefty_mode_summary">Show recent apps panel on the left edge</string> <!-- Needs translation -->
-    <string name="slim_recents_popup_theme_mode_title">Popup menu theme</string> <!-- Needs translation -->
-    <string name="slim_recents_popup_theme_mode_dark">Dark</string> <!-- Needs translation -->
-    <string name="slim_recents_popup_theme_mode_light">Light</string> <!-- Needs translation -->
-    <string name="slim_recents_only_show_running_tasks_title">Only show running</string> <!-- Needs translation -->
-    <string name="slim_recents_only_show_running_tasks_summary">Enable to show only apps which are currently running</string> <!-- Needs translation -->
-    <string name="slim_recents_show_topmost_title">Show topmost task</string> <!-- Needs translation -->
-    <string name="slim_recents_show_topmost_summary">Enable to show the topmost task</string> <!-- Needs translation -->
-    <string name="slim_recents_max_apps_title">Max allowed</string> <!-- Needs translation -->
+    <string name="slim_recents_scale_title">Tamaño</string>
+    <string name="slim_recents_expanded_mode_title">Modo expandido</string>
+    <string name="slim_recents_mode_auto">Auto</string>
+    <string name="slim_recents_expanded_mode_always">Siempre</string>
+    <string name="slim_recents_expanded_mode_never">Nunca</string>
+    <string name="slim_recents_lefty_mode_title">Mostrar en el borde izquierdo</string>
+    <string name="slim_recents_lefty_mode_summary">Muestra el panel de aplicaciones recientes en el borde izquierdo</string>
+    <string name="slim_recents_popup_theme_mode_title">Aspecto del menú emergente</string>
+    <string name="slim_recents_popup_theme_mode_dark">Oscuro</string>
+    <string name="slim_recents_popup_theme_mode_light">Claro</string>
+    <string name="slim_recents_only_show_running_tasks_title">Sólo mostrar las que se están ejecutando</string>
+    <string name="slim_recents_only_show_running_tasks_summary">Muetra sólo las aplicaciones que se están ejecutando en estos momentos</string>
+    <string name="slim_recents_show_topmost_title">Mostrar las tareas más utilizadas</string>
+    <string name="slim_recents_show_topmost_summary">Muestra las tareas más utilizadas</string>
+    <string name="slim_recents_max_apps_title">Max permitidas</string>
 
     <!-- Slim recents colors -->
-    <string name="slim_recents_use_text_color_summary">Enable to use a custom color for the app name</string> <!-- Needs translation -->
-    <string name="slim_recents_use_expand_icon_color_title">Expand button icon</string> <!-- Needs translation -->
-    <string name="slim_recents_use_expand_icon_color_summary">Enable to use a custom color for the expand button icon</string> <!-- Needs translation -->
-    <string name="slim_recents_use_empty_icon_color_title">Empty recents icon</string> <!-- Needs translation -->
-    <string name="slim_recents_use_empty_icon_color_summary">Enable to use a custom color for the icon on empty recent apps view</string> <!-- Needs translation -->
-    <string name="slim_recents_card_bg_color_title">Card background</string> <!-- Needs translation -->
-    <string name="slim_recents_expand_icon_color_title">Expand button icon</string> <!-- Needs translation -->
-    <string name="slim_recents_empty_icon_color_title">Empty recents icon</string> <!-- Needs translation -->
+    <string name="slim_recents_use_text_color_summary">Utiliza un color personalizado para el nombre de la aplicación</string>
+    <string name="slim_recents_use_expand_icon_color_title">Icono de botón expandido</string>
+    <string name="slim_recents_use_expand_icon_color_summary">Utiliza un color personalizado para el icono de botón expandido</string>
+    <string name="slim_recents_use_empty_icon_color_title">Icono de recientes vacío</string>
+    <string name="slim_recents_use_empty_icon_color_summary">Utiliza un color personalizado para el icono de vista de aplicaciones recientes vacío</string>
+    <string name="slim_recents_card_bg_color_title">Fondo de tarjeta</string> 
+    <string name="slim_recents_expand_icon_color_title">Icono de botón expandido</string>
+    <string name="slim_recents_empty_icon_color_title">Icono de recientes vacío</string>
 
     <!-- Android recents settings -->
-    <string name="android_recents_cat_clear_all_button_title">Clear all button</string> <!-- Needs translation -->
-    <string name="android_recents_show_search_bar_title">Show search bar</string> <!-- Needs translation -->
-    <string name="android_recents_show_search_bar_summary">Enable to show the search bar</string> <!-- Needs translation -->
-    <string name="android_recents_show_clear_all_summary">Enable to show the clear all button</string> <!-- Needs translation -->
-    <string name="android_recents_clear_all_position_horizontal_title">Position horizontal</string> <!-- Needs translation -->
-    <string name="android_recents_clear_all_position_vertical_title">Position vertical</string> <!-- Needs translation -->
-    <string name="android_recents_clear_all_position_left">Left</string> <!-- Needs translation -->
-    <string name="android_recents_clear_all_position_right">Right</string> <!-- Needs translation -->
-    <string name="android_recents_clear_all_position_center">Center</string> <!-- Needs translation -->
-    <string name="android_recents_clear_all_position_top">Top</string> <!-- Needs translation -->
-    <string name="android_recents_clear_all_position_bottom">Bottom</string> <!-- Needs translation -->
-    <string name="android_recents_clear_all_use_icon_color_title">Icon color</string> <!-- Needs translation -->
-    <string name="android_recents_clear_all_use_icon_color_summary">Enable to use a custom color for the clear all button icon</string> <!-- Needs translation -->
+    <string name="android_recents_cat_clear_all_button_title">Limpiar todos los botones</string>
+    <string name="android_recents_show_search_bar_title">Mostrar barra de búsqueda</string>
+    <string name="android_recents_show_search_bar_summary">Muestra la barra de búsqueda</string>
+    <string name="android_recents_show_clear_all_summary">Muestra el botón para limpiar todas</string>
+    <string name="android_recents_clear_all_position_horizontal_title">Posición horizontal</string>
+    <string name="android_recents_clear_all_position_vertical_title">Posición vertical</string>
+    <string name="android_recents_clear_all_position_left">Izquierda</string>
+    <string name="android_recents_clear_all_position_right">Derecha</string>
+    <string name="android_recents_clear_all_position_center">Centro</string>
+    <string name="android_recents_clear_all_position_top">Arriba</string>
+    <string name="android_recents_clear_all_position_bottom">Abajo</string>
+    <string name="android_recents_clear_all_use_icon_color_title">Color del icono</string>
+    <string name="android_recents_clear_all_use_icon_color_summary">Muestra un color personlaizado para el icono del botón de limpiar todas</string>
 
     <!-- Display -->
     <string name="display_rotation_settings_title">Rotación</string>
@@ -435,8 +435,8 @@
     <string name="notification_clear_all_icon_color_title">Eliminar todos los  iconos</string>
 
     <!-- USB settings -->
-    <string name="usb_charging_title">Charging</string> <!-- Needs translation -->
-    <string name="usb_charging_summary">Lets you disable all data and file transfer connection with computer and put device in charging only mode.</string> <!-- Needs translation -->
+    <string name="usb_charging_title">Cargando</string>
+    <string name="usb_charging_summary">Dehabilita todas las transferencias de archivos y datos con el ordenador y pone tu dispositivo sólo en modo de carga.</string>
 
     <!-- Application settings -->
     <string name="app_notification_show_on_keyguard_title">Mostrar en la pantalla de bloqueo</string>
@@ -445,38 +445,38 @@
     <string name="app_notification_no_ongoing_on_keyguard_summary">No mostrar notificaciones de esta aplicación en la pantalla de bloqueo</string>
 
     <!-- Privacy settings (DarkKat) -->
-    <string name="privacy_settings_darkkat_title">Privacy</string> <!-- Needs translation -->
+    <string name="privacy_settings_darkkat_title">Privacidad</string>
 
     <!-- Blacklist settings -->
-    <string name="blacklist_title">Blacklist</string> <!-- Needs translation -->
-    <string name="blacklist_edit_dialog_title">Edit blacklist entry</string> <!-- Needs translation -->
-    <string name="blacklist_prefs">Settings</string> <!-- Needs translation -->
-    <string name="blacklist_button_delete">Delete</string> <!-- Needs translation -->
-    <string name="blacklist_empty_text">You don\'t have any blacklisted numbers. Add an entry by touching the Add (+) button.</string> <!-- Needs translation -->
-    <string name="blacklist_disabled_empty_text">To blacklist calls and/or messages from certain numbers, enable the blacklist.</string> <!-- Needs translation -->
-    <string name="blacklist_summary_disabled">Disabled</string> <!-- Needs translation -->
-    <string name="blacklist_summary">Incoming calls and messages from phone numbers in the blacklist will be blocked</string> <!-- Needs translation -->
-    <string name="blacklist_notify">Show notification</string> <!-- Needs translation -->
-    <string name="blacklist_private_numbers_title">Private numbers</string> <!-- Needs translation -->
-    <string name="blacklist_private_numbers_summary_disabled">Don\'t block calls from private numbers</string> <!-- Needs translation -->
-    <string name="blacklist_private_numbers_summary">Block incoming <xliff:g id="type">%s</xliff:g> from private numbers</string> <!-- Needs translation -->
-    <string name="blacklist_unknown_numbers_title">Unknown numbers</string> <!-- Needs translation -->
-    <string name="blacklist_unknown_numbers_summary_disabled">Don\'t block calls or messages from numbers not in the contact list</string> <!-- Needs translation -->
-    <string name="blacklist_unknown_numbers_summary">Block incoming <xliff:g id="type">%s</xliff:g> from numbers not in the contact list</string> <!-- Needs translation -->
-    <string name="blacklist_summary_type_calls_only">calls</string> <!-- Needs translation -->
-    <string name="blacklist_summary_type_messages_only">messages</string>
-    <string name="blacklist_summary_type_calls_and_messages">calls and messages</string> <!-- Needs translation -->
-    <string name="blacklist_regex_title">Use wildcards</string> <!-- Needs translation -->
-    <string name="blacklist_regex_summary">Use . as a wildcard and * for repetition. E.g. 123.* blocks numbers starting with 123 and .*123.* blocks numbers containing 123</string> <!-- Needs translation -->
-    <string name="blacklist_policy_block_calls">Block incoming calls</string> <!-- Needs translation -->
-    <string name="blacklist_policy_block_messages">Block incoming messages</string> <!-- Needs translation -->
-    <string name="blacklist_bad_number_add">Unable to add invalid number to blacklist</string> <!-- Needs translation -->
+    <string name="blacklist_title">Lista negra</string>
+    <string name="blacklist_edit_dialog_title">Editar entradas de la lista negra</string>
+    <string name="blacklist_prefs">Ajustes</string>
+    <string name="blacklist_button_delete">Eliminar</string>
+    <string name="blacklist_empty_text">No tienes números en la lista negra. Añade un número tocando el botón (+).</string>
+    <string name="blacklist_disabled_empty_text">Para bloquear llamadas y/o mensajes de ciertos números, habilita la lista negra.</string>
+    <string name="blacklist_summary_disabled">Deshabilitada</string>
+    <string name="blacklist_summary">Las llamadas o mensajes entrantes de los números de teléfono de la lista negra serán bloqueados</string>
+    <string name="blacklist_notify">Mostrar notificación</string>
+    <string name="blacklist_private_numbers_title">Números privados</string>
+    <string name="blacklist_private_numbers_summary_disabled">No bloquear llamadas de números privados</string>
+    <string name="blacklist_private_numbers_summary">Bloquear <xliff:g id="type">%s</xliff:g> entrantes de números privados</string>
+    <string name="blacklist_unknown_numbers_title">Números desconocidos</string>
+    <string name="blacklist_unknown_numbers_summary_disabled">No bloquea llamadas o mensajes de los números que no están en la lista de contactos</string>
+    <string name="blacklist_unknown_numbers_summary">Bloquea <xliff:g id="type">%s</xliff:g> entrantes de números que no están en la lista de contactos</string>
+    <string name="blacklist_summary_type_calls_only">llamadas</string>
+    <string name="blacklist_summary_type_messages_only">mensajes</string>
+    <string name="blacklist_summary_type_calls_and_messages">llamadas y mensajes</string>
+    <string name="blacklist_regex_title">Utilizar comodines</string>
+    <string name="blacklist_regex_summary">Utiliza . como un comodín y * para repetición. E.g. 123.* bloquea números que empiezan por 123 y .*123.* bloquea números que contengan 123</string>
+    <string name="blacklist_policy_block_calls">Bloquear llamadas entrantes</string>
+    <string name="blacklist_policy_block_messages">Bloquear mensajes entrantes</string>
+    <string name="blacklist_bad_number_add">No ha sido posible añadir un número no válido a la lista negra</string>
 
     <!-- Blacklist management -->
-    <string name="add_blacklist_number">Add number</string> <!-- Needs translation -->
-    <string name="remove_blacklist_number_title">Remove number</string> <!-- Needs translation -->
-    <string name="remove_blacklist_entry">Do you want to remove this blacklist entry?</string> <!-- Needs translation -->
-    <string name="select_contact">Select contact</string> <!-- Needs translation -->
+    <string name="add_blacklist_number">Añadir número</string>
+    <string name="remove_blacklist_number_title">Eliminar número</string>
+    <string name="remove_blacklist_entry">¿Quieres eliminar esta entrada de la lista negra?</string>
+    <string name="select_contact">Seleccionar contacto</string>
 
     <!-- Development settings -->
 
