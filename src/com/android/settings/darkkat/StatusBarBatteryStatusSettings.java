@@ -177,7 +177,7 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
             removePreference(PREF_PERCENT_STYLE);
         }
 
-        if ((batteryStatusVisible && !isTextOnly) || batteryStatusBarVisible) {
+        if (batteryStatusVisible || batteryStatusBarVisible) {
             mChargeAnimationSpeed =
                     (ListPreference) findPreference(PREF_CHARGE_ANIMATION_SPEED);
             int chargeAnimationSpeed = Settings.System.getInt(mResolver,
