@@ -145,8 +145,8 @@
 
     <!-- Status bar battery status settings -->
     <string name="battery_status_cat_circle_options_title">Personalizar el círculo</string>
-    <string name="battery_status_cat_bar_options_title">Customize the bar</string> <!-- Needs translation -->
-    <string name="battery_status_style_title">Default indicator</string> <!-- Needs translation -->
+    <string name="battery_status_cat_bar_options_title">Personalizar la barra</string>
+    <string name="battery_status_style_title">Indicador predeterminado</string>
     <string name="battery_status_style_icon_portrait">Icono vertical</string>
     <string name="battery_status_style_icon_landscape">Icono horizontal</string>
     <string name="battery_status_style_circle">Círculo</string>
@@ -163,8 +163,8 @@
     <string name="battery_status_charge_animation_speed_slow">Lenta</string>
     <string name="battery_status_charge_animation_speed_fast">Rápida</string>
     <string name="battery_status_charge_animation_speed_very_fast">Muy rápida</string>
-    <string name="battery_status_use_circle_fill_animation_title">Animation type</string> <!-- Needs translation -->
-    <string name="battery_status_use_circle_fill_animation_summary">Activate to use a fill animation, disable to use a offset animation</string> <!-- Needs translation -->
+    <string name="battery_status_use_circle_fill_animation_title">Tipo de animación</string>
+    <string name="battery_status_use_circle_fill_animation_summary">Utilizar una animación de llenado, deshabilitar para utilizar una animación de desplazamiento</string>
     <string name="battery_status_show_circle_dotted_title">Círculo con puntos</string>
     <string name="battery_status_show_circle_dotted_summary">Mostrar el círculo con puntos</string>
     <string name="battery_status_circle_dot_length_title">Longitud del punto del círculo</string>
@@ -174,8 +174,8 @@
     <string name="battery_status_bar_thickness_2_dp_title">2 dp</string>
     <string name="battery_status_bar_thickness_3_dp_title">3 dp</string>
     <string name="battery_status_bar_thickness_4_dp_title">4 dp</string>
-    <string name="battery_status_battery_color_title">Fill (default indicator)</string> <!-- Needs translation -->
-    <string name="battery_status_bar_color_title">Fill (Bar)</string> <!-- Needs translation -->
+    <string name="battery_status_battery_color_title">Llenar (indicador predeterminado)</string>
+    <string name="battery_status_bar_color_title">Llenar (barra)</string>
 
     <!-- Status bar signal wifi icon settings  -->
     <string name="signal_wifi_show_activity_title">Mostrar actividad de red</string>
