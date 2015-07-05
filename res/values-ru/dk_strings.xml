@@ -68,7 +68,7 @@
     <string name="lock_screen_title">Экран блокировки</string>
     <string name="status_bar_title">Строка состояния</string>
     <string name="status_bar_expanded_title">Панель уведомлений</string>
-   <string name="advanced_title">Дополнительно</string>
+    <string name="advanced_title">Дополнительно</string>
     <string name="led_light_settings">Цвет уведомлений</string>
     <string name="button_settings_title">Кнопки</string>
 
@@ -78,6 +78,7 @@
     <string name="lock_screen_shortcuts_settings_summary">Настройка ярлыков</string>
 
    <!-- Weather settings -->
+    <string name="weather_cat_notifications_title">Benachrichtigungen</string> <!-- needs translation -->
     <string name="weather_show_timestamp_title">Показывать время</string>
     <string name="weather_show_timestamp_summary">Включить, чтобы показать метку</string>
     <string name="weather_condition_icon_title">Состояние значка</string>
@@ -87,6 +88,22 @@
     <string name="weather_condition_icon_vclouds_title">VClouds</string>
     <string name="weather_colorize_all_icons_title">Раскрасить все иконки</string>
     <string name="weather_colorize_all_icons_summary">Включить, чтобы раскрасить все иконки</string>
+    <string name="weather_hide_panel_title">Hide weather panel</string> <!-- needs translation -->
+    <string name="weather_hide_panel_dlg_title">Choose when the weather panel should be hidden</string> <!-- needs translation -->
+    <string name="weather_hide_panel_auto_title">Auto</string> <!-- needs translation -->
+    <string name="weather_hide_panel_custom_title">Custom</string> <!-- needs translation -->
+    <string name="weather_hide_panel_never_title">Never</string> <!-- needs translation -->
+    <string name="weather_hide_panel_auto_summary">The weather panel will be hidden, when the visible notifications will reach the maximum allowed notifications on the lock screen</string> <!-- needs translation -->
+    <string name="weather_hide_panel_custom_summary">The weather panel will be hidden, when the visible notifications will reach the choosen number of notifications (%s)</string> <!-- needs translation -->
+    <string name="weather_hide_panel_never_summary">The weather panel whon/`t be hidden</string> <!-- needs translation -->
+    <string name="weather_number_of_notifications_title">Number of notifications</string> <!-- needs translation -->
+    <string name="weather_number_of_notifications_dlg_title">Choose the number of notifications to hide the weather panel</string> <!-- needs translation -->
+    <string name="weather_number_of_notifications_always_title">Always</string> <!-- needs translation -->
+    <string name="weather_number_of_notifications_two_title">2</string> <!-- needs translation -->
+    <string name="weather_number_of_notifications_three_title">3</string> <!-- needs translation -->
+    <string name="weather_number_of_notifications_four_title">4</string> <!-- needs translation -->
+    <string name="weather_number_of_notifications_five_title">5</string> <!-- needs translation -->
+    <string name="weather_number_of_notifications_six_title">6</string> <!-- needs translation -->
 
    <!-- Shortcuts settings -->
     <string name="shortcuts_target_settings_title">Ярлыки</string>
