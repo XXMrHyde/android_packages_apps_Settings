@@ -45,6 +45,10 @@
     <string name="position_right_title">Droite</string>
     <string name="position_centered_title">Centré</string>
     <string name="hidden_title">Caché</string>
+    <string name="notification_color_mode_never_title">Never</string> <!-- needs translation -->
+    <string name="notification_icon_color_mode_greyscale_title">If the icon is an greyscale icon</string> <!-- needs translation -->
+    <string name="notification_bg_color_mode_no_color_title">If the notification doesn\`t include an own color</string> <!-- needs translation -->
+    <string name="notification_color_mode_always_title">Always</string> <!-- needs translation -->
 
     <!-- Shortcut Picker -->
     <string name="picker_apps_title">Applications</string>
@@ -129,9 +133,9 @@
     <string name="status_bar_signal_wifi_settings_summary">Personnaliser les icônes de réseau</string>
     <string name="status_bar_network_speed_settings_title">Indicateur de vitesse du réseau</string>
     <string name="status_bar_network_speed_settings_summary">Personnaliser l\'indicateur de vitesse du réseau</string>
-    <string name="status_bar_notif_system_icons_settings_title">Notifications &amp; systèmes icônes</string>
-    <string name="status_bar_notif_system_icons_settings_title_phone">Notif. &amp; systèmes icônes</string>
-    <string name="status_bar_notif_system_icons_settings_summary">Personnaliser les notifications &amp; systèmes icônes</string>
+    <string name="status_bar_notif_status_area_settings_title">Notification- &amp; status area</string> <!-- needs translation -->
+    <string name="status_bar_notif_status_area_settings_title_phone">Notif.- &amp; status area</string> <!-- needs translation -->
+    <string name="status_bar_notif_status_area_settings_summary">Customize the notification- &amp; status area</string> <!-- needs translation -->
 
     <!-- Status bar gestures -->
     <string name="status_bar_toggle_brightness_title">Contrôle de la luminosité</string>
@@ -220,17 +224,15 @@
     <string name="network_speed_hide_indicator_title">Masquer l\'indicateur</string>
     <string name="network_speed_hide_indicator_summary">Activer pour cacher l\'indicateur lorsqu\'il n\'y a pas de trafic</string>
 
-    <!-- Status bar notifications and system icons -->
-    <string name="notif_system_icons_colorize_notif_icons_title">Coloriser les icônes de notification</string>
-    <string name="notif_system_icons_colorize_notif_icons_title_phone">Coloriser les icônes de notification</string>
-    <string name="notif_system_icons_colorize_notif_icons_summary">Activer pour coloriser la couleur des icônes de notification</string>
-    <string name="notif_system_icons_show_ticker_title">Afficher le ticker</string>
-    <string name="notif_system_icons_show_ticker_summary">Activer pour présenter le ticker</string>
-    <string name="notif_system_icons_show_count_title">Nombre de notification</string>
-    <string name="notif_system_icons_show_count_summary">Activer pour afficher le nombre de notifications en attente</string>
-    <string name="notif_system_icons_notif_text_color_title">Texte du ticker</string>
-    <string name="notif_system_icons_count_icon_color_title">Icône du nombre de notification</string>
-    <string name="notif_system_icons_count_text_color_title">Texte du nombre de notification</string>
+    <!-- Status bar notification and status area -->
+    <string name="notif_status_area_icons_color_mode_title">Colorize icons</string> <!-- needs translation -->
+    <string name="notif_status_area_show_ticker_title">Afficher le ticker</string>
+    <string name="notif_status_area_show_ticker_summary">Activer pour présenter le ticker</string>
+    <string name="notif_status_area_show_count_title">Nombre de notification</string>
+    <string name="notif_status_area_show_count_summary">Activer pour afficher le nombre de notifications en attente</string>
+    <string name="notif_status_area_notif_text_color_title">Texte du ticker</string>
+    <string name="notif_status_area_count_icon_color_title">Icône du nombre de notification</string>
+    <string name="notif_status_area_count_text_color_title">Texte du nombre de notification</string>
 
     <!-- Statusbar expanded -->
     <string name="status_bar_expanded_header_settings_title">En-tête</string>
@@ -443,10 +445,6 @@
     <string name="notification_media_bg_mode_title">Colorize the media background</string> <!-- needs translation -->
     <string name="notification_app_icon_bg_mode_title">Colorize the app icon background</string> <!-- needs translation -->
     <string name="notification_app_icon_color_mode_title">Colorize app icon</string> <!-- needs translation -->
-    <string name="notification_mode_never_title">Never</string> <!-- needs translation -->
-    <string name="notification_mode_no_color_title">If the notification doesn\`t include an own color</string> <!-- needs translation -->
-    <string name="notification_mode_greyscale_title">If the icon is an greyscale icon</string> <!-- needs translation -->
-    <string name="notification_mode_always_title">Always</string> <!-- needs translation -->
     <string name="notification_bg_guts_color_title">Color of the overlay on longpress</string> <!-- needs translation -->
     <string name="notification_app_icon_bg_color_title">App icon background</string> <!-- needs translation -->
     <string name="notification_clear_all_icon_color_title">Clear all icon</string> <!-- needs translation -->

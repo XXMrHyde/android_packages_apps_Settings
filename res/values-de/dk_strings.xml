@@ -45,6 +45,10 @@
     <string name="position_right_title">Rechts</string>
     <string name="position_centered_title">Zentriert</string>
     <string name="hidden_title">Verborgen</string>
+    <string name="notification_color_mode_never_title">Nie</string>
+    <string name="notification_icon_color_mode_greyscale_title">Wenn das Symbol ein Graustufen Symbol ist</string>
+    <string name="notification_bg_color_mode_no_color_title">Wenn die Benachrichtigung keine eigene Farbe enthält</string>
+    <string name="notification_color_mode_always_title">Immer</string>
 
     <!-- Shortcut Picker -->
     <string name="picker_apps_title">Apps</string>
@@ -127,11 +131,11 @@
     <string name="status_bar_battery_status_settings_summary">Den Akkustatus anpassen</string>
     <string name="status_bar_signal_wifi_settings_title">Netzwerk Symbole</string>
     <string name="status_bar_signal_wifi_settings_summary">Die Netzwerk Symbole anpassen</string>
-    <string name="status_bar_network_speed_settings_title">Netzw.-Geschw. Anzeige</string>
-    <string name="status_bar_network_speed_settings_summary">Die Netzw.-Geschw. Anzeige anpassen</string>
-    <string name="status_bar_notif_system_icons_settings_title">Benachrichtigungen &amp; System Symbole</string>
-    <string name="status_bar_notif_system_icons_settings_title_phone">Benachr. &amp; System Symbole</string>
-    <string name="status_bar_notif_system_icons_settings_summary">Die Benachrichtigungen &amp; System Symbole anpassen</string>
+    <string name="status_bar_network_speed_settings_title">Netzw. Geschw. Anzeige</string>
+    <string name="status_bar_network_speed_settings_summary">Die Netzwerk Geschwindigkeits Anzeige anpassen</string>
+    <string name="status_bar_notif_status_area_settings_title">Benachrichtigungs- &amp; Statusbereich</string>
+    <string name="status_bar_notif_status_area_settings_title_phone">Benachr.- &amp; Statusbereich</string>
+    <string name="status_bar_notif_status_area_settings_summary">Den Benachrichtigungs.- &amp; Statusbereich anpassen</string>
 
     <!-- Status bar gestures -->
     <string name="status_bar_toggle_brightness_title">Helligkeitskontrolle</string>
@@ -220,17 +224,15 @@
     <string name="network_speed_hide_indicator_title">Anzeige verstecken</string>
     <string name="network_speed_hide_indicator_summary">Aktivieren um die Anzeige bei keinem Datenverkehr zu verstecken</string>
 
-    <!-- Status bar notifications and system icons -->
-    <string name="notif_system_icons_colorize_notif_icons_title">Benachrichtigungs-Symbol Farbe</string>
-    <string name="notif_system_icons_colorize_notif_icons_title_phone">Benachr. Symbol einfärben</string>
-    <string name="notif_system_icons_colorize_notif_icons_summary">Aktivieren um die Benachrichtiguns-Symbole einzufärben</string>
-    <string name="notif_system_icons_show_ticker_title">Ticker anzeigen</string>
-    <string name="notif_system_icons_show_ticker_summary">Aktivieren um den Ticker anzuzeigen</string>
-    <string name="notif_system_icons_show_count_title">Benachrichtigungszähler</string>
-    <string name="notif_system_icons_show_count_summary">Aktivieren um die Anzahl der ungelesenen Benachrichtigungen anzuzeigen</string>
-    <string name="notif_system_icons_notif_text_color_title">Tickertext</string>
-    <string name="notif_system_icons_count_icon_color_title">Benachrichtigungszähler Symbol</string>
-    <string name="notif_system_icons_count_text_color_title">Benachrichtigungszähler Text</string>
+    <!-- Status bar notification and status area -->
+    <string name="notif_status_area_icons_color_mode_title">Symbole einfärben</string>
+    <string name="notif_status_area_show_ticker_title">Ticker anzeigen</string>
+    <string name="notif_status_area_show_ticker_summary">Aktivieren um den Ticker anzuzeigen</string>
+    <string name="notif_status_area_show_count_title">Benachrichtigungszähler</string>
+    <string name="notif_status_area_show_count_summary">Aktivieren um die Anzahl der ungelesenen Benachrichtigungen anzuzeigen</string>
+    <string name="notif_status_area_notif_text_color_title">Tickertext</string>
+    <string name="notif_status_area_count_icon_color_title">Benachrichtigungszähler Symbol</string>
+    <string name="notif_status_area_count_text_color_title">Benachrichtigungszähler Text</string>
 
     <!-- Statusbar expanded -->
     <string name="status_bar_expanded_header_settings_title">Kopfzeile</string>
@@ -443,10 +445,6 @@
     <string name="notification_media_bg_mode_title">Medien Hintergrund einfärben</string>
     <string name="notification_app_icon_bg_mode_title">App Symbol Hintergrund einfärben</string>
     <string name="notification_app_icon_color_mode_title">App Symbol einfärben</string>
-    <string name="notification_mode_never_title">Nie</string>
-    <string name="notification_mode_no_color_title">Wenn die Benachrichtigung keine eigene Farbe enthält</string>
-    <string name="notification_mode_greyscale_title">Wenn das Symbol ein Graustufen Symbol ist</string>
-    <string name="notification_mode_always_title">Immer</string>
     <string name="notification_bg_guts_color_title">Hintergrund bei Langklick</string>
     <string name="notification_app_icon_bg_color_title">App Symbol Hintergrund</string>
     <string name="notification_clear_all_icon_color_title">Alle schließen Symbol</string>

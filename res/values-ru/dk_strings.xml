@@ -45,6 +45,10 @@
     <string name="position_right_title">Право</string>
     <string name="position_centered_title">По центру</string>
     <string name="hidden_title">Скрыто</string>
+    <string name="notification_color_mode_never_title">Никогда</string>
+    <string name="notification_icon_color_mode_greyscale_title">Если значок серого оттенка</string>
+    <string name="notification_bg_color_mode_no_color_title">Если уведомление не включает собственный цвет</string>
+    <string name="notification_color_mode_always_title">Всегда</string>
 
     <!-- Shortcut Picker -->
     <string name="picker_apps_title">Приложнеия</string>
@@ -129,9 +133,9 @@
     <string name="status_bar_signal_wifi_settings_summary">Настройка значков сети</string>
     <string name="status_bar_network_speed_settings_title">Индикатор скорости сети</string>
     <string name="status_bar_network_speed_settings_summary">Настроить индикатор скорости сети</string>
-    <string name="status_bar_notif_system_icons_settings_title">Уведомления &amp; системные иконки</string>
-    <string name="status_bar_notif_system_icons_settings_title_phone">Увед. &amp; системные иконки</string>
-    <string name="status_bar_notif_system_icons_settings_summary">Настройка уведомлений &amp; системных иконок</string>
+    <string name="status_bar_notif_status_area_settings_title">Notification- &amp; status area</string> <!-- needs translation -->
+    <string name="status_bar_notif_status_area_settings_title_phone">Notif.- &amp; status area</string> <!-- needs translation -->
+    <string name="status_bar_notif_status_area_settings_summary">Customize the notification- &amp; status area</string> <!-- needs translation -->
 
     <!-- Status bar gestures -->
     <string name="status_bar_toggle_brightness_title">Регулировка яркости</string>
@@ -220,17 +224,15 @@
     <string name="network_speed_hide_indicator_title">Скрыть индикатор</string>
     <string name="network_speed_hide_indicator_summary">Включить, чтобы скрыть индикатор, если нет активности</string>
 
-    <!-- Status bar notifications and system icons -->
-    <string name="notif_system_icons_colorize_notif_icons_title">Раскрасить иконки уведомления</string>
-    <string name="notif_system_icons_colorize_notif_icons_title_phone">Раскрасить иконки увед. </string>
-    <string name="notif_system_icons_colorize_notif_icons_summary">Включить раскраску иконок уведомления</string>
-    <string name="notif_system_icons_show_ticker_title">Показать тикер</string>
-    <string name="notif_system_icons_show_ticker_summary">Включить, чтобы показать тикер</string>
-    <string name="notif_system_icons_show_count_title">Количество уведомлений</string>
-    <string name="notif_system_icons_show_count_summary">Включить для отображения количества отложенных уведомлений</string>
-    <string name="notif_system_icons_notif_text_color_title">БЕГУЩАЯБЕГУЩАЯ СТРОКА</string>
-    <string name="notif_system_icons_count_icon_color_title">Количество значков уведомления  </string>
-    <string name="notif_system_icons_count_text_color_title">Количество текста уведомления</string>
+    <!-- Status bar notification and status area -->
+    <string name="notif_status_area_icons_color_mode_title">Colorize icons</string> <!-- needs translation -->
+    <string name="notif_status_area_show_ticker_title">Показать тикер</string>
+    <string name="notif_status_area_show_ticker_summary">Включить, чтобы показать тикер</string>
+    <string name="notif_status_area_show_count_title">Количество уведомлений</string>
+    <string name="notif_status_area_show_count_summary">Включить для отображения количества отложенных уведомлений</string>
+    <string name="notif_status_area_notif_text_color_title">БЕГУЩАЯБЕГУЩАЯ СТРОКА</string>
+    <string name="notif_status_area_count_icon_color_title">Количество значков уведомления  </string>
+    <string name="notif_status_area_count_text_color_title">Количество текста уведомления</string>
 
     <!-- Statusbar expanded -->
     <string name="status_bar_expanded_header_settings_title">Заголовок</string>
@@ -443,10 +445,6 @@
     <string name="notification_media_bg_mode_title">Раскрасить фон сообщения</string>
     <string name="notification_app_icon_bg_mode_title">Раскрасить фон значка приложения</string>
     <string name="notification_app_icon_color_mode_title">Раскрасить значок приложения</string>
-    <string name="notification_mode_never_title">Никогда</string>
-    <string name="notification_mode_no_color_title">Если уведомление не включает собственный цвет</string>
-    <string name="notification_mode_greyscale_title">Если значок серого оттенка</string>
-    <string name="notification_mode_always_title">Всегда</string>
     <string name="notification_bg_guts_color_title">Цвет заливки при долгом нажатии</string>
     <string name="notification_app_icon_bg_color_title">Фон значка приложения</string>
     <string name="notification_clear_all_icon_color_title">Очистить все иконки</string>

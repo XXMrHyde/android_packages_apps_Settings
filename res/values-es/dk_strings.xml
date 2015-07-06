@@ -45,6 +45,10 @@
     <string name="position_right_title">Derecha</string>
     <string name="position_centered_title">Centrado</string>
     <string name="hidden_title">Oculto</string>
+    <string name="notification_color_mode_never_title">Nunca</string>
+    <string name="notification_icon_color_mode_greyscale_title">Si el icono es un icono en escala de grises</string>
+    <string name="notification_bg_color_mode_no_color_title">Si la notificación no incluye su propio color</string>
+    <string name="notification_color_mode_always_title">Siempre</string>
 
     <!-- Shortcut Picker -->
     <string name="picker_apps_title">Aplicaciones</string>
@@ -129,9 +133,9 @@
     <string name="status_bar_signal_wifi_settings_summary">Personalizar los iconos de red</string>
     <string name="status_bar_network_speed_settings_title">Indicador de velocidad de red</string>
     <string name="status_bar_network_speed_settings_summary">Personalizar el indicador de velocidad de red</string>
-    <string name="status_bar_notif_system_icons_settings_title">Notificaciones e iconos de sistema</string>
-    <string name="status_bar_notif_system_icons_settings_title_phone">Notificaciones e iconos de sistema</string>
-    <string name="status_bar_notif_system_icons_settings_summary">Personalizar las notificaciones e iconos de sistema</string>
+    <string name="status_bar_notif_status_area_settings_title">Notification- &amp; status area</string> <!-- needs translation -->
+    <string name="status_bar_notif_status_area_settings_title_phone">Notif.- &amp; status area</string> <!-- needs translation -->
+    <string name="status_bar_notif_status_area_settings_summary">Customize the notification- &amp; status area</string> <!-- needs translation -->
 
     <!-- Status bar gestures -->
     <string name="status_bar_toggle_brightness_title">Control de Brillo</string>
@@ -220,17 +224,15 @@
     <string name="network_speed_hide_indicator_title">Ocultar el indicador</string>
     <string name="network_speed_hide_indicator_summary">Oculta el indicador si no hay tráfico</string>
 
-    <!-- Status bar notifications and system icons -->
-    <string name="notif_system_icons_colorize_notif_icons_title">Colorear los iconos de notificación</string>
-    <string name="notif_system_icons_colorize_notif_icons_title_phone">Colorea los iconos de notificación</string>
-    <string name="notif_system_icons_colorize_notif_icons_summary">Colorear los iconos de notificación</string>
-    <string name="notif_system_icons_show_ticker_title">Mostrar tablero</string>
-    <string name="notif_system_icons_show_ticker_summary">Muestra el tablero</string>
-    <string name="notif_system_icons_show_count_title">Contador de notificaciones</string>
-    <string name="notif_system_icons_show_count_summary">Muestra el número de notificaciones pendientes</string>
-    <string name="notif_system_icons_notif_text_color_title">Texto del tablero</string>
-    <string name="notif_system_icons_count_icon_color_title">Icono del contador de notificación</string>
-    <string name="notif_system_icons_count_text_color_title">Texto del contador de notificación</string>
+    <!-- Status bar notification and status area -->
+    <string name="notif_status_area_icons_color_mode_title">Colorize icons</string> <!-- needs translation -->
+    <string name="notif_status_area_show_ticker_title">Mostrar tablero</string>
+    <string name="notif_status_area_show_ticker_summary">Muestra el tablero</string>
+    <string name="notif_status_area_show_count_title">Contador de notificaciones</string>
+    <string name="notif_status_area_show_count_summary">Muestra el número de notificaciones pendientes</string>
+    <string name="notif_status_area_notif_text_color_title">Texto del tablero</string>
+    <string name="notif_status_area_count_icon_color_title">Icono del contador de notificación</string>
+    <string name="notif_status_area_count_text_color_title">Texto del contador de notificación</string>
 
     <!-- Statusbar expanded -->
     <string name="status_bar_expanded_header_settings_title">Cabecera</string>
@@ -443,10 +445,6 @@
     <string name="notification_media_bg_mode_title">Colorear el fondo</string>
     <string name="notification_app_icon_bg_mode_title">Colorear el fondo del icono de la aplicación</string>
     <string name="notification_app_icon_color_mode_title">Colorear el icono de la aplicación</string>
-    <string name="notification_mode_never_title">Nunca</string>
-    <string name="notification_mode_no_color_title">Si la notificación no incluye su propio color</string>
-    <string name="notification_mode_greyscale_title">Si el icono es un icono en escala de grises</string>
-    <string name="notification_mode_always_title">Siempre</string>
     <string name="notification_bg_guts_color_title">Color de la superposición presionando largo tiempo </string>
     <string name="notification_app_icon_bg_color_title">Fondo del icono de la aplicación</string>
     <string name="notification_clear_all_icon_color_title">Eliminar todos los  iconos</string>

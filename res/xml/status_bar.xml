@@ -49,9 +49,9 @@
         android:fragment="com.android.settings.darkkat.StatusBarNetworkSpeedSettings" />
 
     <PreferenceScreen
-        android:key="status_bar_notif_system_icons_settings"
-        android:title="@string/status_bar_notif_system_icons_settings_title"
-        android:summary="@string/status_bar_notif_system_icons_settings_summary"
-        android:fragment="com.android.settings.darkkat.StatusBarNotifSystemIconsSettings" />
+        android:key="status_bar_notif_status_area_settings"
+        android:title="@string/status_bar_notif_status_area_settings_title"
+        android:summary="@string/status_bar_notif_status_area_settings_summary"
+        android:fragment="com.android.settings.darkkat.StatusBarNotifStatusAreaSettings" />
 
 </PreferenceScreen>

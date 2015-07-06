@@ -16,54 +16,54 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/status_bar_notif_system_icons_settings_title">
+    android:title="@string/status_bar_notif_status_area_settings_title">
 
     <PreferenceCategory
-        android:key="notif_system_icons_cat_options"
+        android:key="notif_status_area_cat_options"
         android:title="@string/options_title">
 
+        <ListPreference
+            android:key="notif_status_area_icons_color_mode"
+            android:title="@string/notif_status_area_icons_color_mode_title"
+            android:entries="@array/notification_icons_color_mode_entries"
+            android:entryValues="@array/notification_color_mode_values" />
+
         <SwitchPreference
-            android:key="notif_system_icons_colorize_notif_icons"
-            android:title="@string/notif_system_icons_colorize_notif_icons_title"
-            android:summary="@string/notif_system_icons_colorize_notif_icons_summary"
+            android:key="notif_status_area_show_ticker"
+            android:title="@string/notif_status_area_show_ticker_title"
+            android:summary="@string/notif_status_area_show_ticker_summary"
             android:defaultValue="false" />
 
         <SwitchPreference
-            android:key="notif_system_icons_show_ticker"
-            android:title="@string/notif_system_icons_show_ticker_title"
-            android:summary="@string/notif_system_icons_show_ticker_summary"
-            android:defaultValue="false" />
-
-        <SwitchPreference
-            android:key="notif_system_icons_show_count"
-            android:title="@string/notif_system_icons_show_count_title"
-            android:summary="@string/notif_system_icons_show_count_summary"
+            android:key="notif_status_area_show_count"
+            android:title="@string/notif_status_area_show_count_title"
+            android:summary="@string/notif_status_area_show_count_summary"
             android:defaultValue="false" />
 
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="notif_system_icons_cat_colors"
+        android:key="notif_status_area_cat_colors"
         android:title="@string/cat_colors_title">
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="notif_system_icons_icon_color"
+            android:key="notif_status_area_icon_color"
             android:title="@string/icons_title"
             android:defaultValue="0xffffffff" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="notif_system_icons_notif_text_color"
-            android:title="@string/notif_system_icons_notif_text_color_title"
+            android:key="notif_status_area_notif_text_color"
+            android:title="@string/notif_status_area_notif_text_color_title"
             android:defaultValue="0xffffffff" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="notif_system_icons_count_icon_color"
-            android:title="@string/notif_system_icons_count_icon_color_title"
+            android:key="notif_status_area_count_icon_color"
+            android:title="@string/notif_status_area_count_icon_color_title"
             android:defaultValue="0xffE5350D" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="notif_system_icons_count_text_color"
-            android:title="@string/notif_system_icons_count_text_color_title"
+            android:key="notif_status_area_count_text_color"
+            android:title="@string/notif_status_area_count_text_color_title"
             android:defaultValue="0xffffffff" />
 
     </PreferenceCategory>

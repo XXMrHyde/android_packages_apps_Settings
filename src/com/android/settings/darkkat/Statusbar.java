@@ -34,8 +34,8 @@ public class Statusbar extends SettingsPreferenceFragment {
 
         if (DeviceUtils.isPhone(getActivity())) {
             PreferenceScreen notifSystemIcons =
-                    (PreferenceScreen) findPreference("status_bar_notif_system_icons_settings");
-            notifSystemIcons.setTitle(R.string.status_bar_notif_system_icons_settings_title_phone);
+                    (PreferenceScreen) findPreference("status_bar_notif_status_area_settings");
+            notifSystemIcons.setTitle(R.string.status_bar_notif_status_area_settings_title_phone);
         }
     }
 }
