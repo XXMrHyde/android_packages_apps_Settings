@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 Darkkat
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/navigation_bar_settings_title">
+
+    <PreferenceCategory
+        android:key="navigation_bar_cat_buttons"
+        android:title="@string/navigation_bar_cat_buttons_title">
+
+        <PreferenceScreen
+            android:key="navigation_bar_button_settings"
+            android:title="@string/navigation_bar_button_settings_title"
+            android:summary="@string/navigation_bar_button_settings_summary"
+            android:fragment="com.android.settings.slim.dslv.ActionListViewSettings">
+                <extra android:name="actionMode" android:value="0" />
+                <extra android:name="maxAllowedActions" android:value="5" />
+                <extra android:name="defaultNumberOfActions" android:value="3" />
+                <extra android:name="disableDeleteLastEntry" android:value="true" />
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            android:key="navigation_bar_button_advanced"
+            android:title="@string/navigation_bar_button_advanced_title"
+            android:summary="@string/navigation_bar_button_advanced_summary"
+            android:fragment="com.android.settings.darkkat.NavigationBarButtonAdvanced" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="navigation_bar_cat_landscape"
+        android:title="@string/navigation_bar_cat_landscape_title">
+
+        <SwitchPreference
+            android:key="navigation_bar_can_move"
+            android:title="@string/navigation_bar_can_move_title"
+            android:summary="@string/navigation_bar_can_move_summary" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="navigation_bar_cat_size"
+        android:title="@string/navigation_bar_cat_size_title">
+
+        <ListPreference
+            android:key="navigation_bar_height"
+            android:title="@string/navigation_bar_height_title"
+            android:entries="@array/navigation_bar_height_entries"
+            android:entryValues="@array/navigation_bar_height_values" />
+
+        <ListPreference
+            android:key="navigation_bar_height_landscape"
+            android:title="@string/navigation_bar_height_landscape_title"
+            android:entries="@array/navigation_bar_height_landscape_entries"
+            android:entryValues="@array/navigation_bar_height_landscape_values" />
+
+        <ListPreference
+            android:key="navigation_bar_width"
+            android:title="@string/navigation_bar_width_title"
+            android:entries="@array/navigation_bar_width_entries"
+            android:entryValues="@array/navigation_bar_width_values" />
+
+    </PreferenceCategory>
+</PreferenceScreen>

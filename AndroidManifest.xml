@@ -1754,6 +1754,7 @@
         <activity android:name=".darkkat.Statusbar" />
         <activity android:name=".darkkat.StatusBarExpanded" />
         <activity android:name=".darkkat.WeatherSettings" />
+        <activity android:name=".darkkat.NavigationBarSettings" />
         <activity android:name=".darkkat.Advanced" />
         <activity android:name=".darkkat.LedLightSettings" />
         <activity android:name=".darkkat.ButtonSettings" />

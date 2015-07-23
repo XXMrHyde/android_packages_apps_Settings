@@ -21,11 +21,15 @@
     <string name="cat_airplane_mode_icon_title">Flugmodus Symbol</string>
     <string name="cat_vpn_icon_title">Vpn Symbol</string>
     <string name="cat_colors_title">Farben anpassen</string>
+    <string name="help">Hilfe</string>
     <string name="reset">Zurücksetzen</string>
+    <string name="add">Hinzufügen</string>
+    <string name="dlg_dslv_reset_message">Standardeinstellungen wiederherstellen?</string>
     <string name="dlg_reset_values_message">Werte auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="options_title">Optionen</string>
+    <string name="color_options_title">Farb Optionen</string>
     <string name="color_title">Farbe</string>
     <string name="colors_title">Farben</string>
     <string name="weather_title">Wetter</string>
@@ -50,13 +54,30 @@
     <string name="notification_bg_color_mode_no_color_title">Wenn die Benachrichtigung keine eigene Farbe enthält</string>
     <string name="notification_color_mode_always_title">Immer</string>
 
-    <!-- Shortcut Picker -->
+    <!-- Pickers -->
+
+    <!-- Shortcut picker (CyanogenMod)-->
     <string name="picker_apps_title">Apps</string>
     <string name="picker_activities_title">Aktivitäten</string>
     <string name="picker_select_custom_app_title">Individuelle App auswählen</string>
     <string name="picker_select_custom_activity_title">Individuelle Aktivität auswählen</string>
 
-    <!-- Color Picker -->
+    <!-- Shortcut picker -->
+    <string name="shortcut_picker_select_action_longpress">Aktion bei langem Drücken auswählen:</string>
+    <string name="shortcut_picker_select_action">Aktion auswählen:</string>
+    <string name="shortcut_picker_select_action_newaction">Neue Aktion auswählen:</string>
+    <string name="shortcut_picker_applications_title">Anwendungen</string>
+    <string name="shortcut_picker_activities_title">Aktivitäten</string>
+    <string name="shortcut_picker_select_custom_app_title">Benutzerdefinierte Anwendung auswählen:</string>
+    <string name="shortcut_picker_select_custom_activity_title">Benutzerdefinierte Aktivität auswählen:</string>
+    <string name="shortcut_picker_select_custom_action_title">Benutzerdefinierte Aktion auswählen:</string>
+    <string name="shortcut_picker_choose_icon_type_title">Symbol Typ auswählen:</string>
+    <string name="shortcut_picker_icon_type_default_title">Standard</string>
+    <string name="shortcut_picker_icon_type_system_title">Systemsymbole</string>
+    <string name="shortcut_picker_choose_system_icon_title">Systemsymbol auswählen:</string>
+    <string name="shortcut_picker_icon_type_custom_title">Galerie</string>
+
+    <!-- Color picker -->
     <string name="dialog_color_picker_title">Farbauswahl</string>
     <string name="press_color_to_apply">Drücke unten auf eine Farbe um sie anzuwenden</string>
     <string name="palette_darkkat_title">DarkKat</string>
@@ -65,6 +86,107 @@
     <string name="reset_android_title">Android Standard</string>
     <string name="reset_darkkat_title">DarkKat Standard</string>
 
+    <!-- DSLV -->
+    <string name="shortcut_action_longpress">Lange drücken:</string>
+    <string name="shortcut_action_max">Maximale Anzahl an Schaltflächen erreicht</string>
+    <string name="shortcut_action_warning">Warnung</string>
+    <string name="shortcut_action_warning_message">Es ist nicht möglich, den letzten Eintrag zu löschen</string>
+    <string name="shortcut_action_required_warning_message">Es ist nicht möglich, die erforderlichen Tasten zu löschen</string>
+    <string name="shortcut_action_disable_message">Deaktiviert\nEintrag hinzufügen, um die Funktion zu aktivieren</string>
+    <string name="shortcut_image_not_valid">Die gewählte App zur Symbolbearbeitung hat einen Fehler verursacht. Bitte eine andere App benutzen.</string>
+    <string name="shortcut_duplicate_entry">Die ausgewählte Aktion kann nicht zweimal angelegt werden</string>
+    <string name="shortcut_action_help_shortcut">Kurzziel</string>
+    <string name="shortcut_action_help_button">Schaltfläche</string>
+    <string name="shortcut_action_help_app">App</string>
+    <string name="shortcut_action_help_icon">, während bei Markieren des Symbols individuelle Anpassungsmöglichkeiten eröffnet werden</string>
+    <string name="shortcut_action_help_main">Um eine %1$s hinzuzufügen, auf das \"(+)\"-Symbol drücken. Wenn eine %1$s hinzugefügt wurde, kann diese durch nochmaliges Drücken auf den Eintrag geändert werden%2$s\n\nUm eine %1$s zu löschen, den Eintrag einfach nach links oder rechts aus dem Bildschirm schieben. Um die Position einer %1$s zu ändern, das Symbol auf der linken Seite lange drücken und den Eintrag auf die neue Position verschieben.\n\nZum Löschen auf das \"Zurücksetzen\"-Symbol drücken.</string>
+    <string name="shortcut_action_help_delete_last_entry">Löschen aller %1$s deaktiviert die Funktion.</string>
+
+    <!-- Shortcuts -->
+
+    <!-- Shortcut action names -->
+    <string name="shortcut_action_assist">Google Now</string>
+    <string name="shortcut_action_back">Zurück</string>
+    <string name="shortcut_action_camera">Kamera</string>
+    <string name="shortcut_action_custom">Benutzerdefinierte Aktionen</string>
+    <string name="shortcut_action_expanded_desktop">Erweiterter Bildschirm</string>
+    <string name="shortcut_action_home">Home</string>
+    <string name="shortcut_action_ime">Eingabemethoden öffnen</string>
+    <string name="shortcut_action_kill">App beenden</string>
+    <string name="shortcut_action_lastapp">Letzte App</string>
+    <string name="shortcut_action_media_next">Musik - nächster Titel</string>
+    <string name="shortcut_action_media_play_pause">Musik - Wiedergabe/Pause</string>
+    <string name="shortcut_action_media_previous">Musik - vorheriger Titel</string>
+    <string name="shortcut_action_menu">Menü</string>
+    <string name="shortcut_action_menu_big">Menü groß</string>
+    <string name="shortcut_action_none">Keine</string>
+    <string name="shortcut_action_notifications">Benachrichtigungen</string>
+    <string name="shortcut_action_power">Bildschirm ausschalten</string>
+    <string name="shortcut_action_power_menu">Power Menü</string>
+    <string name="shortcut_action_qs">Schnelleinstellungen</string>
+    <string name="shortcut_action_recents">Anwendungsverlauf</string>
+    <string name="shortcut_action_ring_silent">Ton/Lautlos</string>
+    <string name="shortcut_action_ring_vib">Ton/Vib</string>
+    <string name="shortcut_action_ring_vib_silent">Ton/Vibrieren/Lautlos</string>
+    <string name="shortcut_action_screenshot">Bildschirmfoto</string>
+    <string name="shortcut_action_search">Suche in App</string>
+    <string name="shortcut_action_torch">Taschenlampe</string>
+    <string name="shortcut_action_voice_search">Sprachsuche</string>
+
+    <!-- Shortcut icon names -->
+    <string name="shortcuts_icon_picker_alarm">Wecker</string>
+    <string name="shortcuts_icon_picker_andy">Andy</string>
+    <string name="shortcuts_icon_picker_battery">Akku</string>
+    <string name="shortcuts_icon_picker_browser">Browser</string>
+    <string name="shortcuts_icon_picker_calendar">Kalender</string>
+    <string name="shortcuts_icon_picker_camera">Kamera</string>
+    <string name="shortcuts_icon_picker_cloud">Cloud</string>
+    <string name="shortcuts_icon_picker_contact">Kontakt</string>
+    <string name="shortcuts_icon_picker_directdial">Direktanruf</string>
+    <string name="shortcuts_icon_picker_directmessage">Direktnachricht</string>
+    <string name="shortcuts_icon_picker_drive">Drive</string>
+    <string name="shortcuts_icon_picker_dropbox">Dropbox</string>
+    <string name="shortcuts_icon_picker_email">E-Mail</string>
+    <string name="shortcuts_icon_picker_email2">E-Mail Alternative</string>
+    <string name="shortcuts_icon_picker_evernote">Evernote</string>
+    <string name="shortcuts_icon_picker_facebook">Facebook</string>
+    <string name="shortcuts_icon_picker_favorite">Favoriten</string>
+    <string name="shortcuts_icon_picker_file_browser">Dateimanager</string>
+    <string name="shortcuts_icon_picker_file_browser2">Alternativer Dateimanager</string>
+    <string name="shortcuts_icon_picker_fitness">Fitness</string>
+    <string name="shortcuts_icon_picker_gallery">Galerie</string>
+    <string name="shortcuts_icon_picker_gears">Gears</string>
+    <string name="shortcuts_icon_picker_google_small">Google</string>
+    <string name="shortcuts_icon_picker_gplus">Google Plus</string>
+    <string name="shortcuts_icon_picker_gtalk">Hangouts</string>
+    <string name="shortcuts_icon_picker_help">Hilfe</string>
+    <string name="shortcuts_icon_picker_joystick">Joystick</string>
+    <string name="shortcuts_icon_picker_key">Schlüssel/Konten</string>
+    <string name="shortcuts_icon_picker_laptop">Laptop</string>
+    <string name="shortcuts_icon_picker_notes">Notizen</string>
+    <string name="shortcuts_icon_picker_luggage">Travel</string>
+    <string name="shortcuts_icon_picker_maps">Maps</string>
+    <string name="shortcuts_icon_picker_market">Play Store</string>
+    <string name="shortcuts_icon_picker_movie">Filme</string>
+    <string name="shortcuts_icon_picker_music">Musik</string>
+    <string name="shortcuts_icon_picker_nav">Navigation</string>
+    <string name="shortcuts_icon_picker_phone">Telefon</string>
+    <string name="shortcuts_icon_picker_package">Paket</string>
+    <string name="shortcuts_icon_picker_pinterest">Pinterest</string>
+    <string name="shortcuts_icon_picker_play">Play</string>
+    <string name="shortcuts_icon_picker_pocket">Pocket</string>
+    <string name="shortcuts_icon_picker_quicksettings">Schnelleinstellungen</string>
+    <string name="shortcuts_icon_picker_rss">RSS</string>
+    <string name="shortcuts_icon_picker_sdcard">SD-Karte</string>
+    <string name="shortcuts_icon_picker_search">Suche</string>
+    <string name="shortcuts_icon_picker_sms">SMS/MMS</string>
+    <string name="shortcuts_icon_picker_tasks">Aufgaben</string>
+    <string name="shortcuts_icon_picker_terminal">Terminal</string>
+    <string name="shortcuts_icon_picker_transit">Transit</string>
+    <string name="shortcuts_icon_picker_tv">TV</string>
+    <string name="shortcuts_icon_picker_twitter">Twitter</string>
+    <string name="shortcuts_icon_picker_unlock">Unlock</string>
+
     <!-- dashboard categories-->
     <string name="category_ui_section">Benutzeroberfläche</string>
 
@@ -72,6 +194,7 @@
     <string name="lock_screen_title">Sperrbildschirm</string>
     <string name="status_bar_title">Statusleiste</string>
     <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>
+    <string name="navigation_bar_settings_title">Navigationsleiste</string>
     <string name="advanced_title">Erweitert</string>
     <string name="led_light_settings">LED Leuchte</string>
     <string name="button_settings_title">Tasten</string>
@@ -278,6 +401,50 @@
     <string name="qs_action_add">Hinzufügen</string>
     <string name="qs_action_no_more_tiles">keine weiteren Kacheln verfügbar</string>
 
+    <!-- Navigation bar settings -->
+    <string name="navigation_bar_cat_buttons_title">Schaltflächen</string>
+    <string name="navigation_bar_cat_landscape_title">Im Querformat</string>
+    <string name="navigation_bar_cat_size_title">Größe</string>
+    <string name="navigation_bar_button_settings_title">Anpassen</string>
+    <string name="navigation_bar_button_settings_summary">Ordne die Schaltflächen an, und wähle welche Schaltflächen in der Navigationsleiste angezeigt werden sollen.</string>
+    <string name="navigation_bar_button_advanced_title">Erweiterte Einstellungen</string>
+    <string name="navigation_bar_button_advanced_summary">Erweiterte Funktionen und Farben anpassen</string>
+    <string name="navigation_bar_can_move_title">Unten anzeigen</string>
+    <string name="navigation_bar_can_move_summary">Aktivieren um die Navigationsleiste im Querformat unten anzuzeigen</string>
+    <string name="navigation_bar_height_title">Höhe (Hochformat)</string>
+    <string name="navigation_bar_size_42_dp_default">42 dp (Standard)</string>
+    <string name="navigation_bar_size_36_dp">36 dp</string>
+    <string name="navigation_bar_size_30_dp">30 dp</string>
+    <string name="navigation_bar_size_24_dp">24 dp</string>
+    <string name="navigation_bar_size_48_dp_default">48 dp (Standard)</string>
+    <string name="navigation_bar_size_44_dp">44 dp</string>
+    <string name="navigation_bar_size_40_dp">40 dp</string>
+    <string name="navigation_bar_size_42_dp">42 dp</string>
+    <string name="navigation_bar_size_0_dp">0 dp (off)</string>
+    <string name="navigation_bar_height_landscape_title">Höhe (Querformat)</string>
+    <string name="navigation_bar_width_title">Breite</string>
+
+    <!-- Navigation bar advanced settings -->
+    <string name="navigation_bar_cat_menu_button_title">Menu Schaltfläche</string>
+    <string name="navigation_bar_show_ime_arrows_title">Pfeiltasten anzeigen</string>
+    <string name="navigation_bar_show_ime_arrows_summary">Beim Tippen rechts und links Pfeiltasten anzeigen. Lange gedrückt halten um eine Zeile hoch/runter zu wechseln. Die Schaltflächen für Tastaturauswahl und Menü werden verborgen.</string>
+    <string name="navigation_bar_menu_visibility_title">Anzeigen</string>
+    <string name="navigation_bar_menu_visibility_request_title">Bei Bedarf (Standard)</string>
+    <string name="navigation_bar_menu_visibility_always_title">Immer</string>
+    <string name="navigation_bar_menu_visibility_never_title">Nie</string>
+    <string name="navigation_bar_menu_location_title">Position</string>
+    <string name="navigation_bar_menu_location_right_title">Rechts</string>
+    <string name="navigation_bar_menu_location_left_title">Links</string>
+    <string name="navigation_bar_menu_location_both_title">Rechts &amp; links</string>
+    <string name="navigation_bar_icon_color_mode_title">Symbol Farbmodus</string>
+    <string name="navigation_bar_icon_color_mode_dialog_title">Wähle wann das Symbol eingefärbt werden soll</string>
+    <string name="navigation_bar_button_ripple_color_mode_title">Ripple Effekt Farbmodus</string>
+    <string name="navigation_bar_button_ripple_color_mode_dialog_title">Wähle wie der Ripple Effekt eingefärbt werden soll</string>
+    <string name="navigation_bar_button_ripple_color_mode_auto_title">Automatisch</string>
+    <string name="navigation_bar_button_ripple_color_mode_custom_title">Anpassbare Farbe</string>
+    <string name="navigation_bar_button_ripple_color_mode_never_title">Nicht einfärben</string>
+    <string name="navigation_bar_button_ripple_color_title">Ripple Effekt</string>
+
     <!-- Advanced -->
     <string name="cat_recents_title">Anwendungsverlauf</string>
     <string name="use_slim_recents_title">SlimLP Anwendungsverlauf benutzen</string>
@@ -450,8 +617,8 @@
     <string name="notification_clear_all_icon_color_title">Alle schließen Symbol</string>
 
     <!-- USB settings -->
-  <string name="usb_charging_title">Nur aufladen</string>
-  <string name="usb_charging_summary">Deaktiviert alle Datenübertragungen mit dem Computer und lädt das Gerät über den USB-Anschluss</string>
+    <string name="usb_charging_title">Nur aufladen</string>
+    <string name="usb_charging_summary">Deaktiviert alle Datenübertragungen mit dem Computer und lädt das Gerät über den USB-Anschluss</string>
 
     <!-- Application settings -->
     <string name="app_notification_show_on_keyguard_title">Auf Sperrbildschirm anzeigen</string>

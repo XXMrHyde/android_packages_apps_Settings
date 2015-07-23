@@ -45,6 +45,11 @@
     <color name="yellow">#ffffff00</color>
     <color name="orange">#ffffa500</color>
 
+    <!-- DSLV colors -->
+    <color name="dslv_divider">#1fffffff</color>
+    <color name="dslv_icon_dark">#ff009688</color>
+    <color name="dslv_float_background_color">@*android:color/darkkat_blue_grey</color>
+
     <!-- Lockscreen shortcuts -->
     <color name="lockscreen_shortcuts_text_color">#ffffff</color>
     <color name="lockscreen_shortcuts_tint_color">#ffffff</color>

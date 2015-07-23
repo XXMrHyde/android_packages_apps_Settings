@@ -100,6 +100,14 @@
                 android:icon="@drawable/ic_settings_status_bar_expanded"
                 />
 
+        <!-- Navigation bar -->
+        <dashboard-tile
+                android:id="@+id/navigation_bar_settings"
+                android:title="@string/navigation_bar_settings_title"
+                android:fragment="com.android.settings.darkkat.NavigationBarSettings"
+                android:icon="@drawable/ic_settings_navbar"
+                />
+
         <!-- Weather settings -->
         <dashboard-tile
                 android:id="@+id/weather_settings"

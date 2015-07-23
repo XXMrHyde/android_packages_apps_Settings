@@ -21,11 +21,15 @@
     <string name="cat_airplane_mode_icon_title">Iconos modo avión</string>
     <string name="cat_vpn_icon_title">Icono Vpn</string>
     <string name="cat_colors_title">Personalizar colores</string>
+    <string name="help">Help</string> <!-- needs translation -->
     <string name="reset">Resetear</string>
+    <string name="add">Add</string> <!-- needs translation -->
+    <string name="dlg_dslv_reset_message">Reset all entries to default?</string> <!-- needs translation -->
     <string name="dlg_reset_values_message">¿Restablecer a los valores predeteriminados de \nAndroid- orDarkKat?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="options_title">Opciones</string>
+    <string name="color_options_title">Color options</string> <!-- needs translation -->
     <string name="color_title">Color</string>
     <string name="colors_title">Colores</string>
     <string name="weather_title">Tiempo</string>
@@ -50,13 +54,30 @@
     <string name="notification_bg_color_mode_no_color_title">Si la notificación no incluye su propio color</string>
     <string name="notification_color_mode_always_title">Siempre</string>
 
-    <!-- Shortcut Picker -->
+    <!-- Pickers -->
+
+    <!-- Shortcut picker (CyanogenMod)-->
     <string name="picker_apps_title">Aplicaciones</string>
     <string name="picker_activities_title">Actividades</string>
     <string name="picker_select_custom_app_title">Seleccionar aplicación personalizada</string>
     <string name="picker_select_custom_activity_title">Seleccionar actividad personalizada</string>
 
-    <!-- Color Picker -->
+    <!-- Shortcut picker -->
+    <string name="shortcut_picker_select_action_newaction">Choose new action:</string> <!-- needs translation -->
+    <string name="shortcut_picker_select_action">Choose action:</string> <!-- needs translation -->
+    <string name="shortcut_picker_select_action_longpress">Choose longpress action:</string> <!-- needs translation -->
+    <string name="shortcut_picker_applications_title">Aplicaciones</string>
+    <string name="shortcut_picker_activities_title">Actividades</string>
+    <string name="shortcut_picker_select_custom_app_title">Seleccionar aplicación personalizada:</string>
+    <string name="shortcut_picker_select_custom_activity_title">Seleccionar actividad personalizada:</string>
+    <string name="shortcut_picker_select_custom_action_title">Select custom action:</string> <!-- needs translation -->
+    <string name="shortcut_picker_choose_icon_type_title">Choose icon type:</string> <!-- needs translation -->
+    <string name="shortcut_picker_icon_type_default_title">Default</string> <!-- needs translation -->
+    <string name="shortcut_picker_icon_type_system_title">System icons</string> <!-- needs translation -->
+    <string name="shortcut_picker_choose_system_icon_title">Select system icon:</string> <!-- needs translation -->
+    <string name="shortcut_picker_icon_type_custom_title">Gallery</string> <!-- needs translation -->
+
+    <!-- Color picker -->
     <string name="dialog_color_picker_title">Selector de color</string>
     <string name="press_color_to_apply">Selecciona un color a continuación para aplicar</string>
     <string name="palette_darkkat_title">DarkKat</string>
@@ -65,6 +86,107 @@
     <string name="reset_android_title">Predeterminado Android</string>
     <string name="reset_darkkat_title">Predeterminado DarkKat</string>
 
+    <!-- DSLV -->
+    <string name="shortcut_action_longpress">Pulsación larga::</string>
+    <string name="shortcut_action_max">Maximum number of buttons has been reached</string> <!-- needs translation -->
+    <string name="shortcut_action_warning">Peligro</string>
+    <string name="shortcut_action_warning_message">No es posible eliminar la última entrada</string>
+    <string name="shortcut_action_required_warning_message">It is not possible to delete required buttons</string> <!-- needs translation -->
+    <string name="shortcut_action_disable_message">Deshabilitada\nAñadir una entrada para habilitar esta función</string>
+    <string name="shortcut_image_not_valid">La app escogida no tiene un icono válido. Usa otra app</string>
+    <string name="shortcut_duplicate_entry">La aplicación escogida no puede ser añadida 2 veces</string>
+    <string name="shortcut_action_help_shortcut">Acceso directo</string>
+    <string name="shortcut_action_help_button">Botón</string>
+    <string name="shortcut_action_help_app">Aplicaciones</string>
+    <string name="shortcut_action_help_icon">Al seleccionar el icono se mostrarán opciones de personalización.</string>
+    <string name="shortcut_action_help_main">Para agregar %1$s, selecciona el icono Añadir. Una vez que %1$s es añadido, selecciona la fila que cambiará%2$s\n\nPara borrar %1$s, desliza la fila horizontalmente a la izquierda o derecha.  Reordenar %1$s en la lista arrastrando verticalmente hacia la izquierda.\n\nPara restablecer los valores predeterminados seleccione icono reset.</string>
+    <string name="shortcut_action_help_delete_last_entry">La eliminación de todos los %1$s en la lista desactivará la función.</string>
+
+    <!-- Shortcuts -->
+
+    <!-- Shortcut action names -->
+    <string name="shortcut_action_assist">Google Now</string>
+    <string name="shortcut_action_back">Volver</string>
+    <string name="shortcut_action_camera">Cámara</string>
+    <string name="shortcut_action_custom">Custom actions</string> <!-- Needs translation -->
+    <string name="shortcut_action_expanded_desktop">Escritorio extendido</string>
+    <string name="shortcut_action_home">Inicio</string>
+    <string name="shortcut_action_ime">Abrir selector Teclado</string>
+    <string name="shortcut_action_kill">Matar app</string>
+    <string name="shortcut_action_lastapp">Última aplicación</string>
+    <string name="shortcut_action_menu">Menú</string>
+    <string name="shortcut_action_menu_big">Menu Big</string> <!-- Needs translation -->
+    <string name="shortcut_action_media_next">Music - next track</string> <!-- Needs translation -->
+    <string name="shortcut_action_media_play_pause">Music - play/pause</string> <!-- Needs translation -->
+    <string name="shortcut_action_media_previous">Music - previous track</string> <!-- Needs translation -->
+    <string name="shortcut_action_none">Ninguno</string>
+    <string name="shortcut_action_notifications">Notificaciones</string>
+    <string name="shortcut_action_power">Screen Off</string> <!-- Needs translation -->
+    <string name="shortcut_action_power_menu">Menú de Encendido</string>
+    <string name="shortcut_action_qs">Ajustes rápidos</string>
+    <string name="shortcut_action_recents">Aplicaciones recientes</string>
+    <string name="shortcut_action_ring_silent">Sonido/Silencio</string>
+    <string name="shortcut_action_ring_vib">Sonido/Vibr</string>
+    <string name="shortcut_action_ring_vib_silent">Sonido/Vibr/Silencio</string>
+    <string name="shortcut_action_screenshot">Captura de pantalla</string>
+    <string name="shortcut_action_search">Buscar en aplicaciones</string>
+    <string name="shortcut_action_torch">Linterna</string>
+    <string name="shortcut_action_voice_search">Búsqueda de voz</string>
+
+    <!-- Shortcut icon names -->
+    <string name="shortcuts_icon_picker_alarm">Alarma</string>
+    <string name="shortcuts_icon_picker_andy">Andy</string>
+    <string name="shortcuts_icon_picker_battery">Batería</string>
+    <string name="shortcuts_icon_picker_browser">Navegador</string>
+    <string name="shortcuts_icon_picker_calendar">Calendario</string>
+    <string name="shortcuts_icon_picker_camera">Cámara</string>
+    <string name="shortcuts_icon_picker_cloud">Nube</string>
+    <string name="shortcuts_icon_picker_contact">Contactos</string>
+    <string name="shortcuts_icon_picker_directdial">Marcador directo</string>
+    <string name="shortcuts_icon_picker_directmessage">Mensaje directo</string>
+    <string name="shortcuts_icon_picker_drive">Coche</string>
+    <string name="shortcuts_icon_picker_dropbox">Dropbox</string>
+    <string name="shortcuts_icon_picker_email">Correo</string>
+    <string name="shortcuts_icon_picker_email2">Correo alternativo</string>
+    <string name="shortcuts_icon_picker_evernote">Evernote</string>
+    <string name="shortcuts_icon_picker_facebook">Facebook</string>
+    <string name="shortcuts_icon_picker_favorite">Favorito</string>
+    <string name="shortcuts_icon_picker_file_browser">Explorador de archivos</string>
+    <string name="shortcuts_icon_picker_file_browser2">Explorador de archivos alternativo</string>
+    <string name="shortcuts_icon_picker_fitness">Aptitud</string>
+    <string name="shortcuts_icon_picker_gallery">Galería</string>
+    <string name="shortcuts_icon_picker_gears">Herramientas</string>
+    <string name="shortcuts_icon_picker_google_small">Google</string>
+    <string name="shortcuts_icon_picker_gplus">Google Plus</string>
+    <string name="shortcuts_icon_picker_gtalk">Hangouts</string>
+    <string name="shortcuts_icon_picker_help">Ayuda</string>
+    <string name="shortcuts_icon_picker_joystick">Joystick</string>
+    <string name="shortcuts_icon_picker_key">Claves/Cuentas</string>
+    <string name="shortcuts_icon_picker_laptop">Portátil</string>
+    <string name="shortcuts_icon_picker_notes">Notas</string>
+    <string name="shortcuts_icon_picker_luggage">Viaje</string>
+    <string name="shortcuts_icon_picker_maps">Mapas</string>
+    <string name="shortcuts_icon_picker_market">Market</string>
+    <string name="shortcuts_icon_picker_movie">Películas</string>
+    <string name="shortcuts_icon_picker_music">Música</string>
+    <string name="shortcuts_icon_picker_nav">Navegación</string>
+    <string name="shortcuts_icon_picker_phone">Teléfono</string>
+    <string name="shortcuts_icon_picker_package">Paquete</string>
+    <string name="shortcuts_icon_picker_pinterest">Pinterest</string>
+    <string name="shortcuts_icon_picker_play">Play</string>
+    <string name="shortcuts_icon_picker_pocket">Pocket</string>
+    <string name="shortcuts_icon_picker_quicksettings">Ajustes rápidos</string>
+    <string name="shortcuts_icon_picker_rss">RSS Feed</string>
+    <string name="shortcuts_icon_picker_sdcard">SDCard</string>
+    <string name="shortcuts_icon_picker_search">Buscar</string>
+    <string name="shortcuts_icon_picker_sms">Mensajería</string>
+    <string name="shortcuts_icon_picker_tasks">Tareas</string>
+    <string name="shortcuts_icon_picker_terminal">Terminal</string>
+    <string name="shortcuts_icon_picker_transit">Tránsito</string>
+    <string name="shortcuts_icon_picker_tv">TV</string>
+    <string name="shortcuts_icon_picker_twitter">Twitter</string>
+    <string name="shortcuts_icon_picker_unlock">Desbloquear</string>
+
     <!-- dashboard categories-->
     <string name="category_ui_section">Interfaz de usuario</string>
 
@@ -72,6 +194,7 @@
     <string name="lock_screen_title">Pantalla de bloqueo</string>
     <string name="status_bar_title">Barra de estado</string>
     <string name="status_bar_expanded_title">Barra de estado expandida</string>
+    <string name="navigation_bar_settings_title">Barra de navegación</string>
     <string name="advanced_title">Avanzado</string>
     <string name="led_light_settings">Luz LED</string>
     <string name="button_settings_title">Botones</string>
@@ -82,7 +205,7 @@
     <string name="lock_screen_shortcuts_settings_summary">Personalizar accesos directos</string>
 
    <!-- Weather settings -->
-    <string name="weather_cat_notifications_title">Benachrichtigungen</string> <!-- needs translation -->
+    <string name="weather_cat_notifications_title">Notificaciones</string>
     <string name="weather_show_timestamp_title">Mostrar  sello de tiempo</string>
     <string name="weather_show_timestamp_summary">Muestra el  sello de tiempo</string>
     <string name="weather_condition_icon_title">Icono de condiciones climáticas</string>
@@ -277,6 +400,52 @@
     <string name="qs_action_delete">Eliminar</string>
     <string name="qs_action_add">Añadir</string>
     <string name="qs_action_no_more_tiles">No hay más casillas disponibles</string>
+
+    <!-- Navigation bar settings -->
+    <!-- translation needed start-->
+    <string name="navigation_bar_cat_buttons_title">Botones</string>
+    <string name="navigation_bar_cat_landscape_title">On landscape</string> <!-- needs translation -->
+    <string name="navigation_bar_cat_size_title">Size</string> <!-- needs translation -->
+    <string name="navigation_bar_button_settings_title">Customize</string> <!-- needs translation -->
+    <string name="navigation_bar_button_settings_summary">Arrange the buttons, and choose the buttons to display on the navigation bar.</string> <!-- needs translation -->
+    <string name="navigation_bar_button_advanced_title">Advanced settings</string> <!-- needs translation -->
+    <string name="navigation_bar_button_advanced_summary">Customize advanced functions and colors</string> <!-- needs translation -->
+    <string name="navigation_bar_can_move_title">Show on bottom</string> <!-- needs translation -->
+    <string name="navigation_bar_can_move_summary">Enable to show the navigation bar  on the bottom</string> <!-- needs translation -->
+    <string name="navigation_bar_height_title">Height (portrait)</string> <!-- needs translation -->
+    <string name="navigation_bar_size_42_dp_default">42 dp (predeterminado)</string>
+    <string name="navigation_bar_size_36_dp">36 dp</string>
+    <string name="navigation_bar_size_30_dp">30 dp</string>
+    <string name="navigation_bar_size_24_dp">24 dp</string>
+    <string name="navigation_bar_size_48_dp_default">48 dp (predeterminado)</string>
+    <string name="navigation_bar_size_44_dp">44 dp</string>
+    <string name="navigation_bar_size_40_dp">40 dp</string>
+    <string name="navigation_bar_size_42_dp">42 dp</string>
+    <string name="navigation_bar_size_0_dp">0 dp (off)</string> <!-- needs translation -->
+    <string name="navigation_bar_height_landscape_title">Height (landscape)</string> <!-- needs translation -->
+    <string name="navigation_bar_width_title">Ancho</string>
+
+    <!-- Navigation bar advanced settings -->
+    <string name="navigation_bar_cat_menu_button_title">Botón Menú</string>
+    <string name="navigation_bar_show_ime_arrows_title">Show arrow keys</string> <!-- needs translation -->
+    <string name="navigation_bar_show_ime_arrows_summary">Show left and right cursor buttons while typing. Longpress to navigate up/down. Overrides IME switcher and menu buttons.</string> <!-- needs translation -->
+    <string name="navigation_bar_menu_visibility_title">Show</string> <!-- needs translation -->
+    <string name="navigation_bar_menu_visibility_request_title">On request (default)</string> <!-- needs translation -->
+    <string name="navigation_bar_menu_visibility_always_title">Always</string> <!-- needs translation -->
+    <string name="navigation_bar_menu_visibility_never_title">Never</string> <!-- needs translation -->
+    <string name="navigation_bar_menu_location_title">Posición</string>
+    <string name="navigation_bar_menu_location_right_title">Derecha</string>
+    <string name="navigation_bar_menu_location_left_title">Izquierda</string>
+    <string name="navigation_bar_menu_location_both_title">Left &amp; right</string> <!-- needs translation -->
+    <string name="navigation_bar_icon_color_mode_title">Colorize icon</string> <!-- needs translation -->
+    <string name="navigation_bar_icon_color_mode_dialog_title">Choose when to colorize the icon</string> <!-- needs translation -->
+    <string name="navigation_bar_button_ripple_color_mode_title">Ripple effect color mode</string> <!-- needs translation -->
+    <string name="navigation_bar_button_ripple_color_mode_dialog_title">Choose how to colorize the ripple effect</string> <!-- needs translation -->
+    <string name="navigation_bar_button_ripple_color_mode_auto_title">Auto</string> <!-- needs translation -->
+    <string name="navigation_bar_button_ripple_color_mode_custom_title">Custom color</string> <!-- needs translation -->
+    <string name="navigation_bar_button_ripple_color_mode_never_title">Don\`t colorize</string> <!-- needs translation -->
+    <string name="navigation_bar_button_ripple_color_title">Ripple effect</string> <!-- needs translation -->
+    <!-- translation needed end-->
 
     <!-- Advanced -->
     <string name="cat_recents_title">Vista de aplicaciones recientes</string>
