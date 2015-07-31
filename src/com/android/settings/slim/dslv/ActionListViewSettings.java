@@ -39,6 +39,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -65,6 +66,7 @@ import com.android.internal.util.slim.ActionHelper;
 import com.android.internal.util.darkkat.ImageHelper;
 import com.android.internal.util.darkkat.DeviceUtils;
 import com.android.internal.util.darkkat.DeviceUtils.FilteredDeviceFeaturesArray;
+import com.android.internal.util.darkkat.LockScreenColorHelper;
 import com.android.internal.util.darkkat.NavigationBarColorHelper;
 
 import com.android.settings.SettingsPreferenceFragment;
@@ -91,8 +93,9 @@ public class ActionListViewSettings extends ListFragment implements
     private static final int MENU_HELP = Menu.FIRST;
     private static final int MENU_RESET = MENU_HELP + 1;
 
-    private static final int NAV_BAR               = 0;
-    private static final int POWER_MENU_SHORTCUT   = 5;
+    private static final int NAV_BAR                = 0;
+    private static final int LOCKSCREEN_BUTTONS_BAR = 1;
+    private static final int POWER_MENU_SHORTCUT    = 5;
 
     private static final int DEFAULT_MAX_ACTION_NUMBER = 5;
     private static final int DEFAULT_NUMBER_OF_ACTIONS = 3;
@@ -245,7 +248,7 @@ public class ActionListViewSettings extends ListFragment implements
                         mPendingIndex = arg2;
                         mPendingLongpress = false;
                         mPendingNewAction = false;
-                        mPicker.pickShortcut(getId());
+                        mPicker.pickShortcut(getId(), false, false, true);
                     }
                 }
             }
@@ -307,7 +310,7 @@ public class ActionListViewSettings extends ListFragment implements
                         mPendingIndex = 0;
                         mPendingLongpress = false;
                         mPendingNewAction = true;
-                        mPicker.pickShortcut(getId());
+                        mPicker.pickShortcut(getId(), false, true, false);
                     }
                 }
             }
@@ -541,11 +544,13 @@ public class ActionListViewSettings extends ListFragment implements
             case NAV_BAR:
                 return ActionHelper.getNavBarConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
-/* Disabled for now till feature is back.
+            case LOCKSCREEN_BUTTONS_BAR:
+                return ActionHelper.getLockscreenButtonBarConfig(mActivity);
+         /* Disabled for now till feature is back.
             case POWER_MENU_SHORTCUT:
                 return PolicyHelper.getPowerMenuConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
-*/
+          */
         }
         return null;
     }
@@ -556,11 +561,15 @@ public class ActionListViewSettings extends ListFragment implements
                 ActionHelper.setNavBarConfig(mActivity, actionConfigs, reset);
                 updateFabVisibility(reset ? mDefaultNumberOfActions : actionConfigs.size());
                 break;
-/* Disabled for now till feature are back.
+            case LOCKSCREEN_BUTTONS_BAR:
+                ActionHelper.setLockscreenButtonBarConfig(mActivity, actionConfigs, reset);
+                updateFabVisibility(reset ? mDefaultNumberOfActions : actionConfigs.size());
+                break;
+         /* Disabled for now till feature are back.
             case POWER_MENU_SHORTCUT:
                 PolicyHelper.setPowerMenuConfig(mActivity, actionConfigs, reset);
                 break;
-*/
+          */
         }
     }
 
@@ -615,29 +624,49 @@ public class ActionListViewSettings extends ListFragment implements
 
             Drawable d = null;
             String iconUri = getItem(position).getIcon();
+            holder.iconView.setColorFilter(null);
             if (mActionMode == POWER_MENU_SHORTCUT) {
-/* Disabled for now till slims power menu is back!!!!!!!!!!!!!!
+             /* Disabled for now till feature are back.
                 d = ImageHelper.resize(
                         mActivity, PolicyHelper.getPowerMenuIconImage(mActivity,
                         getItem(position).getClickAction(),
-                        iconUri, false), 36); */
-            } else {
-                d = ActionHelper.getActionIconImage(mActivity,
+                        iconUri, false), 36);
+              */
+            } else if (mActionMode == NAV_BAR) {
+                d = ImageHelper.resize(
+                        mActivity, ActionHelper.getActionIconImage(mActivity,
                         getItem(position).getClickAction(),
-                        iconUri);
-            }
+                        iconUri), 24);
+                final int iconColor = NavigationBarColorHelper.getIconColor(mActivity, d);
 
-            int iconColor = NavigationBarColorHelper.getIconColor(mActivity, d);
-
-            holder.iconView.setColorFilter(null);
-            if (NavigationBarColorHelper.getIconColorMode(mActivity) == 2
-                    && !NavigationBarColorHelper.isGrayscaleIcon(mActivity, d)) {
-                holder.iconView.setImageBitmap(ImageHelper.getColoredBitmap(d, iconColor));
-            } else {
-                holder.iconView.setImageBitmap(ImageHelper.drawableToBitmap(d));
-                if (iconColor != 0) {
-                    holder.iconView.setColorFilter(iconColor, Mode.MULTIPLY);
+                if (NavigationBarColorHelper.getIconColorMode(mActivity) == 2
+                        && !NavigationBarColorHelper.isGrayscaleIcon(mActivity, d)) {
+                    holder.iconView.setImageBitmap(ImageHelper.getColoredBitmap(d, iconColor));
+                } else {
+                    holder.iconView.setImageBitmap(ImageHelper.drawableToBitmap(d));
+                    if (iconColor != 0) {
+                        holder.iconView.setColorFilter(iconColor, Mode.MULTIPLY);
+                    }
                 }
+            } else if (mActionMode == LOCKSCREEN_BUTTONS_BAR) {
+                final int iconSize =Settings.System.getInt(mActivity.getContentResolver(),
+                        Settings.System.LOCK_SCREEN_BUTTONS_BAR_ICON_SIZE, 36);
+                d = ImageHelper.resize(
+                        mActivity, ActionHelper.getActionIconImage(mActivity,
+                        getItem(position).getClickAction(), iconUri), iconSize);
+                final int iconColor = LockScreenColorHelper.getIconColor(mActivity, d);
+
+                if (LockScreenColorHelper.getIconColorMode(mActivity) == 2
+                        && !LockScreenColorHelper.isGrayscaleIcon(mActivity, d)) {
+                    holder.iconView.setImageBitmap(ImageHelper.getColoredBitmap(d, iconColor));
+                } else {
+                    holder.iconView.setImageBitmap(ImageHelper.drawableToBitmap(d));
+                    if (iconColor != 0) {
+                        holder.iconView.setColorFilter(iconColor, Mode.MULTIPLY);
+                    }
+                }
+            } else {
+                holder.iconView.setImageDrawable(d);
             }
 
             if (!mDisableIconPicker && holder.iconView.getDrawable() != null) {
@@ -734,6 +763,7 @@ public class ActionListViewSettings extends ListFragment implements
                             actionMode = res.getString(R.string.shortcut_action_help_shortcut);
                             break;
                         case NAV_BAR:
+                        case LOCKSCREEN_BUTTONS_BAR:
                         default:
                             actionMode = res.getString(R.string.shortcut_action_help_button);
                             break;
@@ -777,11 +807,11 @@ public class ActionListViewSettings extends ListFragment implements
                 case DLG_SHOW_ACTION_DIALOG:
                     int title;
                     if (longpress) {
-                        title = R.string.shortcut_picker_select_action_longpress;
+                        title = R.string.shortcut_picker_choose_longpress_action;
                     } else if (newAction) {
-                        title = R.string.shortcut_picker_select_action_newaction;
+                        title = R.string.shortcut_picker_choose_new_action;
                     } else {
-                        title = R.string.shortcut_picker_select_action;
+                        title = R.string.shortcut_picker_reassign_action;
                     }
 
                     // for normal press action we filter out null value
@@ -856,7 +886,7 @@ public class ActionListViewSettings extends ListFragment implements
                                     final Dialog materialDarkDialog = new Dialog(getActivity(),
                                             com.android.internal.R.style.Theme_Material_Dialog_DarkKat);
                                     materialDarkDialog.setTitle(
-                                            R.string.shortcut_picker_choose_system_icon_title);
+                                            R.string.shortcut_picker_select_system_icon_title);
                                     materialDarkDialog.setContentView(list);
                                     list.setOnItemClickListener(new OnItemClickListener() {
                                         @Override
@@ -958,9 +988,19 @@ public class ActionListViewSettings extends ListFragment implements
                 TextView tt = (TextView) iView.findViewById(android.R.id.text1);
                 tt.setText(labels[position]);
                 Drawable ic = ImageHelper.resize(getOwner().mActivity, (Drawable) getItem(position), 24);
-                int iconColor = NavigationBarColorHelper.getIconColor(getOwner().mActivity, ic);
-                if (NavigationBarColorHelper.getIconColorMode(getOwner().mActivity) != 0) {
-                    ic.setTint(iconColor);
+                if (getOwner().mActionMode == NAV_BAR) {
+                    int iconColor = NavigationBarColorHelper.getIconColor(getOwner().mActivity, ic);
+                    if (NavigationBarColorHelper.getIconColorMode(getOwner().mActivity) != 0) {
+                        ic.setTint(iconColor);
+                    }
+                } else if (getOwner().mActionMode == LOCKSCREEN_BUTTONS_BAR) {
+                    final int iconSize = Settings.System.getInt(getOwner().mActivity.getContentResolver(),
+                            Settings.System.LOCK_SCREEN_BUTTONS_BAR_ICON_SIZE, 36);
+                    ic = ImageHelper.resize(getOwner().mActivity, (Drawable) getItem(position), iconSize);
+                    int iconColor = LockScreenColorHelper.getIconColor(getOwner().mActivity, ic);
+                    if (NavigationBarColorHelper.getIconColorMode(getOwner().mActivity) != 0) {
+                        ic.setTint(iconColor);
+                    }
                 }
                 tt.setCompoundDrawablePadding(15);
                 tt.setCompoundDrawablesWithIntrinsicBounds(ic, null, null, null);

@@ -23,8 +23,11 @@ import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.os.Bundle;
+import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -38,10 +41,22 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class LockScreenColorSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String PREF_CAT_COLORS =
+            "lock_screen_colors_cat_colors";
+    private static final String PREF_WEATHER_COLORIZE_ALL_ICONS =
+            "colors_weather_colorize_all_icons";
+    private static final String PREF_BUTTONS_BAR_ICON_COLOR_MODE =
+            "colors_buttons_bar_icon_color_mode";
+    private static final String PREF_BUTTONS_BAR_RIPPLE_COLOR_MODE =
+            "colors_buttons_bar_ripple_color_mode";
+    private static final String PREF_BUTTONS_DEFAULT_COLORIZE_CUSTOM_ICONS =
+            "colors_buttons_default_colorize_custom_icons";
     private static final String PREF_TEXT_COLOR =
             "colors_text_color";
     private static final String PREF_ICON_COLOR =
             "colors_icon_color";
+    private static final String PREF_BUTTONS_BAR_RIPPLE_COLOR =
+            "colors_buttons_bar_ripple_color";
 
     private static final int WHITE = 0xffffffff;
     private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
@@ -49,8 +64,13 @@ public class LockScreenColorSettings extends SettingsPreferenceFragment implemen
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
+    private SwitchPreference mWeatherColorizeAllIcons;
+    private ListPreference mButtonsBarIconColorMode;
+    private ListPreference mButtonsBarRippleColorMode;
+    private SwitchPreference mButtonsDefaultColorizeCustomIcons;
     private ColorPickerPreference mTextColor;
     private ColorPickerPreference mIconColor;
+    private ColorPickerPreference mButtonsBarRippleColor;
 
     private ContentResolver mResolver;
 
@@ -69,8 +89,43 @@ public class LockScreenColorSettings extends SettingsPreferenceFragment implemen
         addPreferencesFromResource(R.xml.lock_screen_color_settings);
         mResolver = getActivity().getContentResolver();
 
+        boolean colorizeButtonsBarRipple = Settings.System.getInt(mResolver,
+                Settings.System.LOCK_SCREEN_BUTTONS_BAR_RIPPLE_COLOR_MODE, 2) == 1;
+
         int intColor;
         String hexColor;
+        int intValue;
+
+        PreferenceCategory catColors =
+                (PreferenceCategory) findPreference(PREF_CAT_COLORS);
+
+        mWeatherColorizeAllIcons =
+                (SwitchPreference) findPreference(PREF_WEATHER_COLORIZE_ALL_ICONS);
+        mWeatherColorizeAllIcons.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.LOCK_SCREEN_WEATHER_COLORIZE_ALL_ICONS, 0) == 1);
+        mWeatherColorizeAllIcons.setOnPreferenceChangeListener(this);
+
+        mButtonsBarIconColorMode =
+                (ListPreference) findPreference(PREF_BUTTONS_BAR_ICON_COLOR_MODE);
+        intValue = Settings.System.getInt(mResolver,
+                Settings.System.LOCK_SCREEN_BUTTONS_BAR_ICON_COLOR_MODE, 0);
+        mButtonsBarIconColorMode.setValue(String.valueOf(intValue));
+        mButtonsBarIconColorMode.setSummary(mButtonsBarIconColorMode.getEntry());
+        mButtonsBarIconColorMode.setOnPreferenceChangeListener(this);
+
+        mButtonsBarRippleColorMode =
+                (ListPreference) findPreference(PREF_BUTTONS_BAR_RIPPLE_COLOR_MODE);
+        intValue = Settings.System.getInt(mResolver,
+                Settings.System.LOCK_SCREEN_BUTTONS_BAR_RIPPLE_COLOR_MODE, 2);
+        mButtonsBarRippleColorMode.setValue(String.valueOf(intValue));
+        mButtonsBarRippleColorMode.setSummary(mButtonsBarRippleColorMode.getEntry());
+        mButtonsBarRippleColorMode.setOnPreferenceChangeListener(this);
+
+        mButtonsDefaultColorizeCustomIcons =
+                (SwitchPreference) findPreference(PREF_BUTTONS_DEFAULT_COLORIZE_CUSTOM_ICONS);
+        mButtonsDefaultColorizeCustomIcons.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.LOCK_SCREEN_SHORTCUTS_COLORIZE_CUSTOM_ICONS, 0) == 1);
+        mButtonsDefaultColorizeCustomIcons.setOnPreferenceChangeListener(this);
 
         mTextColor =
                 (ColorPickerPreference) findPreference(PREF_TEXT_COLOR);
@@ -93,6 +148,20 @@ public class LockScreenColorSettings extends SettingsPreferenceFragment implemen
         mIconColor.setSummary(hexColor);
         mIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
         mIconColor.setOnPreferenceChangeListener(this);
+
+        if (colorizeButtonsBarRipple) {
+            mButtonsBarRippleColor =
+                    (ColorPickerPreference) findPreference(PREF_BUTTONS_BAR_RIPPLE_COLOR);
+            intColor = Settings.System.getInt(mResolver,
+                    Settings.System.LOCK_SCREEN_BUTTONS_BAR_RIPPLE_COLOR, WHITE); 
+            mButtonsBarRippleColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mButtonsBarRippleColor.setSummary(hexColor);
+            mButtonsBarRippleColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+            mButtonsBarRippleColor.setOnPreferenceChangeListener(this);
+        } else {
+            catColors.removePreference(findPreference(PREF_BUTTONS_BAR_RIPPLE_COLOR));
+        }
 
         setHasOptionsMenu(true);
     }
@@ -118,8 +187,38 @@ public class LockScreenColorSettings extends SettingsPreferenceFragment implemen
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         String hex;
         int intHex;
+        boolean value;
+        int intValue;
+        int index;
 
-        if (preference == mTextColor) {
+        if (preference == mWeatherColorizeAllIcons) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.LOCK_SCREEN_WEATHER_COLORIZE_ALL_ICONS,
+                    value ? 1 : 0);
+            return true;
+        } else if (preference == mButtonsBarIconColorMode) {
+            intValue = Integer.valueOf((String) newValue);
+            index = mButtonsBarIconColorMode.findIndexOfValue((String) newValue);
+            Settings.System.putInt(mResolver,
+                  Settings.System.LOCK_SCREEN_BUTTONS_BAR_ICON_COLOR_MODE, intValue);
+            preference.setSummary(mButtonsBarIconColorMode.getEntries()[index]);
+            return true;
+        } else if (preference == mButtonsBarRippleColorMode) {
+            intValue = Integer.valueOf((String) newValue);
+            index = mButtonsBarRippleColorMode.findIndexOfValue((String) newValue);
+            Settings.System.putInt(mResolver,
+                    Settings.System.LOCK_SCREEN_BUTTONS_BAR_RIPPLE_COLOR_MODE, intValue);
+            preference.setSummary(mButtonsBarRippleColorMode.getEntries()[index]);
+            refreshSettings();
+            return true;
+        } else if (preference == mButtonsDefaultColorizeCustomIcons) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.LOCK_SCREEN_SHORTCUTS_COLORIZE_CUSTOM_ICONS,
+                    value ? 1 : 0);
+            return true;
+        } else if (preference == mTextColor) {
             hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
@@ -133,6 +232,14 @@ public class LockScreenColorSettings extends SettingsPreferenceFragment implemen
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
                     Settings.System.LOCK_SCREEN_ICON_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mButtonsBarRippleColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.LOCK_SCREEN_BUTTONS_BAR_RIPPLE_COLOR, intHex);
             preference.setSummary(hex);
             return true;
         }
@@ -172,10 +279,21 @@ public class LockScreenColorSettings extends SettingsPreferenceFragment implemen
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCK_SCREEN_WEATHER_COLORIZE_ALL_ICONS, 0);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCK_SCREEN_BUTTONS_BAR_ICON_COLOR_MODE, 0);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCK_SCREEN_BUTTONS_BAR_RIPPLE_COLOR_MODE, 2);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCK_SCREEN_SHORTCUTS_COLORIZE_CUSTOM_ICONS, 0);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCK_SCREEN_TEXT_COLOR,
                                     WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCK_SCREEN_ICON_COLOR,
+                                    WHITE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCK_SCREEN_BUTTONS_BAR_RIPPLE_COLOR,
                                     WHITE);
                             getOwner().refreshSettings();
                         }
@@ -184,10 +302,21 @@ public class LockScreenColorSettings extends SettingsPreferenceFragment implemen
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCK_SCREEN_WEATHER_COLORIZE_ALL_ICONS, 1);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCK_SCREEN_BUTTONS_BAR_ICON_COLOR_MODE, 1);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCK_SCREEN_BUTTONS_BAR_RIPPLE_COLOR_MODE, 0);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCK_SCREEN_SHORTCUTS_COLORIZE_CUSTOM_ICONS, 1);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCK_SCREEN_TEXT_COLOR,
                                     HOLO_BLUE_LIGHT);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCK_SCREEN_ICON_COLOR,
+                                    HOLO_BLUE_LIGHT);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCK_SCREEN_BUTTONS_BAR_RIPPLE_COLOR,
                                     HOLO_BLUE_LIGHT);
                             getOwner().refreshSettings();
                         }

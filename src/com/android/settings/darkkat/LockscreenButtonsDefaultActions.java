@@ -27,7 +27,7 @@ import com.android.settings.cyanogenmod.ShortcutPickHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LockscreenShortcuts extends Fragment implements View.OnClickListener,
+public class LockscreenButtonsDefaultActions extends Fragment implements View.OnClickListener,
         ShortcutPickHelper.OnPickListener, View.OnTouchListener {
 
     private static final int[] sIconIds = new int[]{R.id.left_button, R.id.right_button};
@@ -161,9 +161,9 @@ public class LockscreenShortcuts extends Fragment implements View.OnClickListene
 
     private void createActionList() {
         mActions = new ActionHolder();
-        mActions.addAction(LockscreenShortcutsHelper.NONE, R.string.shortcuts_none_target);
-        mActions.addAction(LockscreenShortcutsHelper.DEFAULT, R.string.shortcuts_default_target);
-        mActions.addAction(ACTION_APP, R.string.shortcuts_custom_target);
+        mActions.addAction(LockscreenShortcutsHelper.NONE, R.string.shortcuts_none_action);
+        mActions.addAction(LockscreenShortcutsHelper.DEFAULT, R.string.shortcuts_default_action);
+        mActions.addAction(ACTION_APP, R.string.shortcuts_custom_action);
     }
 
     @Override
@@ -202,7 +202,7 @@ public class LockscreenShortcuts extends Fragment implements View.OnClickListene
 
         final AlertDialog dialog = new AlertDialog.Builder(
                 getActivity(), AlertDialog.THEME_MATERIAL_DARK)
-                .setTitle(R.string.shortcuts_reassign_shortcut_title)
+                .setTitle(R.string.shortcut_picker_reassign_action)
                 .setItems(mActions.getEntries(), l)
                 .setOnCancelListener(cancel)
                 .create();

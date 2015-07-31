@@ -93,6 +93,12 @@ public class ShortcutPickerHelper {
     }
 
     public void pickShortcut(int fragmentId, boolean fullAppsOnly) {
+        pickShortcut(fragmentId, fullAppsOnly, false, false);
+    }
+
+
+    public void pickShortcut(int fragmentId, boolean fullAppsOnly,
+            boolean newAction, boolean reassignAction) {
         lastFragmentId = fragmentId;
 
         if (fullAppsOnly) {
@@ -116,10 +122,21 @@ public class ShortcutPickerHelper {
             shortcutIcons.add(ShortcutIconResource.fromContext(mParent, R.drawable.activities_icon));
             bundle.putParcelableArrayList(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, shortcutIcons);
 
+            CharSequence title;
+            if (newAction) {
+                title = mParent.getText(
+                    R.string.shortcut_picker_choose_new_action);
+            } else if (reassignAction) {
+                title = mParent.getText(
+                    R.string.shortcut_picker_reassign_action);
+            } else {
+                title = mParent.getText(
+                    R.string.shortcut_picker_choose_action);
+            }
+
             Intent pickIntent = new Intent(Intent.ACTION_PICK_ACTIVITY);
             pickIntent.putExtra(Intent.EXTRA_INTENT, new Intent(Intent.ACTION_CREATE_SHORTCUT));
-            pickIntent.putExtra(Intent.EXTRA_TITLE, mParent.getText(
-                    R.string.shortcut_picker_select_custom_action_title));
+            pickIntent.putExtra(Intent.EXTRA_TITLE, title);
             pickIntent.putExtras(bundle);
             startFragmentOrActivity(pickIntent, REQUEST_PICK_SHORTCUT);
         }
@@ -150,7 +167,7 @@ public class ShortcutPickerHelper {
             Intent pickIntent = new Intent(Intent.ACTION_PICK_ACTIVITY);
             pickIntent.putExtra(Intent.EXTRA_INTENT, mainIntent);
             pickIntent.putExtra(Intent.EXTRA_TITLE, mParent.getText(
-                    R.string.shortcut_picker_select_custom_app_title));
+                    R.string.shortcut_picker_select_app_title));
             startFragmentOrActivity(pickIntent, requestCodeApplication);
         } else if (application2name != null && application2name.equals(shortcutName)){
             final List<PackageInfo> pInfos = mPackageManager.getInstalledPackages(PackageManager.GET_ACTIVITIES);
@@ -175,7 +192,7 @@ public class ShortcutPickerHelper {
             Builder builder = new Builder(mParent, com.android.internal.R.style.Theme_Material_Dialog_Alert_DarkKat);
             builder.setView(appListView);
             mAlertDialog = builder.create();
-            mAlertDialog.setTitle(mParent.getString(R.string.shortcut_picker_select_custom_activity_title));
+            mAlertDialog.setTitle(mParent.getString(R.string.shortcut_picker_select_activity_title));
             mAlertDialog.show();
             mAlertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
                 @Override

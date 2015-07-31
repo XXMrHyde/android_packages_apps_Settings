@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2015 DarkKat
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/lock_screen_buttons_settings_title" >
+
+    <PreferenceCategory
+        android:key="buttons_cat_buttons_bar"
+        android:title="@string/lock_screen_cat_buttons_bar_title">
+
+        <PreferenceScreen
+            android:key="buttons_bar_actions"
+            android:title="@string/buttons_actions_title"
+            android:summary="@string/buttons_bar_actions_summary"
+            android:fragment="com.android.settings.slim.dslv.ActionListViewSettings">
+                <extra android:name="actionMode" android:value="1" />
+                <extra android:name="maxAllowedActions" android:value="5" />
+                <extra android:name="defaultNumberOfActions" android:value="0" />
+                <extra android:name="disableLongpress" android:value="true" />
+                <extra android:name="useAppPickerOnly" android:value="true" />
+        </PreferenceScreen>
+
+        <ListPreference
+            android:key="buttons_bar_launch_type"
+            android:title="@string/buttons_bar_launch_type_title"
+            android:entries="@array/lock_screen_buttons_bar_launch_type_entries"
+            android:entryValues="@array/lock_screen_buttons_bar_launch_type_values" />
+
+        <ListPreference
+            android:key="buttons_bar_icon_size"
+            android:title="@string/buttons_bar_icon_size_title"
+            android:entries="@array/lock_screen_buttons_bar_icon_size_entries"
+            android:entryValues="@array/lock_screen_buttons_bar_icon_size_values" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="buttons_cat_buttons_default"
+        android:title="@string/lock_screen_cat_buttons_default_title">
+
+        <PreferenceScreen
+            android:key="buttons_default_actions"
+            android:title="@string/buttons_actions_title"
+            android:summary="@string/buttons_default_actions_summary"
+            android:fragment="com.android.settings.darkkat.LockscreenButtonsDefaultActions" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="buttons_cat_notifications"
+        android:title="@string/lock_screen_cat_notifications_title">
+
+        <ListPreference
+            android:key="buttons_bar_hide_bar"
+            android:title="@string/buttons_bar_hide_bar_title"
+            android:dialogTitle="@string/buttons_bar_hide_bar_dlg_title"
+            android:entries="@array/lock_screen_hide_panel_bar_entries"
+            android:entryValues="@array/lock_screen_hide_panel_bar_values" />
+
+        <ListPreference
+            android:key="buttons_bar_number_of_notifications"
+            android:title="@string/lock_screen_number_of_notifications_title"
+            android:dialogTitle="@string/buttons_bar_number_of_notifications_dlg_title"
+            android:entries="@array/lock_screen_number_of_notifications_entries"
+            android:entryValues="@array/lock_screen_number_of_notifications_values" />
+    </PreferenceCategory>
+</PreferenceScreen>

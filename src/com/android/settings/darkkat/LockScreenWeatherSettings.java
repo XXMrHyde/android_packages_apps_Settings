@@ -49,8 +49,6 @@ public class LockScreenWeatherSettings extends SettingsPreferenceFragment implem
             "weather_show_timestamp";
     private static final String PREF_CONDITION_ICON =
             "weather_condition_icon";
-    private static final String PREF_COLORIZE_ALL_ICONS =
-            "weather_colorize_all_icons";
     private static final String PREF_HIDE_WEATHER =
             "weather_hide_panel";
     private static final String PREF_NUMBER_OF_NOTIFICATIONS =
@@ -65,7 +63,6 @@ public class LockScreenWeatherSettings extends SettingsPreferenceFragment implem
     private SwitchPreference mShowLocation;
     private SwitchPreference mShowTimestamp;
     private ListPreference mConditionIcon;
-    private SwitchPreference mColorizeAllIcons;
     private ListPreference mHideWeather;
     private ListPreference mNumberOfNotifications;
 
@@ -122,12 +119,6 @@ public class LockScreenWeatherSettings extends SettingsPreferenceFragment implem
             mConditionIcon.setSummary(mConditionIcon.getEntry());
             mConditionIcon.setOnPreferenceChangeListener(this);
 
-            mColorizeAllIcons =
-                    (SwitchPreference) findPreference(PREF_COLORIZE_ALL_ICONS);
-            mColorizeAllIcons.setChecked(Settings.System.getInt(mResolver,
-                    Settings.System.LOCK_SCREEN_WEATHER_COLORIZE_ALL_ICONS, 0) == 1);
-            mColorizeAllIcons.setOnPreferenceChangeListener(this);
-
             int  hideWeather = Settings.System.getInt(mResolver,
                     Settings.System.LOCK_SCREEN_WEATHER_HIDE_PANEL, 0);
             mHideWeather.setValue(String.valueOf(hideWeather));
@@ -153,7 +144,6 @@ public class LockScreenWeatherSettings extends SettingsPreferenceFragment implem
             removePreference(PREF_SHOW_LOCATION);
             removePreference(PREF_SHOW_TIMESTAMP);
             removePreference(PREF_CONDITION_ICON);
-            removePreference(PREF_COLORIZE_ALL_ICONS);
             catNotifications.removePreference(mHideWeather);
             catNotifications.removePreference(mNumberOfNotifications);
             removePreference(PREF_CAT_NOTIFICATIONS);
@@ -210,12 +200,6 @@ public class LockScreenWeatherSettings extends SettingsPreferenceFragment implem
             Settings.System.putInt(mResolver,
                     Settings.System.LOCK_SCREEN_WEATHER_CONDITION_ICON, intValue);
             mConditionIcon.setSummary(mConditionIcon.getEntries()[index]);
-            return true;
-        } else if (preference == mColorizeAllIcons) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(mResolver,
-                    Settings.System.LOCK_SCREEN_WEATHER_COLORIZE_ALL_ICONS,
-                    value ? 1 : 0);
             return true;
         } else if (preference == mHideWeather) {
             intValue = Integer.valueOf((String) newValue);
@@ -275,8 +259,6 @@ public class LockScreenWeatherSettings extends SettingsPreferenceFragment implem
                                     Settings.System.LOCK_SCREEN_WEATHER_CONDITION_ICON,
                                     MONOCHROME_ICON);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.LOCK_SCREEN_WEATHER_COLORIZE_ALL_ICONS, 0);
-                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCK_SCREEN_WEATHER_HIDE_PANEL, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCK_SCREEN_WEATHER_NUMBER_OF_NOTIFICATIONS, 6);
@@ -294,8 +276,6 @@ public class LockScreenWeatherSettings extends SettingsPreferenceFragment implem
                                     Settings.System.LOCK_SCREEN_SHOW_WEATHER_TIMESTAMP, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCK_SCREEN_WEATHER_CONDITION_ICON, 2);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.LOCK_SCREEN_WEATHER_COLORIZE_ALL_ICONS, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCK_SCREEN_WEATHER_HIDE_PANEL, 0);
                             Settings.System.putInt(getOwner().mResolver,

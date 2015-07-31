@@ -56,27 +56,6 @@
 
     <!-- Pickers -->
 
-    <!-- Shortcut picker (CyanogenMod)-->
-    <string name="picker_apps_title">Aplicaciones</string>
-    <string name="picker_activities_title">Actividades</string>
-    <string name="picker_select_custom_app_title">Seleccionar aplicación personalizada</string>
-    <string name="picker_select_custom_activity_title">Seleccionar actividad personalizada</string>
-
-    <!-- Shortcut picker -->
-    <string name="shortcut_picker_select_action_newaction">Choose new action:</string> <!-- needs translation -->
-    <string name="shortcut_picker_select_action">Choose action:</string> <!-- needs translation -->
-    <string name="shortcut_picker_select_action_longpress">Choose longpress action:</string> <!-- needs translation -->
-    <string name="shortcut_picker_applications_title">Aplicaciones</string>
-    <string name="shortcut_picker_activities_title">Actividades</string>
-    <string name="shortcut_picker_select_custom_app_title">Seleccionar aplicación personalizada:</string>
-    <string name="shortcut_picker_select_custom_activity_title">Seleccionar actividad personalizada:</string>
-    <string name="shortcut_picker_select_custom_action_title">Select custom action:</string> <!-- needs translation -->
-    <string name="shortcut_picker_choose_icon_type_title">Choose icon type:</string> <!-- needs translation -->
-    <string name="shortcut_picker_icon_type_default_title">Default</string> <!-- needs translation -->
-    <string name="shortcut_picker_icon_type_system_title">System icons</string> <!-- needs translation -->
-    <string name="shortcut_picker_choose_system_icon_title">Select system icon:</string> <!-- needs translation -->
-    <string name="shortcut_picker_icon_type_custom_title">Gallery</string> <!-- needs translation -->
-
     <!-- Color picker -->
     <string name="dialog_color_picker_title">Selector de color</string>
     <string name="press_color_to_apply">Selecciona un color a continuación para aplicar</string>
@@ -85,6 +64,21 @@
     <string name="palette_rgb_title">RGB</string>
     <string name="reset_android_title">Predeterminado Android</string>
     <string name="reset_darkkat_title">Predeterminado DarkKat</string>
+
+    <!-- Shortcut picker -->
+    <string name="shortcut_picker_choose_longpress_action">Choose longpress action:</string> <!-- needs translation -->
+    <string name="shortcut_picker_choose_new_action">Choose new action:</string> <!-- needs translation -->
+    <string name="shortcut_picker_reassign_action">Reasignar una aplicación:</string>
+    <string name="shortcut_picker_choose_action">Choose action:</string> <!-- needs translation -->
+    <string name="shortcut_picker_applications_title">Aplicaciones</string>
+    <string name="shortcut_picker_activities_title">Actividades</string>
+    <string name="shortcut_picker_select_app_title">Select application:</string> <!-- needs translation -->
+    <string name="shortcut_picker_select_activity_title">Select activity:</string> <!-- needs translation -->
+    <string name="shortcut_picker_choose_icon_type_title">Choose icon type:</string> <!-- needs translation -->
+    <string name="shortcut_picker_icon_type_default_title">Default</string> <!-- needs translation -->
+    <string name="shortcut_picker_icon_type_system_title">System icons</string> <!-- needs translation -->
+    <string name="shortcut_picker_select_system_icon_title">Select system icon:</string> <!-- needs translation -->
+    <string name="shortcut_picker_icon_type_custom_title">Gallery</string> <!-- needs translation -->
 
     <!-- DSLV -->
     <string name="shortcut_action_longpress">Pulsación larga::</string>
@@ -199,13 +193,27 @@
     <string name="led_light_settings">Luz LED</string>
     <string name="button_settings_title">Botones</string>
 
-   <!-- Lock screen -->
+    <!-- Lock screen (preference screen) -->
     <string name="lock_screen_weather_settings_summary">Personalizar el Tiempo</string>
-    <string name="lock_screen_shortcuts_settings_title">Accesos directos</string>
-    <string name="lock_screen_shortcuts_settings_summary">Personalizar accesos directos</string>
+    <string name="lock_screen_buttons_settings_title">Buttons</string> <!-- needs translation -->
+    <string name="lock_screen_buttons_settings_summary">Customize the additional buttons bar and the default buttons at the bottom</string> <!-- needs translation -->
 
-   <!-- Weather settings -->
-    <string name="weather_cat_notifications_title">Notificaciones</string>
+    <!-- Lock screen (general) -->
+    <string name="lock_screen_cat_notifications_title">Notificaciones</string>
+    <string name="lock_screen_cat_buttons_bar_title">Additional buttons bar</string> <!-- needs translation -->
+    <string name="lock_screen_cat_buttons_default_title">Default bottom buttons</string> <!-- needs translation -->
+    <string name="lock_screen_hide_panel_bar_auto_title">Auto</string> <!-- needs translation -->
+    <string name="lock_screen_hide_panel_bar_custom_title">Custom</string> <!-- needs translation -->
+    <string name="lock_screen_hide_panel_bar_never_title">Never</string> <!-- needs translation -->
+    <string name="lock_screen_number_of_notifications_title">Number of notifications</string> <!-- needs translation -->
+    <string name="lock_screen_number_of_notifications_always_title">Always</string> <!-- needs translation -->
+    <string name="lock_screen_number_of_notifications_two_title">2</string>
+    <string name="lock_screen_number_of_notifications_three_title">3</string>
+    <string name="lock_screen_number_of_notifications_four_title">4</string>
+    <string name="lock_screen_number_of_notifications_five_title">5</string>
+    <string name="lock_screen_number_of_notifications_six_title">6</string>
+
+    <!-- Weather settings -->
     <string name="weather_show_timestamp_title">Mostrar  sello de tiempo</string>
     <string name="weather_show_timestamp_summary">Muestra el  sello de tiempo</string>
     <string name="weather_condition_icon_title">Icono de condiciones climáticas</string>
@@ -213,37 +221,50 @@
     <string name="weather_condition_icon_monochrome_title">Monocromo</string>
     <string name="weather_condition_icon_colored_title">Coloreado</string>
     <string name="weather_condition_icon_vclouds_title">VClouds</string>
-    <string name="weather_colorize_all_icons_title">Colorear todos los iconos</string>
-    <string name="weather_colorize_all_icons_summary">Colorear todos los iconos, deshabilitando los iconos monocoromos</string>
     <string name="weather_hide_panel_title">Hide weather panel</string> <!-- needs translation -->
     <string name="weather_hide_panel_dlg_title">Choose when the weather panel should be hidden</string> <!-- needs translation -->
-    <string name="weather_hide_panel_auto_title">Auto</string> <!-- needs translation -->
-    <string name="weather_hide_panel_custom_title">Custom</string> <!-- needs translation -->
-    <string name="weather_hide_panel_never_title">Never</string> <!-- needs translation -->
     <string name="weather_hide_panel_auto_summary">The weather panel will be hidden, when the visible notifications will reach the maximum allowed notifications on the lock screen</string> <!-- needs translation -->
     <string name="weather_hide_panel_custom_summary">The weather panel will be hidden, when the visible notifications will reach the choosen number of notifications (%s)</string> <!-- needs translation -->
     <string name="weather_hide_panel_never_summary">The weather panel whon/`t be hidden</string> <!-- needs translation -->
-    <string name="weather_number_of_notifications_title">Number of notifications</string> <!-- needs translation -->
     <string name="weather_number_of_notifications_dlg_title">Choose the number of notifications to hide the weather panel</string> <!-- needs translation -->
-    <string name="weather_number_of_notifications_always_title">Always</string> <!-- needs translation -->
-    <string name="weather_number_of_notifications_two_title">2</string> <!-- needs translation -->
-    <string name="weather_number_of_notifications_three_title">3</string> <!-- needs translation -->
-    <string name="weather_number_of_notifications_four_title">4</string> <!-- needs translation -->
-    <string name="weather_number_of_notifications_five_title">5</string> <!-- needs translation -->
-    <string name="weather_number_of_notifications_six_title">6</string> <!-- needs translation -->
 
-   <!-- Shortcuts settings -->
-    <string name="shortcuts_target_settings_title">Accesos directos</string>
-    <string name="shortcuts_target_settings_summary">Personalizar los accesos directos</string>
-    <string name="shortcuts_colorize_custom_icons_title">Colorear todos los iconos</string>
-    <string name="shortcuts_colorize_custom_icons_summary">Colorea todos los iconos, deshabilitando los iconos predeterminados</string>
+    <!-- Buttons settings -->
+    <string name="buttons_actions_title">Customize</string> <!-- needs translation -->
+    <string name="buttons_bar_actions_summary">Arrange the buttons, and choose the buttons to display on the aditional buttons bar.</string> <!-- needs translation -->
+    <string name="buttons_bar_launch_type_title">Click type to launch action</string> <!-- needs translation -->
+    <string name="buttons_bar_launch_type_click_title">Single click</string> <!-- needs translation -->
+    <string name="buttons_bar_launch_type_double_click_title">Double click</string> <!-- needs translation -->
+    <string name="buttons_bar_launch_type_longpress_title">Longpress</string> <!-- needs translation -->
+    <string name="buttons_bar_icon_size_title">Icon size</string> <!-- needs translation -->
+    <string name="buttons_bar_icon_size_24_title">24dp</string> <!-- needs translation -->
+    <string name="buttons_bar_icon_size_36_title">36dp</string> <!-- needs translation -->
+    <string name="buttons_bar_icon_size_48_title">48dp</string> <!-- needs translation -->
+    <string name="buttons_default_actions_summary">Customize the default shortcuts at the bottom</string> <!-- needs translation -->
+    <string name="buttons_bar_hide_bar_title">Hide buttons bar</string> <!-- needs translation -->
+    <string name="buttons_bar_hide_bar_dlg_title">Choose when the buttons bar should be hidden</string> <!-- needs translation -->
+    <string name="buttons_bar_hide_bar_auto_summary">The buttons bar will be hidden, when the visible notifications will reach the maximum allowed notifications on the lock screen</string> <!-- needs translation -->
+    <string name="buttons_bar_hide_bar_custom_summary">The buttons bar will be hidden, when the visible notifications will reach the choosen number of notifications (%s)</string> <!-- needs translation -->
+    <string name="buttons_bar_hide_bar_never_summary">The buttons bar whon/`t be hidden</string> <!-- needs translation -->
+    <string name="buttons_bar_number_of_notifications_dlg_title">Choose the number of notifications to hide the buttons bar</string> <!-- needs translation -->
 
-   <!-- Targets settings -->
-    <string name="shortcuts_hint_message">Toque un icono de la izquierda o la derecha para volver a asignar una aplicación.</string>
-    <string name="shortcuts_reassign_shortcut_title">Reasignar una aplicación</string>
-    <string name="shortcuts_default_target">Predeterminado</string>
-    <string name="shortcuts_none_target">Ninguno</string>
-    <string name="shortcuts_custom_target">Escoger una aplicación personalizada</string>
+    <!-- Bottom buttons preference -->
+    <string name="shortcuts_hint_message">Tap an icon on the left or right to reassign an action.</string> <!-- needs translation -->
+    <string name="shortcuts_none_action">Hide</string> <!-- needs translation -->
+    <string name="shortcuts_default_action">Predeterminado</string>
+    <string name="shortcuts_custom_action">Custom action</string> <!-- needs translation -->
+
+    <!-- Colors settings -->
+    <string name="colors_weather_colorize_all_icons_title">Colorear todos los iconos</string>
+    <string name="colors_weather_colorize_all_icons_summary">Colorear todos los iconos, deshabilitando los iconos monocoromos</string>
+    <string name="colors_buttons_bar_icon_color_mode_title">Colorize icon</string>
+    <string name="colors_buttons_bar_icon_color_mode_dialog_title">Choose when to colorize the icon</string>
+    <string name="colors_buttons_bar_ripple_color_mode_title">Colorize ripple effect</string>
+    <string name="colors_buttons_bar_ripple_color_mode_dialog_title">Choose how to colorize the ripple effect</string>
+    <string name="colors_buttons_default_colorize_custom_icons_title">Colorize all icons</string>
+    <string name="colors_buttons_default_colorize_custom_icons_summary">Enable to colorize all icons, disable to colorize only default icons</string>
+    <string name="colors_buttons_bar_ripple_color_title">Ripple effect</string>
+
+    <!-- Lock screen end -->
 
     <!-- Status bar -->
     <string name="status_bar_gestures_title">Gestos</string>

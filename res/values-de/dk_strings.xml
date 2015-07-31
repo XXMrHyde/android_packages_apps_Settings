@@ -56,27 +56,6 @@
 
     <!-- Pickers -->
 
-    <!-- Shortcut picker (CyanogenMod)-->
-    <string name="picker_apps_title">Apps</string>
-    <string name="picker_activities_title">Aktivitäten</string>
-    <string name="picker_select_custom_app_title">Individuelle App auswählen</string>
-    <string name="picker_select_custom_activity_title">Individuelle Aktivität auswählen</string>
-
-    <!-- Shortcut picker -->
-    <string name="shortcut_picker_select_action_longpress">Aktion bei langem Drücken auswählen:</string>
-    <string name="shortcut_picker_select_action">Aktion auswählen:</string>
-    <string name="shortcut_picker_select_action_newaction">Neue Aktion auswählen:</string>
-    <string name="shortcut_picker_applications_title">Anwendungen</string>
-    <string name="shortcut_picker_activities_title">Aktivitäten</string>
-    <string name="shortcut_picker_select_custom_app_title">Benutzerdefinierte Anwendung auswählen:</string>
-    <string name="shortcut_picker_select_custom_activity_title">Benutzerdefinierte Aktivität auswählen:</string>
-    <string name="shortcut_picker_select_custom_action_title">Benutzerdefinierte Aktion auswählen:</string>
-    <string name="shortcut_picker_choose_icon_type_title">Symbol Typ auswählen:</string>
-    <string name="shortcut_picker_icon_type_default_title">Standard</string>
-    <string name="shortcut_picker_icon_type_system_title">Systemsymbole</string>
-    <string name="shortcut_picker_choose_system_icon_title">Systemsymbol auswählen:</string>
-    <string name="shortcut_picker_icon_type_custom_title">Galerie</string>
-
     <!-- Color picker -->
     <string name="dialog_color_picker_title">Farbauswahl</string>
     <string name="press_color_to_apply">Drücke unten auf eine Farbe um sie anzuwenden</string>
@@ -85,6 +64,21 @@
     <string name="palette_rgb_title">RGB</string>
     <string name="reset_android_title">Android Standard</string>
     <string name="reset_darkkat_title">DarkKat Standard</string>
+
+    <!-- Shortcut picker -->
+    <string name="shortcut_picker_choose_longpress_action">Aktion bei langem Drücken wählen:</string>
+    <string name="shortcut_picker_reassign_action">Aktion neu zuweisen:</string>
+    <string name="shortcut_picker_choose_new_action">Neue Aktion wählen:</string>
+    <string name="shortcut_picker_choose_action">Aktion wählen:</string>
+    <string name="shortcut_picker_applications_title">Anwendungen</string>
+    <string name="shortcut_picker_activities_title">Aktivitäten</string>
+    <string name="shortcut_picker_select_app_title">Anwendung auswählen:</string>
+    <string name="shortcut_picker_select_activity_title">Aktivität auswählen:</string>
+    <string name="shortcut_picker_choose_icon_type_title">Symbol Typ auswählen:</string>
+    <string name="shortcut_picker_icon_type_default_title">Standard</string>
+    <string name="shortcut_picker_icon_type_system_title">Systemsymbole</string>
+    <string name="shortcut_picker_select_system_icon_title">Systemsymbol auswählen:</string>
+    <string name="shortcut_picker_icon_type_custom_title">Galerie</string>
 
     <!-- DSLV -->
     <string name="shortcut_action_longpress">Lange drücken:</string>
@@ -199,13 +193,27 @@
     <string name="led_light_settings">LED Leuchte</string>
     <string name="button_settings_title">Tasten</string>
 
-   <!-- Lock screen -->
+    <!-- Lock screen (preference screen) -->
     <string name="lock_screen_weather_settings_summary">Das Wetter anpassen</string>
-    <string name="lock_screen_shortcuts_settings_title">Verknüpfungen</string>
-    <string name="lock_screen_shortcuts_settings_summary">Verknüpfungen anpassen</string>
+    <string name="lock_screen_buttons_settings_title">Schaltflächen</string>
+    <string name="lock_screen_buttons_settings_summary">Die zusätzliche Schaltflächenleiste und die unteren Standard Schaltflächen anpassen</string>
 
-   <!-- Weather settings -->
-    <string name="weather_cat_notifications_title">Benachrichtigungen</string>
+    <!-- Lock screen (general) -->
+    <string name="lock_screen_cat_notifications_title">Benachrichtigungen</string>
+    <string name="lock_screen_cat_buttons_bar_title">Zusätzliche Schaltflächenleiste</string>
+    <string name="lock_screen_cat_buttons_default_title">Untere Standard Schaltflächen</string>
+    <string name="lock_screen_hide_panel_bar_auto_title">Automatisch</string>
+    <string name="lock_screen_hide_panel_bar_custom_title">Anpassbar</string>
+    <string name="lock_screen_hide_panel_bar_never_title">Nie</string>
+    <string name="lock_screen_number_of_notifications_title">Anzahl der Benachrichtigungen</string>
+    <string name="lock_screen_number_of_notifications_always_title">Immer</string>
+    <string name="lock_screen_number_of_notifications_two_title">2</string>
+    <string name="lock_screen_number_of_notifications_three_title">3</string>
+    <string name="lock_screen_number_of_notifications_four_title">4</string>
+    <string name="lock_screen_number_of_notifications_five_title">5</string>
+    <string name="lock_screen_number_of_notifications_six_title">6</string>
+
+    <!-- Weather settings -->
     <string name="weather_show_timestamp_title">Aktuallisierungszeitpunkt anzeigen</string>
     <string name="weather_show_timestamp_summary">Aktivieren um den Aktuallisierungszeitpunkt anzuzeigen</string>
     <string name="weather_condition_icon_title">Symbol der Wetterlage</string>
@@ -213,37 +221,50 @@
     <string name="weather_condition_icon_monochrome_title">Einfarbig</string>
     <string name="weather_condition_icon_colored_title">Farbig</string>
     <string name="weather_condition_icon_vclouds_title">VClouds</string>
-    <string name="weather_colorize_all_icons_title">Alle Symbole einfärben</string>
-    <string name="weather_colorize_all_icons_summary">Aktivieren um alle Symbole einzufärben, deaktivieren um nur die einfarbigen Symbole einzufärben</string>
     <string name="weather_hide_panel_title">Wetter verbergen</string>
     <string name="weather_hide_panel_dlg_title">Wähle wann das Wetter verborgen werden soll</string>
-    <string name="weather_hide_panel_auto_title">Automatisch</string>
-    <string name="weather_hide_panel_custom_title">Anpassbar</string>
-    <string name="weather_hide_panel_never_title">Nie</string>
     <string name="weather_hide_panel_auto_summary">Das Wetter wird verborgen, wenn die sichtbaren Benachrichtigungen die Anzahl der maximal erlaubten Benachrichtigungen auf dem Sperrbildschirm erreichen</string>
     <string name="weather_hide_panel_custom_summary">Das Wetter wird verborgen, wenn die sichtbaren Benachrichtigungen die Anzahl der festgelegten Benachrichtigungen (%s) erreichen</string>
     <string name="weather_hide_panel_never_summary">Das Wetter wird nicht verborgen</string>
-    <string name="weather_number_of_notifications_title">Anzahl der Benachrichtigungen</string>
     <string name="weather_number_of_notifications_dlg_title">Wähle die Anzahl der Benachrichtigungen bei denen das Wetter verborgen wird</string>
-    <string name="weather_number_of_notifications_always_title">Immer</string>
-    <string name="weather_number_of_notifications_two_title">2</string>
-    <string name="weather_number_of_notifications_three_title">3</string>
-    <string name="weather_number_of_notifications_four_title">4</string>
-    <string name="weather_number_of_notifications_five_title">5</string>
-    <string name="weather_number_of_notifications_six_title">6</string>
 
-   <!-- Shortcuts settings -->
-    <string name="shortcuts_target_settings_title">Ziele</string>
-    <string name="shortcuts_target_settings_summary">Ziele anpassen</string>
-    <string name="shortcuts_colorize_custom_icons_title">Alle Symbole einfärben</string>
-    <string name="shortcuts_colorize_custom_icons_summary">Aktivieren um alle Symbole einzufärben, deaktivieren um nur die Standard-Symbole einzufärben</string>
+    <!-- Buttons settings -->
+    <string name="buttons_actions_title">Anpassen</string>
+    <string name="buttons_bar_actions_summary">Ordne die Schaltflächen an, und wähle welche Schaltflächen in der Schaltflächenleiste angezeigt werden sollen.</string>
+    <string name="buttons_bar_launch_type_title">Klicktyp um Aktion auzuführen</string>
+    <string name="buttons_bar_launch_type_click_title">Einfacher Klick</string>
+    <string name="buttons_bar_launch_type_double_click_title">Doppel Klick</string>
+    <string name="buttons_bar_launch_type_longpress_title">Gedrückt halten</string>
+    <string name="buttons_bar_icon_size_title">Symbolgröße</string>
+    <string name="buttons_bar_icon_size_24_title">24dp</string>
+    <string name="buttons_bar_icon_size_36_title">36dp</string>
+    <string name="buttons_bar_icon_size_48_title">48dp</string>
+    <string name="buttons_default_actions_summary">Die unteren Standard Schaltflächen anpassen</string>
+    <string name="buttons_bar_hide_bar_title">Schaltflächenleiste verbergen</string>
+    <string name="buttons_bar_hide_bar_dlg_title">Wähle wann die Schaltflächenleiste verborgen werden soll</string>
+    <string name="buttons_bar_hide_bar_auto_summary">Die Schaltflächenleiste wird verborgen, wenn die sichtbaren Benachrichtigungen die Anzahl der maximal erlaubten Benachrichtigungen auf dem Sperrbildschirm erreichen</string>
+    <string name="buttons_bar_hide_bar_custom_summary">Die Schaltflächenleiste wird verborgen, wenn die sichtbaren Benachrichtigungen die Anzahl der festgelegten Benachrichtigungen (%s) erreichen</string>
+    <string name="buttons_bar_hide_bar_never_summary">Die Schaltflächenleiste wird nicht verborgen</string>
+    <string name="buttons_bar_number_of_notifications_dlg_title">Wähle die Anzahl der Benachrichtigungen bei denen Die Schaltflächenleiste verborgen wird</string>
 
-   <!-- Targets settings -->
-    <string name="shortcuts_hint_message">Auf das rechte oder linke Symbol Tippen, um ein Ziel neu zuzuweisen.</string>
-    <string name="shortcuts_reassign_shortcut_title">Ziel neu zuweisen</string>
-    <string name="shortcuts_default_target">Standard</string>
-    <string name="shortcuts_none_target">Keines</string>
-    <string name="shortcuts_custom_target">Individuelles Ziel auswählen</string>
+    <!-- Bottom buttons preference -->
+    <string name="shortcuts_hint_message">Auf das rechte oder linke Symbol Tippen, um eine Aktion neu zuzuweisen.</string>
+    <string name="shortcuts_none_action">Verbergen</string>
+    <string name="shortcuts_default_action">Standard</string>
+    <string name="shortcuts_custom_action">Benutzerdefinierte Aktion</string>
+
+    <!-- Colors settings -->
+    <string name="colors_weather_colorize_all_icons_title">Alle Symbole einfärben</string>
+    <string name="colors_weather_colorize_all_icons_summary">Aktivieren um alle Symbole einzufärben, deaktivieren um nur die einfarbigen Symbole einzufärben</string>
+    <string name="colors_buttons_bar_icon_color_mode_title">Symbol einfärben</string>
+    <string name="colors_buttons_bar_icon_color_mode_dialog_title">Wähle wann das Symbol eingefärbt werden soll</string>
+    <string name="colors_buttons_bar_ripple_color_mode_title">Ripple Effekt einfärben</string>
+    <string name="colors_buttons_bar_ripple_color_mode_dialog_title">Wähle wie der Ripple Effekt eingefärbt werden soll</string>
+    <string name="colors_buttons_default_colorize_custom_icons_title">Alle Symbole einfärben</string>
+    <string name="colors_buttons_default_colorize_custom_icons_summary">Aktivieren um alle Symbole einzufärben, deaktivieren um nur die Standard-Symbole einzufärben</string>
+    <string name="colors_buttons_bar_ripple_color_title">Ripple Effekt</string>
+
+    <!-- Lock screen end -->
 
     <!-- Status bar -->
     <string name="status_bar_gestures_title">Gesten</string>

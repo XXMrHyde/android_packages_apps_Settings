@@ -263,34 +263,82 @@
         <item>2</item>
     </string-array>
 
-    <string-array name="weather_hide_panel_entries">
-        <item>@string/weather_hide_panel_auto_title</item>
-        <item>@string/weather_hide_panel_custom_title</item>
-        <item>@string/weather_hide_panel_never_title</item>
+    <string-array name="lock_screen_hide_panel_bar_entries">
+        <item>@string/lock_screen_hide_panel_bar_auto_title</item>
+        <item>@string/lock_screen_hide_panel_bar_custom_title</item>
+        <item>@string/lock_screen_hide_panel_bar_never_title</item>
     </string-array>
 
-    <string-array name="weather_hide_panel_values" translatable="false">
+    <string-array name="lock_screen_hide_panel_bar_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
     </string-array>
 
-    <string-array name="weather_number_of_notifications_entries">
-        <item>@string/weather_number_of_notifications_always_title</item>
-        <item>@string/weather_number_of_notifications_two_title</item>
-        <item>@string/weather_number_of_notifications_three_title</item>
-        <item>@string/weather_number_of_notifications_four_title</item>
-        <item>@string/weather_number_of_notifications_five_title</item>
-        <item>@string/weather_number_of_notifications_six_title</item>
+    <string-array name="lock_screen_number_of_notifications_entries">
+        <item>@string/lock_screen_number_of_notifications_always_title</item>
+        <item>@string/lock_screen_number_of_notifications_two_title</item>
+        <item>@string/lock_screen_number_of_notifications_three_title</item>
+        <item>@string/lock_screen_number_of_notifications_four_title</item>
+        <item>@string/lock_screen_number_of_notifications_five_title</item>
+        <item>@string/lock_screen_number_of_notifications_six_title</item>
     </string-array>
 
-    <string-array name="weather_number_of_notifications_values" translatable="false">
+    <string-array name="lock_screen_number_of_notifications_values" translatable="false">
         <item>1</item>
         <item>2</item>
         <item>3</item>
         <item>4</item>
         <item>5</item>
         <item>6</item>
+    </string-array>
+
+    <string-array name="lock_screen_buttons_bar_launch_type_entries">
+        <item>@string/buttons_bar_launch_type_click_title</item>
+        <item>@string/buttons_bar_launch_type_double_click_title</item>
+        <item>@string/buttons_bar_launch_type_longpress_title</item>
+    </string-array>
+
+    <string-array name="lock_screen_buttons_bar_launch_type_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="lock_screen_buttons_bar_icon_size_entries">
+        <item>@string/buttons_bar_icon_size_24_title</item>
+        <item>@string/buttons_bar_icon_size_36_title</item>
+        <item>@string/buttons_bar_icon_size_48_title</item>
+    </string-array>
+
+    <string-array name="lock_screen_buttons_bar_icon_size_values" translatable="false">
+        <item>24</item>
+        <item>36</item>
+        <item>48</item>
+    </string-array>
+
+    <string-array name="lock_screen_colors_buttons_bar_icon_color_mode_entries">
+        <item>@string/notification_color_mode_never_title</item>
+        <item>@string/notification_icon_color_mode_greyscale_title</item>
+        <item>@string/notification_color_mode_always_title</item>
+    </string-array>
+
+    <string-array name="lock_screen_colors_buttons_bar_icon_color_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="lock_screen_colors_buttons_bar_ripple_color_entries">
+        <item>@string/navigation_bar_button_ripple_color_mode_auto_title</item>
+        <item>@string/navigation_bar_button_ripple_color_mode_custom_title</item>
+        <item>@string/navigation_bar_button_ripple_color_mode_never_title</item>
+    </string-array>
+
+    <string-array name="lock_screen_colors_buttons_bar_ripple_color_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
     </string-array>
 
     <string-array name="clock_date_position_entries">
