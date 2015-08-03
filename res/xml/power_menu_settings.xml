@@ -18,40 +18,44 @@ limitations under the License.
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/button_power_menu_settings_title">
 
-    <SwitchPreference
-        android:key="power_menu_reboot"
-        android:title="@string/power_menu_reboot_title"
-        android:summary="@string/power_menu_reboot_summary" 
-        android:defaultValue="true"/>
+    <PreferenceScreen
+        android:key="power_menu_actions"
+        android:title="@string/buttons_actions_title"
+        android:summary="@string/power_menu_actions_summary"
+        android:fragment="com.android.settings.slim.dslv.ActionListViewSettings">
+            <extra android:name="actionMode" android:value="2" />
+            <extra android:name="maxAllowedActions" android:value="8" />
+            <extra android:name="defaultNumberOfActions" android:value="4" />
+            <extra android:name="disableLongpress" android:value="true" />
+            <extra android:name="disableIconPicker" android:value="true" />
+            <extra android:name="disableDeleteLastEntry" android:value="true" />
+            <extra android:name="actionValues" android:value="power_menu_action_values" />
+            <extra android:name="actionEntries" android:value="power_menu_action_entries" />
+    </PreferenceScreen>
 
-    <SwitchPreference
-        android:key="power_menu_airplane"
-        android:title="@string/power_menu_airplane_title"
-        android:summary="@string/power_menu_airplane_summary" 
-        android:defaultValue="true"/>
+    <PreferenceCategory
+        android:key="power_menu_cat_colors"
+        android:title="@string/cat_colors_title">
 
-    <SwitchPreference
-        android:key="power_menu_users"
-        android:title="@string/power_menu_users_title"
-        android:summary="@string/power_menu_users_summary" 
-        android:defaultValue="false"/>
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="power_menu_icon_normal_color"
+            android:title="@string/icons_normal_title"
+            android:defaultValue="0xffffffff" />
 
-    <SwitchPreference
-        android:key="power_menu_settings"
-        android:title="@string/power_menu_settings_title"
-        android:summary="@string/power_menu_settings_summary" 
-        android:defaultValue="false"/>
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="power_menu_icon_enabled_selected_color"
+            android:title="@string/icons_enabled_selected_title"
+            android:defaultValue="0xffffffff" />
 
-    <SwitchPreference
-        android:key="power_menu_lockdown"
-        android:title="@string/power_menu_lockdown_title"
-        android:summary="@string/power_menu_lockdown_summary" 
-        android:defaultValue="false"/>
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+             android:key="power_menu_ripple_color"
+             android:title="@string/colors_buttons_bar_ripple_color_title"
+             android:defaultValue="0xffffffff" />
 
-    <SwitchPreference
-        android:key="power_menu_silent"
-        android:title="@string/power_menu_silent_title"
-        android:summary="@string/power_menu_silent_summary" 
-        android:defaultValue="true"/>
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="power_menu_text_color"
+            android:title="@string/text_title"
+            android:defaultValue="0xffffffff" />
 
+    </PreferenceCategory>
 </PreferenceScreen>

@@ -16,114 +16,243 @@
 
 package com.android.settings.darkkat;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.content.ContentResolver;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnCancelListener;
 import android.os.Bundle;
 import android.preference.Preference;
-import android.preference.SwitchPreference;
+import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
 public class PowerMenuSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String PREF_REBOOT =
-            "power_menu_reboot";
-    private static final String PREF_AIRPLANE =
-            "power_menu_airplane";
-    private static final String PREF_USERS =
-            "power_menu_users";
-    private static final String PREF_SETTINGS =
-            "power_menu_settings";
-    private static final String PREF_LOCKDOWN =
-            "power_menu_lockdown";
-    private static final String PREF_SILENT =
-            "power_menu_silent";
+    private static final String PREF_ICON_NORMAL_COLOR =
+            "power_menu_icon_normal_color";
+    private static final String PREF_ICON_ENABLED_SELECTED_COLOR =
+            "power_menu_icon_enabled_selected_color";
+    private static final String PREF_RIPPLE_COLOR =
+            "power_menu_ripple_color";
+    private static final String PREF_TEXT_COLOR =
+            "power_menu_text_color";
 
-    private SwitchPreference mReboot;
-    private SwitchPreference mAirplane;
-    private SwitchPreference mUsers;
-    private SwitchPreference mSettings;
-    private SwitchPreference mLockdown;
-    private SwitchPreference mSilent;
+    private static final int WHITE = 0xffffffff;
+    private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
+    private static final int MATERIAL_TEAL_500 = 0xff009688;
+
+    private static final int MENU_RESET = Menu.FIRST;
+    private static final int DLG_RESET = 0;
+
+    private ColorPickerPreference mIconNormalColor;
+    private ColorPickerPreference mIconEnabledSelectedColor;
+    private ColorPickerPreference mRippleColor;
+    private ColorPickerPreference mTextColor;
+
+    private ContentResolver mResolver;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        refreshSettings();
+    }
+
+    public void refreshSettings() {
+        PreferenceScreen prefs = getPreferenceScreen();
+        if (prefs != null) {
+            prefs.removeAll();
+        }
 
         addPreferencesFromResource(R.xml.power_menu_settings);
+        mResolver = getActivity().getContentResolver();
 
-        mReboot = (SwitchPreference) findPreference(PREF_REBOOT);
-        mReboot.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.POWER_MENU_REBOOT, 1) == 1);
-        mReboot.setOnPreferenceChangeListener(this);
+        int intColor;
+        String hexColor;
 
-        mAirplane = (SwitchPreference) findPreference(PREF_AIRPLANE);
-        mAirplane.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.POWER_MENU_AIRPLANE, 1) == 1);
-        mAirplane.setOnPreferenceChangeListener(this);
+        mIconNormalColor =
+                (ColorPickerPreference) findPreference(PREF_ICON_NORMAL_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.POWER_MENU_ICON_NORMAL_COLOR,
+                WHITE); 
+        mIconNormalColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mIconNormalColor.setSummary(hexColor);
+        mIconNormalColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mIconNormalColor.setOnPreferenceChangeListener(this);
 
-        mUsers = (SwitchPreference) findPreference(PREF_USERS);
-        mUsers.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.POWER_MENU_USERS, 0) == 1);
-        mUsers.setOnPreferenceChangeListener(this);
+        mIconEnabledSelectedColor =
+                (ColorPickerPreference) findPreference(PREF_ICON_ENABLED_SELECTED_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.POWER_MENU_ICON_ENABLED_SELECTED_COLOR,
+                MATERIAL_TEAL_500); 
+        mIconEnabledSelectedColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mIconEnabledSelectedColor.setSummary(hexColor);
+        mIconEnabledSelectedColor.setDefaultColors(MATERIAL_TEAL_500, MATERIAL_TEAL_500);
+        mIconEnabledSelectedColor.setOnPreferenceChangeListener(this);
 
-        mSettings = (SwitchPreference) findPreference(PREF_SETTINGS);
-        mSettings.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.POWER_MENU_SETTINGS, 0) == 1);
-        mSettings.setOnPreferenceChangeListener(this);
+        mRippleColor =
+                (ColorPickerPreference) findPreference(PREF_RIPPLE_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.POWER_MENU_RIPPLE_COLOR, WHITE); 
+        mRippleColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mRippleColor.setSummary(hexColor);
+        mRippleColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mRippleColor.setOnPreferenceChangeListener(this);
 
-        mLockdown = (SwitchPreference) findPreference(PREF_LOCKDOWN);
-        mLockdown.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.POWER_MENU_LOCKDOWN, 0) == 1);
-        mLockdown.setOnPreferenceChangeListener(this);
+        mTextColor =
+                (ColorPickerPreference) findPreference(PREF_TEXT_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.POWER_MENU_TEXT_COLOR,
+                WHITE); 
+        mTextColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mTextColor.setSummary(hexColor);
+        mTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mTextColor.setOnPreferenceChangeListener(this);
 
-        mSilent = (SwitchPreference) findPreference(PREF_SILENT);
-        mSilent.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.POWER_MENU_SILENT, 1) == 1);
-        mSilent.setOnPreferenceChangeListener(this);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.add(0, MENU_RESET, 0, R.string.reset)
+                .setIcon(R.drawable.ic_menu_reset) // use the KitKat backup icon
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case MENU_RESET:
+                showDialogInner(DLG_RESET);
+                return true;
+             default:
+                return super.onContextItemSelected(item);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        boolean value;
+        String hex;
+        int intHex;
 
-        if (preference == mReboot) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.POWER_MENU_REBOOT,
-                    value ? 1 : 0);
+        if (preference == mIconNormalColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.POWER_MENU_ICON_NORMAL_COLOR, intHex);
+            preference.setSummary(hex);
             return true;
-        } else if (preference == mAirplane) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.POWER_MENU_AIRPLANE,
-                    value ? 1 : 0);
+        } else if (preference == mIconEnabledSelectedColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.POWER_MENU_ICON_ENABLED_SELECTED_COLOR, intHex);
+            preference.setSummary(hex);
             return true;
-        } else if (preference == mUsers) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.POWER_MENU_USERS,
-                    value ? 1 : 0);
+        } else if (preference == mRippleColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.POWER_MENU_RIPPLE_COLOR, intHex);
+            preference.setSummary(hex);
             return true;
-        } else if (preference == mSettings) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.POWER_MENU_SETTINGS,
-                    value ? 1 : 0);
-            return true;
-        } else if (preference == mLockdown) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.POWER_MENU_LOCKDOWN,
-                    value ? 1 : 0);
-            return true;
-        } else if (preference == mSilent) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.POWER_MENU_SILENT,
-                    value ? 1 : 0);
+        } else if (preference == mTextColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.POWER_MENU_TEXT_COLOR, intHex);
+            preference.setSummary(hex);
             return true;
         }
+
         return false;
+    }
+
+    private void showDialogInner(int id) {
+        DialogFragment newFragment = MyAlertDialogFragment.newInstance(id);
+        newFragment.setTargetFragment(this, 0);
+        newFragment.show(getFragmentManager(), "dialog " + id);
+    }
+
+    public static class MyAlertDialogFragment extends DialogFragment {
+
+        public static MyAlertDialogFragment newInstance(int id) {
+            MyAlertDialogFragment frag = new MyAlertDialogFragment();
+            Bundle args = new Bundle();
+            args.putInt("id", id);
+            frag.setArguments(args);
+            return frag;
+        }
+
+        PowerMenuSettings getOwner() {
+            return (PowerMenuSettings) getTargetFragment();
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            int id = getArguments().getInt("id");
+            switch (id) {
+                case DLG_RESET:
+                    return new AlertDialog.Builder(getActivity())
+                    .setTitle(R.string.reset)
+                    .setMessage(R.string.dlg_reset_colors_message)
+                    .setNegativeButton(R.string.cancel, null)
+                    .setNeutralButton(R.string.dlg_reset_android,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.POWER_MENU_ICON_NORMAL_COLOR, WHITE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.POWER_MENU_ICON_ENABLED_SELECTED_COLOR,
+                                    MATERIAL_TEAL_500);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.POWER_MENU_RIPPLE_COLOR, WHITE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.POWER_MENU_TEXT_COLOR, WHITE);
+                            getOwner().refreshSettings();
+                        }
+                    })
+                    .setPositiveButton(R.string.dlg_reset_darkkat,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.POWER_MENU_ICON_NORMAL_COLOR,
+                                    HOLO_BLUE_LIGHT);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.POWER_MENU_ICON_ENABLED_SELECTED_COLOR,
+                                    MATERIAL_TEAL_500);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.POWER_MENU_RIPPLE_COLOR,
+                                    HOLO_BLUE_LIGHT);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.POWER_MENU_TEXT_COLOR, HOLO_BLUE_LIGHT);
+                            getOwner().refreshSettings();
+                        }
+                    })
+                    .create();
+            }
+            throw new IllegalArgumentException("unknown id " + id);
+        }
+
+        @Override
+        public void onCancel(DialogInterface dialog) {
+
+        }
     }
 }

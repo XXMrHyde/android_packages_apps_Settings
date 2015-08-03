@@ -26,6 +26,7 @@
     <string name="add">Hinzufügen</string>
     <string name="dlg_dslv_reset_message">Standardeinstellungen wiederherstellen?</string>
     <string name="dlg_reset_values_message">Werte auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
+    <string name="dlg_reset_colors_message">Farben auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="options_title">Optionen</string>
@@ -36,6 +37,8 @@
     <string name="background_title">Hintergrund</string>
     <string name="icon_title">Symbol</string>
     <string name="icons_title">Symbole</string>
+    <string name="icons_normal_title">Symbole normal</string>
+    <string name="icons_enabled_selected_title">Symbole aktiviert&#47;ausgewählt</string>
     <string name="text_title">Text</string>
     <string name="normal_title">Normal</string>
     <string name="color_fully_title">Vollständig verbunden</string>
@@ -99,6 +102,7 @@
     <!-- Shortcuts -->
 
     <!-- Shortcut action names -->
+    <string name="shortcut_action_airplane_mode">Flugmodus</string>
     <string name="shortcut_action_assist">Google Now</string>
     <string name="shortcut_action_back">Zurück</string>
     <string name="shortcut_action_camera">Kamera</string>
@@ -117,6 +121,11 @@
     <string name="shortcut_action_notifications">Benachrichtigungen</string>
     <string name="shortcut_action_power">Bildschirm ausschalten</string>
     <string name="shortcut_action_power_menu">Power Menü</string>
+    <string name="shortcut_action_power_off">Ausschalten</string>
+    <string name="shortcut_action_reboot">Neustarten</string>
+    <string name="shortcut_action_users">Benutzer</string>
+    <string name="shortcut_action_system_settings">Einstellungen</string>
+    <string name="shortcut_action_lock_down">Jetzt sperren</string>
     <string name="shortcut_action_qs">Schnelleinstellungen</string>
     <string name="shortcut_action_recents">Anwendungsverlauf</string>
     <string name="shortcut_action_ring_silent">Ton/Lautlos</string>
@@ -124,6 +133,7 @@
     <string name="shortcut_action_ring_vib_silent">Ton/Vibrieren/Lautlos</string>
     <string name="shortcut_action_screenshot">Bildschirmfoto</string>
     <string name="shortcut_action_search">Suche in App</string>
+    <string name="shortcut_action_sound">Lautstärkemodus</string>
     <string name="shortcut_action_torch">Taschenlampe</string>
     <string name="shortcut_action_voice_search">Sprachsuche</string>
 
@@ -607,18 +617,7 @@
     <string name="button_swap_volume_buttons_summary">Belegung der Lautstärketasten umkehren, wenn das Gerät gedreht wird</string>
 
     <!-- Power menu settings -->
-    <string name="power_menu_reboot_title">Neu starten</string>
-    <string name="power_menu_reboot_summary">Aktivieren um die Neu starten Schaltfläche anzuzeigen</string>
-    <string name="power_menu_airplane_title">Flugmodus</string>
-    <string name="power_menu_airplane_summary">Aktivieren um den Flugmodus Umschalter anzuzeigen</string>
-    <string name="power_menu_users_title">Benutzer</string>
-    <string name="power_menu_users_summary">Aktivieren um Benutzer Schaltflächen anzuzeigen</string>
-    <string name="power_menu_settings_title">Einstellungen</string>
-    <string name="power_menu_settings_summary">Aktivieren um die Systemeinstellungen Schaltfläche anzuzeigen</string>
-    <string name="power_menu_lockdown_title">Jetzt sperren</string>
-    <string name="power_menu_lockdown_summary">Aktivieren um die Jetzt sperren Schaltfläche anzuzeigen</string>
-    <string name="power_menu_silent_title">Lautstärkemodus</string>
-    <string name="power_menu_silent_summary">Aktivieren um den Lautstärkemodus Umschalter anzuzeigen</string>
+    <string name="power_menu_actions_summary">Ordne die Schaltflächen an, und wähle welche Schaltflächen in dem Ein&#47;Aus Menü angezeigt werden sollen.</string>
 
     <!-- Battery settings -->
 

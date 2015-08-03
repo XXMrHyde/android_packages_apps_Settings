@@ -26,6 +26,7 @@
     <string name="add">Add</string> <!-- needs translation -->
     <string name="dlg_dslv_reset_message">Reset all entries to default?</string> <!-- needs translation -->
     <string name="dlg_reset_values_message">¿Restablecer a los valores predeteriminados de \nAndroid- orDarkKat?</string>
+    <string name="dlg_reset_colors_message">Reset colors to\nAndroid- or DarkKat default?</string> <!-- needs translation -->
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="options_title">Opciones</string>
@@ -36,6 +37,8 @@
     <string name="background_title">Fondo</string>
     <string name="icon_title">Icono</string>
     <string name="icons_title">Iconos</string>
+    <string name="icons_normal_title">Icons normal</string> <!-- needs translation -->
+    <string name="icons_enabled_selected_title">Icons enabled&#47;selected</string> <!-- needs translation -->
     <string name="text_title">Texto</string>
     <string name="normal_title">Normal</string>
     <string name="color_fully_title">Totalmente cargado</string>
@@ -99,6 +102,7 @@
     <!-- Shortcuts -->
 
     <!-- Shortcut action names -->
+    <string name="shortcut_action_airplane_mode">Airplane mode</string> <!-- needs translation -->
     <string name="shortcut_action_assist">Google Now</string>
     <string name="shortcut_action_back">Volver</string>
     <string name="shortcut_action_camera">Cámara</string>
@@ -117,6 +121,11 @@
     <string name="shortcut_action_notifications">Notificaciones</string>
     <string name="shortcut_action_power">Screen Off</string> <!-- Needs translation -->
     <string name="shortcut_action_power_menu">Menú de Encendido</string>
+    <string name="shortcut_action_power_off">Power Off</string> <!-- Needs translation -->
+    <string name="shortcut_action_reboot">Reboot</string> <!-- Needs translation -->
+    <string name="shortcut_action_users">Users</string> <!-- Needs translation -->
+    <string name="shortcut_action_system_settings">Settings</string> <!-- Needs translation -->
+    <string name="shortcut_action_lock_down">Lock now</string> <!-- Needs translation -->
     <string name="shortcut_action_qs">Ajustes rápidos</string>
     <string name="shortcut_action_recents">Aplicaciones recientes</string>
     <string name="shortcut_action_ring_silent">Sonido/Silencio</string>
@@ -124,6 +133,7 @@
     <string name="shortcut_action_ring_vib_silent">Sonido/Vibr/Silencio</string>
     <string name="shortcut_action_screenshot">Captura de pantalla</string>
     <string name="shortcut_action_search">Buscar en aplicaciones</string>
+    <string name="shortcut_action_sound">Sound mode</string> <!-- Needs translation -->
     <string name="shortcut_action_torch">Linterna</string>
     <string name="shortcut_action_voice_search">Búsqueda de voz</string>
 
@@ -609,18 +619,7 @@
     <string name="button_swap_volume_buttons_summary">Intercambiar los botones de volumen cuando se gire la pantalla</string>
 
     <!-- Power menu settings -->
-    <string name="power_menu_reboot_title">Reiniciar</string>
-    <string name="power_menu_reboot_summary">Muestra el botón de reinicio</string>
-    <string name="power_menu_airplane_title">Modo avión</string>
-    <string name="power_menu_airplane_summary">Muestra el desplegable de modo avión</string>
-    <string name="power_menu_users_title">Usuarios</string>
-    <string name="power_menu_users_summary">Muestra el botón de usuarios</string>
-    <string name="power_menu_settings_title">Ajustes</string>
-    <string name="power_menu_settings_summary">Muestra el botón de ajustes de sistema</string>
-    <string name="power_menu_lockdown_title">Bloquear ahora</string>
-    <string name="power_menu_lockdown_summary">Muestra el botón de bloquear ahora</string>
-    <string name="power_menu_silent_title">Modo sonido</string>
-    <string name="power_menu_silent_summary">Muestra el desplegable de modo sonido</string>
+    <string name="power_menu_actions_summary">Arrange the buttons, and choose the buttons to display in the power menu.</string> <!-- needs translation -->
 
     <!-- Battery settings -->
 

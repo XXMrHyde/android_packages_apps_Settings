@@ -26,6 +26,7 @@
     <string name="add">Add</string> <!-- needs translation -->
     <string name="dlg_dslv_reset_message">Reset all entries to default?</string> <!-- needs translation -->
     <string name="dlg_reset_values_message">Réinitialiser les valeurs d\'\nAndroid- ou DarkKat par défault ?</string>
+    <string name="dlg_reset_colors_message">Reset colors to\nAndroid- or DarkKat default?</string> <!-- needs translation -->
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="options_title">Options</string>
@@ -36,6 +37,8 @@
     <string name="background_title">Fond</string>
     <string name="icon_title">Icône</string>
     <string name="icons_title">Icônes</string>
+    <string name="icons_normal_title">Icons normal</string> <!-- needs translation -->
+    <string name="icons_enabled_selected_title">Icons enabled&#47;selected</string> <!-- needs translation -->
     <string name="text_title">Texte</string>
     <string name="normal_title">Normal</string>
     <string name="color_fully_title">Entièrement connecté</string>
@@ -100,6 +103,7 @@
     <!-- Shortcuts -->
 
     <!-- Shortcut action names -->
+    <string name="shortcut_action_airplane_mode">Airplane mode</string>
     <string name="shortcut_action_assist">Google Now</string>
     <string name="shortcut_action_back">Back</string>
     <string name="shortcut_action_camera">Camera</string>
@@ -118,6 +122,11 @@
     <string name="shortcut_action_notifications">Notifications</string>
     <string name="shortcut_action_power">Screen Off</string>
     <string name="shortcut_action_power_menu">Power menu</string>
+    <string name="shortcut_action_power_off">Power Off</string>
+    <string name="shortcut_action_reboot">Reboot</string>
+    <string name="shortcut_action_users">Users</string>
+    <string name="shortcut_action_system_settings">Settings</string>
+    <string name="shortcut_action_lock_down">Lock now</string>
     <string name="shortcut_action_qs">Quicksettings panel</string>
     <string name="shortcut_action_recents">Recents</string>
     <string name="shortcut_action_ring_silent">Ring/Silent</string>
@@ -125,6 +134,7 @@
     <string name="shortcut_action_ring_vib_silent">Ring/Vib/Silent</string>
     <string name="shortcut_action_screenshot">Screenshot</string>
     <string name="shortcut_action_search">Search in app</string>
+    <string name="shortcut_action_sound">Sound mode</string>
     <string name="shortcut_action_torch">Flashlight</string>
     <string name="shortcut_action_voice_search">Voice search</string>
 
@@ -613,18 +623,7 @@
     <string name="button_swap_volume_buttons_summary">Réorienter les boutons de volume lorsque l\'écran est retourné</string>
 
     <!-- Power menu settings -->
-    <string name="power_menu_reboot_title">Redémarrage</string>
-    <string name="power_menu_reboot_summary">Activer pour afficher le bouton de redémarrage</string>
-    <string name="power_menu_airplane_title">Mode avion</string>
-    <string name="power_menu_airplane_summary">Activer pour afficher le mode avion</string>
-    <string name="power_menu_users_title">Utilisateurs</string>
-    <string name="power_menu_users_summary">Activer pour afficher les boutons d\'utilisateur</string>
-    <string name="power_menu_settings_title">Paramètres</string>
-    <string name="power_menu_settings_summary">Activer pour afficher le bouton des paramètres du système</string>
-    <string name="power_menu_lockdown_title">Verrouiller maintenant</string>
-    <string name="power_menu_lockdown_summary">Activer pour afficher le bouton de verouillage</string>
-    <string name="power_menu_silent_title">Mode sonore</string>
-    <string name="power_menu_silent_summary">Activer pour montrer le mode sonore</string>
+    <string name="power_menu_actions_summary">Arrange the buttons, and choose the buttons to display in the power menu.</string> <!-- needs translation -->
 
     <!-- Battery settings -->
 

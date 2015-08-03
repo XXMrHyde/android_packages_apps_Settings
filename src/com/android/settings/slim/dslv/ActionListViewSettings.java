@@ -68,6 +68,8 @@ import com.android.internal.util.darkkat.DeviceUtils;
 import com.android.internal.util.darkkat.DeviceUtils.FilteredDeviceFeaturesArray;
 import com.android.internal.util.darkkat.LockScreenColorHelper;
 import com.android.internal.util.darkkat.NavigationBarColorHelper;
+import com.android.internal.util.darkkat.PowerMenuColorHelper;
+import com.android.internal.util.darkkat.PowerMenuHelper;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
@@ -95,7 +97,7 @@ public class ActionListViewSettings extends ListFragment implements
 
     private static final int NAV_BAR                = 0;
     private static final int LOCKSCREEN_BUTTONS_BAR = 1;
-    private static final int POWER_MENU_SHORTCUT    = 5;
+    private static final int POWER_MENU             = 2;
 
     private static final int DEFAULT_MAX_ACTION_NUMBER = 5;
     private static final int DEFAULT_NUMBER_OF_ACTIONS = 3;
@@ -546,11 +548,9 @@ public class ActionListViewSettings extends ListFragment implements
                     mActivity, mActionValuesKey, mActionEntriesKey);
             case LOCKSCREEN_BUTTONS_BAR:
                 return ActionHelper.getLockscreenButtonBarConfig(mActivity);
-         /* Disabled for now till feature is back.
-            case POWER_MENU_SHORTCUT:
-                return PolicyHelper.getPowerMenuConfigWithDescription(
+            case POWER_MENU:
+                return PowerMenuHelper.getPowerMenuConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
-          */
         }
         return null;
     }
@@ -565,11 +565,10 @@ public class ActionListViewSettings extends ListFragment implements
                 ActionHelper.setLockscreenButtonBarConfig(mActivity, actionConfigs, reset);
                 updateFabVisibility(reset ? mDefaultNumberOfActions : actionConfigs.size());
                 break;
-         /* Disabled for now till feature are back.
-            case POWER_MENU_SHORTCUT:
-                PolicyHelper.setPowerMenuConfig(mActivity, actionConfigs, reset);
+            case POWER_MENU:
+                PowerMenuHelper.setPowerMenuConfig(mActivity, actionConfigs, reset);
+                updateFabVisibility(reset ? mDefaultNumberOfActions : actionConfigs.size());
                 break;
-          */
         }
     }
 
@@ -582,6 +581,7 @@ public class ActionListViewSettings extends ListFragment implements
     }
 
     private class ViewHolder {
+        public TextView clickActionDescriptionView;
         public TextView longpressActionDescriptionView;
         public ImageView iconView;
     }
@@ -599,9 +599,13 @@ public class ActionListViewSettings extends ListFragment implements
             if (v != convertView && v != null) {
                 ViewHolder holder = new ViewHolder();
 
+                TextView clickActionDescription =
+                    (TextView) v.findViewById(R.id.click_action_description);
                 TextView longpressActionDecription =
                     (TextView) v.findViewById(R.id.longpress_action_description);
                 ImageView icon = (ImageView) v.findViewById(R.id.icon);
+
+                holder.clickActionDescriptionView = clickActionDescription;
 
                 if (mDisableLongpress) {
                     longpressActionDecription.setVisibility(View.GONE);
@@ -625,14 +629,7 @@ public class ActionListViewSettings extends ListFragment implements
             Drawable d = null;
             String iconUri = getItem(position).getIcon();
             holder.iconView.setColorFilter(null);
-            if (mActionMode == POWER_MENU_SHORTCUT) {
-             /* Disabled for now till feature are back.
-                d = ImageHelper.resize(
-                        mActivity, PolicyHelper.getPowerMenuIconImage(mActivity,
-                        getItem(position).getClickAction(),
-                        iconUri, false), 36);
-              */
-            } else if (mActionMode == NAV_BAR) {
+            if (mActionMode == NAV_BAR) {
                 d = ImageHelper.resize(
                         mActivity, ActionHelper.getActionIconImage(mActivity,
                         getItem(position).getClickAction(),
@@ -665,6 +662,15 @@ public class ActionListViewSettings extends ListFragment implements
                         holder.iconView.setColorFilter(iconColor, Mode.MULTIPLY);
                     }
                 }
+            } else if (mActionMode == POWER_MENU) {
+                final int textColor = PowerMenuColorHelper.getTextColor(mActivity);
+                holder.clickActionDescriptionView.setTextColor(textColor);
+                d = ImageHelper.resize(
+                        mActivity, PowerMenuHelper.getPowerMenuIconImage(mActivity,
+                        getItem(position).getClickAction()), 32);
+                final int iconColor = PowerMenuColorHelper.getIconNormalColor(mActivity);
+                holder.iconView.setImageBitmap(ImageHelper.drawableToBitmap(d));
+                holder.iconView.setColorFilter(iconColor, Mode.MULTIPLY);
             } else {
                 holder.iconView.setImageDrawable(d);
             }
@@ -759,11 +765,9 @@ public class ActionListViewSettings extends ListFragment implements
                     String actionMode;
                     String icon = "";
                     switch (getOwner().mActionMode) {
-                        case POWER_MENU_SHORTCUT:
-                            actionMode = res.getString(R.string.shortcut_action_help_shortcut);
-                            break;
                         case NAV_BAR:
                         case LOCKSCREEN_BUTTONS_BAR:
+                        case POWER_MENU:
                         default:
                             actionMode = res.getString(R.string.shortcut_action_help_button);
                             break;

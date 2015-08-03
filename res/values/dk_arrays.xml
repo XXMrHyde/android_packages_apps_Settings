@@ -763,6 +763,30 @@
         <item>5000</item>
     </string-array>
 
+    <string-array name="power_menu_action_entries">
+        <item>@string/shortcut_action_power_off</item>
+        <item>@string/shortcut_action_reboot</item>
+        <item>@string/shortcut_action_airplane_mode</item>
+        <item>@string/shortcut_action_users</item>
+        <item>@string/shortcut_action_system_settings</item>
+        <item>@string/shortcut_action_lock_down</item>
+        <item>@string/shortcut_action_expanded_desktop</item>
+        <item>@string/shortcut_action_screenshot</item>
+        <item>@string/shortcut_action_sound</item>
+    </string-array>
+
+    <string-array name="power_menu_action_values" translatable="false">
+        <item>**poweroff**</item>
+        <item>**reboot**</item>
+        <item>**airplane**</item>
+        <item>**users**</item>
+        <item>**system_settings**</item>
+        <item>**lock_down**</item>
+        <item>**expanded_desktop**</item>
+        <item>**screenshot**</item>
+        <item>**sound**</item>
+    </string-array>
+
     <string-array name="blacklist_policy_unknown_entries" translatable="false">
         <item>@string/blacklist_policy_block_calls</item>
         <item>@string/blacklist_policy_block_messages</item>

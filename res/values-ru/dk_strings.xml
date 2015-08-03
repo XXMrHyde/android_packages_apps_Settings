@@ -26,6 +26,7 @@
     <string name="add">Add</string> <!-- needs translation -->
     <string name="dlg_dslv_reset_message">Reset all entries to default?</string> <!-- needs translation -->
     <string name="dlg_reset_values_message">Сбросить значения для\nAndroid- или DarkKat?</string>
+    <string name="dlg_reset_colors_message">Reset colors to\nAndroid- or DarkKat default?</string> <!-- needs translation -->
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="options_title">Опции</string>
@@ -36,6 +37,8 @@
     <string name="background_title">Фон</string>
     <string name="icon_title">Иконка</string>
     <string name="icons_title">Иконки</string>
+    <string name="icons_normal_title">Icons normal</string> <!-- needs translation -->
+    <string name="icons_enabled_selected_title">Icons enabled&#47;selected</string> <!-- needs translation -->
     <string name="text_title">Текст</string>
     <string name="normal_title">Нормальный</string>
     <string name="color_fully_title">Полностью подключены</string>
@@ -125,6 +128,7 @@
     <string name="shortcut_action_ring_vib_silent">Ring/Vib/Silent</string>
     <string name="shortcut_action_screenshot">Screenshot</string>
     <string name="shortcut_action_search">Search in app</string>
+    <string name="shortcut_action_sound">Sound mode</string>
     <string name="shortcut_action_torch">Flashlight</string>
     <string name="shortcut_action_voice_search">Voice search</string>
 
@@ -613,18 +617,7 @@
     <string name="button_swap_volume_buttons_summary">Кнопки регулировки громкости меняются местами когда поворачивается экран</string>
 
     <!-- Power menu settings -->
-    <string name="power_menu_reboot_title">Перезагрузка</string>
-    <string name="power_menu_reboot_summary">Включить, чтобы показать кнопку перезагрузки</string>
-    <string name="power_menu_airplane_title">Режим самолёта</string>
-    <string name="power_menu_airplane_summary">Включить, чтобы показать режим переключения самолета</string>
-    <string name="power_menu_users_title">Пользователи</string>
-    <string name="power_menu_users_summary">Включить, чтобы показать кнопки пользователей</string>
-    <string name="power_menu_settings_title">Настройки</string>
-    <string name="power_menu_settings_summary">Включить, чтобы показать кнопку настройки системы</string>
-    <string name="power_menu_lockdown_title">Заблокиоровать сейчас</string>
-    <string name="power_menu_lockdown_summary">Включить, чтобы показать значок блокировки</string>
-    <string name="power_menu_silent_title">Режим звука</string>
-    <string name="power_menu_silent_summary">Включить, чтобы показать звук в режиме переключения</string>
+    <string name="power_menu_actions_summary">Arrange the buttons, and choose the buttons to display in the power menu.</string> <!-- needs translation -->
 
     <!-- Battery settings -->
 
