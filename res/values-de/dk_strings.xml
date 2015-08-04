@@ -41,6 +41,10 @@
     <string name="icons_normal_title">Symbole normal</string>
     <string name="icons_enabled_selected_title">Symbole aktiviert&#47;ausgewählt</string>
     <string name="colorize_icons_title">Symbole einfärben</string>
+    <string name="colorize_icons_dialog_title">Wähle wann das Symbol eingefärbt werden soll</string>
+    <string name="ripple_title">Ripple Effekt</string>
+    <string name="colorize_ripple_title">Ripple Effekt einfärben</string>
+    <string name="colorize_ripple_dialog_title">Wähle wie der Ripple Effekt eingefärbt werden soll</string>
     <string name="text_title">Text</string>
     <string name="buttons_title">Schaltflächen</string>
     <string name="normal_title">Normal</string>
@@ -266,11 +270,7 @@
     <!-- Colors settings -->
     <string name="colors_colorize_all_icons_title">Alle Symbole einfärben</string>
     <string name="colors_weather_colorize_all_icons_summary">Aktivieren um alle Symbole einzufärben, deaktivieren um nur die einfarbigen Symbole einzufärben</string>
-    <string name="colors_buttons_bar_icon_color_mode_dialog_title">Wähle wann das Symbol eingefärbt werden soll</string>
-    <string name="colors_buttons_bar_ripple_color_mode_title">Ripple Effekt einfärben</string>
-    <string name="colors_buttons_bar_ripple_color_mode_dialog_title">Wähle wie der Ripple Effekt eingefärbt werden soll</string>
     <string name="colors_buttons_default_colorize_custom_icons_summary">Aktivieren um alle Symbole einzufärben, deaktivieren um nur die Standard-Symbole einzufärben</string>
-    <string name="colors_buttons_bar_ripple_color_title">Ripple Effekt</string>
 
     <!-- Lock screen end -->
 
@@ -452,11 +452,7 @@
     <string name="navigation_bar_show_ime_arrows_summary">Beim Tippen rechts und links Pfeiltasten anzeigen. Lange gedrückt halten um eine Zeile hoch/runter zu wechseln. Die Schaltflächen für Tastaturauswahl und Menü werden verborgen.</string>
     <string name="navigation_bar_menu_visibility_request_title">Bei Bedarf (Standard)</string>
     <string name="navigation_bar_menu_location_both_title">Rechts &amp; links</string>
-    <string name="navigation_bar_icon_color_mode_dialog_title">Wähle wann das Symbol eingefärbt werden soll</string>
-    <string name="navigation_bar_button_ripple_color_mode_title">Ripple Effekt Farbmodus</string>
-    <string name="navigation_bar_button_ripple_color_mode_dialog_title">Wähle wie der Ripple Effekt eingefärbt werden soll</string>
     <string name="navigation_bar_button_ripple_color_mode_custom_title">Anpassbare Farbe</string>
-    <string name="navigation_bar_button_ripple_color_title">Ripple Effekt</string>
 
     <!-- Advanced -->
     <string name="cat_recents_title">Anwendungsverlauf</string>

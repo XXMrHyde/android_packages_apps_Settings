@@ -48,14 +48,14 @@
         <ListPreference
              android:key="navigation_bar_icon_color_mode"
              android:title="@string/colorize_icons_title"
-             android:dialogTitle="@string/navigation_bar_icon_color_mode_dialog_title"
+             android:dialogTitle="@string/colorize_icons_dialog_title"
              android:entries="@array/navigation_bar_icon_color_mode_entries"
              android:entryValues="@array/navigation_bar_icon_color_mode_values" />
 
         <ListPreference
              android:key="navigation_bar_button_ripple_color_mode"
-             android:title="@string/navigation_bar_button_ripple_color_mode_title"
-             android:dialogTitle="@string/navigation_bar_button_ripple_color_mode_dialog_title"
+             android:title="@string/colorize_ripple_title"
+             android:dialogTitle="@string/colorize_ripple_dialog_title"
              android:entries="@array/navigation_bar_button_ripple_color_mode_entries"
              android:entryValues="@array/navigation_bar_button_ripple_color_mode_values" />
 
@@ -72,7 +72,7 @@
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
              android:key="navigation_bar_button_ripple_color"
-             android:title="@string/navigation_bar_button_ripple_color_title"
+             android:title="@string/ripple_title"
              android:defaultValue="0xffffffff" />
 
     </PreferenceCategory>

@@ -49,7 +49,7 @@ limitations under the License.
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
              android:key="power_menu_ripple_color"
-             android:title="@string/colors_buttons_bar_ripple_color_title"
+             android:title="@string/ripple_title"
              android:defaultValue="0xffffffff" />
 
          <net.margaritov.preference.colorpicker.ColorPickerPreference

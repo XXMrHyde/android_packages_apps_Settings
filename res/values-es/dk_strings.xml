@@ -41,6 +41,10 @@
     <string name="icons_normal_title">Icons normal</string> <!-- needs translation -->
     <string name="icons_enabled_selected_title">Icons enabled&#47;selected</string> <!-- needs translation -->
     <string name="colorize_icons_title">Colorize icons</string> <!-- needs translation -->
+    <string name="colorize_icons_dialog_title">Choose when to colorize the icon</string> <!-- needs translation -->
+    <string name="ripple_title">Ripple effect</string> <!-- needs translation -->
+    <string name="colorize_ripple_title">Colorize ripple effect</string> <!-- needs translation -->
+    <string name="colorize_ripple_dialog_title">Choose how to colorize the ripple effect</string> <!-- needs translation -->
     <string name="text_title">Texto</string>
     <string name="buttons_title">Botones</string>
     <string name="normal_title">Normal</string>
@@ -266,11 +270,7 @@
     <!-- Colors settings -->
     <string name="colors_colorize_all_icons_title">Colorear todos los iconos</string>
     <string name="colors_weather_colorize_all_icons_summary">Colorear todos los iconos, deshabilitando los iconos monocoromos</string>
-    <string name="colors_buttons_bar_icon_color_mode_dialog_title">Choose when to colorize the icon</string> <!-- needs translation -->
-    <string name="colors_buttons_bar_ripple_color_mode_title">Colorize ripple effect</string> <!-- needs translation -->
-    <string name="colors_buttons_bar_ripple_color_mode_dialog_title">Choose how to colorize the ripple effect</string> <!-- needs translation -->
     <string name="colors_buttons_default_colorize_custom_icons_summary">Enable to colorize all icons, disable to colorize only default icons</string> <!-- needs translation -->
-    <string name="colors_buttons_bar_ripple_color_title">Ripple effect</string>
 
     <!-- Lock screen end -->
 
@@ -452,11 +452,7 @@
     <string name="navigation_bar_show_ime_arrows_summary">Show left and right cursor buttons while typing. Longpress to navigate up/down. Overrides IME switcher and menu buttons.</string> <!-- needs translation -->
     <string name="navigation_bar_menu_visibility_request_title">On request (default)</string> <!-- needs translation -->
     <string name="navigation_bar_menu_location_both_title">Left &amp; right</string> <!-- needs translation -->
-    <string name="navigation_bar_icon_color_mode_dialog_title">Choose when to colorize the icon</string> <!-- needs translation -->
-    <string name="navigation_bar_button_ripple_color_mode_title">Ripple effect color mode</string> <!-- needs translation -->
-    <string name="navigation_bar_button_ripple_color_mode_dialog_title">Choose how to colorize the ripple effect</string> <!-- needs translation -->
     <string name="navigation_bar_button_ripple_color_mode_custom_title">Custom color</string> <!-- needs translation -->
-    <string name="navigation_bar_button_ripple_color_title">Ripple effect</string> <!-- needs translation -->
 
     <!-- Advanced -->
     <string name="cat_recents_title">Vista de aplicaciones recientes</string>
