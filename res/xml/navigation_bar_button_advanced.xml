@@ -29,13 +29,13 @@
 
         <ListPreference
             android:key="navigation_bar_menu_visibility"
-            android:title="@string/navigation_bar_menu_visibility_title"
+            android:title="@string/show_title"
             android:entries="@array/navigation_bar_menu_visibility_entries"
             android:entryValues="@array/navigation_bar_menu_visibility_values" />
 
         <ListPreference
             android:key="navigation_bar_menu_location"
-            android:title="@string/navigation_bar_menu_location_title"
+            android:title="@string/position_title"
             android:entries="@array/navigation_bar_menu_location_entries"
             android:entryValues="@array/navigation_bar_menu_location_values" />
 
@@ -47,7 +47,7 @@
 
         <ListPreference
              android:key="navigation_bar_icon_color_mode"
-             android:title="@string/navigation_bar_icon_color_mode_title"
+             android:title="@string/colorize_icons_title"
              android:dialogTitle="@string/navigation_bar_icon_color_mode_dialog_title"
              android:entries="@array/navigation_bar_icon_color_mode_entries"
              android:entryValues="@array/navigation_bar_icon_color_mode_values" />

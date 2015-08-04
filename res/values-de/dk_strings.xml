@@ -29,6 +29,7 @@
     <string name="dlg_reset_colors_message">Farben auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
+    <string name="customize_title">Anpassen</string>
     <string name="options_title">Optionen</string>
     <string name="color_options_title">Farb Optionen</string>
     <string name="color_title">Farbe</string>
@@ -39,7 +40,9 @@
     <string name="icons_title">Symbole</string>
     <string name="icons_normal_title">Symbole normal</string>
     <string name="icons_enabled_selected_title">Symbole aktiviert&#47;ausgewählt</string>
+    <string name="colorize_icons_title">Symbole einfärben</string>
     <string name="text_title">Text</string>
+    <string name="buttons_title">Schaltflächen</string>
     <string name="normal_title">Normal</string>
     <string name="color_fully_title">Vollständig verbunden</string>
     <string name="show_title">Anzeigen</string>
@@ -48,14 +51,16 @@
     <string name="show_location_summary">Aktivieren um den Standort anzuzeigen</string>
     <string name="lock_clock_missing_title">Uhr-Widget ist nicht installiert</string>
     <string name="lock_clock_missing_summary">Um die Wetter Funtion nutzen zu können, muss das Uhr-Widget \"cLock-Widget\" installiert sein</string>
-    <string name="disabled_title">Deaktiviert</string>
+    <string name="position_title">Position</string>
     <string name="position_right_title">Rechts</string>
     <string name="position_centered_title">Zentriert</string>
+    <string name="position_left_title">Links</string>
+    <string name="disabled_title">Deaktiviert</string>
     <string name="hidden_title">Verborgen</string>
-    <string name="notification_color_mode_never_title">Nie</string>
-    <string name="notification_icon_color_mode_greyscale_title">Wenn das Symbol ein Graustufen Symbol ist</string>
-    <string name="notification_bg_color_mode_no_color_title">Wenn die Benachrichtigung keine eigene Farbe enthält</string>
-    <string name="notification_color_mode_always_title">Immer</string>
+    <string name="never_title">Nie</string>
+    <string name="auto_title">Automatisch</string>
+    <string name="icon_is_greyscale_title">Wenn das Symbol ein Graustufen Symbol ist</string>
+    <string name="always_title">Immer</string>
 
     <!-- Pickers -->
 
@@ -205,18 +210,14 @@
 
     <!-- Lock screen (preference screen) -->
     <string name="lock_screen_weather_settings_summary">Das Wetter anpassen</string>
-    <string name="lock_screen_buttons_settings_title">Schaltflächen</string>
     <string name="lock_screen_buttons_settings_summary">Die zusätzliche Schaltflächenleiste und die unteren Standard Schaltflächen anpassen</string>
 
     <!-- Lock screen (general) -->
     <string name="lock_screen_cat_notifications_title">Benachrichtigungen</string>
     <string name="lock_screen_cat_buttons_bar_title">Zusätzliche Schaltflächenleiste</string>
     <string name="lock_screen_cat_buttons_default_title">Untere Standard Schaltflächen</string>
-    <string name="lock_screen_hide_panel_bar_auto_title">Automatisch</string>
     <string name="lock_screen_hide_panel_bar_custom_title">Anpassbar</string>
-    <string name="lock_screen_hide_panel_bar_never_title">Nie</string>
     <string name="lock_screen_number_of_notifications_title">Anzahl der Benachrichtigungen</string>
-    <string name="lock_screen_number_of_notifications_always_title">Immer</string>
     <string name="lock_screen_number_of_notifications_two_title">2</string>
     <string name="lock_screen_number_of_notifications_three_title">3</string>
     <string name="lock_screen_number_of_notifications_four_title">4</string>
@@ -239,7 +240,6 @@
     <string name="weather_number_of_notifications_dlg_title">Wähle die Anzahl der Benachrichtigungen bei denen das Wetter verborgen wird</string>
 
     <!-- Buttons settings -->
-    <string name="buttons_actions_title">Anpassen</string>
     <string name="buttons_bar_actions_summary">Ordne die Schaltflächen an, und wähle welche Schaltflächen in der Schaltflächenleiste angezeigt werden sollen.</string>
     <string name="buttons_bar_launch_type_title">Klicktyp um Aktion auzuführen</string>
     <string name="buttons_bar_launch_type_click_title">Einfacher Klick</string>
@@ -264,13 +264,11 @@
     <string name="shortcuts_custom_action">Benutzerdefinierte Aktion</string>
 
     <!-- Colors settings -->
-    <string name="colors_weather_colorize_all_icons_title">Alle Symbole einfärben</string>
+    <string name="colors_colorize_all_icons_title">Alle Symbole einfärben</string>
     <string name="colors_weather_colorize_all_icons_summary">Aktivieren um alle Symbole einzufärben, deaktivieren um nur die einfarbigen Symbole einzufärben</string>
-    <string name="colors_buttons_bar_icon_color_mode_title">Symbol einfärben</string>
     <string name="colors_buttons_bar_icon_color_mode_dialog_title">Wähle wann das Symbol eingefärbt werden soll</string>
     <string name="colors_buttons_bar_ripple_color_mode_title">Ripple Effekt einfärben</string>
     <string name="colors_buttons_bar_ripple_color_mode_dialog_title">Wähle wie der Ripple Effekt eingefärbt werden soll</string>
-    <string name="colors_buttons_default_colorize_custom_icons_title">Alle Symbole einfärben</string>
     <string name="colors_buttons_default_colorize_custom_icons_summary">Aktivieren um alle Symbole einzufärben, deaktivieren um nur die Standard-Symbole einzufärben</string>
     <string name="colors_buttons_bar_ripple_color_title">Ripple Effekt</string>
 
@@ -299,7 +297,6 @@
     <string name="status_bar_double_tap_to_sleep_summary">Das Gerät durch doppeltes Tippen auf die Statusleiste in den Standby-Modus setzen</string>
 
     <!-- clock and date settings -->
-    <string name="clock_date_position_title">Position</string>
     <string name="clock_date_cat_clock_date_title">Uhr &amp; Datum</string>
     <string name="clock_date_cat_clock_title">Uhr</string>
     <string name="clock_date_cat_date_title">Datum</string>
@@ -332,7 +329,6 @@
     <string name="battery_status_percent_style_dialog_title">Wähle eine Position</string>
     <string name="battery_status_percent_style_text_inside">Im Symbol</string>
     <string name="battery_status_percent_style_text_next">Neben dem Symbol</string>
-    <string name="battery_status_percent_style_default">Verborgen (Standard)</string>
     <string name="battery_status_charge_animation_speed_title">Ladeanimations Geschwindigkeit</string>
     <string name="battery_status_charge_animation_speed_very_slow">Sehr langsam</string>
     <string name="battery_status_charge_animation_speed_slow">Langsam</string>
@@ -379,7 +375,6 @@
     <string name="network_speed_hide_indicator_summary">Aktivieren um die Anzeige bei keinem Datenverkehr zu verstecken</string>
 
     <!-- Status bar notification and status area -->
-    <string name="notif_status_area_icons_color_mode_title">Symbole einfärben</string>
     <string name="notif_status_area_show_ticker_title">Ticker anzeigen</string>
     <string name="notif_status_area_show_ticker_summary">Aktivieren um den Ticker anzuzeigen</string>
     <string name="notif_status_area_show_count_title">Benachrichtigungszähler</string>
@@ -398,8 +393,6 @@
     <string name="qs_quick_pulldown_title">Schnelles Öffnen</string>
     <string name="qs_quick_pulldown_summary">%1$s Rand der Statusleiste öffnet die Schnelleinstellungen</string>
     <string name="qs_quick_pulldown_dlg_title">Wähle welcher Rand der Statusleiste die Schnelleinstellungen öffnet</string>
-    <string name="qs_quick_pulldown_right">Rechter</string>
-    <string name="qs_quick_pulldown_left">Linker</string>
     <string name="qs_show_brightness_slider_title">Helligkeitsregler anzeigen</string>
     <string name="qs_show_brightness_slider_summary">Aktivieren um den Helligkeitsregler anzuzeigen</string>
     <string name="qs_main_tiles_title">Erste Reihe</string>
@@ -433,10 +426,8 @@
     <string name="qs_action_no_more_tiles">keine weiteren Kacheln verfügbar</string>
 
     <!-- Navigation bar settings -->
-    <string name="navigation_bar_cat_buttons_title">Schaltflächen</string>
     <string name="navigation_bar_cat_landscape_title">Im Querformat</string>
     <string name="navigation_bar_cat_size_title">Größe</string>
-    <string name="navigation_bar_button_settings_title">Anpassen</string>
     <string name="navigation_bar_button_settings_summary">Ordne die Schaltflächen an, und wähle welche Schaltflächen in der Navigationsleiste angezeigt werden sollen.</string>
     <string name="navigation_bar_button_advanced_title">Erweiterte Einstellungen</string>
     <string name="navigation_bar_button_advanced_summary">Erweiterte Funktionen und Farben anpassen</string>
@@ -459,21 +450,12 @@
     <string name="navigation_bar_cat_menu_button_title">Menu Schaltfläche</string>
     <string name="navigation_bar_show_ime_arrows_title">Pfeiltasten anzeigen</string>
     <string name="navigation_bar_show_ime_arrows_summary">Beim Tippen rechts und links Pfeiltasten anzeigen. Lange gedrückt halten um eine Zeile hoch/runter zu wechseln. Die Schaltflächen für Tastaturauswahl und Menü werden verborgen.</string>
-    <string name="navigation_bar_menu_visibility_title">Anzeigen</string>
     <string name="navigation_bar_menu_visibility_request_title">Bei Bedarf (Standard)</string>
-    <string name="navigation_bar_menu_visibility_always_title">Immer</string>
-    <string name="navigation_bar_menu_visibility_never_title">Nie</string>
-    <string name="navigation_bar_menu_location_title">Position</string>
-    <string name="navigation_bar_menu_location_right_title">Rechts</string>
-    <string name="navigation_bar_menu_location_left_title">Links</string>
     <string name="navigation_bar_menu_location_both_title">Rechts &amp; links</string>
-    <string name="navigation_bar_icon_color_mode_title">Symbol Farbmodus</string>
     <string name="navigation_bar_icon_color_mode_dialog_title">Wähle wann das Symbol eingefärbt werden soll</string>
     <string name="navigation_bar_button_ripple_color_mode_title">Ripple Effekt Farbmodus</string>
     <string name="navigation_bar_button_ripple_color_mode_dialog_title">Wähle wie der Ripple Effekt eingefärbt werden soll</string>
-    <string name="navigation_bar_button_ripple_color_mode_auto_title">Automatisch</string>
     <string name="navigation_bar_button_ripple_color_mode_custom_title">Anpassbare Farbe</string>
-    <string name="navigation_bar_button_ripple_color_mode_never_title">Nicht einfärben</string>
     <string name="navigation_bar_button_ripple_color_title">Ripple Effekt</string>
 
     <!-- Advanced -->
@@ -497,9 +479,6 @@
     <!-- Slim recents options -->
     <string name="slim_recents_scale_title">Größe</string>
     <string name="slim_recents_expanded_mode_title">Erweiterter Modus</string>
-    <string name="slim_recents_mode_auto">Automatisch</string>
-    <string name="slim_recents_expanded_mode_always">Immer</string>
-    <string name="slim_recents_expanded_mode_never">Nie</string>
     <string name="slim_recents_lefty_mode_title">Auf der linken Seite anzeigen</string>
     <string name="slim_recents_lefty_mode_summary">Anwendungsverlauf auf der linken Seite des Bildschirmes anzeigen</string>
     <string name="slim_recents_popup_theme_mode_title">Popup Menu Theme</string>
@@ -528,9 +507,6 @@
     <string name="android_recents_show_clear_all_summary">Aktivieren um die Anwendungsverlauf löschen Schaltfläche anzuzeigen</string>
     <string name="android_recents_clear_all_position_horizontal_title">Horizontale Position</string>
     <string name="android_recents_clear_all_position_vertical_title">Vertikale Position</string>
-    <string name="android_recents_clear_all_position_left">Links</string>
-    <string name="android_recents_clear_all_position_right">Rechts</string>
-    <string name="android_recents_clear_all_position_center">Zentriert</string>
     <string name="android_recents_clear_all_position_top">Oben</string>
     <string name="android_recents_clear_all_position_bottom">Unten</string>
     <string name="android_recents_clear_all_use_icon_color_title">Symbolfarbe</string>
@@ -635,6 +611,7 @@
     <string name="notification_bg_guts_color_title">Hintergrund bei Langklick</string>
     <string name="notification_app_icon_bg_color_title">App Symbol Hintergrund</string>
     <string name="notification_clear_all_icon_color_title">Alle schließen Symbol</string>
+    <string name="notification_bg_color_mode_no_color_title">Wenn die Benachrichtigung keine eigene Farbe enthält</string>
 
     <!-- USB settings -->
     <string name="usb_charging_title">Nur aufladen</string>
@@ -656,7 +633,6 @@
     <string name="blacklist_button_delete">Löschen</string>
     <string name="blacklist_empty_text">Es sind noch keine Einträge in der Sperrliste enthalten. Sie können Einträge hinzufügen, indem Sie das \"+\"-Symbol berühren.</string>
     <string name="blacklist_disabled_empty_text">Um Anrufe und Nachrichten von bestimmten Nummern zu verhindern, aktivieren Sie die Rufnummer-Sperrliste.</string>
-    <string name="blacklist_summary_disabled">Deaktiviert</string>
     <string name="blacklist_summary">Sie werden keine Anrufe oder Nachrichten von Nummern aus der Sperrliste empfangen</string>
     <string name="blacklist_notify">Benachrichtigung anzeigen</string>
     <string name="blacklist_private_numbers_title">Unterdrückte Nummern</string>

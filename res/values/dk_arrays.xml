@@ -234,15 +234,15 @@
     </string-array>
 
     <string-array name="notification_icons_color_mode_entries" >
-        <item>@string/notification_color_mode_never_title</item>
-        <item>@string/notification_icon_color_mode_greyscale_title</item>
-        <item>@string/notification_color_mode_always_title</item>
+        <item>@string/never_title</item>
+        <item>@string/icon_is_greyscale_title</item>
+        <item>@string/always_title</item>
     </string-array>
 
     <string-array name="notification_bg_mode_entries" >
-        <item>@string/notification_color_mode_never_title</item>
+        <item>@string/never_title</item>
         <item>@string/notification_bg_color_mode_no_color_title</item>
-        <item>@string/notification_color_mode_always_title</item>
+        <item>@string/always_title</item>
     </string-array>
 
     <string-array name="notification_color_mode_values" translatable="false">
@@ -264,9 +264,9 @@
     </string-array>
 
     <string-array name="lock_screen_hide_panel_bar_entries">
-        <item>@string/lock_screen_hide_panel_bar_auto_title</item>
+        <item>@string/auto_title</item>
         <item>@string/lock_screen_hide_panel_bar_custom_title</item>
-        <item>@string/lock_screen_hide_panel_bar_never_title</item>
+        <item>@string/never_title</item>
     </string-array>
 
     <string-array name="lock_screen_hide_panel_bar_values" translatable="false">
@@ -276,7 +276,7 @@
     </string-array>
 
     <string-array name="lock_screen_number_of_notifications_entries">
-        <item>@string/lock_screen_number_of_notifications_always_title</item>
+        <item>@string/always_title</item>
         <item>@string/lock_screen_number_of_notifications_two_title</item>
         <item>@string/lock_screen_number_of_notifications_three_title</item>
         <item>@string/lock_screen_number_of_notifications_four_title</item>
@@ -318,9 +318,9 @@
     </string-array>
 
     <string-array name="lock_screen_colors_buttons_bar_icon_color_mode_entries">
-        <item>@string/notification_color_mode_never_title</item>
-        <item>@string/notification_icon_color_mode_greyscale_title</item>
-        <item>@string/notification_color_mode_always_title</item>
+        <item>@string/never_title</item>
+        <item>@string/icon_is_greyscale_title</item>
+        <item>@string/always_title</item>
     </string-array>
 
     <string-array name="lock_screen_colors_buttons_bar_icon_color_mode_values" translatable="false">
@@ -330,9 +330,9 @@
     </string-array>
 
     <string-array name="lock_screen_colors_buttons_bar_ripple_color_entries">
-        <item>@string/navigation_bar_button_ripple_color_mode_auto_title</item>
+        <item>@string/auto_title</item>
         <item>@string/navigation_bar_button_ripple_color_mode_custom_title</item>
-        <item>@string/navigation_bar_button_ripple_color_mode_never_title</item>
+        <item>@string/never_title</item>
     </string-array>
 
     <string-array name="lock_screen_colors_buttons_bar_ripple_color_values" translatable="false">
@@ -440,7 +440,7 @@
     <string-array name="battery_status_percent_style_entries" translatable="false">
         <item>@string/battery_status_percent_style_text_inside</item>
         <item>@string/battery_status_percent_style_text_next</item>
-        <item>@string/battery_status_percent_style_default</item>
+        <item>@string/hidden_title</item>
     </string-array>
 
     <string-array name="battery_status_percent_style_values" translatable="false">
@@ -561,8 +561,8 @@
 
     <string-array name="qs_quick_pulldown_entries" >
         <item>@string/disabled_title</item>
-        <item>@string/qs_quick_pulldown_right</item>
-        <item>@string/qs_quick_pulldown_left</item>
+        <item>@string/position_right_title</item>
+        <item>@string/position_left_title</item>
     </string-array>
 
     <string-array name="qs_quick_pulldown_values" translatable="false">
@@ -635,8 +635,8 @@
 
     <string-array name="navigation_bar_menu_visibility_entries">
         <item>@string/navigation_bar_menu_visibility_request_title</item>
-        <item>@string/navigation_bar_menu_visibility_always_title</item>
-        <item>@string/navigation_bar_menu_visibility_never_title</item>
+        <item>@string/always_title</item>
+        <item>@string/never_title</item>
     </string-array>
 
     <string-array name="navigation_bar_menu_visibility_values" translatable="false">
@@ -646,8 +646,8 @@
     </string-array>
 
     <string-array name="navigation_bar_menu_location_entries">
-        <item>@string/navigation_bar_menu_location_right_title</item>
-        <item>@string/navigation_bar_menu_location_left_title</item>
+        <item>@string/position_right_title</item>
+        <item>@string/position_left_title</item>
         <item>@string/navigation_bar_menu_location_both_title</item>
     </string-array>
 
@@ -658,9 +658,9 @@
     </string-array>
 
     <string-array name="navigation_bar_icon_color_mode_entries">
-        <item>@string/notification_color_mode_never_title</item>
-        <item>@string/notification_icon_color_mode_greyscale_title</item>
-        <item>@string/notification_color_mode_always_title</item>
+        <item>@string/never_title</item>
+        <item>@string/icon_is_greyscale_title</item>
+        <item>@string/always_title</item>
     </string-array>
 
     <string-array name="navigation_bar_icon_color_mode_values" translatable="false">
@@ -670,9 +670,9 @@
     </string-array>
 
     <string-array name="navigation_bar_button_ripple_color_mode_entries">
-        <item>@string/navigation_bar_button_ripple_color_mode_auto_title</item>
+        <item>@string/auto_title</item>
         <item>@string/navigation_bar_button_ripple_color_mode_custom_title</item>
-        <item>@string/navigation_bar_button_ripple_color_mode_never_title</item>
+        <item>@string/never_title</item>
     </string-array>
 
     <string-array name="navigation_bar_button_ripple_color_mode_values" translatable="false">
@@ -682,13 +682,13 @@
     </string-array>
 
     <string-array name="slim_recents_expanded_mode_entries">
-        <item>@string/slim_recents_mode_auto</item>
-        <item>@string/slim_recents_expanded_mode_always</item>
-        <item>@string/slim_recents_expanded_mode_never</item>
+        <item>@string/auto_title</item>
+        <item>@string/always_title</item>
+        <item>@string/never_title</item>
     </string-array>
 
     <string-array name="slim_recents_popup_theme_mode_entries">
-        <item>@string/slim_recents_mode_auto</item>
+        <item>@string/auto_title</item>
         <item>@string/slim_recents_popup_theme_mode_dark</item>
         <item>@string/slim_recents_popup_theme_mode_light</item>
     </string-array>
@@ -700,14 +700,14 @@
     </string-array>
 
     <string-array name="android_recents_clear_all_position_horizontal_entries" >
-        <item>@string/android_recents_clear_all_position_left</item>
-        <item>@string/android_recents_clear_all_position_center</item>
-        <item>@string/android_recents_clear_all_position_right</item>
+        <item>@string/position_left_title</item>
+        <item>@string/position_centered_title</item>
+        <item>@string/position_right_title</item>
     </string-array>
 
     <string-array name="android_recents_clear_all_position_vertical_entries" >
         <item>@string/android_recents_clear_all_position_top</item>
-        <item>@string/android_recents_clear_all_position_center</item>
+        <item>@string/position_centered_title</item>
         <item>@string/android_recents_clear_all_position_bottom</item>
     </string-array>
 

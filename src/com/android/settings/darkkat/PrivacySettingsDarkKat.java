@@ -59,7 +59,7 @@ public class PrivacySettingsDarkKat extends SettingsPreferenceFragment {
             if (BlacklistUtils.isBlacklistEnabled(getActivity())) {
                 mBlacklist.setSummary(R.string.blacklist_summary);
             } else {
-                mBlacklist.setSummary(R.string.blacklist_summary_disabled);
+                mBlacklist.setSummary(R.string.disabled_title);
             }
         }
     }

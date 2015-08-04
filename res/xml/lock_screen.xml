@@ -24,7 +24,7 @@
 
     <PreferenceScreen
         android:key="lock_screen_buttons_settings"
-        android:title="@string/lock_screen_buttons_settings_title"
+        android:title="@string/buttons_title"
 		android:summary="@string/lock_screen_buttons_settings_summary"
         android:fragment="com.android.settings.darkkat.LockScreenButtonsSettings" />
 

@@ -17,8 +17,8 @@
 
     <string-array name="qs_quick_pulldown_entries" >
         <item>@string/disabled_title</item>
-        <item>@string/qs_quick_pulldown_left</item>
-        <item>@string/qs_quick_pulldown_right</item>
+        <item>@string/position_left_title</item>
+        <item>@string/position_right_title</item>
     </string-array>
 
     <string-array name="qs_quick_pulldown_values" translatable="false">

@@ -377,8 +377,8 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
             Locale l = Locale.getDefault();
             boolean isRtl = TextUtils.getLayoutDirectionFromLocale(l) == View.LAYOUT_DIRECTION_RTL;
             String direction = res.getString(value == 2
-                    ? (isRtl ? R.string.qs_quick_pulldown_right : R.string.qs_quick_pulldown_left)
-                    : (isRtl ? R.string.qs_quick_pulldown_left : R.string.qs_quick_pulldown_right));
+                    ? (isRtl ? R.string.position_right_title : R.string.position_left_title)
+                    : (isRtl ? R.string.position_left_title : R.string.position_right_title));
             mQSQuickPulldown.setSummary(res.getString(R.string.qs_quick_pulldown_summary, direction));
         }
     }

@@ -20,8 +20,8 @@
 
     <ListPreference
         android:key="clock_date_position"
-        android:dialogTitle="@string/clock_date_position_title"
-        android:title="@string/clock_date_position_title"
+        android:dialogTitle="@string/position_title"
+        android:title="@string/position_title"
         android:entries="@array/clock_date_position_entries"
         android:entryValues="@array/clock_date_position_values" />
 

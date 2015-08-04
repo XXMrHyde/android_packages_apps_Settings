@@ -20,7 +20,7 @@ limitations under the License.
 
     <PreferenceScreen
         android:key="power_menu_actions"
-        android:title="@string/buttons_actions_title"
+        android:title="@string/customize_title"
         android:summary="@string/power_menu_actions_summary"
         android:fragment="com.android.settings.slim.dslv.ActionListViewSettings">
             <extra android:name="actionMode" android:value="2" />

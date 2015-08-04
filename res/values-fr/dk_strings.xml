@@ -29,6 +29,7 @@
     <string name="dlg_reset_colors_message">Reset colors to\nAndroid- or DarkKat default?</string> <!-- needs translation -->
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
+    <string name="customize_title">Customize</string> <!-- needs translation -->
     <string name="options_title">Options</string>
     <string name="color_options_title">Color options</string> <!-- needs translation -->
     <string name="color_title">Couleurs</string>
@@ -39,7 +40,9 @@
     <string name="icons_title">Icônes</string>
     <string name="icons_normal_title">Icons normal</string> <!-- needs translation -->
     <string name="icons_enabled_selected_title">Icons enabled&#47;selected</string> <!-- needs translation -->
+    <string name="colorize_icons_title">Colorize icons</string> <!-- needs translation -->
     <string name="text_title">Texte</string>
+    <string name="buttons_title">Boutons</string>
     <string name="normal_title">Normal</string>
     <string name="color_fully_title">Entièrement connecté</string>
     <string name="show_title">Show</string> <!-- needs translation -->
@@ -48,14 +51,16 @@
     <string name="show_location_summary">Activer pour montrer l\'emplacement</string>
     <string name="lock_clock_missing_title">Clock widget isn\`t installed</string> <!-- needs translation -->
     <string name="lock_clock_missing_summary">To use the weather feature, the Clock widget \'cLock\' has to be installed</string> <!-- needs translation -->
-    <string name="disabled_title">Désactivé</string>
+    <string name="position_title">Position</string>
     <string name="position_right_title">Droite</string>
     <string name="position_centered_title">Centré</string>
+    <string name="position_left_title">left</string> <!-- needs translation -->
     <string name="hidden_title">Caché</string>
-    <string name="notification_color_mode_never_title">Never</string> <!-- needs translation -->
-    <string name="notification_icon_color_mode_greyscale_title">If the icon is an greyscale icon</string> <!-- needs translation -->
-    <string name="notification_bg_color_mode_no_color_title">If the notification doesn\`t include an own color</string> <!-- needs translation -->
-    <string name="notification_color_mode_always_title">Always</string> <!-- needs translation -->
+    <string name="disabled_title">Désactivé</string>
+    <string name="never_title">Never</string> <!-- needs translation -->
+    <string name="auto_title">Auto</string> <!-- needs translation -->
+    <string name="icon_is_greyscale_title">If the icon is an greyscale icon</string> <!-- needs translation -->
+    <string name="always_title">Always</string> <!-- needs translation -->
 
     <!-- Pickers -->
 
@@ -207,18 +212,14 @@
 
     <!-- Lock screen (preference screen) -->
     <string name="lock_screen_weather_settings_summary">Personnalisez la Météo</string>
-    <string name="lock_screen_buttons_settings_title">Buttons</string> <!-- needs translation -->
     <string name="lock_screen_buttons_settings_summary">Customize the additional buttons bar and the default buttons at the bottom</string> <!-- needs translation -->
 
     <!-- Lock screen (general) -->
     <string name="lock_screen_cat_notifications_title">Notifications</string> <!-- needs translation -->
     <string name="lock_screen_cat_buttons_bar_title">Additional buttons bar</string> <!-- needs translation -->
     <string name="lock_screen_cat_buttons_default_title">Default bottom buttons</string> <!-- needs translation -->
-    <string name="lock_screen_hide_panel_bar_auto_title">Auto</string> <!-- needs translation -->
     <string name="lock_screen_hide_panel_bar_custom_title">Custom</string> <!-- needs translation -->
-    <string name="lock_screen_hide_panel_bar_never_title">Never</string> <!-- needs translation -->
     <string name="lock_screen_number_of_notifications_title">Number of notifications</string> <!-- needs translation -->
-    <string name="lock_screen_number_of_notifications_always_title">Always</string> <!-- needs translation -->
     <string name="lock_screen_number_of_notifications_two_title">2</string>
     <string name="lock_screen_number_of_notifications_three_title">3</string>
     <string name="lock_screen_number_of_notifications_four_title">4</string>
@@ -242,7 +243,6 @@
     <string name="weather_number_of_notifications_dlg_title">Choose the number of notifications to hide the weather panel</string>
 
     <!-- Buttons settings -->
-    <string name="buttons_actions_title">Customize</string>
     <string name="buttons_bar_actions_summary">Arrange the buttons, and choose the buttons to display on the aditional buttons bar.</string>
     <string name="buttons_bar_launch_type_title">Click type to launch action</string>
     <string name="buttons_bar_launch_type_click_title">Single click</string>
@@ -268,13 +268,11 @@
     <string name="shortcuts_custom_action">Custom action</string> <!-- needs translation -->
 
     <!-- Colors settings -->
-    <string name="colors_weather_colorize_all_icons_title">Coloriser tous icônes</string>
+    <string name="colors_colorize_all_icons_title">Coloriser tous icônes</string>
     <string name="colors_weather_colorize_all_icons_summary">Activer pour coloriser tous icônes , désactiver pour coloriser uniquement les icônes monochromes</string>
-    <string name="colors_buttons_bar_icon_color_mode_title">Colorize icon</string> <!-- needs translation -->
     <string name="colors_buttons_bar_icon_color_mode_dialog_title">Choose when to colorize the icon</string> <!-- needs translation -->
     <string name="colors_buttons_bar_ripple_color_mode_title">Colorize ripple effect</string> <!-- needs translation -->
     <string name="colors_buttons_bar_ripple_color_mode_dialog_title">Choose how to colorize the ripple effect</string> <!-- needs translation -->
-    <string name="colors_buttons_default_colorize_custom_icons_title">Colorize all icons</string> <!-- needs translation -->
     <string name="colors_buttons_default_colorize_custom_icons_summary">Enable to colorize all icons, disable to colorize only default icons</string> <!-- needs translation -->
     <string name="colors_buttons_bar_ripple_color_title">Ripple effect</string> <!-- needs translation -->
 
@@ -303,7 +301,6 @@
     <string name="status_bar_double_tap_to_sleep_summary">Double appuyez sur la barre d\'état pour mettre l\' appareil en veille</string>
 
     <!-- clock and date settings -->
-    <string name="clock_date_position_title">Position</string>
     <string name="clock_date_cat_clock_date_title">Horloge &amp; Date</string>
     <string name="clock_date_cat_clock_title">Horloge</string>
     <string name="clock_date_cat_date_title">Date</string>
@@ -336,7 +333,6 @@
     <string name="battery_status_percent_style_dialog_title">Choisissez une position</string>
     <string name="battery_status_percent_style_text_inside">A l\'intérieur de l\'icône</string>
     <string name="battery_status_percent_style_text_next">A côté de l\'icône</string>
-    <string name="battery_status_percent_style_default">Cacher (défaut)</string>
     <string name="battery_status_charge_animation_speed_title">Vitesse d\'animation de la charge</string>
     <string name="battery_status_charge_animation_speed_very_slow">Very slow</string> <!-- Needs translation -->
     <string name="battery_status_charge_animation_speed_slow">Doucement</string>
@@ -345,7 +341,7 @@
     <string name="battery_status_use_circle_fill_animation_title">Animation type</string> <!-- Needs translation -->
     <string name="battery_status_use_circle_fill_animation_summary">Activate to use a fill animation, disable to use a offset animation</string> <!-- Needs translation -->
     <string name="battery_status_show_circle_dotted_title">Cercle en pointillés</string>
-    <string name="battery_status_show_circle_dotted_summary">Activate to show the circle dotted</string>
+    <string name="battery_status_show_circle_dotted_summary">Activate to show the circle dotted</string> <!-- Needs translation -->
     <string name="battery_status_circle_dot_length_title">Longueur des points du cerlce</string>
     <string name="battery_status_circle_dot_interval_title">Intervalle des points du cercle</string>
     <string name="battery_status_bar_thickness_title">Thickness</string> <!-- Needs translation -->
@@ -383,7 +379,6 @@
     <string name="network_speed_hide_indicator_summary">Activer pour cacher l\'indicateur lorsqu\'il n\'y a pas de trafic</string>
 
     <!-- Status bar notification and status area -->
-    <string name="notif_status_area_icons_color_mode_title">Colorize icons</string> <!-- needs translation -->
     <string name="notif_status_area_show_ticker_title">Afficher le ticker</string>
     <string name="notif_status_area_show_ticker_summary">Activer pour présenter le ticker</string>
     <string name="notif_status_area_show_count_title">Nombre de notification</string>
@@ -402,8 +397,6 @@
     <string name="qs_quick_pulldown_title">Déroulant rapide</string>
     <string name="qs_quick_pulldown_summary">%1$s edge of the status bar pulls down Quick Settings</string> <!-- needs translation -->
     <string name="qs_quick_pulldown_dlg_title">Choose which edge of the status bar pulls down Quick Settings</string> <!-- needs translation -->
-    <string name="qs_quick_pulldown_right">Right</string> <!-- needs translation -->
-    <string name="qs_quick_pulldown_left">Left</string> <!-- needs translation -->
     <string name="qs_show_brightness_slider_title">Afficher le curseur de luminosité</string>
     <string name="qs_show_brightness_slider_summary">Activer pour montrer le curseur de luminosité</string>
     <string name="qs_main_tiles_title">Agrandir la première ligne</string>
@@ -438,10 +431,8 @@
 
     <!-- Navigation bar settings -->
     <!-- translation needed start-->
-    <string name="navigation_bar_cat_buttons_title">Buttons</string>
     <string name="navigation_bar_cat_landscape_title">On landscape</string>
     <string name="navigation_bar_cat_size_title">Size</string>
-    <string name="navigation_bar_button_settings_title">Customize</string>
     <string name="navigation_bar_button_settings_summary">Arrange the buttons, and choose the buttons to display on the navigation bar.</string>
     <string name="navigation_bar_button_advanced_title">Advanced settings</string>
     <string name="navigation_bar_button_advanced_summary">Customize advanced functions and colors</string>
@@ -464,21 +455,12 @@
     <string name="navigation_bar_cat_menu_button_title">Menu button</string>
     <string name="navigation_bar_show_ime_arrows_title">Show arrow keys</string>
     <string name="navigation_bar_show_ime_arrows_summary">Show left and right cursor buttons while typing. Longpress to navigate up/down. Overrides IME switcher and menu buttons.</string>
-    <string name="navigation_bar_menu_visibility_title">Show</string>
     <string name="navigation_bar_menu_visibility_request_title">On request (default)</string>
-    <string name="navigation_bar_menu_visibility_always_title">Always</string>
-    <string name="navigation_bar_menu_visibility_never_title">Never</string>
-    <string name="navigation_bar_menu_location_title">Position</string>
-    <string name="navigation_bar_menu_location_right_title">Right</string>
-    <string name="navigation_bar_menu_location_left_title">Left</string>
     <string name="navigation_bar_menu_location_both_title">Left &amp; right</string>
-    <string name="navigation_bar_icon_color_mode_title">Colorize icon</string>
     <string name="navigation_bar_icon_color_mode_dialog_title">Choose when to colorize the icon</string>
     <string name="navigation_bar_button_ripple_color_mode_title">Ripple effect color mode</string>
     <string name="navigation_bar_button_ripple_color_mode_dialog_title">Choose how to colorize the ripple effect</string>
-    <string name="navigation_bar_button_ripple_color_mode_auto_title">Auto</string>
     <string name="navigation_bar_button_ripple_color_mode_custom_title">Custom color</string>
-    <string name="navigation_bar_button_ripple_color_mode_never_title">Don\`t colorize</string>
     <string name="navigation_bar_button_ripple_color_title">Ripple effect</string>
     <!-- translation needed end-->
 
@@ -503,9 +485,6 @@
     <!-- Slim recents options -->
     <string name="slim_recents_scale_title">Size</string> <!-- Needs translation -->
     <string name="slim_recents_expanded_mode_title">Expanded mode</string> <!-- Needs translation -->
-    <string name="slim_recents_mode_auto">Auto</string> <!-- Needs translation -->
-    <string name="slim_recents_expanded_mode_always">Always</string> <!-- Needs translation -->
-    <string name="slim_recents_expanded_mode_never">Never</string> <!-- Needs translation -->
     <string name="slim_recents_lefty_mode_title">Show on the left edge</string> <!-- Needs translation -->
     <string name="slim_recents_lefty_mode_summary">Show recent apps panel on the left edge</string> <!-- Needs translation -->
     <string name="slim_recents_popup_theme_mode_title">Popup menu theme</string> <!-- Needs translation -->
@@ -534,9 +513,6 @@
     <string name="android_recents_show_clear_all_summary">Enable to show the clear all button</string> <!-- Needs translation -->
     <string name="android_recents_clear_all_position_horizontal_title">Position horizontal</string> <!-- Needs translation -->
     <string name="android_recents_clear_all_position_vertical_title">Position vertical</string> <!-- Needs translation -->
-    <string name="android_recents_clear_all_position_left">Left</string> <!-- Needs translation -->
-    <string name="android_recents_clear_all_position_right">Right</string> <!-- Needs translation -->
-    <string name="android_recents_clear_all_position_center">Center</string> <!-- Needs translation -->
     <string name="android_recents_clear_all_position_top">Top</string> <!-- Needs translation -->
     <string name="android_recents_clear_all_position_bottom">Bottom</string> <!-- Needs translation -->
     <string name="android_recents_clear_all_use_icon_color_title">Icon color</string> <!-- Needs translation -->
@@ -641,6 +617,7 @@
     <string name="notification_bg_guts_color_title">Color of the overlay on longpress</string> <!-- needs translation -->
     <string name="notification_app_icon_bg_color_title">App icon background</string> <!-- needs translation -->
     <string name="notification_clear_all_icon_color_title">Clear all icon</string> <!-- needs translation -->
+    <string name="notification_bg_color_mode_no_color_title">If the notification doesn\`t include an own color</string> <!-- needs translation -->
 
     <!-- USB settings -->
     <string name="usb_charging_title">Charging</string> <!-- Needs translation -->
@@ -662,7 +639,6 @@
     <string name="blacklist_button_delete">Delete</string> <!-- Needs translation -->
     <string name="blacklist_empty_text">You don\'t have any blacklisted numbers. Add an entry by touching the Add (+) button.</string> <!-- Needs translation -->
     <string name="blacklist_disabled_empty_text">To blacklist calls and/or messages from certain numbers, enable the blacklist.</string> <!-- Needs translation -->
-    <string name="blacklist_summary_disabled">Disabled</string> <!-- Needs translation -->
     <string name="blacklist_summary">Incoming calls and messages from phone numbers in the blacklist will be blocked</string> <!-- Needs translation -->
     <string name="blacklist_notify">Show notification</string> <!-- Needs translation -->
     <string name="blacklist_private_numbers_title">Private numbers</string> <!-- Needs translation -->

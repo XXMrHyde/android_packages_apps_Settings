@@ -21,11 +21,11 @@
 
     <PreferenceCategory
         android:key="navigation_bar_cat_buttons"
-        android:title="@string/navigation_bar_cat_buttons_title">
+        android:title="@string/buttons_title">
 
         <PreferenceScreen
             android:key="navigation_bar_button_settings"
-            android:title="@string/navigation_bar_button_settings_title"
+            android:title="@string/customize_title"
             android:summary="@string/navigation_bar_button_settings_summary"
             android:fragment="com.android.settings.slim.dslv.ActionListViewSettings">
                 <extra android:name="actionMode" android:value="0" />

@@ -14,7 +14,7 @@
      limitations under the License.
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/lock_screen_buttons_settings_title" >
+    android:title="@string/buttons_title" >
 
     <PreferenceCategory
         android:key="buttons_cat_buttons_bar"
@@ -22,7 +22,7 @@
 
         <PreferenceScreen
             android:key="buttons_bar_actions"
-            android:title="@string/buttons_actions_title"
+            android:title="@string/customize_title"
             android:summary="@string/buttons_bar_actions_summary"
             android:fragment="com.android.settings.slim.dslv.ActionListViewSettings">
                 <extra android:name="actionMode" android:value="1" />
@@ -52,7 +52,7 @@
 
         <PreferenceScreen
             android:key="buttons_default_actions"
-            android:title="@string/buttons_actions_title"
+            android:title="@string/customize_title"
             android:summary="@string/buttons_default_actions_summary"
             android:fragment="com.android.settings.darkkat.LockscreenButtonsDefaultActions" />
 
