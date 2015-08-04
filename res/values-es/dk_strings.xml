@@ -433,7 +433,6 @@
     <string name="qs_action_no_more_tiles">No hay más casillas disponibles</string>
 
     <!-- Navigation bar settings -->
-    <!-- translation needed start-->
     <string name="navigation_bar_cat_buttons_title">Botones</string>
     <string name="navigation_bar_cat_landscape_title">On landscape</string> <!-- needs translation -->
     <string name="navigation_bar_cat_size_title">Size</string> <!-- needs translation -->
@@ -476,7 +475,6 @@
     <string name="navigation_bar_button_ripple_color_mode_custom_title">Custom color</string> <!-- needs translation -->
     <string name="navigation_bar_button_ripple_color_mode_never_title">Don\`t colorize</string> <!-- needs translation -->
     <string name="navigation_bar_button_ripple_color_title">Ripple effect</string> <!-- needs translation -->
-    <!-- translation needed end-->
 
     <!-- Advanced -->
     <string name="cat_recents_title">Vista de aplicaciones recientes</string>
@@ -492,7 +490,7 @@
     <string name="lock_clock_calendar_section_title">Eventos del Calendario</string>
     <string name="lock_clock_calendar_section_summary">Ver o cambiar cómo se muestran los eventos del calendario en el widget</string>
 
-     <!-- Slim recents settings -->
+    <!-- Slim recents settings -->
     <string name="cat_appearance_title">Apariencia</string>
     <string name="cat_apps_title">Aplicaciones</string>
 

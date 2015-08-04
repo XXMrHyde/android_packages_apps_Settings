@@ -103,6 +103,7 @@
     <!-- Shortcuts -->
 
     <!-- Shortcut action names -->
+    <string name="shortcut_action_airplane_mode">Airplane mode</string>
     <string name="shortcut_action_assist">Google Now</string>
     <string name="shortcut_action_back">Back</string>
     <string name="shortcut_action_camera">Camera</string>
@@ -121,6 +122,11 @@
     <string name="shortcut_action_notifications">Notifications</string>
     <string name="shortcut_action_power">Screen Off</string>
     <string name="shortcut_action_power_menu">Power menu</string>
+    <string name="shortcut_action_power_off">Power Off</string>
+    <string name="shortcut_action_reboot">Reboot</string>
+    <string name="shortcut_action_users">Users</string>
+    <string name="shortcut_action_system_settings">Settings</string>
+    <string name="shortcut_action_lock_down">Lock now</string>
     <string name="shortcut_action_qs">Quicksettings panel</string>
     <string name="shortcut_action_recents">Recents</string>
     <string name="shortcut_action_ring_silent">Ring/Silent</string>
@@ -199,7 +205,7 @@
     <string name="led_light_settings">Цвет уведомлений</string>
     <string name="button_settings_title">Кнопки</string>
 
-   <!-- Lock screen -->
+    <!-- Lock screen (preference screen) -->
     <string name="lock_screen_weather_settings_summary">Настроить погоду</string>
     <string name="lock_screen_buttons_settings_title">Buttons</string> <!-- needs translation -->
     <string name="lock_screen_buttons_settings_summary">Customize the additional buttons bar and the default buttons at the bottom</string> <!-- needs translation -->
@@ -219,7 +225,7 @@
     <string name="lock_screen_number_of_notifications_five_title">5</string>
     <string name="lock_screen_number_of_notifications_six_title">6</string>
 
-   <!-- Weather settings -->
+    <!-- Weather settings -->
     <string name="weather_show_timestamp_title">Показывать время</string>
     <string name="weather_show_timestamp_summary">Включить, чтобы показать метку</string>
     <string name="weather_condition_icon_title">Состояние значка</string>
@@ -490,7 +496,7 @@
     <string name="lock_clock_calendar_section_title">Календарь событий</string>
     <string name="lock_clock_calendar_section_summary">Изменить отображение событий календаря  на домашнем виджете</string>
 
-     <!-- Slim recents settings -->
+    <!-- Slim recents settings -->
     <string name="cat_appearance_title">Appearance</string> <!-- Needs translation -->
     <string name="cat_apps_title">Apps</string> <!-- Needs translation -->
 
