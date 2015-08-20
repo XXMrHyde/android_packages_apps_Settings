@@ -393,9 +393,16 @@
 
     <!-- Quick settings -->
     <string name="qs_cat_advanced_tiles_title">Tuiles avancée</string>
-    <string name="qs_order_title">Sélectionnez les tuiles et mettez dans l\'ordre souhaitez</string>
+    <string name="qs_type_title">Type</string> <!-- needs translation -->
+    <string name="qs_type_dlg_title">Choose the quick settings type</string> <!-- needs translation -->
+    <string name="qs_type_panel">Panel</string> <!-- needs translation -->
+    <string name="qs_type_bar">Bar</string> <!-- needs translation -->
+    <string name="qs_panel_tiles_summary">Arrange the tiles, and choose the tiles to display on the panel</string> <!-- needs translation -->
+    <string name="qs_bar_buttons_summary">Arrange the buttons, and choose the buttons to display on the bar</string> <!-- needs translation -->
     <string name="qs_quick_pulldown_title">Déroulant rapide</string>
     <string name="qs_quick_pulldown_summary">%1$s edge of the status bar pulls down Quick Settings</string> <!-- needs translation -->
+    <string name="qs_quick_pulldown_summary_right">Right</string> <!-- needs translation -->
+    <string name="qs_quick_pulldown_summary_left">Left</string> <!-- needs translation -->
     <string name="qs_quick_pulldown_dlg_title">Choose which edge of the status bar pulls down Quick Settings</string> <!-- needs translation -->
     <string name="qs_show_brightness_slider_title">Afficher le curseur de luminosité</string>
     <string name="qs_show_brightness_slider_summary">Activer pour montrer le curseur de luminosité</string>

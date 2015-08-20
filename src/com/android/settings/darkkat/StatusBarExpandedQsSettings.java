@@ -35,7 +35,6 @@ import android.view.View;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.darkkat.qs.QSTiles;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
@@ -44,8 +43,8 @@ import java.util.Locale;
 public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String PREF_QS_ORDER =
-            "qs_order";
+    private static final String PREF_QS_TYPE =
+            "qs_type";
     private static final String PREF_QS_QUICK_PULLDOWN =
             "qs_quick_pulldown";
     private static final String PREF_QS_SHOW_BRIGHTNESS_SLIDER =
@@ -62,6 +61,8 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
             "qs_background_color";
     private static final String PREF_QS_ICON_COLOR =
             "qs_icon_color";
+    private static final String PREF_QS_RIPPLE_COLOR =
+            "qs_ripple_color";
     private static final String PREF_QS_TEXT_COLOR =
             "qs_text_color";
 
@@ -73,7 +74,7 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
-    private Preference mQSTiles;
+    private ListPreference mQSType;
     private ListPreference mQSQuickPulldown;
     private SwitchPreference mQSShowBrightnessSlider;
     private SwitchPreference mQSMainTiles;
@@ -82,6 +83,7 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
     private SwitchPreference mQSWifiAdvanced;
     private ColorPickerPreference mQSBackgroundColor;
     private ColorPickerPreference mQSIconColor;
+    private ColorPickerPreference mQSRippleColor;
     private ColorPickerPreference mQSTextColor;
 
     private ContentResolver mResolver;
@@ -104,7 +106,12 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
         int intColor;
         String hexColor;
 
-        mQSTiles = findPreference(PREF_QS_ORDER);
+        mQSType = (ListPreference) findPreference(PREF_QS_TYPE);
+        int type = Settings.System.getInt(mResolver,
+               Settings.System.QS_TYPE, 0);
+        mQSType.setValue(String.valueOf(type));
+        mQSType.setSummary(mQSType.getEntry());
+        mQSType.setOnPreferenceChangeListener(this);
 
         mQSQuickPulldown =
                 (ListPreference) findPreference(PREF_QS_QUICK_PULLDOWN);
@@ -166,6 +173,16 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
         mQSIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
         mQSIconColor.setOnPreferenceChangeListener(this);
 
+        mQSRippleColor =
+                (ColorPickerPreference) findPreference(PREF_QS_RIPPLE_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.QS_RIPPLE_COLOR, WHITE); 
+        mQSRippleColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mQSRippleColor.setSummary(hexColor);
+        mQSRippleColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mQSRippleColor.setOnPreferenceChangeListener(this);
+
         mQSTextColor =
                 (ColorPickerPreference) findPreference(PREF_QS_TEXT_COLOR);
         intColor = Settings.System.getInt(mResolver,
@@ -176,21 +193,7 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
         mQSTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
         mQSTextColor.setOnPreferenceChangeListener(this);
 
-        updateQsTileCount();
-
         setHasOptionsMenu(true);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        updateQsTileCount();
-    }
-
-    private void updateQsTileCount() {
-        int qsTileCount = QSTiles.determineTileCount(getActivity());
-        mQSTiles.setSummary(getResources().getQuantityString(R.plurals.qs_tiles_summary,
-                    qsTileCount, qsTileCount));
     }
 
     @Override
@@ -212,12 +215,20 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        int intValue;
         boolean value;
         String hex;
         int intHex;
 
-        if (preference == mQSQuickPulldown) {
-            int intValue = Integer.valueOf((String) newValue);
+        if (preference == mQSType) {
+            intValue = Integer.valueOf((String) newValue);
+            int index = mQSType.findIndexOfValue((String) newValue);
+            Settings.System.putInt(mResolver,
+                Settings.System.QS_TYPE, intValue);
+            preference.setSummary(mQSType.getEntries()[index]);
+            return true;
+        } else if (preference == mQSQuickPulldown) {
+            intValue = Integer.valueOf((String) newValue);
             Settings.System.putInt(mResolver,
                 Settings.System.QS_QUICK_PULLDOWN, intValue);
             updateQuickPulldownSummary(intValue);
@@ -261,6 +272,14 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
                 Settings.System.QS_ICON_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mQSRippleColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                Settings.System.QS_RIPPLE_COLOR, intHex);
             preference.setSummary(hex);
             return true;
         } else if (preference == mQSTextColor) {
@@ -308,6 +327,8 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.QS_TYPE, 0);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_QUICK_PULLDOWN, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_SHOW_BRIGHTNESS_SLIDER, 1);
@@ -325,6 +346,8 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_ICON_COLOR, WHITE);
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.QS_RIPPLE_COLOR, WHITE);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_TEXT_COLOR, WHITE);
                             getOwner().refreshSettings();
                         }
@@ -332,6 +355,8 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
                     .setPositiveButton(R.string.dlg_reset_darkkat,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.QS_TYPE, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_QUICK_PULLDOWN, 1);
                             Settings.System.putInt(getOwner().mResolver,
@@ -349,6 +374,9 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
                                     DARKKAT_BLUE_GREY);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_ICON_COLOR,
+                                    HOLO_BLUE_LIGHT);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.QS_RIPPLE_COLOR,
                                     HOLO_BLUE_LIGHT);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_TEXT_COLOR,
@@ -377,8 +405,8 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
             Locale l = Locale.getDefault();
             boolean isRtl = TextUtils.getLayoutDirectionFromLocale(l) == View.LAYOUT_DIRECTION_RTL;
             String direction = res.getString(value == 2
-                    ? (isRtl ? R.string.position_right_title : R.string.position_left_title)
-                    : (isRtl ? R.string.position_left_title : R.string.position_right_title));
+                    ? (isRtl ? R.string.qs_quick_pulldown_summary_right : R.string.qs_quick_pulldown_summary_left)
+                    : (isRtl ? R.string.qs_quick_pulldown_summary_left : R.string.qs_quick_pulldown_summary_right));
             mQSQuickPulldown.setSummary(res.getString(R.string.qs_quick_pulldown_summary, direction));
         }
     }

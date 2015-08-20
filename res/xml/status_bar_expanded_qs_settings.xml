@@ -18,10 +18,45 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/status_bar_expanded_qs_settings_title">
 
-    <PreferenceScreen
-        android:key="qs_order"
-        android:title="@string/qs_order_title"
-        android:fragment="com.android.settings.darkkat.qs.QSTiles" />
+    <ListPreference
+        android:key="qs_type"
+        android:title="@string/qs_type_title"
+        android:dialogTitle="@string/qs_type_dlg_title"
+        android:entries="@array/qs_type_entries"
+        android:entryValues="@array/qs_type_values" />
+
+    <PreferenceCategory
+        android:key="qs_cat_panel"
+        android:title="@string/qs_type_panel">
+
+        <PreferenceScreen
+            android:key="qs_panel_tiles"
+            android:title="@string/customize_title"
+            android:summary="@string/qs_panel_tiles_summary"
+            android:fragment="com.android.settings.darkkat.qs.QSTiles" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="qs_cat_bar"
+        android:title="@string/qs_type_bar">
+
+        <PreferenceScreen
+            android:key="qs_bar_buttons"
+            android:title="@string/customize_title"
+            android:summary="@string/qs_bar_buttons_summary"
+            android:fragment="com.android.settings.slim.dslv.ActionListViewSettings">
+                <extra android:name="actionMode" android:value="3" />
+                <extra android:name="maxAllowedActions" android:value="12" />
+                <extra android:name="defaultNumberOfActions" android:value="6" />
+                <extra android:name="disableLongpress" android:value="true" />
+                <extra android:name="disableIconPicker" android:value="true" />
+                <extra android:name="disableDeleteLastEntry" android:value="true" />
+                <extra android:name="actionValues" android:value="qs_bar_button_values" />
+                <extra android:name="actionEntries" android:value="qs_bar_button_entries" />
+        </PreferenceScreen>
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="qs_cat_options"
@@ -85,6 +120,11 @@
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="qs_icon_color"
             android:title="@string/icon_title"
+            android:defaultValue="0xffffffff" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="qs_ripple_color"
+            android:title="@string/ripple_title"
             android:defaultValue="0xffffffff" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
