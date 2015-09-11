@@ -74,6 +74,8 @@ import com.android.settings.applications.ProcessStatsUi;
 import com.android.settings.blacklist.BlacklistSettings;
 import com.android.settings.bluetooth.BluetoothSettings;
 import com.android.settings.darkkat.DisplayRotationSettings;
+import com.android.settings.darkkat.StatusBarExpandedHeaderSettings;
+import com.android.settings.darkkat.StatusBarExpandedQsSettings;
 import com.android.settings.dashboard.DashboardCategory;
 import com.android.settings.dashboard.DashboardSummary;
 import com.android.settings.dashboard.DashboardTile;
@@ -311,7 +313,9 @@ public class SettingsActivity extends Activity
             QuickLaunchSettings.class.getName(),
             ApnSettings.class.getName(),
             BlacklistSettings.class.getName(),
-            DisplayRotationSettings.class.getName()
+            DisplayRotationSettings.class.getName(),
+            StatusBarExpandedHeaderSettings.class.getName(),
+            StatusBarExpandedQsSettings.class.getName()
     };
 
 

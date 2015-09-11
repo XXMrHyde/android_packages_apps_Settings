@@ -1800,6 +1800,32 @@
                 android:value="com.android.settings.darkkat.DisplayRotationSettings" />
         </activity>
 
+        <!-- Pseudo-activity used to provide an intent-filter entry point to display statusbar expanded header settings -->
+        <activity android:name="Settings$StatusBarExpandedHeaderSettingsActivity"
+                android:label="@string/status_bar_expanded_header_settings_title"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.darkkat.StatusBarExpandedHeaderSettings" />
+        </activity>
+
+        <!-- Pseudo-activity used to provide an intent-filter entry point to display statusbar expanded qs settings -->
+        <activity android:name="Settings$StatusBarExpandedQsSettingsActivity"
+                android:label="@string/status_bar_expanded_qs_settings_title"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.darkkat.StatusBarExpandedQsSettings" />
+        </activity>
+
         <!-- DarkKat activities End -->
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->

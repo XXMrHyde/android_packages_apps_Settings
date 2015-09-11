@@ -19,6 +19,8 @@ package com.android.settings;
 import com.android.settings.applications.AppOpsSummary;
 import com.android.settings.blacklist.BlacklistSettings;
 import com.android.settings.darkkat.DisplayRotationSettings;
+import com.android.settings.darkkat.StatusBarExpandedHeaderSettings;
+import com.android.settings.darkkat.StatusBarExpandedQsSettings;
 
 /**
  * Top-level Settings activity
@@ -104,5 +106,7 @@ public class Settings extends SettingsActivity {
     public static class ApnSettingsActivity extends SettingsActivity { /* empty */ }
     public static class BlacklistSettingsActivity extends SettingsActivity { /* empty */ }
     public static class DisplayRotationSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class StatusBarExpandedHeaderSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class StatusBarExpandedQsSettingsActivity extends SettingsActivity { /* empty */ }
 }
 

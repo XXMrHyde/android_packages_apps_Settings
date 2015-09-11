@@ -18,6 +18,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/status_bar_expanded_header_settings_title">
 
+    <ListPreference
+        android:key="expanded_header_quick_pulldown"
+        android:title="@string/expanded_header_quick_pulldown_title"
+        android:dialogTitle="@string/expanded_header_quick_pulldown_dlg_title"
+        android:entries="@array/expanded_header_quick_pulldown_entries"
+        android:entryValues="@array/expanded_header_quick_pulldown_values"
+        android:persistent="false" />
+
     <PreferenceCategory
         android:key="expanded_header_cat_weather"
         android:title="@string/weather_title">
@@ -43,22 +51,39 @@
 	</PreferenceCategory>
 
     <PreferenceCategory
+        android:key="expanded_header_cat_qs"
+        android:title="@string/status_bar_expanded_qs_settings_title">
+
+        <SwitchPreference
+	        android:key="expanded_header_show_qs_button"
+	        android:title="@string/expanded_header_show_qs_button_title"
+	        android:summary="@string/expanded_header_show_qs_button_summary"
+	        android:defaultValue="false" />
+
+	</PreferenceCategory>
+
+    <PreferenceCategory
         android:key="expanded_header_cat_color"
         android:title="@string/colors_title">
 
-         <net.margaritov.preference.colorpicker.ColorPickerPreference
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="expanded_header_background_color"
             android:title="@string/background_title"
             android:defaultValue="0xff384248" />
 
-         <net.margaritov.preference.colorpicker.ColorPickerPreference
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="expanded_header_text_color"
             android:title="@string/text_title"
             android:defaultValue="0xffffffff" />
 
-         <net.margaritov.preference.colorpicker.ColorPickerPreference
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="expanded_header_icon_color"
             android:title="@string/icons_title"
+            android:defaultValue="0xffffffff" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="expanded_header_ripple_color"
+            android:title="@string/ripple_title"
             android:defaultValue="0xffffffff" />
 
 	</PreferenceCategory>

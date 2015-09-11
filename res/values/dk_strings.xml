@@ -387,6 +387,15 @@
     <string name="status_bar_expanded_header_settings_title">Header</string>
     <string name="status_bar_expanded_qs_settings_title">Quick settings</string>
 
+    <!-- Statusbar expanded header setting-->
+    <string name="expanded_header_quick_pulldown_title">Quick pulldown</string>
+    <string name="expanded_header_quick_pulldown_summary">%1$s edge of the status bar pulls down to the expanded view</string>
+    <string name="expanded_header_quick_pulldown_summary_right">Right</string>
+    <string name="expanded_header_quick_pulldown_summary_left">Left</string>
+    <string name="expanded_header_quick_pulldown_dlg_title">Choose which edge of the status bar pulls down to the expanded view</string>
+    <string name="expanded_header_show_qs_button_title">Settings button</string>
+    <string name="expanded_header_show_qs_button_summary">Enable to show the settings button for quick settings</string>
+
     <!-- Quick settings -->
     <string name="qs_cat_advanced_tiles_title">Advanced tiles</string>
     <string name="qs_type_title">Type</string>
@@ -395,11 +404,6 @@
     <string name="qs_type_bar">Bar</string>
     <string name="qs_panel_tiles_summary">Arrange the tiles, and choose the tiles to display on the panel</string>
     <string name="qs_bar_buttons_summary">Arrange the buttons, and choose the buttons to display on the bar</string>
-    <string name="qs_quick_pulldown_title">Quick pulldown</string>
-    <string name="qs_quick_pulldown_summary">%1$s edge of the status bar pulls down Quick Settings</string>
-    <string name="qs_quick_pulldown_summary_right">Right</string>
-    <string name="qs_quick_pulldown_summary_left">Left</string>
-    <string name="qs_quick_pulldown_dlg_title">Choose which edge of the status bar pulls down Quick Settings</string>
     <string name="qs_show_brightness_slider_title">Show brightness slider</string>
     <string name="qs_show_brightness_slider_summary">Enable to show the brightness slider</string>
     <string name="qs_main_tiles_title">Enlarge first row</string>

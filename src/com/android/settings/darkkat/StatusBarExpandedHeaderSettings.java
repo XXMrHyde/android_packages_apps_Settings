@@ -22,15 +22,19 @@ import android.app.DialogFragment;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -38,9 +42,13 @@ import com.android.settings.Utils;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
+import java.util.Locale;
+
 public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String PREF_QUICK_PULLDOWN =
+            "expanded_header_quick_pulldown";
     private static final String PREF_CAT_WEATHER =
             "expanded_header_cat_weather";
     private static final String PREF_LOCK_CLOCK_MISSING =
@@ -49,25 +57,32 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
             "expanded_header_show_weather";
     private static final String PREF_SHOW_LOCATION =
             "expanded_header_show_weather_location";
+    private static final String PREF_SHOW_QS_BUTTON =
+            "expanded_header_show_qs_button";
     private static final String PREF_BG_COLOR =
             "expanded_header_background_color";
     private static final String PREF_TEXT_COLOR =
             "expanded_header_text_color";
     private static final String PREF_ICON_COLOR =
             "expanded_header_icon_color";
+    private static final String PREF_RIPPLE_COLOR =
+            "expanded_header_ripple_color";
 
     private static final int SYSTEMUI_SECONDARY = 0xff384248;
-    private static final int WHITE = 0xffffffff;
-    private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
+    private static final int WHITE              = 0xffffffff;
+    private static final int HOLO_BLUE_LIGHT    = 0xff33b5e5;
 
     private static final int MENU_RESET = Menu.FIRST;
-    private static final int DLG_RESET = 0;
+    private static final int DLG_RESET  = 0;
 
+    private ListPreference mQuickPulldown;
     private SwitchPreference mShowWeather;
     private SwitchPreference mShowLocation;
+    private SwitchPreference mShowQsButton;
     private ColorPickerPreference mBackgroundColor;
     private ColorPickerPreference mTextColor;
     private ColorPickerPreference mIconColor;
+    private ColorPickerPreference mRippleColor;
 
     private ContentResolver mResolver;
 
@@ -92,6 +107,14 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         int intColor;
         String hexColor;
 
+        mQuickPulldown =
+                (ListPreference) findPreference(PREF_QUICK_PULLDOWN);
+        int quickPulldown = Settings.System.getInt(mResolver,
+               Settings.System.QS_QUICK_PULLDOWN, 0);
+        mQuickPulldown.setValue(String.valueOf(quickPulldown));
+        updateQuickPulldownSummary(quickPulldown);
+        mQuickPulldown.setOnPreferenceChangeListener(this);
+
         PreferenceCategory catWeather =
                 (PreferenceCategory) findPreference(PREF_CAT_WEATHER);
         mShowWeather =
@@ -112,6 +135,12 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                 catWeather.removePreference(mShowLocation);
             }
         }
+
+        mShowQsButton =
+                (SwitchPreference) findPreference(PREF_SHOW_QS_BUTTON);
+        mShowQsButton.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_QS_BUTTON, 0) == 1);
+        mShowQsButton.setOnPreferenceChangeListener(this);
 
         mBackgroundColor =
                 (ColorPickerPreference) findPreference(PREF_BG_COLOR);
@@ -146,6 +175,17 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         mIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
         mIconColor.setOnPreferenceChangeListener(this);
 
+        mRippleColor =
+                (ColorPickerPreference) findPreference(PREF_RIPPLE_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_EXPANDED_HEADER_RIPPLE_COLOR,
+                WHITE); 
+        mRippleColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mRippleColor.setSummary(hexColor);
+        mRippleColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mRippleColor.setOnPreferenceChangeListener(this);
+
         setHasOptionsMenu(true);
     }
 
@@ -172,7 +212,13 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         String hex;
         int intHex;
 
-        if (preference == mShowWeather) {
+        if (preference == mQuickPulldown) {
+            int intValue = Integer.valueOf((String) newValue);
+            Settings.System.putInt(mResolver,
+                Settings.System.QS_QUICK_PULLDOWN, intValue);
+            updateQuickPulldownSummary(intValue);
+            return true;
+        } else if (preference == mShowWeather) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                 Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER,
@@ -183,6 +229,12 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                 Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION,
+                value ? 1 : 0);
+            return true;
+        } else if (preference == mShowQsButton) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_QS_BUTTON,
                 value ? 1 : 0);
             return true;
         } else if (preference == mBackgroundColor) {
@@ -207,6 +259,14 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
                 Settings.System.STATUS_BAR_EXPANDED_HEADER_ICON_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mRippleColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                Settings.System.STATUS_BAR_EXPANDED_HEADER_RIPPLE_COLOR, intHex);
             preference.setSummary(hex);
             return true;
         }
@@ -246,9 +306,15 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.QS_QUICK_PULLDOWN, 1);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.QS_QUICK_PULLDOWN, 0);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION, 1);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_QS_BUTTON, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_BG_COLOR,
                                     SYSTEMUI_SECONDARY);
@@ -257,6 +323,9 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                                     WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_ICON_COLOR,
+                                    WHITE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_RIPPLE_COLOR,
                                     WHITE);
                             getOwner().refreshSettings();
                         }
@@ -269,6 +338,8 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION, 1);
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_QS_BUTTON, 1);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_BG_COLOR,
                                     SYSTEMUI_SECONDARY);
                             Settings.System.putInt(getOwner().mResolver,
@@ -276,6 +347,9 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                                     HOLO_BLUE_LIGHT);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_ICON_COLOR,
+                                    HOLO_BLUE_LIGHT);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_RIPPLE_COLOR,
                                     HOLO_BLUE_LIGHT);
                             getOwner().refreshSettings();
                         }
@@ -288,6 +362,26 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         @Override
         public void onCancel(DialogInterface dialog) {
 
+        }
+    }
+
+    private void updateQuickPulldownSummary(int value) {
+        Resources res = getResources();
+
+        if (value == 0) {
+            // quick pulldown deactivated
+            mQuickPulldown.setSummary(res.getString(R.string.disabled_title));
+        } else {
+            Locale l = Locale.getDefault();
+            boolean isRtl = TextUtils.getLayoutDirectionFromLocale(l) == View.LAYOUT_DIRECTION_RTL;
+            String direction = res.getString(value == 2
+                    ? (isRtl
+                            ? R.string.expanded_header_quick_pulldown_summary_right
+                            : R.string.expanded_header_quick_pulldown_summary_left)
+                    : (isRtl
+                            ? R.string.expanded_header_quick_pulldown_summary_left
+                            : R.string.expanded_header_quick_pulldown_summary_right));
+            mQuickPulldown.setSummary(res.getString(R.string.expanded_header_quick_pulldown_summary, direction));
         }
     }
 }

@@ -18,6 +18,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/status_bar_expanded_qs_settings_title">
 
+    <SwitchPreference
+        android:key="qs_show_brightness_slider"
+        android:title="@string/qs_show_brightness_slider_title"
+        android:summary="@string/qs_show_brightness_slider_summary"
+        android:defaultValue="true" />
+
     <ListPreference
         android:key="qs_type"
         android:title="@string/qs_type_title"
@@ -25,56 +31,30 @@
         android:entries="@array/qs_type_entries"
         android:entryValues="@array/qs_type_values" />
 
-    <PreferenceCategory
-        android:key="qs_cat_panel"
-        android:title="@string/qs_type_panel">
+    <PreferenceScreen
+        android:key="qs_panel_tiles"
+        android:title="@string/customize_title"
+        android:summary="@string/qs_panel_tiles_summary"
+        android:fragment="com.android.settings.darkkat.qs.QSTiles" />
 
-        <PreferenceScreen
-            android:key="qs_panel_tiles"
-            android:title="@string/customize_title"
-            android:summary="@string/qs_panel_tiles_summary"
-            android:fragment="com.android.settings.darkkat.qs.QSTiles" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="qs_cat_bar"
-        android:title="@string/qs_type_bar">
-
-        <PreferenceScreen
-            android:key="qs_bar_buttons"
-            android:title="@string/customize_title"
-            android:summary="@string/qs_bar_buttons_summary"
-            android:fragment="com.android.settings.slim.dslv.ActionListViewSettings">
-                <extra android:name="actionMode" android:value="3" />
-                <extra android:name="maxAllowedActions" android:value="12" />
-                <extra android:name="defaultNumberOfActions" android:value="6" />
-                <extra android:name="disableLongpress" android:value="true" />
-                <extra android:name="disableIconPicker" android:value="true" />
-                <extra android:name="disableDeleteLastEntry" android:value="true" />
-                <extra android:name="actionValues" android:value="qs_bar_button_values" />
-                <extra android:name="actionEntries" android:value="qs_bar_button_entries" />
-        </PreferenceScreen>
-
-    </PreferenceCategory>
+    <PreferenceScreen
+        android:key="qs_bar_buttons"
+        android:title="@string/customize_title"
+        android:summary="@string/qs_bar_buttons_summary"
+        android:fragment="com.android.settings.slim.dslv.ActionListViewSettings">
+            <extra android:name="actionMode" android:value="3" />
+            <extra android:name="maxAllowedActions" android:value="12" />
+            <extra android:name="defaultNumberOfActions" android:value="6" />
+            <extra android:name="disableLongpress" android:value="true" />
+            <extra android:name="disableIconPicker" android:value="true" />
+            <extra android:name="disableDeleteLastEntry" android:value="true" />
+            <extra android:name="actionValues" android:value="qs_bar_button_values" />
+            <extra android:name="actionEntries" android:value="qs_bar_button_entries" />
+    </PreferenceScreen>
 
     <PreferenceCategory
         android:key="qs_cat_options"
         android:title="@string/options_title">
-
-        <ListPreference
-            android:key="qs_quick_pulldown"
-            android:title="@string/qs_quick_pulldown_title"
-            android:dialogTitle="@string/qs_quick_pulldown_dlg_title"
-            android:entries="@array/qs_quick_pulldown_entries"
-            android:entryValues="@array/qs_quick_pulldown_values"
-            android:persistent="false" />
-
-        <SwitchPreference
-            android:key="qs_show_brightness_slider"
-            android:title="@string/qs_show_brightness_slider_title"
-            android:summary="@string/qs_show_brightness_slider_summary"
-            android:defaultValue="true" />
 
         <SwitchPreference
             android:key="qs_main_tiles"
