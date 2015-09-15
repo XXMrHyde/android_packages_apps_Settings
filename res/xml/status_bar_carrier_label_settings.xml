@@ -24,9 +24,9 @@
         android:summary="@string/carrier_label_use_custom_summary"
         android:persistent="false" />
 
-	<EditTextPreference
-	    android:key="carrier_label_custom_label"
-	    android:title="@string/carrier_label_custom_label_title"
+    <EditTextPreference
+        android:key="carrier_label_custom_label"
+        android:title="@string/carrier_label_custom_label_title"
         android:dialogMessage="@string/carrier_label_custom_label_dlg_message" />
 
     <SwitchPreference
