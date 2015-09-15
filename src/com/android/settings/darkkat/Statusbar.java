@@ -32,6 +32,10 @@ public class Statusbar extends SettingsPreferenceFragment {
 
         addPreferencesFromResource(R.xml.status_bar);
 
+        if (!DeviceUtils.deviceSupportsMobileData(getActivity())) {
+            removePreference("status_bar_carrier_label_settings");
+        }
+
         if (DeviceUtils.isPhone(getActivity())) {
             PreferenceScreen notifSystemIcons =
                     (PreferenceScreen) findPreference("status_bar_notif_status_area_settings");

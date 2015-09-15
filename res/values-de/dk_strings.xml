@@ -277,6 +277,8 @@
     <!-- Status bar -->
     <string name="status_bar_gestures_title">Gesten</string>
     <string name="status_bar_gestures_summary">Gesten anpassen</string>
+    <string name="status_bar_carrier_label_settings_title">Netzbetreiber Name</string>
+    <string name="status_bar_carrier_label_settings_summary">Den Netzbetreiber Namen anpassen</string>
     <string name="status_bar_clock_date_settings_title">Uhr &amp; Datum</string>
     <string name="status_bar_clock_date_settings_summary">Die Uhr &amp; das Datum anpassen</string>
     <string name="status_bar_battery_status_settings_title">Akkustatus</string>
@@ -295,6 +297,20 @@
     <string name="status_bar_toggle_info">Automatische Helligkeit aktiv</string>
     <string name="status_bar_double_tap_to_sleep_title">Standby</string>
     <string name="status_bar_double_tap_to_sleep_summary">Das Gerät durch doppeltes Tippen auf die Statusleiste in den Standby-Modus setzen</string>
+
+    <!-- Carrier label settings -->
+    <string name="carrier_label_cat_notification_icons_title">Benachrichtigungssymbole</string>
+    <string name="carrier_label_use_custom_title">Angepasster Netzbetreiber Name</string>
+    <string name="carrier_label_use_custom_summary">Aktivieren um einen angepassten Netzbetreiber Namen zu benutzen</string>
+    <string name="carrier_label_custom_label_title">Angepasster Name</string>
+    <string name="carrier_label_custom_label_dlg_message">Gebe einen neuen Namen ein, der anstelle des echten Netzbetreiber Namen angezeigt wird. Ein leeres Feld setzt den Namen auf \"DarkKat\" zurück.</string>
+    <string name="carrier_label_show_title">Anzeigen</string>
+    <string name="carrier_label_show_summary">Aktivieren um den (Angepassten) Netzbetreiber Namen in der Statusleiste anzuzeigen</string>
+    <string name="carrier_label_show_on_lock_screen_title">Auf dem Sperrbildschirm anzeigen</string>
+    <string name="carrier_label_show_on_lock_screen_summary">Aktivieren um den (Angepassten) Netzbetreiber Namen in der Statusleiste auf dem Sperrbildschirm anzuzeigen</string>
+    <string name="carrier_label_hide_label_title">Verbergen</string>
+    <string name="carrier_label_hide_label_summary">Aktivieren um eine Anzahl an Benachrichtigungssymbolen zu wählen, bei deren Erreichen der (Angepassten) Netzbetreiber Name in der Statusleiste verborgen wird.</string>
+    <string name="carrier_label_number_of_notification_icons_title">Anzahl an Benachrichtigungssymbolen</string>
 
     <!-- clock and date settings -->
     <string name="clock_date_cat_clock_date_title">Uhr &amp; Datum</string>

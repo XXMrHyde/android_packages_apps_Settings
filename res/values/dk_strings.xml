@@ -277,6 +277,8 @@
     <!-- Status bar -->
     <string name="status_bar_gestures_title">Gestures</string>
     <string name="status_bar_gestures_summary">Customize gestures</string>
+    <string name="status_bar_carrier_label_settings_title">Carrier label</string>
+    <string name="status_bar_carrier_label_settings_summary">Customize the carrier label</string>
     <string name="status_bar_clock_date_settings_title">Clock &amp; date</string>
     <string name="status_bar_clock_date_settings_summary">Customize the clock &amp; the date</string>
     <string name="status_bar_battery_status_settings_title">Battery status</string>
@@ -295,6 +297,20 @@
     <string name="status_bar_toggle_info">Automatic brightness is enabled</string>
     <string name="status_bar_double_tap_to_sleep_title">Sleep</string>
     <string name="status_bar_double_tap_to_sleep_summary">Double tap the status bar to put the device to sleep</string>
+
+    <!-- Carrier label settings -->
+    <string name="carrier_label_cat_notification_icons_title">Notification icons</string>
+    <string name="carrier_label_use_custom_title">Custom carrier label</string>
+    <string name="carrier_label_use_custom_summary">Enable to use a custom carrier label</string>
+    <string name="carrier_label_custom_label_title">Custom label</string>
+    <string name="carrier_label_custom_label_dlg_message">Enter a new custom label to display instead of the real carrier name. An empty field will revert the name to \'Darkkat\'</string>
+    <string name="carrier_label_show_title">Show</string>
+    <string name="carrier_label_show_summary">Enable to show the (custom) carrier label on the status bar</string>
+    <string name="carrier_label_show_on_lock_screen_title">Show on lock screen</string>
+    <string name="carrier_label_show_on_lock_screen_summary">Enable to show the (custom) carrier label on the status bar of the lock screen</string>
+    <string name="carrier_label_hide_label_title">Hide</string>
+    <string name="carrier_label_hide_label_summary">Enable to choose a number of visible notification icons to hide the (custom) carrier label on the status bar</string>
+    <string name="carrier_label_number_of_notification_icons_title">Number of notification icons</string>
 
     <!-- clock and date settings -->
     <string name="clock_date_cat_clock_date_title">Clock &amp; date</string>
