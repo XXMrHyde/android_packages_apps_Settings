@@ -129,6 +129,9 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
                 (PreferenceCategory) findPreference("qs_cat_options");
         PreferenceCategory catAdvancedTiles =
                 (PreferenceCategory) findPreference("qs_cat_advanced_tiles");
+        PreferenceCategory catColors =
+                (PreferenceCategory) findPreference("qs_cat_colors");
+
         if (qsType == QS_TYPE_PANEL) {
             mQSMainTiles =
                     (SwitchPreference) findPreference(PREF_QS_MAIN_TILES);
@@ -161,9 +164,6 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
             removePreference("qs_cat_options");
             removePreference("qs_cat_advanced_tiles");
         }
-
-        PreferenceCategory catColors =
-                (PreferenceCategory) findPreference("qs_cat_colors");
         if (qsType != QS_TYPE_HIDEEN || showShowBrightnessSlider) {
             mQSBackgroundColor =
                     (ColorPickerPreference) findPreference(PREF_QS_BACKGROUND_COLOR);
@@ -186,11 +186,7 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
             mQSIconColor.setSummary(hexColor);
             mQSIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
             mQSIconColor.setOnPreferenceChangeListener(this);
-        } else {
-            catColors.removePreference(findPreference(PREF_QS_BACKGROUND_COLOR));
-            catColors.removePreference(findPreference(PREF_QS_ICON_COLOR));
-        }
-        if (qsType != QS_TYPE_HIDEEN) {
+
             mQSRippleColor =
                     (ColorPickerPreference) findPreference(PREF_QS_RIPPLE_COLOR);
             intColor = Settings.System.getInt(mResolver,
@@ -201,9 +197,11 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
             mQSRippleColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
             mQSRippleColor.setOnPreferenceChangeListener(this);
         } else {
+            catColors.removePreference(findPreference(PREF_QS_BACKGROUND_COLOR));
+            catColors.removePreference(findPreference(PREF_QS_ICON_COLOR));
             catColors.removePreference(findPreference(PREF_QS_RIPPLE_COLOR));
         }
-        if (qsType == QS_TYPE_PANEL) {
+        if (qsType == QS_TYPE_PANEL || showShowBrightnessSlider) {
             mQSTextColor =
                     (ColorPickerPreference) findPreference(PREF_QS_TEXT_COLOR);
             intColor = Settings.System.getInt(mResolver,
