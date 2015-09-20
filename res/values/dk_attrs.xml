@@ -44,4 +44,14 @@
         <attr name="clickRemoveId" format="integer" />
         <attr name="useDefaultController" format="boolean" />
     </declare-styleable>
+
+    <!-- The Fusion Project additions -->
+    <!-- For Fusion seek bar -->
+    <declare-styleable name="SeekBarPreference">
+        <attr name="min" format="integer" />
+        <attr name="unitsLeft" format="string" />
+        <attr name="unitsRight" format="string" />
+        <attr name="interval" format="integer" />
+        <attr name="isSeconds" format="boolean" />
+    </declare-styleable>
 </resources>

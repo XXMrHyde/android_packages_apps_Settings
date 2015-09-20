@@ -25,6 +25,12 @@
         android:fragment="com.android.settings.darkkat.StatusBarGestures" />
 
     <PreferenceScreen
+        android:key="status_bar_greeting_settings"
+        android:title="@string/status_bar_greeting_settings_title"
+        android:summary="@string/status_bar_greeting_settings_summary"
+        android:fragment="com.android.settings.darkkat.StatusBarGreetingSettings" />
+
+    <PreferenceScreen
         android:key="status_bar_carrier_label_settings"
         android:title="@string/status_bar_carrier_label_settings_title"
         android:summary="@string/status_bar_carrier_label_settings_summary"

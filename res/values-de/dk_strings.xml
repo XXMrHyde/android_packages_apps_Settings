@@ -277,6 +277,8 @@
     <!-- Status bar -->
     <string name="status_bar_gestures_title">Gesten</string>
     <string name="status_bar_gestures_summary">Gesten anpassen</string>
+    <string name="status_bar_greeting_settings_title">Begüßung</string>
+    <string name="status_bar_greeting_settings_summary">Die Begüßung anpassen</string>
     <string name="status_bar_carrier_label_settings_title">Netzbetreiber Name</string>
     <string name="status_bar_carrier_label_settings_summary">Den Netzbetreiber Namen anpassen</string>
     <string name="status_bar_clock_date_settings_title">Uhr &amp; Datum</string>
@@ -291,12 +293,21 @@
     <string name="status_bar_notif_status_area_settings_title_phone">Benachr.- &amp; Statusbereich</string>
     <string name="status_bar_notif_status_area_settings_summary">Den Benachrichtigungs.- &amp; Statusbereich anpassen</string>
 
-    <!-- Status bar gestures -->
+    <!-- Status bar gestures  settings -->
     <string name="status_bar_toggle_brightness_title">Helligkeitskontrolle</string>
     <string name="status_bar_toggle_brightness_summary">Helligkeit per wischen über die Statusleiste einstellen</string>
     <string name="status_bar_toggle_info">Automatische Helligkeit aktiv</string>
     <string name="status_bar_double_tap_to_sleep_title">Standby</string>
     <string name="status_bar_double_tap_to_sleep_summary">Das Gerät durch doppeltes Tippen auf die Statusleiste in den Standby-Modus setzen</string>
+
+    <!-- Status bar greeting settings -->
+    <string name="greeting_show_label_always_summary">Die Begrüßung wird angezeigt, wenn das Gerät entsperrt wird</string>
+    <string name="greeting_show_label_once_summary">Die Begrüßung wird angezeigt, wenn das Gerät das erste Mal nach dem Hochfahren entsperrt wird</string>
+    <string name="greeting_show_label_never_summary">Die Begrüßung wird nie angezeigt</string>
+    <string name="greeting_show_label_once_title">Enmal nach dem Hochfahren</string>
+    <string name="greeting_custom_label_title">Angepasster Text</string>
+    <string name="greeting_custom_label_dlg_message">Gebe einen neuen Text ein, der als Begrüßung angezeigt wird. Ein leeres Feld setzt den Text zurück auf:\n\"%s\"</string>
+    <string name="greeting_timeout_title">Anzeige dauer</string>
 
     <!-- Carrier label settings -->
     <string name="carrier_label_cat_notification_icons_title">Benachrichtigungssymbole</string>
