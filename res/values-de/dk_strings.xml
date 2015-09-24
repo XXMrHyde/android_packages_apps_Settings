@@ -301,13 +301,15 @@
     <string name="status_bar_double_tap_to_sleep_summary">Das Gerät durch doppeltes Tippen auf die Statusleiste in den Standby-Modus setzen</string>
 
     <!-- Status bar greeting settings -->
-    <string name="greeting_show_label_always_summary">Die Begrüßung wird angezeigt, wenn das Gerät entsperrt wird</string>
-    <string name="greeting_show_label_once_summary">Die Begrüßung wird angezeigt, wenn das Gerät das erste Mal nach dem Hochfahren entsperrt wird</string>
-    <string name="greeting_show_label_never_summary">Die Begrüßung wird nie angezeigt</string>
-    <string name="greeting_show_label_once_title">Enmal nach dem Hochfahren</string>
-    <string name="greeting_custom_label_title">Angepasster Text</string>
-    <string name="greeting_custom_label_dlg_message">Gebe einen neuen Text ein, der als Begrüßung angezeigt wird. Ein leeres Feld setzt den Text zurück auf:\n\"%s\"</string>
+    <string name="greeting_show_greeting_always_summary">Die Begrüßung wird angezeigt, wenn das Gerät entsperrt wird</string>
+    <string name="greeting_show_greeting_once_summary">Die Begrüßung wird angezeigt, wenn das Gerät das erste Mal nach dem Hochfahren entsperrt wird</string>
+    <string name="greeting_show_greeting_never_summary">Die Begrüßung wird nie angezeigt</string>
+    <string name="greeting_show_greeting_once_title">Enmal nach dem Hochfahren</string>
+    <string name="greeting_custom_text_title">Angepasster Text</string>
+    <string name="greeting_custom_text_dlg_message">Gebe einen neuen Text ein, der als Begrüßung angezeigt wird. Ein leeres Feld setzt den Text zurück auf:\n\"%s\"</string>
     <string name="greeting_timeout_title">Anzeige dauer</string>
+    <string name="greeting_preview_title">Vorschau</string>
+    <string name="greeting_preview_summary">Klicke um eine Vorschau anzuzeigen</string>
 
     <!-- Carrier label settings -->
     <string name="carrier_label_cat_notification_icons_title">Benachrichtigungssymbole</string>

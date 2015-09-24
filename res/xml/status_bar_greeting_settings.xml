@@ -20,15 +20,15 @@
     android:title="@string/status_bar_greeting_settings_title">
 
     <ListPreference
-        android:key="greeting_show_label"
+        android:key="greeting_show_greeting"
         android:title="@string/show_title"
-        android:entries="@array/greeting_show_label_entries"
-        android:entryValues="@array/greeting_show_label_values" />
+        android:entries="@array/greeting_show_greeting_entries"
+        android:entryValues="@array/greeting_show_greeting_values" />
 
     <EditTextPreference
-        android:key="greeting_custom_label"
-        android:title="@string/greeting_custom_label_title"
-        android:dialogMessage="@string/greeting_custom_label_dlg_message" />
+        android:key="greeting_custom_text"
+        android:title="@string/greeting_custom_text_title"
+        android:dialogMessage="@string/greeting_custom_text_dlg_message" />
 
     <com.android.settings.fusion.SeekBarPreference
         android:key="greeting_timeout"
@@ -40,6 +40,11 @@
         settings:interval="500"
         settings:isSeconds="true"
         android:persistent="false" />
+
+    <Preference
+        android:key="greeting_preview"
+        android:title="@string/greeting_preview_title"
+        android:summary="@string/greeting_preview_summary" />
 
      <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="greeting_color"
