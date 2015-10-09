@@ -36,29 +36,17 @@
             android:summary="@string/lock_clock_missing_summary"
             android:enabled="false" />
 
-        <SwitchPreference
+<!--        <SwitchPreference
 	        android:key="expanded_header_show_weather"
 	        android:title="@string/show_title"
 	        android:summary="@string/show_weather_summary"
-	        android:defaultValue="false" />
+	        android:defaultValue="false" /> -->
 
         <SwitchPreference
 	        android:key="expanded_header_show_weather_location"
 	        android:title="@string/show_location_title"
 	        android:summary="@string/show_location_summary"
 	        android:defaultValue="true" />
-
-	</PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="expanded_header_cat_qs"
-        android:title="@string/status_bar_expanded_qs_settings_title">
-
-        <SwitchPreference
-	        android:key="expanded_header_show_qs_button"
-	        android:title="@string/expanded_header_show_qs_button_title"
-	        android:summary="@string/expanded_header_show_qs_button_summary"
-	        android:defaultValue="false" />
 
 	</PreferenceCategory>
 

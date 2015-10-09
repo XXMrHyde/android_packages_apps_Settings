@@ -53,12 +53,10 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
             "expanded_header_cat_weather";
     private static final String PREF_LOCK_CLOCK_MISSING =
             "expanded_header_lock_clock_missing";
-    private static final String PREF_SHOW_WEATHER =
-            "expanded_header_show_weather";
+//    private static final String PREF_SHOW_WEATHER =
+//            "expanded_header_show_weather";
     private static final String PREF_SHOW_LOCATION =
             "expanded_header_show_weather_location";
-    private static final String PREF_SHOW_QS_BUTTON =
-            "expanded_header_show_qs_button";
     private static final String PREF_BG_COLOR =
             "expanded_header_background_color";
     private static final String PREF_TEXT_COLOR =
@@ -76,9 +74,8 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
     private static final int DLG_RESET  = 0;
 
     private ListPreference mQuickPulldown;
-    private SwitchPreference mShowWeather;
+//    private SwitchPreference mShowWeather;
     private SwitchPreference mShowLocation;
-    private SwitchPreference mShowQsButton;
     private ColorPickerPreference mBackgroundColor;
     private ColorPickerPreference mTextColor;
     private ColorPickerPreference mIconColor;
@@ -101,9 +98,9 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         addPreferencesFromResource(R.xml.status_bar_expanded_header_settings);
         mResolver = getActivity().getContentResolver();
 
-        boolean showWeather = Settings.System.getInt(mResolver,
-                Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 0) == 1;
-
+//        boolean showWeather = Settings.System.getInt(mResolver,
+//                Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 0) == 1;
+       boolean showWeather = true;
         int intColor;
         String hexColor;
 
@@ -117,10 +114,10 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
 
         PreferenceCategory catWeather =
                 (PreferenceCategory) findPreference(PREF_CAT_WEATHER);
-        mShowWeather =
-                (SwitchPreference) findPreference(PREF_SHOW_WEATHER);
-        mShowWeather.setChecked(showWeather);
-        mShowWeather.setOnPreferenceChangeListener(this);
+//        mShowWeather =
+//                (SwitchPreference) findPreference(PREF_SHOW_WEATHER);
+//        mShowWeather.setChecked(showWeather);
+//        mShowWeather.setOnPreferenceChangeListener(this);
         mShowLocation =
                 (SwitchPreference) findPreference(PREF_SHOW_LOCATION);
         if (!Utils.isPackageInstalled(getActivity(), "com.cyanogenmod.lockclock")) {
@@ -135,12 +132,6 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                 catWeather.removePreference(mShowLocation);
             }
         }
-
-        mShowQsButton =
-                (SwitchPreference) findPreference(PREF_SHOW_QS_BUTTON);
-        mShowQsButton.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_QS_BUTTON, 0) == 1);
-        mShowQsButton.setOnPreferenceChangeListener(this);
 
         mBackgroundColor =
                 (ColorPickerPreference) findPreference(PREF_BG_COLOR);
@@ -218,23 +209,17 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                 Settings.System.QS_QUICK_PULLDOWN, intValue);
             updateQuickPulldownSummary(intValue);
             return true;
-        } else if (preference == mShowWeather) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(mResolver,
-                Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER,
-                value ? 1 : 0);
-            refreshSettings();
-            return true;
+//        } else if (preference == mShowWeather) {
+//            value = (Boolean) newValue;
+//            Settings.System.putInt(mResolver,
+//                Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER,
+//                value ? 1 : 0);
+//            refreshSettings();
+//            return true;
         } else if (preference == mShowLocation) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                 Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION,
-                value ? 1 : 0);
-            return true;
-        } else if (preference == mShowQsButton) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(mResolver,
-                Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_QS_BUTTON,
                 value ? 1 : 0);
             return true;
         } else if (preference == mBackgroundColor) {
@@ -306,15 +291,11 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.QS_QUICK_PULLDOWN, 1);
-                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_QUICK_PULLDOWN, 0);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 0);
+//                            Settings.System.putInt(getOwner().mResolver,
+//                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION, 1);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_QS_BUTTON, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_BG_COLOR,
                                     SYSTEMUI_SECONDARY);
@@ -334,11 +315,11 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 1);
+                                    Settings.System.QS_QUICK_PULLDOWN, 1);
+//                            Settings.System.putInt(getOwner().mResolver,
+//                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION, 1);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_QS_BUTTON, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_BG_COLOR,
                                     SYSTEMUI_SECONDARY);

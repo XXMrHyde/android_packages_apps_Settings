@@ -422,8 +422,6 @@
     <string name="expanded_header_quick_pulldown_summary_right">Right</string>
     <string name="expanded_header_quick_pulldown_summary_left">Left</string>
     <string name="expanded_header_quick_pulldown_dlg_title">Choose which edge of the status bar pulls down to the expanded view</string>
-    <string name="expanded_header_show_qs_button_title">Settings button</string>
-    <string name="expanded_header_show_qs_button_summary">Enable to show the settings button for quick settings</string>
 
     <!-- Quick settings -->
     <string name="qs_cat_advanced_tiles_title">Advanced tiles</string>

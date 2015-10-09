@@ -422,8 +422,6 @@
     <string name="expanded_header_quick_pulldown_summary_right">Rechter</string>
     <string name="expanded_header_quick_pulldown_summary_left">Linker</string>
     <string name="expanded_header_quick_pulldown_dlg_title">Wähle welcher Rand der Statusleiste die die Erweiterte Ansicht öffnet</string>
-    <string name="expanded_header_show_qs_button_title">Einstellungen Schaltfläche</string>
-    <string name="expanded_header_show_qs_button_summary">Aktivieren um die Einstellungen Schaltfläche für die Schnelleinstellungen anzuzeigen</string>
 
     <!-- Quick settings -->
     <string name="qs_cat_advanced_tiles_title">Erweiterbare Kacheln</string>
