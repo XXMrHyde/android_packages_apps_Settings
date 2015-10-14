@@ -37,7 +37,7 @@
               android:layout_width="420dp"
               android:layout_height="wrap_content"
               android:text="@string/nfc_how_it_works_title"
-              android:textColor="#FF263238"
+              android:textColor="?android:attr/textColorSecondary"
               android:textSize="24sp" />
 
           <TextView
@@ -47,7 +47,7 @@
               android:paddingTop="10dp"
               android:paddingBottom="18dp"
               android:text="@string/nfc_how_it_works_content"
-              android:textColor="#FF263238"
+              android:textColor="?android:attr/textColorSecondary"
               android:textSize="20sp" />
         </LinearLayout>
         <RelativeLayout
@@ -64,7 +64,7 @@
               android:layout_marginRight="20dp"
               android:text="@string/nfc_how_it_works_got_it"
               android:textSize="14sp"
-              android:textColor="#263238"
+              android:textColor="?android:attr/textColorSecondary"
               style="?android:attr/borderlessButtonStyle" />
         </RelativeLayout>
     </RelativeLayout>

@@ -248,14 +248,14 @@
         <item name="android:background">#ff000000</item>
     </style>
 
-    <style name="SecurityPreferenceButtonContainer" parent="@android:style/Widget.Material.Light.SegmentedButton">
+    <style name="SecurityPreferenceButtonContainer" parent="@android:style/Widget.Material.SegmentedButton">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:weightSum">2</item>
         <item name="android:dividerPadding">8dip</item>
     </style>
 
-    <style name="SecurityPreferenceButton" parent="@android:style/Widget.Material.Light.Button.Borderless">
+    <style name="SecurityPreferenceButton" parent="@android:style/Widget.Material.Button.Borderless">
         <item name="android:layout_width">0dip</item>
         <item name="android:layout_weight">1</item>
         <item name="android:layout_height">wrap_content</item>
@@ -298,7 +298,7 @@
     <style name="TextAppearance.Switch" parent="@android:style/TextAppearance.Material.Title" />
 
     <style name="TextAppearance.CategoryTitle" parent="@android:style/TextAppearance.Material.Body2">
-        <item name="android:textColor">?android:attr/colorAccent</item>
+        <item name="android:textColor">@color/theme_accent</item>
     </style>
 
     <style name="TextAppearance.TileTitle" parent="@android:style/TextAppearance.Material.Subhead" />
@@ -314,12 +314,12 @@
     <style name="Button.FingerprintButton"
         parent="android:Widget.Material.Button.Borderless">
         <item name="android:lineSpacingExtra">@dimen/suw_description_line_spacing_extra</item>
-        <item name="android:textColor">?android:attr/colorAccent</item>
+        <item name="android:textColor">@color/theme_accent</item>
     </style>
 
     <style name="TextAppearance.FingerprintLink"
            parent="TextAppearance.FingerprintMessage">
-        <item name="android:textColor">?android:attr/colorAccent</item>
+        <item name="android:textColor">@color/theme_accent</item>
     </style>
 
     <style name="TextAppearance.FingerprintErrorText"
