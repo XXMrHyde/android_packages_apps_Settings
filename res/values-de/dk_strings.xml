@@ -15,6 +15,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Global used -->
+    <string name="text_title">Text</string>
+    <string name="always_title">Immer</string>
+    <string name="number_of_notifications_title">Anzahl der Benachrichtigungen</string>
+    <string name="number_of_notifications_two_title">2</string>
+    <string name="number_of_notifications_three_title">3</string>
+    <string name="number_of_notifications_four_title">4</string>
+    <string name="number_of_notifications_five_title">5</string>
+    <string name="number_of_notifications_six_title">6</string>
+
     <!-- Pickers -->
 
     <!-- Color picker -->
@@ -26,8 +36,30 @@
     <string name="reset_android_title">Android Standard</string>
     <string name="reset_darkkat_title">DarkKat Standard</string>
 
+    <!-- dashboard categories-->
+    <string name="category_ui_section">Benutzeroberfläche</string>
+
     <!-- dashboard tiles-->
+    <string name="status_bar_title">Statusleiste</string>
     <string name="button_settings_title">Tasten</string>
+
+    <!-- Status bar -->
+    <string name="status_bar_carrier_label_settings_title">Netzbetreiber Name</string>
+    <string name="status_bar_carrier_label_settings_summary">Den Netzbetreiber Namen anpassen</string>
+
+    <!-- Carrier label settings -->
+    <string name="carrier_label_cat_notification_icons_title">Benachrichtigungssymbole</string>
+    <string name="carrier_label_show_title">Anzeigen</string>
+    <string name="carrier_label_show_summary">Aktivieren um den (Angepassten) Netzbetreiber Namen in der Statusleiste anzuzeigen</string>
+    <string name="carrier_label_show_on_lock_screen_title">Auf dem Sperrbildschirm anzeigen</string>
+    <string name="carrier_label_show_on_lock_screen_summary">Aktivieren um den (Angepassten) Netzbetreiber Namen in der Statusleiste auf dem Sperrbildschirm anzuzeigen</string>
+    <string name="carrier_label_use_custom_title">Angepasster Netzbetreiber Name</string>
+    <string name="carrier_label_use_custom_summary">Aktivieren um einen angepassten Netzbetreiber Namen zu benutzen</string>
+    <string name="carrier_label_custom_label_title">Angepasster Name</string>
+    <string name="carrier_label_custom_label_dlg_message">Gebe einen neuen Namen ein, der anstelle des echten Netzbetreiber Namen angezeigt wird. Ein leeres Feld setzt den Namen auf \"DarkKat\" zurück.</string>
+    <string name="carrier_label_hide_label_title">Verbergen</string>
+    <string name="carrier_label_hide_label_summary">Aktivieren um eine Anzahl an Benachrichtigungssymbolen zu wählen, bei deren Erreichen der (Angepassten) Netzbetreiber Name in der Statusleiste verborgen wird.</string>
+    <string name="carrier_label_number_of_notification_icons_title">Anzahl an Benachrichtigungssymbolen</string>
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Ein&#47;Aus Menü</string>
