@@ -22,10 +22,14 @@
     <string name="dlg_reset_colors_message">Farben auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
-    <string name="text_title">Text</string>
+    <string name="options_title">Optionen</string>
+    <string name="colors_title">Farben</string>
     <string name="always_title">Immer</string>
     <string name="normal_title">Normal</string>
     <string name="hidden_title">Verborgen</string>
+    <string name="disabled_title">Deaktiviert</string>
+    <string name="icon_title">Symbol</string>
+    <string name="text_title">Text</string>
     <string name="position_title">Position</string>
     <string name="position_right_title">Rechts</string>
     <string name="position_centered_title">Zentriert</string>
@@ -59,6 +63,8 @@
     <string name="status_bar_carrier_label_settings_summary">Den Netzbetreiber Namen anpassen</string>
     <string name="status_bar_clock_date_settings_title">Uhr &amp; Datum</string>
     <string name="status_bar_clock_date_settings_summary">Die Uhr &amp; das Datum anpassen</string>
+    <string name="status_bar_network_traffic_settings_title">Netzwerk Verkehr</string>
+    <string name="status_bar_network_traffic_settings_summary">Den Netzwerk Verkehr anpassen</string>
 
     <!-- Carrier label settings -->
     <string name="carrier_label_cat_notification_icons_title">Benachrichtigungssymbole</string>
@@ -92,6 +98,18 @@
     <string name="clock_date_date_custom_java_format">Eigenes Java Format</string>
     <string name="clock_date_date_string_edittext_title">Muß in Java DateFormat Schreibweise sein, z.B. MM/dd/yy</string>
     <string name="clock_date_date_string_edittext_summary">Zeichenfolge eingeben</string>
+
+    <!-- Status bar Network traffic settings -->
+    <string name="network_traffic_activity_title">Aktivität</string>
+    <string name="network_traffic_activity_down">Download</string>
+    <string name="network_traffic_activity_up">Upload</string>
+    <string name="network_traffic_activity_down_up">Download &amp; Upload</string>
+    <string name="network_traffic_type_title">Typ</string>
+    <string name="network_traffic_type_text_icon">Text &amp; Symbol</string>
+    <string name="network_traffic_bit_byte_title">Bit-Werte anzeigen</string>
+    <string name="network_traffic_bit_byte_summary">Aktivieren um die Werte in Bit anstatt Byte anzuzeigen</string>
+    <string name="network_traffic_hide_traffic_title">Anzeige verbergen</string>
+    <string name="network_traffic_hide_traffic_summary">Aktivieren um die Anzeige bei keinem Datenverkehr zu verbergen</string>
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Ein&#47;Aus Menü</string>

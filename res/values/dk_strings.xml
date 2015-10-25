@@ -22,10 +22,14 @@
     <string name="dlg_reset_colors_message">Reset colors to\nAndroid- or DarkKat default?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
-    <string name="text_title">Text</string>
+    <string name="options_title">Options</string>
+    <string name="colors_title">Colors</string>
     <string name="always_title">Always</string>
     <string name="normal_title">Normal</string>
     <string name="hidden_title">Hidden</string>
+    <string name="disabled_title">Disabled</string>
+    <string name="icon_title">Icon</string>
+    <string name="text_title">Text</string>
     <string name="position_title">Position</string>
     <string name="position_right_title">Right</string>
     <string name="position_centered_title">Centered</string>
@@ -59,6 +63,8 @@
     <string name="status_bar_carrier_label_settings_summary">Customize the carrier label</string>
     <string name="status_bar_clock_date_settings_title">Clock &amp; date</string>
     <string name="status_bar_clock_date_settings_summary">Customize the clock &amp; the date</string>
+    <string name="status_bar_network_traffic_settings_title">Network traffic</string>
+    <string name="status_bar_network_traffic_settings_summary">Customize the network traffic</string>
 
     <!-- Carrier label settings -->
     <string name="carrier_label_cat_notification_icons_title">Notification icons</string>
@@ -92,6 +98,18 @@
     <string name="clock_date_date_custom_java_format">Custom java format</string>
     <string name="clock_date_date_string_edittext_title">Must be in DateFormat eg. MM/dd/yy</string>
     <string name="clock_date_date_string_edittext_summary">Enter string</string>
+
+    <!-- Status bar Network traffic settings -->
+    <string name="network_traffic_activity_title">Activity</string>
+    <string name="network_traffic_activity_down">Download</string>
+    <string name="network_traffic_activity_up">Upload</string>
+    <string name="network_traffic_activity_down_up">Download &amp; Upload</string>
+    <string name="network_traffic_type_title">Type</string>
+    <string name="network_traffic_type_text_icon">Text &amp; icon</string>
+    <string name="network_traffic_bit_byte_title">Show bit values</string>
+    <string name="network_traffic_bit_byte_summary">Enable to show the values in bit instead of byte</string>
+    <string name="network_traffic_hide_traffic_title">Hide the indicator</string>
+    <string name="network_traffic_hide_traffic_summary">Enable to hide the indicator if there is no traffic</string>
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Power menu</string>
