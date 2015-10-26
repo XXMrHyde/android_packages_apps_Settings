@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright (C) 2014 Darkkat
+<!-- Copyright (C) 2015 Darkkat
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -60,13 +60,18 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="carrier_label_cat_color"
+        android:key="carrier_label_cat_colors"
         android:title="@string/color_title">
 
          <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="carrier_label_color"
             android:title="@string/text_title"
             android:defaultValue="0xffffffff" />
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="carrier_label_color_dark_mode"
+            android:title="@string/color_dark_mode_title"
+            android:defaultValue="0x99000000" />
 
     </PreferenceCategory>
 </PreferenceScreen>

@@ -24,12 +24,16 @@
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="options_title">Options</string>
     <string name="colors_title">Colors</string>
+    <string name="color_title">Color</string>
+    <string name="color_dark_mode_title">Color (light status bar)</string>
     <string name="always_title">Always</string>
     <string name="normal_title">Normal</string>
     <string name="hidden_title">Hidden</string>
     <string name="disabled_title">Disabled</string>
     <string name="icon_title">Icon</string>
+    <string name="icon_color_dark_mode_title">Icon (light status bar)</string>
     <string name="text_title">Text</string>
+    <string name="text_color_dark_mode_title">Text (light status bar)</string>
     <string name="position_title">Position</string>
     <string name="position_right_title">Right</string>
     <string name="position_centered_title">Centered</string>
@@ -81,7 +85,6 @@
     <string name="carrier_label_number_of_notification_icons_title">Number of notification icons</string>
 
     <!-- clock and date settings -->
-    <string name="clock_date_cat_clock_date_title">Clock &amp; date</string>
     <string name="clock_date_cat_clock_title">Clock</string>
     <string name="clock_date_cat_date_title">Date</string>
     <string name="clock_date_show_date_title">Show date</string>

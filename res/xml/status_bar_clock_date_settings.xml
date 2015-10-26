@@ -65,13 +65,18 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="clock_date_cat_clock_date"
-        android:title="@string/clock_date_cat_clock_date_title">
+        android:key="clock_date_cat_colors"
+        android:title="@string/colors_title">
 
          <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="clock_date_clock_date_color"
+            android:key="clock_date_color"
             android:title="@string/color_title"
             android:defaultValue="0xffffffff" />
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="clock_date_color_dark_mode"
+            android:title="@string/color_dark_mode_title"
+            android:defaultValue="0x99000000" />
 
 	</PreferenceCategory>
 </PreferenceScreen>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014 DarkKat
+<!-- Copyright (C) 2015 DarkKat
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -56,9 +56,19 @@
             android:defaultValue="0xffffffff" />
 
          <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="network_traffic_text_color_dark_mode"
+            android:title="@string/text_color_dark_mode_title"
+            android:defaultValue="0x99000000" />
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="network_traffic_icon_color"
             android:title="@string/icon_title"
             android:defaultValue="0xffffffff" />
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="network_traffic_icon_color_dark_mode"
+            android:title="@string/icon_color_dark_mode_title"
+            android:defaultValue="0x99000000" />
 
     </PreferenceCategory>
 </PreferenceScreen>

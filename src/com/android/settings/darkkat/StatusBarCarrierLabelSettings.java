@@ -35,6 +35,10 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class StatusBarCarrierLabelSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String PREF_CAT_NOTIFICATION_ICONS =
+            "carrier_label_cat_notification_icons";
+    private static final String PREF_CAT_COLORS =
+            "carrier_label_cat_colors";
     private static final String PREF_CARRIER_LABEL_SHOW =
             "carrier_label_show";
     private static final String PREF_CARRIER_LABEL_SHOW_ON_LOCK_SCREEN =
@@ -49,8 +53,11 @@ public class StatusBarCarrierLabelSettings extends SettingsPreferenceFragment im
             "carrier_label_number_of_notification_icons";
     private static final String PREF_COLOR =
             "carrier_label_color";
+    private static final String PREF_COLOR_DARK_MODE =
+            "carrier_label_color_dark_mode";
 
     private static final int WHITE = 0xffffffff;
+    private static final int TRANSLUCENT_BLACK = 0x99000000;
     private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
 
     private SwitchPreference mShow;
@@ -60,6 +67,7 @@ public class StatusBarCarrierLabelSettings extends SettingsPreferenceFragment im
     private SwitchPreference mHideLabel;
     private ListPreference mNumberOfNotificationIcons;
     private ColorPickerPreference mColor;
+    private ColorPickerPreference mColorDarkMode;
 
     private ContentResolver mResolver;
 
@@ -89,9 +97,9 @@ public class StatusBarCarrierLabelSettings extends SettingsPreferenceFragment im
         final boolean isHidden = !show && !showOnLockScreen;
 
         PreferenceCategory catNotificationIcons =
-                (PreferenceCategory) findPreference("carrier_label_cat_notification_icons");
-        PreferenceCategory catColor =
-                (PreferenceCategory) findPreference("carrier_label_cat_color");
+                (PreferenceCategory) findPreference(PREF_CAT_NOTIFICATION_ICONS);
+        PreferenceCategory catColors =
+                (PreferenceCategory) findPreference(PREF_CAT_COLORS);
 
         mShow = (SwitchPreference) findPreference(PREF_CARRIER_LABEL_SHOW);
         mShow.setChecked(show);
@@ -102,6 +110,9 @@ public class StatusBarCarrierLabelSettings extends SettingsPreferenceFragment im
         mShowOnLockScreen.setOnPreferenceChangeListener(this);
 
         if (!isHidden) {
+            int intColor;
+            String hexColor;
+
             mUseCustom = (SwitchPreference) findPreference(PREF_CARRIER_LABEL_USE_CUSTOM);
             mUseCustom.setChecked(useCustom);
             mUseCustom.setOnPreferenceChangeListener(this);
@@ -135,33 +146,48 @@ public class StatusBarCarrierLabelSettings extends SettingsPreferenceFragment im
             } else {
                 catNotificationIcons.removePreference(findPreference(PREF_HIDE_LABEL));
                 catNotificationIcons.removePreference(findPreference(PREF_NUMBER_OF_NOTIFICATION_ICONS));
-                removePreference("carrier_label_cat_notification_icons");
+                removePreference(PREF_CAT_NOTIFICATION_ICONS);
             }
 
             mColor =
                     (ColorPickerPreference) findPreference(PREF_COLOR);
-            int intColor = Settings.System.getInt(mResolver,
+            intColor = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_CARRIER_LABEL_COLOR,
                     WHITE); 
             mColor.setNewPreviewColor(intColor);
-            String hexColor = String.format("#%08x", (0xffffffff & intColor));
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
             mColor.setSummary(hexColor);
             mColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
             mColor.setOnPreferenceChangeListener(this);
+
+            mColorDarkMode =
+                    (ColorPickerPreference) findPreference(PREF_COLOR_DARK_MODE);
+            intColor = Settings.System.getInt(mResolver,
+                    Settings.System.STATUS_BAR_CARRIER_LABEL_COLOR_DARK_MODE,
+                    TRANSLUCENT_BLACK); 
+            mColorDarkMode.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mColorDarkMode.setSummary(hexColor);
+            mColorDarkMode.setDefaultColors(TRANSLUCENT_BLACK, TRANSLUCENT_BLACK);
+            mColorDarkMode.setOnPreferenceChangeListener(this);
         } else {
             removePreference(PREF_CARRIER_LABEL_USE_CUSTOM);
             removePreference(PREF_CARRIER_LABEL_CUSTOM_LABEL);
             catNotificationIcons.removePreference(findPreference(PREF_HIDE_LABEL));
             catNotificationIcons.removePreference(findPreference(PREF_NUMBER_OF_NOTIFICATION_ICONS));
-            catColor.removePreference(findPreference(PREF_COLOR));
-            removePreference("carrier_label_cat_notification_icons");
-            removePreference("carrier_label_cat_color");
+            catColors.removePreference(findPreference(PREF_COLOR));
+            catColors.removePreference(findPreference(PREF_COLOR_DARK_MODE));
+            removePreference(PREF_CAT_NOTIFICATION_ICONS);
+            removePreference(PREF_CAT_COLORS);
         }
 
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         boolean value;
+        String hex;
+        int intHex;
+
 
         if (preference == mShow) {
             value = (Boolean) newValue;
@@ -205,11 +231,19 @@ public class StatusBarCarrierLabelSettings extends SettingsPreferenceFragment im
             preference.setSummary(mNumberOfNotificationIcons.getEntries()[index]);
             return true;
         } else if (preference == mColor) {
-            String hex = ColorPickerPreference.convertToARGB(
+            hex = ColorPickerPreference.convertToARGB(
                 Integer.valueOf(String.valueOf(newValue)));
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
                 Settings.System.STATUS_BAR_CARRIER_LABEL_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mColorDarkMode) {
+            hex = ColorPickerPreference.convertToARGB(
+                Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                Settings.System.STATUS_BAR_CARRIER_LABEL_COLOR_DARK_MODE, intHex);
             preference.setSummary(hex);
             return true;
         }
