@@ -172,6 +172,7 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
             mColorDarkMode.setSummary(hexColor);
             mColorDarkMode.setDefaultColors(TRANSLUCENT_BLACK, TRANSLUCENT_BLACK);
             mColorDarkMode.setOnPreferenceChangeListener(this);
+            catColors.removePreference(findPreference(PREF_COLOR_DARK_MODE));
         } else {
             removePreference(PREF_SHOW_DATE);
             catClock.removePreference(findPreference(PREF_AM_PM));
@@ -416,9 +417,9 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CLOCK_DATE_COLOR,
                                     WHITE);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_CLOCK_DATE_COLOR_DARK_MODE,
-                                    TRANSLUCENT_BLACK);
+//                            Settings.System.putInt(getOwner().mResolver,
+//                                    Settings.System.STATUS_BAR_CLOCK_DATE_COLOR_DARK_MODE,
+//                                    TRANSLUCENT_BLACK);
                             getOwner().refreshSettings();
                         }
                     })
@@ -441,9 +442,9 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CLOCK_DATE_COLOR,
                                     HOLO_BLUE_LIGHT);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_CLOCK_DATE_COLOR_DARK_MODE,
-                                    TRANSLUCENT_BLACK);
+//                            Settings.System.putInt(getOwner().mResolver,
+//                                    Settings.System.STATUS_BAR_CLOCK_DATE_COLOR_DARK_MODE,
+//                                    TRANSLUCENT_BLACK);
                             getOwner().refreshSettings();
                         }
                     })

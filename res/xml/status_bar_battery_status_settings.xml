@@ -47,19 +47,19 @@
             android:title="@string/icon_title"
             android:defaultValue="0xffffffff" />
 
-<!--        <net.margaritov.preference.colorpicker.ColorPickerPreference
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="battery_status_battery_color_dark_mode"
             android:title="@string/icon_color_dark_mode_title"
-            android:defaultValue="0x7a000000" /> -->
+            android:defaultValue="0x7a000000" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="battery_status_text_color"
             android:title="@string/battery_status_text_charging_symbol_title"
             android:defaultValue="0xffffffff" />
 
-<!--        <net.margaritov.preference.colorpicker.ColorPickerPreference
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="battery_status_text_color_dark_mode"
             android:title="@string/battery_status_text_charging_symbol_color_dark_mode_title"
-            android:defaultValue="0x7a000000" /> -->
+            android:defaultValue="0x7a000000" />
     </PreferenceCategory>
 </PreferenceScreen>
