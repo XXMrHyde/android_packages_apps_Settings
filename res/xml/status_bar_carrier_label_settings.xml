@@ -70,7 +70,7 @@
 
          <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="carrier_label_color_dark_mode"
-            android:title="@string/color_dark_mode_title"
+            android:title="@string/text_color_dark_mode_title"
             android:defaultValue="0x99000000" />
 
     </PreferenceCategory>

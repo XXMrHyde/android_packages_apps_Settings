@@ -170,7 +170,6 @@ public class StatusBarCarrierLabelSettings extends SettingsPreferenceFragment im
             mColorDarkMode.setSummary(hexColor);
             mColorDarkMode.setDefaultColors(TRANSLUCENT_BLACK, TRANSLUCENT_BLACK);
             mColorDarkMode.setOnPreferenceChangeListener(this);
-            catColors.removePreference(findPreference(PREF_COLOR_DARK_MODE));
         } else {
             removePreference(PREF_CARRIER_LABEL_USE_CUSTOM);
             removePreference(PREF_CARRIER_LABEL_CUSTOM_LABEL);
