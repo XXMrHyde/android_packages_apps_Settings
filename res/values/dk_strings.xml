@@ -70,6 +70,8 @@
     <string name="status_bar_clock_date_settings_summary">Customize the clock &amp; the date</string>
     <string name="status_bar_battery_status_settings_title">Battery status</string>
     <string name="status_bar_battery_status_settings_summary">Customize the battery status</string>
+    <string name="status_bar_network_icons_settings_title">Network icons</string>
+    <string name="status_bar_network_icons_settings_summary">Customize the Network icons</string>
     <string name="status_bar_network_traffic_settings_title">Network traffic</string>
     <string name="status_bar_network_traffic_settings_summary">Customize the network traffic</string>
 
@@ -113,6 +115,11 @@
     <string name="battery_status_cut_out_title">Cut out</string>
     <string name="battery_status_cut_out_summary">Enable to cut the battery percentage or charging symbol out of the battery icon, if the battery fill reaches the battery percentage or charging symbol.</string>
     <string name="battery_status_text_charging_symbol_color_dark_mode_title">Battery percentage &amp; charging symbol (light status bar)</string>
+
+    <!-- Status bar network icons settings -->
+    <string name="network_icons_cat_signal_colors_title">Signal colors</string>
+    <string name="network_icons_cat_no_sim_colors_title">No sim card colors</string>
+    <string name="network_icons_cat_airplane_mode_colors_title">Airplane mode colors</string>
 
     <!-- Status bar Network traffic settings -->
     <string name="network_traffic_activity_title">Activity</string>

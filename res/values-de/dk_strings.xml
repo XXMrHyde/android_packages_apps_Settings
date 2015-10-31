@@ -70,6 +70,8 @@
     <string name="status_bar_clock_date_settings_summary">Die Uhr &amp; das Datum anpassen</string>
     <string name="status_bar_battery_status_settings_title">Akkustatus</string>
     <string name="status_bar_battery_status_settings_summary">Den Akkustatus anpassen</string>
+    <string name="status_bar_network_icons_settings_title">Netzerk Symbole</string>
+    <string name="status_bar_network_icons_settings_summary">Die Netzerk Symbole anpassen</string>
     <string name="status_bar_network_traffic_settings_title">Netzwerk Verkehr</string>
     <string name="status_bar_network_traffic_settings_summary">Den Netzwerk Verkehr anpassen</string>
 
@@ -113,6 +115,11 @@
     <string name="battery_status_cut_out_title">Ausschneiden</string>
     <string name="battery_status_cut_out_summary">Aktivieren um die Akku-Prozentzahl oder das Ladesymbol aus dem Akkusymbol auszuschneiden, Sobald die Akkufüllung die Akku-Prozentzahl oder das Ladesymbol erreicht</string>
     <string name="battery_status_text_charging_symbol_color_dark_mode_title">Akku-Prozentzahl &amp; Ladesymbol (helle Statusleiste)</string>
+
+    <!-- Status bar network icons settings -->
+    <string name="network_icons_cat_signal_colors_title">Signal Farben</string>
+    <string name="network_icons_cat_no_sim_colors_title">Keine Simkarte Farben</string>
+    <string name="network_icons_cat_airplane_mode_colors_title">Flugmodus Farben</string>
 
     <!-- Status bar Network traffic settings -->
     <string name="network_traffic_activity_title">Aktivität</string>
