@@ -61,7 +61,7 @@
 
     <PreferenceCategory
         android:key="carrier_label_cat_colors"
-        android:title="@string/color_title">
+        android:title="@string/colors_title">
 
          <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="carrier_label_color"
