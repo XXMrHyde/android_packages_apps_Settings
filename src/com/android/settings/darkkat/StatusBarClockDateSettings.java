@@ -172,7 +172,6 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
             mColorDarkMode.setSummary(hexColor);
             mColorDarkMode.setDefaultColors(TRANSLUCENT_BLACK, TRANSLUCENT_BLACK);
             mColorDarkMode.setOnPreferenceChangeListener(this);
-            catColors.removePreference(findPreference(PREF_COLOR_DARK_MODE));
         } else {
             removePreference(PREF_SHOW_DATE);
             catClock.removePreference(findPreference(PREF_AM_PM));
