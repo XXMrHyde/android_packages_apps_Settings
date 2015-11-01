@@ -163,7 +163,6 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
                 mTextColorDarkMode.setSummary(hexColor);
                 mTextColorDarkMode.setDefaultColors(TRANSLUCENT_BLACK, TRANSLUCENT_BLACK);
                 mTextColorDarkMode.setOnPreferenceChangeListener(this);
-                catColors.removePreference(findPreference(PREF_TEXT_COLOR_DARK_MODE));
             } else {
                 catOptions.removePreference(findPreference(PREF_BIT_BYTE));
                 catOptions.removePreference(findPreference(PREF_HIDE));
@@ -192,7 +191,6 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
                 mIconColorDarkMode.setSummary(hexColor);
                 mIconColorDarkMode.setDefaultColors(TRANSLUCENT_BLACK, TRANSLUCENT_BLACK);
                 mIconColorDarkMode.setOnPreferenceChangeListener(this);
-                catColors.removePreference(findPreference(PREF_ICON_COLOR_DARK_MODE));
             } else {
                 catColors.removePreference(findPreference(PREF_ICON_COLOR));
                 catColors.removePreference(findPreference(PREF_ICON_COLOR_DARK_MODE));
@@ -202,7 +200,9 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
             catOptions.removePreference(findPreference(PREF_BIT_BYTE));
             catOptions.removePreference(findPreference(PREF_HIDE));
             catColors.removePreference(findPreference(PREF_TEXT_COLOR));
+            catColors.removePreference(findPreference(PREF_TEXT_COLOR_DARK_MODE));
             catColors.removePreference(findPreference(PREF_ICON_COLOR));
+            catColors.removePreference(findPreference(PREF_ICON_COLOR_DARK_MODE));
             removePreference(PREF_CAT_OPTIONS);
             removePreference(PREF_CAT_COLORS);
         }
@@ -349,15 +349,15 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_TRAFFIC_TEXT_COLOR,
                                 WHITE);
-//                            Settings.System.putInt(getOwner().mResolver,
-//                                Settings.System.STATUS_BAR_NETWORK_TRAFFIC_TEXT_COLOR_DARK_MODE,
-//                                TRANSLUCENT_BLACK);
+                            Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.STATUS_BAR_NETWORK_TRAFFIC_TEXT_COLOR_DARK_MODE,
+                                TRANSLUCENT_BLACK);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ICON_COLOR,
                                 WHITE);
-//                            Settings.System.putInt(getOwner().mResolver,
-//                                Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ICON_COLOR_DARK_MODE,
-//                                TRANSLUCENT_BLACK);
+                            Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ICON_COLOR_DARK_MODE,
+                                TRANSLUCENT_BLACK);
                             getOwner().refreshSettings();
                         }
                     })
@@ -375,15 +375,15 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_TRAFFIC_TEXT_COLOR,
                                 HOLO_BLUE_LIGHT);
-//                            Settings.System.putInt(getOwner().mResolver,
-//                                Settings.System.STATUS_BAR_NETWORK_TRAFFIC_TEXT_COLOR_DARK_MODE,
-//                                TRANSLUCENT_BLACK);
+                            Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.STATUS_BAR_NETWORK_TRAFFIC_TEXT_COLOR_DARK_MODE,
+                                TRANSLUCENT_BLACK);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ICON_COLOR,
                                 HOLO_BLUE_LIGHT);
-//                            Settings.System.putInt(getOwner().mResolver,
-//                                Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ICON_COLOR_DARK_MODE,
-//                                TRANSLUCENT_BLACK);
+                            Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ICON_COLOR_DARK_MODE,
+                                TRANSLUCENT_BLACK);
                             getOwner().refreshSettings();
                         }
                     })
