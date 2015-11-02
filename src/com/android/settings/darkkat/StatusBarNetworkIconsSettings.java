@@ -261,7 +261,7 @@ public class StatusBarNetworkIconsSettings extends SettingsPreferenceFragment im
                 case DLG_RESET:
                     return new AlertDialog.Builder(getActivity())
                     .setTitle(R.string.reset)
-                    .setMessage(R.string.dlg_reset_values_message)
+                    .setMessage(R.string.dlg_reset_colors_message)
                     .setNegativeButton(R.string.cancel, null)
                     .setNeutralButton(R.string.dlg_reset_android,
                             new DialogInterface.OnClickListener() {
