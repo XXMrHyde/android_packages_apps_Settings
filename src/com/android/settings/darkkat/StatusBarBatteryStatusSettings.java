@@ -293,7 +293,7 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
                     .setMessage(R.string.dlg_reset_values_message)
                     .setNegativeButton(R.string.cancel, null)
                     .setNeutralButton(R.string.dlg_reset_android,
-                        new DialogInterface.OnClickListener() {
+                            new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_BATTERY, 1);
@@ -317,7 +317,7 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
                         }
                     })
                     .setPositiveButton(R.string.dlg_reset_darkkat,
-                        new DialogInterface.OnClickListener() {
+                            new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_BATTERY, 1);

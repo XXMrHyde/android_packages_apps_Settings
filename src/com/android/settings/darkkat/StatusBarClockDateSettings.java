@@ -70,8 +70,8 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
     private static final String PREF_COLOR_DARK_MODE =
             "clock_date_color_dark_mode";
 
-    public static final int DATE_STYLE_LOWERCASE = 1;
-    public static final int DATE_STYLE_UPPERCASE = 2;
+    private static final int DATE_STYLE_LOWERCASE     = 1;
+    private static final int DATE_STYLE_UPPERCASE     = 2;
     private static final int CUSTOM_DATE_FORMAT_INDEX = 18;
 
     private static final int WHITE             = 0xffffffff;
@@ -79,7 +79,7 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
     private static final int HOLO_BLUE_LIGHT   = 0xff33b5e5;
 
     private static final int MENU_RESET = Menu.FIRST;
-    private static final int DLG_RESET = 0;
+    private static final int DLG_RESET  = 0;
 
     private ListPreference mClockDatePosition;
     private SwitchPreference mShowDate;
@@ -230,14 +230,13 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         boolean result = false;
-
         AlertDialog dialog;
 
         if (preference == mClockDatePosition) {
             int clockDatePosition = Integer.valueOf((String) newValue);
             int index = mClockDatePosition.findIndexOfValue((String) newValue);
             Settings.System.putInt(mResolver,
-                Settings.System.STATUS_BAR_CLOCK_DATE_POSITION, clockDatePosition);
+                    Settings.System.STATUS_BAR_CLOCK_DATE_POSITION, clockDatePosition);
             preference.setSummary(mClockDatePosition.getEntries()[index]);
             refreshSettings();
             return true;
@@ -251,19 +250,19 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
             int clockAmPm = Integer.valueOf((String) newValue);
             int index = mClockAmPm.findIndexOfValue((String) newValue);
             Settings.System.putInt(mResolver,
-                Settings.System.STATUS_BAR_AM_PM, clockAmPm);
+                    Settings.System.STATUS_BAR_AM_PM, clockAmPm);
             preference.setSummary(mClockAmPm.getEntries()[index]);
             return true;
         } else if (preference == mDateSize) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
-                Settings.System.STATUS_BAR_DATE_SIZE, value ? 1 : 0);
+                    Settings.System.STATUS_BAR_DATE_SIZE, value ? 1 : 0);
             return true;
         } else if (preference == mDateStyle) {
             int dateStyle = Integer.valueOf((String) newValue);
             int index = mDateStyle.findIndexOfValue((String) newValue);
             Settings.System.putInt(mResolver,
-                Settings.System.STATUS_BAR_DATE_STYLE, dateStyle);
+                    Settings.System.STATUS_BAR_DATE_STYLE, dateStyle);
             preference.setSummary(mDateStyle.getEntries()[index]);
             return true;
         }  else if (preference == mDateFormat) {
@@ -273,10 +272,9 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
                 AlertDialog.Builder alert =
                         new AlertDialog.Builder(getActivity());
                 alert.setTitle(
-                    R.string.clock_date_date_string_edittext_title);
+                        R.string.clock_date_date_string_edittext_title);
                 alert.setMessage(
-                    R.string.clock_date_date_string_edittext_summary);
-
+                        R.string.clock_date_date_string_edittext_summary);
                 final EditText input = new EditText(getActivity());
                 String oldText = Settings.System.getString(mResolver,
                         Settings.System.STATUS_BAR_DATE_FORMAT);
@@ -284,9 +282,8 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
                     input.setText(oldText);
                 }
                 alert.setView(input);
-
                 alert.setPositiveButton(R.string.menu_save,
-                    new DialogInterface.OnClickListener() {
+                        new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogInterface,
                             int whichButton) {
                         String value = input.getText().toString();
@@ -294,16 +291,16 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
                             return;
                         }
                         Settings.System.putString(mResolver,
-                            Settings.System.STATUS_BAR_DATE_FORMAT, value);
+                                Settings.System.STATUS_BAR_DATE_FORMAT, value);
 
                         return;
                     }
                 });
 
                 alert.setNegativeButton(R.string.menu_cancel,
-                    new DialogInterface.OnClickListener() {
+                        new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogInterface,
-                        int which) {
+                            int which) {
                         return;
                     }
                 });
@@ -312,24 +309,24 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
             } else {
                 if ((String) newValue != null) {
                     Settings.System.putString(mResolver,
-                        Settings.System.STATUS_BAR_DATE_FORMAT, (String) newValue);
+                            Settings.System.STATUS_BAR_DATE_FORMAT, (String) newValue);
                 }
             }
             return true;
         } else if (preference == mColor) {
             String hex = ColorPickerPreference.convertToARGB(
-                Integer.valueOf(String.valueOf(newValue)));
+                    Integer.valueOf(String.valueOf(newValue)));
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                Settings.System.STATUS_BAR_CLOCK_DATE_COLOR, intHex);
+                    Settings.System.STATUS_BAR_CLOCK_DATE_COLOR, intHex);
             preference.setSummary(hex);
             return true;
         } else if (preference == mColorDarkMode) {
             String hex = ColorPickerPreference.convertToARGB(
-                Integer.valueOf(String.valueOf(newValue)));
+                    Integer.valueOf(String.valueOf(newValue)));
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                Settings.System.STATUS_BAR_CLOCK_DATE_COLOR_DARK_MODE, intHex);
+                    Settings.System.STATUS_BAR_CLOCK_DATE_COLOR_DARK_MODE, intHex);
             preference.setSummary(hex);
             return true;
         }
@@ -397,9 +394,8 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
                     .setMessage(R.string.dlg_reset_values_message)
                     .setNegativeButton(R.string.cancel, null)
                     .setNeutralButton(R.string.dlg_reset_android,
-                        new DialogInterface.OnClickListener() {
+                            new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CLOCK_DATE_POSITION, 0);
                             Settings.System.putInt(getOwner().mResolver,
@@ -423,7 +419,7 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
                         }
                     })
                     .setPositiveButton(R.string.dlg_reset_darkkat,
-                        new DialogInterface.OnClickListener() {
+                            new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CLOCK_DATE_POSITION, 1);

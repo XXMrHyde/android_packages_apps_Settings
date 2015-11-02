@@ -64,9 +64,9 @@ public class StatusBarCarrierLabelSettings extends SettingsPreferenceFragment im
     private static final String PREF_COLOR_DARK_MODE =
             "carrier_label_color_dark_mode";
 
-    private static final int WHITE = 0xffffffff;
+    private static final int WHITE             = 0xffffffff;
     private static final int TRANSLUCENT_BLACK = 0x99000000;
-    private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
+    private static final int HOLO_BLUE_LIGHT   = 0xff33b5e5;
 
     private static final String EMPTY_STRING = "";
 
@@ -263,18 +263,18 @@ public class StatusBarCarrierLabelSettings extends SettingsPreferenceFragment im
             return true;
         } else if (preference == mColor) {
             hex = ColorPickerPreference.convertToARGB(
-                 Integer.valueOf(String.valueOf(newValue)));
+                    Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                 Settings.System.STATUS_BAR_CARRIER_LABEL_COLOR, intHex);
+                    Settings.System.STATUS_BAR_CARRIER_LABEL_COLOR, intHex);
             preference.setSummary(hex);
             return true;
         } else if (preference == mColorDarkMode) {
             hex = ColorPickerPreference.convertToARGB(
-                 Integer.valueOf(String.valueOf(newValue)));
+                    Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                 Settings.System.STATUS_BAR_CARRIER_LABEL_COLOR_DARK_MODE, intHex);
+                    Settings.System.STATUS_BAR_CARRIER_LABEL_COLOR_DARK_MODE, intHex);
             preference.setSummary(hex);
             return true;
         }
@@ -285,7 +285,7 @@ public class StatusBarCarrierLabelSettings extends SettingsPreferenceFragment im
         String customLabelText = Settings.System.getString(mResolver,
                 Settings.System.STATUS_BAR_CARRIER_LABEL_CUSTOM_LABEL);
         String customLabelDefaultSummary = getResources().getString(
-                    com.android.internal.R.string.default_custom_label);
+                com.android.internal.R.string.default_custom_label);
         if (customLabelText == null) {
             customLabelText = EMPTY_STRING;
         }

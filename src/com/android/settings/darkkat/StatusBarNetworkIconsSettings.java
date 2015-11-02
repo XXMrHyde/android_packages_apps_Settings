@@ -178,7 +178,6 @@ public class StatusBarNetworkIconsSettings extends SettingsPreferenceFragment im
         String hex;
         int intHex;
 
-
         if (preference == mSignal) {
             hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
@@ -265,7 +264,7 @@ public class StatusBarNetworkIconsSettings extends SettingsPreferenceFragment im
                     .setMessage(R.string.dlg_reset_values_message)
                     .setNegativeButton(R.string.cancel, null)
                     .setNeutralButton(R.string.dlg_reset_android,
-                        new DialogInterface.OnClickListener() {
+                            new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NETWORK_ICONS_SIGNAL_COLOR,
@@ -289,7 +288,7 @@ public class StatusBarNetworkIconsSettings extends SettingsPreferenceFragment im
                         }
                     })
                     .setPositiveButton(R.string.dlg_reset_darkkat,
-                        new DialogInterface.OnClickListener() {
+                            new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NETWORK_ICONS_SIGNAL_COLOR,
