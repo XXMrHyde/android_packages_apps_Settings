@@ -412,9 +412,9 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CLOCK_DATE_COLOR,
                                     WHITE);
-//                            Settings.System.putInt(getOwner().mResolver,
-//                                    Settings.System.STATUS_BAR_CLOCK_DATE_COLOR_DARK_MODE,
-//                                    TRANSLUCENT_BLACK);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_CLOCK_DATE_COLOR_DARK_MODE,
+                                    TRANSLUCENT_BLACK);
                             getOwner().refreshSettings();
                         }
                     })
@@ -437,9 +437,9 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CLOCK_DATE_COLOR,
                                     HOLO_BLUE_LIGHT);
-//                            Settings.System.putInt(getOwner().mResolver,
-//                                    Settings.System.STATUS_BAR_CLOCK_DATE_COLOR_DARK_MODE,
-//                                    TRANSLUCENT_BLACK);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_CLOCK_DATE_COLOR_DARK_MODE,
+                                    TRANSLUCENT_BLACK);
                             getOwner().refreshSettings();
                         }
                     })
