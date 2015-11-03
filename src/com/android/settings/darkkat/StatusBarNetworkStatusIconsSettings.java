@@ -36,21 +36,25 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class StatusBarNetworkIconsSettings extends SettingsPreferenceFragment implements
+public class StatusBarNetworkStatusIconsSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String PREF_SIGNAL =
-            "network_icons_signal_color";
+            "network_status_icons_signal_color";
     private static final String PREF_SIGNAL_DARK =
-            "network_icons_signal_color_dark_mode";
+            "network_status_icons_signal_color_dark_mode";
     private static final String PREF_NO_SIM =
-            "network_icons_no_sim_color";
+            "network_status_icons_no_sim_color";
     private static final String PREF_NO_SIM_DARK =
-            "network_icons_no_sim_color_dark_mode";
+            "network_status_icons_no_sim_color_dark_mode";
     private static final String PREF_AIRPLANE_MODE =
-            "network_icons_airplane_mode_color";
+            "network_status_icons_airplane_mode_color";
     private static final String PREF_AIRPLANE_MODE_DARK =
-            "network_icons_airplane_mode_color_dark_mode";
+            "network_status_icons_airplane_mode_color_dark_mode";
+    private static final String PREF_STATUS =
+            "network_status_icons_status_color";
+    private static final String PREF_STATUS_DARK =
+            "network_status_icons_status_color_dark_mode";
 
     private static final int WHITE                  = 0xffffffff;
     private static final int HOLO_BLUE_LIGHT        = 0xff33b5e5;
@@ -67,6 +71,8 @@ public class StatusBarNetworkIconsSettings extends SettingsPreferenceFragment im
     private ColorPickerPreference mNoSimDark;
     private ColorPickerPreference mAirplaneMode;
     private ColorPickerPreference mAirplaneModeDark;
+    private ColorPickerPreference mStatus;
+    private ColorPickerPreference mStatusDark;
 
     private ContentResolver mResolver;
 
@@ -82,7 +88,7 @@ public class StatusBarNetworkIconsSettings extends SettingsPreferenceFragment im
             prefs.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.status_bar_network_icons_settings);
+        addPreferencesFromResource(R.xml.status_bar_network_status_icons_settings);
         mResolver = getActivity().getContentResolver();
 
         int intColor;
@@ -153,6 +159,29 @@ public class StatusBarNetworkIconsSettings extends SettingsPreferenceFragment im
         mAirplaneModeDark.setSummary(hexColor);
         mAirplaneModeDark.setDefaultColors(BLACK_TRANSLUCENT, RED_900_TRANSLUCENT);
         mAirplaneModeDark.setOnPreferenceChangeListener(this);
+
+        mStatus =
+                (ColorPickerPreference) findPreference(PREF_STATUS);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_STATUS_ICONS_COLOR,
+                WHITE); 
+        mStatus.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mStatus.setSummary(hexColor);
+        mStatus.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mStatus.setOnPreferenceChangeListener(this);
+
+        mStatusDark =
+                (ColorPickerPreference) findPreference(PREF_STATUS_DARK);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_STATUS_ICONS_COLOR_DARK_MODE,
+                BLACK_TRANSLUCENT); 
+        mStatusDark.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mStatusDark.setSummary(hexColor);
+        mStatusDark.setDefaultColors(BLACK_TRANSLUCENT, BLACK_TRANSLUCENT);
+        mStatusDark.setOnPreferenceChangeListener(this);
+
         setHasOptionsMenu(true);
     }
 
@@ -230,6 +259,24 @@ public class StatusBarNetworkIconsSettings extends SettingsPreferenceFragment im
                     intHex);
             preference.setSummary(hex);
             return true;
+        } else if (preference == mStatus) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_STATUS_ICONS_COLOR,
+                    intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mStatusDark) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_STATUS_ICONS_COLOR_DARK_MODE,
+                    intHex);
+            preference.setSummary(hex);
+            return true;
         }
         return false;
     }
@@ -250,8 +297,8 @@ public class StatusBarNetworkIconsSettings extends SettingsPreferenceFragment im
             return frag;
         }
 
-        StatusBarNetworkIconsSettings getOwner() {
-            return (StatusBarNetworkIconsSettings) getTargetFragment();
+        StatusBarNetworkStatusIconsSettings getOwner() {
+            return (StatusBarNetworkStatusIconsSettings) getTargetFragment();
         }
 
         @Override
@@ -284,6 +331,12 @@ public class StatusBarNetworkIconsSettings extends SettingsPreferenceFragment im
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NETWORK_ICONS_AIRPLANE_MODE_COLOR_DARK_MODE,
                                     BLACK_TRANSLUCENT);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_STATUS_ICONS_COLOR,
+                                    WHITE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_STATUS_ICONS_COLOR_DARK_MODE,
+                                    BLACK_TRANSLUCENT);
                             getOwner().refreshSettings();
                         }
                     })
@@ -308,6 +361,12 @@ public class StatusBarNetworkIconsSettings extends SettingsPreferenceFragment im
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NETWORK_ICONS_AIRPLANE_MODE_COLOR_DARK_MODE,
                                     RED_900_TRANSLUCENT);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_STATUS_ICONS_COLOR,
+                                    HOLO_BLUE_LIGHT);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_STATUS_ICONS_COLOR_DARK_MODE,
+                                    BLACK_TRANSLUCENT);
                             getOwner().refreshSettings();
                         }
                     })
