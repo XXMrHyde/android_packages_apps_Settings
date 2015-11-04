@@ -74,6 +74,8 @@
     <string name="status_bar_network_status_icons_settings_summary">Customize the network- &amp; status icons</string>
     <string name="status_bar_network_traffic_settings_title">Network traffic</string>
     <string name="status_bar_network_traffic_settings_summary">Customize the network traffic</string>
+    <string name="status_bar_notification_icons_settings_title">Notification icons</string>
+    <string name="status_bar_notification_icons_settings_summary">Customize the notification icons</string>
 
     <!-- Carrier label settings -->
     <string name="carrier_label_cat_notification_icons_title">Notification icons</string>
