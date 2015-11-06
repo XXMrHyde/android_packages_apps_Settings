@@ -36,13 +36,13 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class StatusBarNotificationIconsSettings extends SettingsPreferenceFragment implements
+public class StatusBarNotificationIconSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String PREF_COLOR =
-            "notification_icons_color";
+            "notification_icon_color";
     private static final String PREF_COLOR_DARK =
-            "notification_icons_color_dark_mode";
+            "notification_icon_color_dark_mode";
 
     private static final int WHITE                  = 0xffffffff;
     private static final int HOLO_BLUE_LIGHT        = 0xff33b5e5;
@@ -68,7 +68,7 @@ public class StatusBarNotificationIconsSettings extends SettingsPreferenceFragme
             prefs.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.status_bar_notification_icons_settings);
+        addPreferencesFromResource(R.xml.status_bar_notification_icon_settings);
         mResolver = getActivity().getContentResolver();
 
         int intColor;
@@ -158,8 +158,8 @@ public class StatusBarNotificationIconsSettings extends SettingsPreferenceFragme
             return frag;
         }
 
-        StatusBarNotificationIconsSettings getOwner() {
-            return (StatusBarNotificationIconsSettings) getTargetFragment();
+        StatusBarNotificationIconSettings getOwner() {
+            return (StatusBarNotificationIconSettings) getTargetFragment();
         }
 
         @Override

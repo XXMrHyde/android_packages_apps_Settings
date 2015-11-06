@@ -36,25 +36,25 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class StatusBarNetworkStatusIconsSettings extends SettingsPreferenceFragment implements
+public class StatusBarNetworkStatusIconSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String PREF_SIGNAL =
-            "network_status_icons_signal_color";
+            "network_status_icon_signal_color";
     private static final String PREF_SIGNAL_DARK =
-            "network_status_icons_signal_color_dark_mode";
+            "network_status_icon_signal_color_dark_mode";
     private static final String PREF_NO_SIM =
-            "network_status_icons_no_sim_color";
+            "network_status_icon_no_sim_color";
     private static final String PREF_NO_SIM_DARK =
-            "network_status_icons_no_sim_color_dark_mode";
+            "network_status_icon_no_sim_color_dark_mode";
     private static final String PREF_AIRPLANE_MODE =
-            "network_status_icons_airplane_mode_color";
+            "network_status_icon_airplane_mode_color";
     private static final String PREF_AIRPLANE_MODE_DARK =
-            "network_status_icons_airplane_mode_color_dark_mode";
+            "network_status_icon_airplane_mode_color_dark_mode";
     private static final String PREF_STATUS =
-            "network_status_icons_status_color";
+            "network_status_icon_status_color";
     private static final String PREF_STATUS_DARK =
-            "network_status_icons_status_color_dark_mode";
+            "network_status_icon_status_color_dark_mode";
 
     private static final int WHITE                  = 0xffffffff;
     private static final int HOLO_BLUE_LIGHT        = 0xff33b5e5;
@@ -88,7 +88,7 @@ public class StatusBarNetworkStatusIconsSettings extends SettingsPreferenceFragm
             prefs.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.status_bar_network_status_icons_settings);
+        addPreferencesFromResource(R.xml.status_bar_network_status_icon_settings);
         mResolver = getActivity().getContentResolver();
 
         int intColor;
@@ -297,8 +297,8 @@ public class StatusBarNetworkStatusIconsSettings extends SettingsPreferenceFragm
             return frag;
         }
 
-        StatusBarNetworkStatusIconsSettings getOwner() {
-            return (StatusBarNetworkStatusIconsSettings) getTargetFragment();
+        StatusBarNetworkStatusIconSettings getOwner() {
+            return (StatusBarNetworkStatusIconSettings) getTargetFragment();
         }
 
         @Override
