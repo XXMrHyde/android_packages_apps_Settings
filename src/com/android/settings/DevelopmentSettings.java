@@ -97,7 +97,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     public static final String PREF_FILE = "development";
 
     /**
-     * Whether to show the development settings to the user.  Default is false.
+     * Whether to show the development settings to the user.  Default is true.
      */
     public static final String PREF_SHOW = "show";
 
@@ -1878,8 +1878,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
                 private boolean isShowingDeveloperOptions(Context context) {
                     return context.getSharedPreferences(DevelopmentSettings.PREF_FILE,
                             Context.MODE_PRIVATE).getBoolean(
-                                    DevelopmentSettings.PREF_SHOW,
-                                    android.os.Build.TYPE.equals("eng"));
+                                    DevelopmentSettings.PREF_SHOW, true);
                 }
 
                 @Override
