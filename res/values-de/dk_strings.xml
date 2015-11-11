@@ -114,6 +114,8 @@
     <string name="battery_status_show_battery_summary">Aktivieren um den Akkustatus anzuzeigen</string>
     <string name="battery_status_show_text_title">Akku-Prozentzahl anzeigen</string>
     <string name="battery_status_show_text_summary">Aktivieren um die Akku-Prozentzahl anzuzeigen</string>
+    <string name="battery_status_show_charge_animation_title">Ladeanimation anzeigen</string>
+    <string name="battery_status_show_charge_animation_summary">Aktivieren um die Ladeanimation anzuzeigen</string>
     <string name="battery_status_cut_out_title">Ausschneiden</string>
     <string name="battery_status_cut_out_summary">Aktivieren um die Akku-Prozentzahl oder das Ladesymbol aus dem Akkusymbol auszuschneiden, Sobald die Akkufüllung die Akku-Prozentzahl oder das Ladesymbol erreicht</string>
     <string name="battery_status_text_charging_symbol_color_dark_mode_title">Akku-Prozentzahl &amp; Ladesymbol (helle Statusleiste)</string>

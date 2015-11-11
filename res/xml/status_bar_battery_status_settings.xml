@@ -28,6 +28,11 @@
         android:title="@string/battery_status_show_text_title"
         android:summary="@string/battery_status_show_text_summary" />
 
+    <SwitchPreference
+        android:key="battery_status_show_charge_animation"
+        android:title="@string/battery_status_show_charge_animation_title"
+        android:summary="@string/battery_status_show_charge_animation_summary" />
+
     <PreferenceCategory
         android:key="battery_status_cat_text_charging_symbol"
         android:title="@string/battery_status_text_charging_symbol_title">

@@ -114,6 +114,8 @@
     <string name="battery_status_show_battery_summary">Enable to show the battery status</string>
     <string name="battery_status_show_text_title">Show battery percentage</string>
     <string name="battery_status_show_text_summary">Enable to show the percentage text</string>
+    <string name="battery_status_show_charge_animation_title">Show charge animation</string>
+    <string name="battery_status_show_charge_animation_summary">Enable to show a charge animation</string>
     <string name="battery_status_cut_out_title">Cut out</string>
     <string name="battery_status_cut_out_summary">Enable to cut the battery percentage or charging symbol out of the battery icon, if the battery fill reaches the battery percentage or charging symbol.</string>
     <string name="battery_status_text_charging_symbol_color_dark_mode_title">Battery percentage &amp; charging symbol (light status bar)</string>
