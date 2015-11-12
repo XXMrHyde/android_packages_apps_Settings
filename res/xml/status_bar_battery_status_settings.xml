@@ -18,29 +18,54 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/status_bar_battery_status_settings_title">
 
-    <SwitchPreference
-        android:key="battery_status_show_battery"
-        android:title="@string/show_title"
-        android:summary="@string/battery_status_show_battery_summary" />
+    <PreferenceCategory
+        android:key="battery_status_cat_icon"
+        android:title="@string/icon_title">
 
-    <SwitchPreference
-        android:key="battery_status_show_text"
-        android:title="@string/battery_status_show_text_title"
-        android:summary="@string/battery_status_show_text_summary" />
+        <SwitchPreference
+            android:key="battery_status_show_battery_icon"
+            android:title="@string/show_title"
+            android:summary="@string/battery_status_show_battery_icon_summary" />
 
-    <SwitchPreference
-        android:key="battery_status_show_charge_animation"
-        android:title="@string/battery_status_show_charge_animation_title"
-        android:summary="@string/battery_status_show_charge_animation_summary" />
+        <SwitchPreference
+            android:key="battery_status_show_text"
+            android:title="@string/battery_status_show_text_title"
+            android:summary="@string/battery_status_show_text_summary" />
+    </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="battery_status_cat_text_charging_symbol"
-        android:title="@string/battery_status_text_charging_symbol_title">
+        android:key="battery_status_cat_text_charge_icon"
+        android:title="@string/battery_status_cat_text_charge_icon_title">
 
         <SwitchPreference
             android:key="battery_status_cut_out_text"
             android:title="@string/battery_status_cut_out_title"
             android:summary="@string/battery_status_cut_out_summary" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="battery_status_cat_bar"
+        android:title="@string/battery_status_cat_bar_title">
+
+        <SwitchPreference
+            android:key="battery_status_show_battery_bar"
+            android:title="@string/show_title"
+            android:summary="@string/battery_status_show_battery_bar_summary" />
+
+        <SwitchPreference
+            android:key="battery_status_show_battery_bar_on_lock_screen"
+            android:title="@string/show_on_lock_screen_title"
+            android:summary="@string/battery_status_show_battery_bar_on_lock_screen_summary" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="battery_status_cat_charge_animation"
+        android:title="@string/battery_status_cat_charge_animation_title">
+
+        <SwitchPreference
+            android:key="battery_status_show_charge_animation"
+            android:title="@string/show_title"
+            android:summary="@string/battery_status_show_charge_animation_summary" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -59,12 +84,12 @@
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="battery_status_text_color"
-            android:title="@string/battery_status_text_charging_symbol_title"
+            android:title="@string/battery_status_cat_text_charge_icon_title"
             android:defaultValue="0xffffffff" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="battery_status_text_color_dark_mode"
-            android:title="@string/battery_status_text_charging_symbol_color_dark_mode_title"
+            android:title="@string/battery_status_text_charge_icon_color_dark_mode_title"
             android:defaultValue="0x7a000000" />
     </PreferenceCategory>
 </PreferenceScreen>

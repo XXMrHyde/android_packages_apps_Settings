@@ -41,18 +41,26 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String PREF_CAT_TEXT_CHARGING_SYMBOL =
-            "battery_status_cat_text_charging_symbol";
+    private static final String PREF_CAT_ICON =
+            "battery_status_cat_icon";
+    private static final String PREF_CAT_TEXT_CHARGE_ICON =
+            "battery_status_cat_text_charge_icon";
+    private static final String PREF_CAT_CHARGE_ANIMATION =
+            "battery_status_cat_charge_animation";
     private static final String PREF_CAT_COLORS =
             "battery_status_cat_colors";
-    private static final String PREF_SHOW_BATTERY =
-            "battery_status_show_battery";
+    private static final String PREF_SHOW_BATTERY_ICON =
+            "battery_status_show_battery_icon";
     private static final String PREF_SHOW_TEXT =
             "battery_status_show_text";
-    private static final String PREF_SHOW_CHARGE_ANIMATION =
-            "battery_status_show_charge_animation";
     private static final String PREF_CUT_OUT_TEXT =
             "battery_status_cut_out_text";
+    private static final String PREF_SHOW_BATTERY_BAR =
+            "battery_status_show_battery_bar";
+    private static final String PREF_SHOW_BATTERY_BAR_LOCK_SCREEN =
+            "battery_status_show_battery_bar_on_lock_screen";
+    private static final String PREF_SHOW_CHARGE_ANIMATION =
+            "battery_status_show_charge_animation";
     private static final String PREF_BATTERY_COLOR =
             "battery_status_battery_color";
     private static final String PREF_BATTERY_COLOR_DARK_MODE =
@@ -70,10 +78,12 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET  = 0;
 
-    private SwitchPreference mShowBattery;
+    private SwitchPreference mShowBatteryIcon;
     private SwitchPreference mShowText;
-    private SwitchPreference mShowChargeAnimation;
     private SwitchPreference mCutOutText;
+    private SwitchPreference mShowBatteryBar;
+    private SwitchPreference mShowBatteryBarOnLockScreen;
+    private SwitchPreference mShowChargeAnimation;
     private ColorPickerPreference mBatteryColor;
     private ColorPickerPreference mBatteryColorDarkMode;
     private ColorPickerPreference mTextColor;
@@ -96,38 +106,83 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
         addPreferencesFromResource(R.xml.status_bar_battery_status_settings);
         mResolver = getActivity().getContentResolver();
 
-        final boolean showBattery = Settings.System.getInt(mResolver,
+        final boolean showBatteryIcon = Settings.System.getInt(mResolver,
                Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_BATTERY, 1) == 1;
+        final boolean showText = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_TEXT, 0) == 1;
+        final boolean showBatteryBar = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_SHOW_BATTERY_BAR, 0) == 1;
+        final boolean showBatteryBarOnLockScreen = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_SHOW_BATTERY_BAR_LOCK_SCREEN, 0) == 1;
 
-        PreferenceCategory catTextChargingSymbol =
-                (PreferenceCategory) findPreference(PREF_CAT_TEXT_CHARGING_SYMBOL);
+        PreferenceCategory catIcon =
+                (PreferenceCategory) findPreference(PREF_CAT_ICON);
+        PreferenceCategory catTextChargeIcon =
+                (PreferenceCategory) findPreference(PREF_CAT_TEXT_CHARGE_ICON);
+        PreferenceCategory catChargeAnimation =
+                (PreferenceCategory) findPreference(PREF_CAT_CHARGE_ANIMATION);
         PreferenceCategory catColors =
                 (PreferenceCategory) findPreference(PREF_CAT_COLORS);
 
-        mShowBattery = (SwitchPreference) findPreference(PREF_SHOW_BATTERY);
-        mShowBattery.setChecked(showBattery);
-        mShowBattery.setOnPreferenceChangeListener(this);
+        mShowBatteryIcon = (SwitchPreference) findPreference(PREF_SHOW_BATTERY_ICON);
+        mShowBatteryIcon.setChecked(showBatteryIcon);
+        mShowBatteryIcon.setOnPreferenceChangeListener(this);
 
-        if (showBattery) {
-            int intColor;
-            String hexColor;
+        mShowBatteryBar = (SwitchPreference) findPreference(PREF_SHOW_BATTERY_BAR);
+        mShowBatteryBar.setChecked(showBatteryBar);
+        mShowBatteryBar.setOnPreferenceChangeListener(this);
 
-            final boolean showText = Settings.System.getInt(mResolver,
-                   Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_TEXT, 0) == 1;
+        mShowBatteryBarOnLockScreen = (SwitchPreference) findPreference(PREF_SHOW_BATTERY_BAR_LOCK_SCREEN);
+        mShowBatteryBarOnLockScreen.setChecked(showBatteryBarOnLockScreen);
+        mShowBatteryBarOnLockScreen.setOnPreferenceChangeListener(this);
 
+        int intColor;
+        String hexColor;
+
+        if (showBatteryIcon) {
             mShowText = (SwitchPreference) findPreference(PREF_SHOW_TEXT);
             mShowText.setChecked(showText);
             mShowText.setOnPreferenceChangeListener(this);
-
-            mShowChargeAnimation = (SwitchPreference) findPreference(PREF_SHOW_CHARGE_ANIMATION);
-            mShowChargeAnimation.setChecked(Settings.System.getInt(mResolver,
-                   Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_CHARGE_ANIMATION, 0) == 1);
-            mShowChargeAnimation.setOnPreferenceChangeListener(this);
 
             mCutOutText = (SwitchPreference) findPreference(PREF_CUT_OUT_TEXT);
             mCutOutText.setChecked(Settings.System.getInt(mResolver,
                    Settings.System.STATUS_BAR_BATTERY_STATUS_CUT_OUT_TEXT, 1) == 1);
             mCutOutText.setOnPreferenceChangeListener(this);
+
+            mTextColor =
+                    (ColorPickerPreference) findPreference(PREF_TEXT_COLOR);
+            intColor = Settings.System.getInt(mResolver,
+                    Settings.System.STATUS_BAR_BATTERY_STATUS_TEXT_COLOR,
+                    WHITE); 
+            mTextColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mTextColor.setSummary(hexColor);
+            mTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+            mTextColor.setOnPreferenceChangeListener(this);
+
+            mTextColorDarkMode =
+                    (ColorPickerPreference) findPreference(PREF_TEXT_COLOR_DARK_MODE);
+            intColor = Settings.System.getInt(mResolver,
+                    Settings.System.STATUS_BAR_BATTERY_STATUS_TEXT_COLOR_DARK_MODE,
+                    TRANSLUCENT_BLACK); 
+            mTextColorDarkMode.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mTextColorDarkMode.setSummary(hexColor);
+            mTextColorDarkMode.setDefaultColors(TRANSLUCENT_BLACK, TRANSLUCENT_WHITE);
+            mTextColorDarkMode.setOnPreferenceChangeListener(this);
+        } else {
+            catIcon.removePreference(findPreference(PREF_SHOW_TEXT));
+            catTextChargeIcon.removePreference(findPreference(PREF_CUT_OUT_TEXT));
+            catColors.removePreference(findPreference(PREF_TEXT_COLOR));
+            catColors.removePreference(findPreference(PREF_TEXT_COLOR_DARK_MODE));
+            removePreference(PREF_CAT_TEXT_CHARGE_ICON);
+        }
+
+        if (showBatteryIcon || showBatteryBar || showBatteryBarOnLockScreen) {
+            mShowChargeAnimation = (SwitchPreference) findPreference(PREF_SHOW_CHARGE_ANIMATION);
+            mShowChargeAnimation.setChecked(Settings.System.getInt(mResolver,
+                   Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_CHARGE_ANIMATION, 0) == 1);
+            mShowChargeAnimation.setOnPreferenceChangeListener(this);
 
             mBatteryColor =
                     (ColorPickerPreference) findPreference(PREF_BATTERY_COLOR);
@@ -150,41 +205,13 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
             mBatteryColorDarkMode.setSummary(hexColor);
             mBatteryColorDarkMode.setDefaultColors(TRANSLUCENT_BLACK, TRANSLUCENT_BLACK);
             mBatteryColorDarkMode.setOnPreferenceChangeListener(this);
+        }
 
-            mTextColor =
-                    (ColorPickerPreference) findPreference(PREF_TEXT_COLOR);
-            intColor = Settings.System.getInt(mResolver,
-                    Settings.System.STATUS_BAR_BATTERY_STATUS_TEXT_COLOR,
-                    WHITE); 
-            mTextColor.setNewPreviewColor(intColor);
-            hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mTextColor.setSummary(hexColor);
-            mTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
-            mTextColor.setOnPreferenceChangeListener(this);
-
-            if (showText) {
-                mTextColorDarkMode =
-                        (ColorPickerPreference) findPreference(PREF_TEXT_COLOR_DARK_MODE);
-                intColor = Settings.System.getInt(mResolver,
-                        Settings.System.STATUS_BAR_BATTERY_STATUS_TEXT_COLOR_DARK_MODE,
-                        TRANSLUCENT_BLACK); 
-                mTextColorDarkMode.setNewPreviewColor(intColor);
-                hexColor = String.format("#%08x", (0xffffffff & intColor));
-                mTextColorDarkMode.setSummary(hexColor);
-                mTextColorDarkMode.setDefaultColors(TRANSLUCENT_BLACK, TRANSLUCENT_WHITE);
-                mTextColorDarkMode.setOnPreferenceChangeListener(this);
-            } else {
-                catColors.removePreference(findPreference(PREF_TEXT_COLOR_DARK_MODE));
-            }
-        } else {
-            removePreference(PREF_SHOW_TEXT);
-            removePreference(PREF_SHOW_CHARGE_ANIMATION);
-            catTextChargingSymbol.removePreference(findPreference(PREF_CUT_OUT_TEXT));
+        if (!showBatteryIcon && !showBatteryBar && !showBatteryBarOnLockScreen) {
+            catChargeAnimation.removePreference(findPreference(PREF_SHOW_CHARGE_ANIMATION));
             catColors.removePreference(findPreference(PREF_BATTERY_COLOR));
             catColors.removePreference(findPreference(PREF_BATTERY_COLOR_DARK_MODE));
-            catColors.removePreference(findPreference(PREF_TEXT_COLOR));
-            catColors.removePreference(findPreference(PREF_TEXT_COLOR_DARK_MODE));
-            removePreference(PREF_CAT_TEXT_CHARGING_SYMBOL);
+            removePreference(PREF_CAT_CHARGE_ANIMATION);
             removePreference(PREF_CAT_COLORS);
         }
 
@@ -214,8 +241,7 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
         String hex;
         int intHex;
 
-
-        if (preference == mShowBattery) {
+        if (preference == mShowBatteryIcon) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_BATTERY,
@@ -228,16 +254,30 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
                     Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_TEXT,
                     value ? 1 : 0);
             return true;
-        } else if (preference == mShowChargeAnimation) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(mResolver,
-                    Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_CHARGE_ANIMATION,
-                    value ? 1 : 0);
-            return true;
         } else if (preference == mCutOutText) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_BATTERY_STATUS_CUT_OUT_TEXT,
+                    value ? 1 : 0);
+            return true;
+        } else if (preference == mShowBatteryBar) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_SHOW_BATTERY_BAR,
+                    value ? 1 : 0);
+            refreshSettings();
+            return true;
+        } else if (preference == mShowBatteryBarOnLockScreen) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_SHOW_BATTERY_BAR_LOCK_SCREEN,
+                    value ? 1 : 0);
+            refreshSettings();
+            return true;
+        } else if (preference == mShowChargeAnimation) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_CHARGE_ANIMATION,
                     value ? 1 : 0);
             return true;
         } else if (preference == mBatteryColor) {
@@ -315,9 +355,13 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_TEXT, 0);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_CHARGE_ANIMATION, 0);
-                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_BATTERY_STATUS_CUT_OUT_TEXT, 1);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_SHOW_BATTERY_BAR, 0);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_SHOW_BATTERY_BAR_LOCK_SCREEN, 0);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_CHARGE_ANIMATION, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_BATTERY_STATUS_BATTERY_COLOR,
                                     WHITE);
@@ -341,9 +385,13 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_TEXT, 1);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_CHARGE_ANIMATION, 1);
-                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_BATTERY_STATUS_CUT_OUT_TEXT, 0);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_SHOW_BATTERY_BAR, 1);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_SHOW_BATTERY_BAR_LOCK_SCREEN, 1);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_CHARGE_ANIMATION, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_BATTERY_STATUS_BATTERY_COLOR,
                                     HOLO_BLUE_LIGHT);
