@@ -65,6 +65,8 @@
     <string name="button_settings_title">Tasten</string>
 
     <!-- Status bar -->
+    <string name="status_bar_gesture_settings_title">Gesten</string>
+    <string name="status_bar_gesture_settings_summary">Gesten anpassen</string>
     <string name="status_bar_carrier_label_settings_title">Netzbetreiber Name</string>
     <string name="status_bar_carrier_label_settings_summary">Den Netzbetreiber Namen anpassen</string>
     <string name="status_bar_clock_date_settings_title">Uhr &amp; Datum</string>
@@ -77,6 +79,10 @@
     <string name="status_bar_network_traffic_settings_summary">Den Netzwerk Verkehr anpassen</string>
     <string name="status_bar_notification_icon_settings_title">Benachrichtigungs Symbole</string>
     <string name="status_bar_notification_icon_settings_summary">Die Benachrichtigungs Symbole anpassen</string>
+
+    <!-- Status bar gesture settings -->
+    <string name="gesture_double_tap_to_sleep_title">Standby</string>
+    <string name="gesture_double_tap_to_sleep_summary">Das Gerät durch doppeltes Tippen auf die Statusleiste in den Standby-Modus setzen</string>
 
     <!-- Carrier label settings -->
     <string name="carrier_label_cat_notification_icons_title">Benachrichtigungssymbole</string>
