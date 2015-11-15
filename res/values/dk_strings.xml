@@ -111,12 +111,30 @@
     <string name="clock_date_date_string_edittext_summary">Enter string</string>
 
     <!-- Status bar battery status settings -->
+    <string name="battery_status_cat_circle_dotted_title">Circle dotted</string>
     <string name="battery_status_cat_text_charge_icon_title">Percentage text &amp; charging indicator</string>
     <string name="battery_status_cat_bar_title">Bar</string>
     <string name="battery_status_cat_charge_animation_title">Charging animation</string>
-    <string name="battery_status_show_battery_icon_summary">Enable to show the icon</string>
+    <string name="battery_status_icon_indicator_title">Indicator</string>
+    <string name="battery_status_icon_indicator_battery_portrait">Battery portrait</string>
+    <string name="battery_status_icon_indicator_battery_landscape">Battery landscape</string>
+    <string name="battery_status_icon_indicator_circle">Circle</string>
     <string name="battery_status_show_text_title">Show percentage text</string>
     <string name="battery_status_show_text_summary">Enable to show the percentage text</string>
+    <string name="battery_status_circle_dot_interval_title">Interval</string>
+    <string name="battery_status_circle_dot_length_title">Length</string>
+    <string name="battery_status_circle_dot_no_dot_summary">The circle won\'t be shown dotted</string>
+    <string name="battery_status_circle_dot_no_dot">No dots</string>
+    <string name="battery_status_circle_dot_1">1</string>
+    <string name="battery_status_circle_dot_2">2</string>
+    <string name="battery_status_circle_dot_3">3</string>
+    <string name="battery_status_circle_dot_4">4</string>
+    <string name="battery_status_circle_dot_5">5</string>
+    <string name="battery_status_circle_dot_6">6</string>
+    <string name="battery_status_circle_dot_7">7</string>
+    <string name="battery_status_circle_dot_8">8</string>
+    <string name="battery_status_circle_dot_9">9</string>
+    <string name="battery_status_circle_dot_10">10</string>
     <string name="battery_status_cut_out_title">Cut out</string>
     <string name="battery_status_cut_out_summary">Enable to cut the percentage-text/charging-indicator out of the battery icon, if the battery fill overlaps the percentage-text/charging-indicator.</string>
     <string name="battery_status_show_battery_bar_summary">Enable to show the bar</string>

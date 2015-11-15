@@ -22,15 +22,34 @@
         android:key="battery_status_cat_icon"
         android:title="@string/icon_title">
 
-        <SwitchPreference
-            android:key="battery_status_show_battery_icon"
-            android:title="@string/show_title"
-            android:summary="@string/battery_status_show_battery_icon_summary" />
+        <ListPreference
+            android:key="battery_status_icon_indicator"
+            android:title="@string/battery_status_icon_indicator_title"
+            android:entries="@array/battery_status_icon_indicator_entries"
+            android:entryValues="@array/battery_status_icon_indicator_values" />
 
         <SwitchPreference
             android:key="battery_status_show_text"
             android:title="@string/battery_status_show_text_title"
             android:summary="@string/battery_status_show_text_summary" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="battery_status_cat_circle_dotted"
+        android:title="@string/battery_status_cat_circle_dotted_title">
+
+        <ListPreference
+            android:key="battery_status_circle_dot_interval"
+            android:title="@string/battery_status_circle_dot_interval_title"
+            android:entries="@array/battery_status_circle_dot_entries"
+            android:entryValues="@array/battery_status_circle_dot_values" />
+
+        <ListPreference
+            android:key="battery_status_circle_dot_length"
+            android:title="@string/battery_status_circle_dot_length_title"
+            android:entries="@array/battery_status_circle_dot_entries"
+            android:entryValues="@array/battery_status_circle_dot_values" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

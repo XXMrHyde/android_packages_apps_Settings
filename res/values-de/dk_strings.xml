@@ -111,12 +111,30 @@
     <string name="clock_date_date_string_edittext_summary">Zeichenfolge eingeben</string>
 
     <!-- Status bar battery status settings -->
+    <string name="battery_status_cat_circle_dotted_title">Punktierter Kreis</string>
     <string name="battery_status_cat_text_charge_icon_title">Prozentzahl &amp; Ladesymbol</string>
     <string name="battery_status_cat_bar_title">Leiste</string>
     <string name="battery_status_cat_charge_animation_title">Ladeanimation</string>
-    <string name="battery_status_show_battery_icon_summary">Aktivieren um das Symbol anzuzeigen</string>
+    <string name="battery_status_icon_indicator_title">Anzeige</string>
+    <string name="battery_status_icon_indicator_battery_portrait">Akku Hochformat</string>
+    <string name="battery_status_icon_indicator_battery_landscape">Akku Querformat</string>
+    <string name="battery_status_icon_indicator_circle">Kreis</string>
     <string name="battery_status_show_text_title">Prozentzahl anzeigen</string>
     <string name="battery_status_show_text_summary">Aktivieren um die Prozentzahl anzuzeigen</string>
+    <string name="battery_status_circle_dot_interval_title">Abstand</string>
+    <string name="battery_status_circle_dot_length_title">Länge</string>
+    <string name="battery_status_circle_dot_no_dot_summary">Der Kreis wird nicht punktiert angezeigt</string>
+    <string name="battery_status_circle_dot_no_dot">Keine Punkte</string>
+    <string name="battery_status_circle_dot_1">1</string>
+    <string name="battery_status_circle_dot_2">2</string>
+    <string name="battery_status_circle_dot_3">3</string>
+    <string name="battery_status_circle_dot_4">4</string>
+    <string name="battery_status_circle_dot_5">5</string>
+    <string name="battery_status_circle_dot_6">6</string>
+    <string name="battery_status_circle_dot_7">7</string>
+    <string name="battery_status_circle_dot_8">8</string>
+    <string name="battery_status_circle_dot_9">9</string>
+    <string name="battery_status_circle_dot_10">10</string>
     <string name="battery_status_cut_out_title">Ausschneiden</string>
     <string name="battery_status_cut_out_summary">Aktivieren um Prozentzahl/Ladesymbol aus dem Akkusymbol auszuschneiden, sobald die Akkufüllung Prozentzahl/Ladesymbol überlagert</string>
     <string name="battery_status_show_battery_bar_summary">Aktivieren um die Leiste anzuzeigen</string>
