@@ -33,9 +33,12 @@ import com.android.settings.SettingsPreferenceFragment;
 public class StatusBarGestureSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String PREF_BRIGHTNESS_CONTROL =
+            "gesture_brightness_control";
     private static final String PREF_DOUBLE_TAP_TO_SLEEP =
             "gesture_double_tap_to_sleep";
 
+    private SwitchPreference mBrightnessControl;
     private SwitchPreference mDoubleTapToSleep;
 
     private ContentResolver mResolver;
@@ -48,6 +51,12 @@ public class StatusBarGestureSettings extends SettingsPreferenceFragment impleme
 
         mResolver = getContentResolver();
 
+        mBrightnessControl =
+                (SwitchPreference) findPreference(PREF_BRIGHTNESS_CONTROL);
+        mBrightnessControl.setChecked((Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1));
+        mBrightnessControl.setOnPreferenceChangeListener(this);
+
         mDoubleTapToSleep =
                 (SwitchPreference) findPreference(PREF_DOUBLE_TAP_TO_SLEEP);
         mDoubleTapToSleep.setChecked((Settings.System.getInt(mResolver,
@@ -59,7 +68,12 @@ public class StatusBarGestureSettings extends SettingsPreferenceFragment impleme
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         boolean value;
 
-        if (preference == mDoubleTapToSleep) {
+        if (preference == mBrightnessControl) {
+            value = (Boolean) objValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, value ? 1 : 0);
+            return true;
+        } else if (preference == mDoubleTapToSleep) {
             value = (Boolean) objValue;
             Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_DOUBLE_TAP_TO_SLEEP, value ? 1 : 0);

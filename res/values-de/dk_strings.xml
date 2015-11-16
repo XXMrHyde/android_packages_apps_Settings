@@ -81,6 +81,8 @@
     <string name="status_bar_notification_icon_settings_summary">Die Benachrichtigungs Symbole anpassen</string>
 
     <!-- Status bar gesture settings -->
+    <string name="gesture_brightness_control_title">Helligkeitskontrolle</string>
+    <string name="gesture_brightness_control_summary">Aktivieren um die Helligkeit per wischen über die Statusleiste einstellen</string>
     <string name="gesture_double_tap_to_sleep_title">Standby</string>
     <string name="gesture_double_tap_to_sleep_summary">Das Gerät durch doppeltes Tippen auf die Statusleiste in den Standby-Modus setzen</string>
 

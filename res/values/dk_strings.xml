@@ -81,6 +81,8 @@
     <string name="status_bar_notification_icon_settings_summary">Customize the notification icons</string>
 
     <!-- Status bar gesture settings -->
+    <string name="gesture_brightness_control_title">Brightness control</string>
+    <string name="gesture_brightness_control_summary">Enable to adjust brightness by sliding across status bar</string>
     <string name="gesture_double_tap_to_sleep_title">Sleep</string>
     <string name="gesture_double_tap_to_sleep_summary">Double tap the status bar to put the device to sleep</string>
 

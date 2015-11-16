@@ -19,6 +19,12 @@
     android:title="@string/status_bar_gesture_settings_title">
 
     <SwitchPreference
+        android:key="gesture_brightness_control"
+        android:title="@string/gesture_brightness_control_title"
+        android:summary="@string/gesture_brightness_control_summary"
+        android:defaultValue="false" />
+
+    <SwitchPreference
         android:key="gesture_double_tap_to_sleep"
         android:title="@string/gesture_double_tap_to_sleep_title"
         android:summary="@string/gesture_double_tap_to_sleep_summary"
