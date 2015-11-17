@@ -29,6 +29,7 @@
     <string name="color_title">Color</string>
     <string name="color_dark_mode_title">Color (light status bar)</string>
     <string name="always_title">Always</string>
+    <string name="never_title">Never</string>
     <string name="normal_title">Normal</string>
     <string name="hidden_title">Hidden</string>
     <string name="disabled_title">Disabled</string>
@@ -67,6 +68,8 @@
     <!-- Status bar -->
     <string name="status_bar_gesture_settings_title">Gestures</string>
     <string name="status_bar_gesture_settings_summary">Customize gestures</string>
+    <string name="status_bar_greeting_settings_title">Greeting</string>
+    <string name="status_bar_greeting_settings_summary">Customize greeting</string>
     <string name="status_bar_carrier_label_settings_title">Carrier label</string>
     <string name="status_bar_carrier_label_settings_summary">Customize the carrier label</string>
     <string name="status_bar_clock_date_settings_title">Clock &amp; date</string>
@@ -85,6 +88,17 @@
     <string name="gesture_brightness_control_summary">Enable to adjust brightness by sliding across status bar</string>
     <string name="gesture_double_tap_to_sleep_title">Sleep</string>
     <string name="gesture_double_tap_to_sleep_summary">Double tap the status bar to put the device to sleep</string>
+
+    <!-- Status bar greeting settings -->
+    <string name="greeting_show_greeting_always_summary">The greeting will be shown after the device gets unlocked</string>
+    <string name="greeting_show_greeting_once_summary">The greeting will be shown only the first time the device gets unlocked after the boot</string>
+    <string name="greeting_show_greeting_never_summary">The greeting will never be shown</string>
+    <string name="greeting_show_greeting_once_title">Once after boot</string>
+    <string name="greeting_custom_text_title">Custom text</string>
+    <string name="greeting_custom_text_dlg_message">Enter a new text, which will be shown as greeting. An empty field will revert the text to:\n\'%s\'</string>
+    <string name="greeting_timeout_title">Time out</string>
+    <string name="greeting_preview_title">Preview</string>
+    <string name="greeting_preview_summary">Click to show a preview</string>
 
     <!-- Carrier label settings -->
     <string name="carrier_label_cat_notification_icons_title">Notification icons</string>
