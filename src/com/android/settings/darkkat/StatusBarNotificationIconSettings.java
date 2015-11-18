@@ -44,9 +44,9 @@ public class StatusBarNotificationIconSettings extends SettingsPreferenceFragmen
     private static final String PREF_COLOR_DARK =
             "notification_icon_color_dark_mode";
 
-    private static final int WHITE                  = 0xffffffff;
-    private static final int HOLO_BLUE_LIGHT        = 0xff33b5e5;
-    private static final int BLACK_TRANSLUCENT      = 0x99000000;
+    private static final int WHITE           = 0xffffffff;
+    private static final int BLACK           = 0xff000000;
+    private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET  = 0;
@@ -77,8 +77,7 @@ public class StatusBarNotificationIconSettings extends SettingsPreferenceFragmen
         mColor =
                 (ColorPickerPreference) findPreference(PREF_COLOR);
         intColor = Settings.System.getInt(mResolver,
-                Settings.System.STATUS_BAR_NOTIFICATION_ICONS_COLOR,
-                WHITE); 
+                Settings.System.STATUS_BAR_NOTIFICATION_ICONS_COLOR, WHITE);
         mColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mColor.setSummary(hexColor);
@@ -89,11 +88,11 @@ public class StatusBarNotificationIconSettings extends SettingsPreferenceFragmen
                 (ColorPickerPreference) findPreference(PREF_COLOR_DARK);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_NOTIFICATION_ICONS_COLOR_DARK_MODE,
-                BLACK_TRANSLUCENT); 
+                BLACK);
         mColorDark.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mColorDark.setSummary(hexColor);
-        mColorDark.setDefaultColors(BLACK_TRANSLUCENT, BLACK_TRANSLUCENT);
+        mColorDark.setDefaultColors(BLACK, BLACK);
         mColorDark.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
@@ -179,7 +178,7 @@ public class StatusBarNotificationIconSettings extends SettingsPreferenceFragmen
                                     WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NOTIFICATION_ICONS_COLOR_DARK_MODE,
-                                    BLACK_TRANSLUCENT);
+                                    BLACK);
                             getOwner().refreshSettings();
                         }
                     })
@@ -191,7 +190,7 @@ public class StatusBarNotificationIconSettings extends SettingsPreferenceFragmen
                                     HOLO_BLUE_LIGHT);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NOTIFICATION_ICONS_COLOR_DARK_MODE,
-                                    BLACK_TRANSLUCENT);
+                                    BLACK);
                             getOwner().refreshSettings();
                         }
                     })

@@ -58,7 +58,7 @@
          <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="network_traffic_text_color_dark_mode"
             android:title="@string/text_color_dark_mode_title"
-            android:defaultValue="0x99000000" />
+            android:defaultValue="0xff000000" />
 
          <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="network_traffic_icon_color"
@@ -68,7 +68,7 @@
          <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="network_traffic_icon_color_dark_mode"
             android:title="@string/icon_color_dark_mode_title"
-            android:defaultValue="0x99000000" />
+            android:defaultValue="0xff000000" />
 
     </PreferenceCategory>
 </PreferenceScreen>

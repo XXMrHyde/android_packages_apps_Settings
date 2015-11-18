@@ -77,10 +77,9 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
     private static final String PREF_TEXT_COLOR_DARK_MODE =
             "battery_status_text_color_dark_mode";
 
-    private static final int WHITE             = 0xffffffff;
-    private static final int TRANSLUCENT_BLACK = 0x3d000000;
-    private static final int TRANSLUCENT_WHITE = 0x3dffffff;
-    private static final int HOLO_BLUE_LIGHT   = 0xff33b5e5;
+    private static final int WHITE           = 0xffffffff;
+    private static final int BLACK           = 0xff000000;
+    private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET  = 0;
@@ -195,23 +194,21 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
             mTextColor =
                     (ColorPickerPreference) findPreference(PREF_TEXT_COLOR);
             intColor = Settings.System.getInt(mResolver,
-                    Settings.System.STATUS_BAR_BATTERY_STATUS_TEXT_COLOR,
-                    WHITE); 
+                    Settings.System.STATUS_BAR_BATTERY_STATUS_TEXT_COLOR, WHITE);
             mTextColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mTextColor.setSummary(hexColor);
-            mTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+            mTextColor.setDefaultColors(WHITE, WHITE);
             mTextColor.setOnPreferenceChangeListener(this);
 
             mTextColorDarkMode =
                     (ColorPickerPreference) findPreference(PREF_TEXT_COLOR_DARK_MODE);
             intColor = Settings.System.getInt(mResolver,
-                    Settings.System.STATUS_BAR_BATTERY_STATUS_TEXT_COLOR_DARK_MODE,
-                    TRANSLUCENT_BLACK); 
+                    Settings.System.STATUS_BAR_BATTERY_STATUS_TEXT_COLOR_DARK_MODE, BLACK);
             mTextColorDarkMode.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mTextColorDarkMode.setSummary(hexColor);
-            mTextColorDarkMode.setDefaultColors(TRANSLUCENT_BLACK, TRANSLUCENT_WHITE);
+            mTextColorDarkMode.setDefaultColors(BLACK, BLACK);
             mTextColorDarkMode.setOnPreferenceChangeListener(this);
         } else {
             catIcon.removePreference(findPreference(PREF_SHOW_TEXT));
@@ -233,8 +230,7 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
             mBatteryColor =
                     (ColorPickerPreference) findPreference(PREF_BATTERY_COLOR);
             intColor = Settings.System.getInt(mResolver,
-                    Settings.System.STATUS_BAR_BATTERY_STATUS_BATTERY_COLOR,
-                    WHITE); 
+                    Settings.System.STATUS_BAR_BATTERY_STATUS_BATTERY_COLOR, WHITE);
             mBatteryColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mBatteryColor.setSummary(hexColor);
@@ -244,12 +240,11 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
             mBatteryColorDarkMode =
                     (ColorPickerPreference) findPreference(PREF_BATTERY_COLOR_DARK_MODE);
             intColor = Settings.System.getInt(mResolver,
-                    Settings.System.STATUS_BAR_BATTERY_STATUS_BATTERY_COLOR_DARK_MODE,
-                    TRANSLUCENT_BLACK); 
+                    Settings.System.STATUS_BAR_BATTERY_STATUS_BATTERY_COLOR_DARK_MODE, BLACK);
             mBatteryColorDarkMode.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mBatteryColorDarkMode.setSummary(hexColor);
-            mBatteryColorDarkMode.setDefaultColors(TRANSLUCENT_BLACK, TRANSLUCENT_BLACK);
+            mBatteryColorDarkMode.setDefaultColors(BLACK, BLACK);
             mBatteryColorDarkMode.setOnPreferenceChangeListener(this);
         }
 
@@ -437,13 +432,13 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
                                     WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_BATTERY_STATUS_BATTERY_COLOR_DARK_MODE,
-                                    TRANSLUCENT_BLACK);
+                                    BLACK);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_BATTERY_STATUS_TEXT_COLOR,
                                     WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_BATTERY_STATUS_TEXT_COLOR_DARK_MODE,
-                                    TRANSLUCENT_BLACK);
+                                    BLACK);
                             getOwner().refreshSettings();
                         }
                     })
@@ -471,13 +466,13 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
                                     HOLO_BLUE_LIGHT);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_BATTERY_STATUS_BATTERY_COLOR_DARK_MODE,
-                                    TRANSLUCENT_BLACK);
+                                    BLACK);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_BATTERY_STATUS_TEXT_COLOR,
                                     WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_BATTERY_STATUS_TEXT_COLOR_DARK_MODE,
-                                    TRANSLUCENT_WHITE);
+                                    BLACK);
                             getOwner().refreshSettings();
                         }
                     })

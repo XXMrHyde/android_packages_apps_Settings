@@ -99,7 +99,7 @@
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="battery_status_battery_color_dark_mode"
             android:title="@string/icon_color_dark_mode_title"
-            android:defaultValue="0x7a000000" />
+            android:defaultValue="0xff000000" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="battery_status_text_color"
@@ -109,6 +109,6 @@
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="battery_status_text_color_dark_mode"
             android:title="@string/battery_status_text_charge_icon_color_dark_mode_title"
-            android:defaultValue="0x7a000000" />
+            android:defaultValue="0xff000000" />
     </PreferenceCategory>
 </PreferenceScreen>

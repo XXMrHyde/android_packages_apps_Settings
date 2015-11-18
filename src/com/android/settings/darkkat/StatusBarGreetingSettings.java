@@ -51,8 +51,8 @@ public class StatusBarGreetingSettings extends SettingsPreferenceFragment implem
 
     private static final int HIDDEN = 2;
 
-    private static final int WHITE = 0xffffffff;
-    private static final int TRANSLUCENT_BLACK = 0x99000000;
+    private static final int WHITE           = 0xffffffff;
+    private static final int BLACK           = 0xff000000;
     private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
 
     private ListPreference mShowGreeting;
@@ -117,8 +117,7 @@ public class StatusBarGreetingSettings extends SettingsPreferenceFragment implem
             mColor =
                     (ColorPickerPreference) findPreference(PREF_COLOR);
             intColor = Settings.System.getInt(mResolver,
-                    Settings.System.STATUS_BAR_GREETING_COLOR,
-                    WHITE); 
+                    Settings.System.STATUS_BAR_GREETING_COLOR, WHITE); 
             mColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mColor.setSummary(hexColor);
@@ -128,12 +127,11 @@ public class StatusBarGreetingSettings extends SettingsPreferenceFragment implem
             mColorDarkMode =
                     (ColorPickerPreference) findPreference(PREF_COLOR_DARK_MODE);
             intColor = Settings.System.getInt(mResolver,
-                    Settings.System.STATUS_BAR_GREETING_COLOR_DARK_MODE,
-                    TRANSLUCENT_BLACK); 
+                    Settings.System.STATUS_BAR_GREETING_COLOR_DARK_MODE, BLACK); 
             mColorDarkMode.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mColorDarkMode.setSummary(hexColor);
-            mColorDarkMode.setDefaultColors(TRANSLUCENT_BLACK, TRANSLUCENT_BLACK);
+            mColorDarkMode.setDefaultColors(BLACK, BLACK);
             mColorDarkMode.setOnPreferenceChangeListener(this);
 
             updateCustomTextPreference();
@@ -156,7 +154,7 @@ public class StatusBarGreetingSettings extends SettingsPreferenceFragment implem
             int showGreeting = Integer.valueOf((String) newValue);
             int index = mShowGreeting.findIndexOfValue((String) newValue);
             Settings.System.putInt(mResolver,
-                Settings.System.STATUS_BAR_GREETING_SHOW_GREETING, showGreeting);
+                    Settings.System.STATUS_BAR_GREETING_SHOW_GREETING, showGreeting);
             refreshSettings();
             return true;
         } else if (preference == mCustomText) {
@@ -171,18 +169,18 @@ public class StatusBarGreetingSettings extends SettingsPreferenceFragment implem
             return true;
         } else if (preference == mColor) {
             hex = ColorPickerPreference.convertToARGB(
-                Integer.valueOf(String.valueOf(newValue)));
+                    Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                Settings.System.STATUS_BAR_GREETING_COLOR, intHex);
+                    Settings.System.STATUS_BAR_GREETING_COLOR, intHex);
             preference.setSummary(hex);
             return true;
         } else if (preference == mColorDarkMode) {
             hex = ColorPickerPreference.convertToARGB(
-                Integer.valueOf(String.valueOf(newValue)));
+                    Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                Settings.System.STATUS_BAR_GREETING_COLOR_DARK_MODE, intHex);
+                    Settings.System.STATUS_BAR_GREETING_COLOR_DARK_MODE, intHex);
             preference.setSummary(hex);
             return true;
         }

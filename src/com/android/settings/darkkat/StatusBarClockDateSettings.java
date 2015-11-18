@@ -74,9 +74,9 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
     private static final int DATE_STYLE_UPPERCASE     = 2;
     private static final int CUSTOM_DATE_FORMAT_INDEX = 18;
 
-    private static final int WHITE             = 0xffffffff;
-    private static final int TRANSLUCENT_BLACK = 0x99000000;
-    private static final int HOLO_BLUE_LIGHT   = 0xff33b5e5;
+    private static final int WHITE           = 0xffffffff;
+    private static final int BLACK           = 0xff000000;
+    private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET  = 0;
@@ -154,8 +154,7 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
             mColor =
                     (ColorPickerPreference) findPreference(PREF_COLOR);
             intColor = Settings.System.getInt(mResolver,
-                    Settings.System.STATUS_BAR_CLOCK_DATE_COLOR,
-                    WHITE); 
+                    Settings.System.STATUS_BAR_CLOCK_DATE_COLOR, WHITE); 
             mColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mColor.setSummary(hexColor);
@@ -165,12 +164,11 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
             mColorDarkMode =
                     (ColorPickerPreference) findPreference(PREF_COLOR_DARK_MODE);
             intColor = Settings.System.getInt(mResolver,
-                    Settings.System.STATUS_BAR_CLOCK_DATE_COLOR_DARK_MODE,
-                    TRANSLUCENT_BLACK);
+                    Settings.System.STATUS_BAR_CLOCK_DATE_COLOR_DARK_MODE, BLACK);
             mColorDarkMode.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mColorDarkMode.setSummary(hexColor);
-            mColorDarkMode.setDefaultColors(TRANSLUCENT_BLACK, TRANSLUCENT_BLACK);
+            mColorDarkMode.setDefaultColors(BLACK, BLACK);
             mColorDarkMode.setOnPreferenceChangeListener(this);
         } else {
             removePreference(PREF_SHOW_DATE);
@@ -414,7 +412,7 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
                                     WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CLOCK_DATE_COLOR_DARK_MODE,
-                                    TRANSLUCENT_BLACK);
+                                    BLACK);
                             getOwner().refreshSettings();
                         }
                     })
@@ -439,7 +437,7 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
                                     HOLO_BLUE_LIGHT);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CLOCK_DATE_COLOR_DARK_MODE,
-                                    TRANSLUCENT_BLACK);
+                                    BLACK);
                             getOwner().refreshSettings();
                         }
                     })

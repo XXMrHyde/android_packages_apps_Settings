@@ -64,9 +64,9 @@ public class StatusBarCarrierLabelSettings extends SettingsPreferenceFragment im
     private static final String PREF_COLOR_DARK_MODE =
             "carrier_label_color_dark_mode";
 
-    private static final int WHITE             = 0xffffffff;
-    private static final int TRANSLUCENT_BLACK = 0x99000000;
-    private static final int HOLO_BLUE_LIGHT   = 0xff33b5e5;
+    private static final int WHITE           = 0xffffffff;
+    private static final int BLACK           = 0xff000000;
+    private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
 
     private static final String EMPTY_STRING = "";
 
@@ -165,8 +165,7 @@ public class StatusBarCarrierLabelSettings extends SettingsPreferenceFragment im
             mColor =
                     (ColorPickerPreference) findPreference(PREF_COLOR);
             intColor = Settings.System.getInt(mResolver,
-                    Settings.System.STATUS_BAR_CARRIER_LABEL_COLOR,
-                    WHITE); 
+                    Settings.System.STATUS_BAR_CARRIER_LABEL_COLOR, WHITE);
             mColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mColor.setSummary(hexColor);
@@ -176,12 +175,11 @@ public class StatusBarCarrierLabelSettings extends SettingsPreferenceFragment im
             mColorDarkMode =
                     (ColorPickerPreference) findPreference(PREF_COLOR_DARK_MODE);
             intColor = Settings.System.getInt(mResolver,
-                    Settings.System.STATUS_BAR_CARRIER_LABEL_COLOR_DARK_MODE,
-                    TRANSLUCENT_BLACK); 
+                    Settings.System.STATUS_BAR_CARRIER_LABEL_COLOR_DARK_MODE, BLACK);
             mColorDarkMode.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mColorDarkMode.setSummary(hexColor);
-            mColorDarkMode.setDefaultColors(TRANSLUCENT_BLACK, TRANSLUCENT_BLACK);
+            mColorDarkMode.setDefaultColors(BLACK, BLACK);
             mColorDarkMode.setOnPreferenceChangeListener(this);
         } else {
             removePreference(PREF_CARRIER_LABEL_USE_CUSTOM);
@@ -341,7 +339,7 @@ public class StatusBarCarrierLabelSettings extends SettingsPreferenceFragment im
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CARRIER_LABEL_COLOR, WHITE);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_CARRIER_LABEL_COLOR_DARK_MODE, TRANSLUCENT_BLACK);
+                                    Settings.System.STATUS_BAR_CARRIER_LABEL_COLOR_DARK_MODE, BLACK);
                             getOwner().refreshSettings();
                         }
                     })
@@ -363,8 +361,7 @@ public class StatusBarCarrierLabelSettings extends SettingsPreferenceFragment im
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CARRIER_LABEL_COLOR, HOLO_BLUE_LIGHT);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_CARRIER_LABEL_COLOR_DARK_MODE,
-                                    TRANSLUCENT_BLACK);
+                                    Settings.System.STATUS_BAR_CARRIER_LABEL_COLOR_DARK_MODE, BLACK);
                             getOwner().refreshSettings();
                         }
                     })
