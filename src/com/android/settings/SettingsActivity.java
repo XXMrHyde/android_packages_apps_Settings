@@ -1251,6 +1251,10 @@ public class SettingsActivity extends Activity
                     if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH)) {
                         removeTile = true;
                     }
+                } else if (id == R.id.weather_settings) {
+                    if (!Utils.isPackageInstalled(this, "com.cyanogenmod.lockclock")) {
+                        removeTile = true;
+                    }
                 } else if (id == R.id.data_usage_settings) {
                     // Remove data usage when kernel module not enabled
                     if (!Utils.isBandwidthControlEnabled()) {

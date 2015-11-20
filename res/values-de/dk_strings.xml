@@ -22,6 +22,9 @@
     <string name="dlg_reset_colors_message">Farben auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
+    <string name="weather_title">Wetter</string>
+    <string name="lock_clock_missing_title">Uhr-Widget ist nicht installiert</string>
+    <string name="lock_clock_missing_summary">Um die Wetter Funtion nutzen zu können, muss das Uhr-Widget \"cLock-Widget\" installiert sein</string>
     <string name="options_title">Optionen</string>
     <string name="show_title">Anzeigen</string>
     <string name="show_on_lock_screen_title">Auf dem Sperrbildschirm anzeigen</string>
@@ -63,6 +66,7 @@
 
     <!-- dashboard tiles-->
     <string name="status_bar_title">Statusleiste</string>
+    <string name="advanced_title">Erweitert</string>
     <string name="button_settings_title">Tasten</string>
 
     <!-- Status bar -->
@@ -181,6 +185,15 @@
     <string name="network_traffic_bit_byte_summary">Aktivieren um die Werte in Bit anstatt Byte anzuzeigen</string>
     <string name="network_traffic_hide_traffic_title">Anzeige verbergen</string>
     <string name="network_traffic_hide_traffic_summary">Aktivieren um die Anzeige bei keinem Datenverkehr zu verbergen</string>
+
+    <!-- Advanced -->
+    <string name="lock_clock_title">Uhr-Widget</string>
+    <string name="lock_clock_clock_section_title">Uhrzeit und Alarme</string>
+    <string name="lock_clock_clock_section_summary">Uhrzeit und Alarme des \"cLock-Widget\" konfigurieren</string>
+    <string name="lock_clock_weather_section_title">Wetter</string>
+    <string name="lock_clock_weather_section_summary">Wetter des \"cLock-Widget\" konfigurieren</string>
+    <string name="lock_clock_calendar_section_title">Kalender</string>
+    <string name="lock_clock_calendar_section_summary">Kalender des \"cLock-Widget\" konfigurieren</string>
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Ein&#47;Aus Menü</string>

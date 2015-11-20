@@ -85,6 +85,28 @@
                 android:icon="@drawable/ic_settings_status_bar"
                 />
 
+        <!-- Weather settings -->
+        <dashboard-tile
+                android:id="@+id/weather_settings"
+                android:title="@string/weather_title"
+                android:icon="@drawable/ic_settings_weather">
+                <intent
+                    android:action="android.intent.action.MAIN"
+                    android:targetClass="com.cyanogenmod.lockclock.preference.Preferences"
+                    android:targetPackage="com.cyanogenmod.lockclock" >
+                    <extra android:name=":android:show_fragment"
+                        android:value="com.cyanogenmod.lockclock.preference.WeatherSettingPreferences" />
+                </intent>
+        </dashboard-tile>
+
+        <!-- Advanced -->
+        <dashboard-tile
+                android:id="@+id/advanced"
+                android:title="@string/advanced_title"
+                android:fragment="com.android.settings.darkkat.Advanced"
+                android:icon="@drawable/ic_settings_more"
+                />
+
     </dashboard-category>
 
     <!-- DEVICE -->
