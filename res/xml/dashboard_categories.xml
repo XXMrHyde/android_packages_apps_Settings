@@ -75,6 +75,7 @@
     <!-- Interface -->
     <dashboard-category
             android:id="@+id/ui_section"
+            android:key="@string/category_key_interface"
             android:title="@string/category_ui_section" >
 
         <!-- Status bar -->
