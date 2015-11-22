@@ -30,6 +30,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.android.internal.util.darkkat.SBEHeaderColorHelper;
+
 import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -48,9 +50,16 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
     private static final String PREF_ICON_COLOR =
             "expanded_header_icon_color";
 
-    private static final int SYSTEMUI_SECONDARY = 0xff384248;
-    private static final int WHITE              = 0xffffffff;
-    private static final int HOLO_BLUE_LIGHT    = 0xff33b5e5;
+    private static final int SYSTEMUI_SECONDARY =
+            0xff384248;
+    private static final int WHITE =
+            0xffffffff;
+    private static final int TRANSLUCENT_WHITE =
+            0x33ffffff;
+    private static final int HOLO_BLUE_LIGHT =
+            0xff33b5e5;
+    private static final int TRANSLUCENT_HOLO_BLUE_LIGHT =
+            0x3333b5e5;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET  = 0;
@@ -93,13 +102,11 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
 
         mRippleColor =
                 (ColorPickerPreference) findPreference(PREF_RIPPLE_COLOR);
-        intColor = Settings.System.getInt(mResolver,
-                Settings.System.STATUS_BAR_EXPANDED_HEADER_RIPPLE_COLOR,
-                WHITE); 
+        intColor = SBEHeaderColorHelper.getRippleColor(getActivity()); 
         mRippleColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mRippleColor.setSummary(hexColor);
-        mRippleColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mRippleColor.setDefaultColors(TRANSLUCENT_WHITE, TRANSLUCENT_HOLO_BLUE_LIGHT);
         mRippleColor.setOnPreferenceChangeListener(this);
 
         mTextColor =
@@ -163,7 +170,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
                 Settings.System.STATUS_BAR_EXPANDED_HEADER_RIPPLE_COLOR, intHex);
-            preference.setSummary(hex);
+            refreshSettings();
             return true;
         } else if (preference == mTextColor) {
             hex = ColorPickerPreference.convertToARGB(
@@ -222,7 +229,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                                     SYSTEMUI_SECONDARY);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_RIPPLE_COLOR,
-                                    WHITE);
+                                    TRANSLUCENT_WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_TEXT_COLOR,
                                     WHITE);
@@ -246,7 +253,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                                     HOLO_BLUE_LIGHT);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_ICON_COLOR,
-                                    HOLO_BLUE_LIGHT);
+                                    TRANSLUCENT_HOLO_BLUE_LIGHT);
                             getOwner().refreshSettings();
                         }
                     })

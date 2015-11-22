@@ -42,7 +42,7 @@
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="expanded_header_ripple_color"
             android:title="@string/ripple_title"
-            android:defaultValue="0xffffffff" />
+            android:defaultValue="0x33ffffff" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="expanded_header_text_color"
