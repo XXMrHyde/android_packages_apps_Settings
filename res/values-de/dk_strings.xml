@@ -36,7 +36,10 @@
     <string name="normal_title">Normal</string>
     <string name="hidden_title">Verborgen</string>
     <string name="disabled_title">Deaktiviert</string>
+    <string name="background_title">Hintergrund</string>
+    <string name="ripple_title">Ripple Effekt</string>
     <string name="icon_title">Symbol</string>
+    <string name="icons_title">Symbole</string>
     <string name="icon_color_dark_mode_title">Symbol (helle Statusleiste)</string>
     <string name="text_title">Text</string>
     <string name="text_color_dark_mode_title">Text (helle Statusleiste)</string>
@@ -66,6 +69,7 @@
 
     <!-- dashboard tiles-->
     <string name="status_bar_title">Statusleiste</string>
+    <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>
     <string name="advanced_title">Erweitert</string>
     <string name="button_settings_title">Tasten</string>
 
@@ -185,6 +189,18 @@
     <string name="network_traffic_bit_byte_summary">Aktivieren um die Werte in Bit anstatt Byte anzuzeigen</string>
     <string name="network_traffic_hide_traffic_title">Anzeige verbergen</string>
     <string name="network_traffic_hide_traffic_summary">Aktivieren um die Anzeige bei keinem Datenverkehr zu verbergen</string>
+
+    <!-- Status bar expanded -->
+    <string name="status_bar_expanded_header_settings_title">Kopfzeile</string>
+    <string name="status_bar_expanded_header_settings_summary">Die Kopfzeile anpassen</string>
+
+    <!-- Statusbar expanded header settings -->
+    <string name="expanded_header_network_icons_settings_title">Netzwerk Symbole</string>
+    <string name="expanded_header_network_icons_settings_summary">Die Netzwerk Symbole anpassen</string>
+
+    <!-- Expanded header network icons settings -->
+    <string name="header_network_icons_no_sim_color_title">Keine Simkarte Farbe</string>
+    <string name="header_network_icons_airplane_mode_color_title">Flugmodus Farbe</string>
 
     <!-- Advanced -->
     <string name="lock_clock_title">Uhr-Widget</string>
