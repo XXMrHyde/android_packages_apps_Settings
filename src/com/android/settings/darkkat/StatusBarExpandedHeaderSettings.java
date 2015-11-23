@@ -247,13 +247,13 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                                     SYSTEMUI_SECONDARY);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_RIPPLE_COLOR,
-                                    HOLO_BLUE_LIGHT);
+                                    TRANSLUCENT_HOLO_BLUE_LIGHT);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_TEXT_COLOR,
                                     HOLO_BLUE_LIGHT);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_ICON_COLOR,
-                                    TRANSLUCENT_HOLO_BLUE_LIGHT);
+                                    HOLO_BLUE_LIGHT);
                             getOwner().refreshSettings();
                         }
                     })
