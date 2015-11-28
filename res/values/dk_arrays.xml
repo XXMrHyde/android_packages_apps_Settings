@@ -236,4 +236,16 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+
+    <string-array name="status_bar_expanded_quick_pulldown_entries" >
+        <item>@string/disabled_title</item>
+        <item>@string/position_right_title</item>
+        <item>@string/position_left_title</item>
+    </string-array>
+
+    <string-array name="status_bar_expanded_quick_pulldown_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>

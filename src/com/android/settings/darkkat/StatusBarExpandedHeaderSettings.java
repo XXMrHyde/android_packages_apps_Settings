@@ -158,34 +158,34 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
 
         if (preference == mBackgroundColor) {
             hex = ColorPickerPreference.convertToARGB(
-                Integer.valueOf(String.valueOf(newValue)));
+                    Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                Settings.System.STATUS_BAR_EXPANDED_HEADER_BG_COLOR, intHex);
+                    Settings.System.STATUS_BAR_EXPANDED_HEADER_BG_COLOR, intHex);
             preference.setSummary(hex);
             return true;
         } else if (preference == mRippleColor) {
             hex = ColorPickerPreference.convertToARGB(
-                Integer.valueOf(String.valueOf(newValue)));
+                    Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                Settings.System.STATUS_BAR_EXPANDED_HEADER_RIPPLE_COLOR, intHex);
+                    Settings.System.STATUS_BAR_EXPANDED_HEADER_RIPPLE_COLOR, intHex);
             refreshSettings();
             return true;
         } else if (preference == mTextColor) {
             hex = ColorPickerPreference.convertToARGB(
-                Integer.valueOf(String.valueOf(newValue)));
+                    Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                Settings.System.STATUS_BAR_EXPANDED_HEADER_TEXT_COLOR, intHex);
+                    Settings.System.STATUS_BAR_EXPANDED_HEADER_TEXT_COLOR, intHex);
             preference.setSummary(hex);
             return true;
         } else if (preference == mIconColor) {
             hex = ColorPickerPreference.convertToARGB(
-                Integer.valueOf(String.valueOf(newValue)));
+                    Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                Settings.System.STATUS_BAR_EXPANDED_HEADER_ICON_COLOR, intHex);
+                    Settings.System.STATUS_BAR_EXPANDED_HEADER_ICON_COLOR, intHex);
             preference.setSummary(hex);
             return true;
         }

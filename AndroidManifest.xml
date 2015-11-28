@@ -2156,7 +2156,7 @@
 
         <!-- DarkKat activities Start -->
         <activity android:name=".darkkat.Statusbar" />
-        <activity android:name=".darkkat.StatusBarExpanded" />
+        <activity android:name=".darkkat.StatusBarExpandedSettings" />
         <activity android:name=".darkkat.Advanced" />
         <activity android:name=".darkkat.ButtonSettings" />
 

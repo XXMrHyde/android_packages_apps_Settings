@@ -86,11 +86,11 @@
                 android:icon="@drawable/ic_settings_status_bar"
                 />
 
-        <!-- Status bar expanded -->
+        <!-- Status bar expanded settings -->
         <dashboard-tile
-                android:id="@+id/status_bar_expanded"
-                android:title="@string/status_bar_expanded_title"
-                android:fragment="com.android.settings.darkkat.StatusBarExpanded"
+                android:id="@+id/status_bar_expanded_settings"
+                android:title="@string/status_bar_expanded_settings_title"
+                android:fragment="com.android.settings.darkkat.StatusBarExpandedSettings"
                 android:icon="@drawable/ic_settings_status_bar_expanded"
                 />
 

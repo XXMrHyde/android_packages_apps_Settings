@@ -46,6 +46,7 @@
     <string name="position_title">Position</string>
     <string name="position_right_title">Rechts</string>
     <string name="position_centered_title">Zentriert</string>
+    <string name="position_left_title">Links</string>
     <string name="number_of_notifications_title">Anzahl der Benachrichtigungen</string>
     <string name="number_of_notifications_two_title">2</string>
     <string name="number_of_notifications_three_title">3</string>
@@ -69,7 +70,7 @@
 
     <!-- dashboard tiles-->
     <string name="status_bar_title">Statusleiste</string>
-    <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>
+    <string name="status_bar_expanded_settings_title">Erweiterte Statusleiste</string>
     <string name="advanced_title">Erweitert</string>
     <string name="button_settings_title">Tasten</string>
 
@@ -190,9 +191,14 @@
     <string name="network_traffic_hide_traffic_title">Anzeige verbergen</string>
     <string name="network_traffic_hide_traffic_summary">Aktivieren um die Anzeige bei keinem Datenverkehr zu verbergen</string>
 
-    <!-- Status bar expanded -->
+    <!-- Status bar expanded settings -->
     <string name="status_bar_expanded_header_settings_title">Kopfzeile</string>
     <string name="status_bar_expanded_header_settings_summary">Die Kopfzeile anpassen</string>
+    <string name="status_bar_expanded_quick_pulldown_title">Schnelles Öffnen</string>
+    <string name="status_bar_expanded_quick_pulldown_summary">%1$s Rand der Statusleiste öffnet die Erweiterte Ansicht</string>
+    <string name="status_bar_expanded_quick_pulldown_summary_right">Rechter</string>
+    <string name="status_bar_expanded_quick_pulldown_summary_left">Linker</string>
+    <string name="status_bar_expanded_quick_pulldown_dlg_title">Wähle welcher Rand der Statusleiste die die Erweiterte Ansicht öffnet</string>
 
     <!-- Statusbar expanded header settings -->
     <string name="expanded_header_network_icons_settings_title">Netzwerk Symbole</string>
