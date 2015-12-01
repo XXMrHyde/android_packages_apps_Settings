@@ -174,6 +174,8 @@
     <string name="battery_status_text_charge_icon_color_dark_mode_title">Percentage text &amp; charging indicator (light status bar)</string>
 
     <!-- Status bar network and status icons settings -->
+    <string name="network_status_icon_show_hide_title">Show/hide</string>
+    <string name="network_status_icon_show_hide_summary">Choose which icons should be visible/hidden</string>
     <string name="network_status_icon_cat_signal_colors_title">Signal colors</string>
     <string name="network_status_icon_cat_no_sim_colors_title">No sim card colors</string>
     <string name="network_status_icon_cat_airplane_mode_colors_title">Airplane mode colors</string>
@@ -194,6 +196,7 @@
     <!-- Statusbar expanded settings -->
     <string name="status_bar_expanded_header_settings_title">Header</string>
     <string name="status_bar_expanded_header_settings_summary">Customize the header</string>
+    <string name="status_bar_expanded_qs_title">Quick settings</string>
     <string name="status_bar_expanded_quick_pulldown_title">Quick pulldown</string>
     <string name="status_bar_expanded_quick_pulldown_summary">%1$s edge of the status bar pulls down to the expanded view</string>
     <string name="status_bar_expanded_quick_pulldown_summary_right">Right</string>
@@ -203,6 +206,10 @@
     <!-- Statusbar expanded header settings -->
     <string name="expanded_header_network_icons_settings_title">Network icons</string>
     <string name="expanded_header_network_icons_settings_summary">Customize the network icons</string>
+
+    <!-- Statusbar expanded qs settings -->
+    <string name="qs_tile_arrengment_title">Tile arrengment</string>
+    <string name="qs_tile_arrengment_summary">Arrange the tiles, and choose the tiles to display on the quick settings panel</string>
 
     <!-- Expanded header network icons settings -->
     <string name="header_network_icons_no_sim_color_title">No sim card color</string>
@@ -224,6 +231,9 @@
     <!-- Power menu settings -->
     <string name="power_menu_show_advanced_reboot_title">Advanced reboot menu</string>
     <string name="power_menu_show_advanced_reboot_summary">Enable to show advanced options in the reboot menu</string>
+
+    <!-- Development settings -->
+    <string name="demo_mode_title">Demomodus</string>
 
     <!-- SuperSU -->
     <string name="supersu_title">SuperSU</string>

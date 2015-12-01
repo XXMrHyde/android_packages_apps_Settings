@@ -18,6 +18,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/status_bar_network_status_icon_settings_title">
 
+    <PreferenceScreen
+        android:key="network_status_icon_show_hide"
+        android:title="@string/network_status_icon_show_hide_title"
+        android:summary="@string/network_status_icon_show_hide_summary" >
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.systemui"
+            android:targetClass="com.android.systemui.tuner.StatusBarIconsVisibilityActivity" />
+    </PreferenceScreen>
+
     <PreferenceCategory
         android:key="network_status_icon_cat_signal_colors"
         android:title="@string/network_status_icon_cat_signal_colors_title">

@@ -174,6 +174,8 @@
     <string name="battery_status_text_charge_icon_color_dark_mode_title">Prozentzahl &amp; Ladesymbol (helle Statusleiste)</string>
 
     <!-- Status bar network and status icons settings -->
+    <string name="network_status_icon_show_hide_title">Anzeigen/verbergen</string>
+    <string name="network_status_icon_show_hide_summary">Wähle welche Symbole angezeigt/verborgen werden sollen</string>
     <string name="network_status_icon_cat_signal_colors_title">Signal Farben</string>
     <string name="network_status_icon_cat_no_sim_colors_title">Keine Simkarte Farben</string>
     <string name="network_status_icon_cat_airplane_mode_colors_title">Flugmodus Farben</string>
@@ -194,6 +196,7 @@
     <!-- Status bar expanded settings -->
     <string name="status_bar_expanded_header_settings_title">Kopfzeile</string>
     <string name="status_bar_expanded_header_settings_summary">Die Kopfzeile anpassen</string>
+    <string name="status_bar_expanded_qs_title">Schnelleinstellungen</string>
     <string name="status_bar_expanded_quick_pulldown_title">Schnelles Öffnen</string>
     <string name="status_bar_expanded_quick_pulldown_summary">%1$s Rand der Statusleiste öffnet die Erweiterte Ansicht</string>
     <string name="status_bar_expanded_quick_pulldown_summary_right">Rechter</string>
@@ -203,6 +206,10 @@
     <!-- Statusbar expanded header settings -->
     <string name="expanded_header_network_icons_settings_title">Netzwerk Symbole</string>
     <string name="expanded_header_network_icons_settings_summary">Die Netzwerk Symbole anpassen</string>
+
+    <!-- Statusbar expanded qs settings -->
+    <string name="qs_tile_arrengment_title">Kachelanordnung</string>
+    <string name="qs_tile_arrengment_summary">Ordne die Kacheln an, und wähle welche Kacheln in dem Schnelleinstellungen Feld angezeigt werden sollen</string>
 
     <!-- Expanded header network icons settings -->
     <string name="header_network_icons_no_sim_color_title">Keine Simkarte Farbe</string>
@@ -224,6 +231,9 @@
     <!-- Power menu settings -->
     <string name="power_menu_show_advanced_reboot_title">Erweitertes Neustart Menu</string>
     <string name="power_menu_show_advanced_reboot_summary">Aktivieren um erweiterte Optionen im Neustart Menü anzuzeigen</string>
+
+    <!-- Development settings -->
+    <string name="demo_mode_title">Demomodus</string>
 
     <!-- SuperSU -->
     <string name="supersu_title">SuperSU</string>
