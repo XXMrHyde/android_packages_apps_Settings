@@ -196,7 +196,8 @@
     <!-- Status bar expanded settings -->
     <string name="status_bar_expanded_header_settings_title">Kopfzeile</string>
     <string name="status_bar_expanded_header_settings_summary">Die Kopfzeile anpassen</string>
-    <string name="status_bar_expanded_qs_title">Schnelleinstellungen</string>
+    <string name="status_bar_expanded_qs_settings_title">Schnelleinstellungen</string>
+    <string name="status_bar_expanded_qs_settings_summary">Schnelleinstellungen anpassen</string>
     <string name="status_bar_expanded_quick_pulldown_title">Schnelles Öffnen</string>
     <string name="status_bar_expanded_quick_pulldown_summary">%1$s Rand der Statusleiste öffnet die Erweiterte Ansicht</string>
     <string name="status_bar_expanded_quick_pulldown_summary_right">Rechter</string>
@@ -208,6 +209,8 @@
     <string name="expanded_header_network_icons_settings_summary">Die Netzwerk Symbole anpassen</string>
 
     <!-- Statusbar expanded qs settings -->
+    <string name="qs_show_brightness_slider_title">Helligkeitsregler anzeigen</string>
+    <string name="qs_show_brightness_slider_summary">Aktivieren um den Helligkeitsregler anzuzeigen</string>
     <string name="qs_tile_arrengment_title">Kachelanordnung</string>
     <string name="qs_tile_arrengment_summary">Ordne die Kacheln an, und wähle welche Kacheln in dem Schnelleinstellungen Feld angezeigt werden sollen</string>
 

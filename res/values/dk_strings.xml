@@ -196,7 +196,8 @@
     <!-- Statusbar expanded settings -->
     <string name="status_bar_expanded_header_settings_title">Header</string>
     <string name="status_bar_expanded_header_settings_summary">Customize the header</string>
-    <string name="status_bar_expanded_qs_title">Quick settings</string>
+    <string name="status_bar_expanded_qs_settings_title">Quick settings</string>
+    <string name="status_bar_expanded_qs_settings_summary">Customize Quick settings</string>
     <string name="status_bar_expanded_quick_pulldown_title">Quick pulldown</string>
     <string name="status_bar_expanded_quick_pulldown_summary">%1$s edge of the status bar pulls down to the expanded view</string>
     <string name="status_bar_expanded_quick_pulldown_summary_right">Right</string>
@@ -208,6 +209,8 @@
     <string name="expanded_header_network_icons_settings_summary">Customize the network icons</string>
 
     <!-- Statusbar expanded qs settings -->
+    <string name="qs_show_brightness_slider_title">Show brightness slider</string>
+    <string name="qs_show_brightness_slider_summary">Enable to show the brightness slider</string>
     <string name="qs_tile_arrengment_title">Tile arrengment</string>
     <string name="qs_tile_arrengment_summary">Arrange the tiles, and choose the tiles to display on the quick settings panel</string>
 
