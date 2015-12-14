@@ -16,12 +16,14 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Global used -->
+    <string name="help">Hilfe</string>
     <string name="reset">Zurücksetzen</string>
     <string name="dlg_dslv_reset_message">Standardeinstellungen wiederherstellen?</string>
     <string name="dlg_reset_values_message">Werte auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
     <string name="dlg_reset_colors_message">Farben auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
+    <string name="customize_title">Anpassen</string>
     <string name="weather_title">Wetter</string>
     <string name="lock_clock_missing_title">Uhr-Widget ist nicht installiert</string>
     <string name="lock_clock_missing_summary">Um die Wetter Funtion nutzen zu können, muss das Uhr-Widget \"cLock-Widget\" installiert sein</string>
@@ -64,6 +66,38 @@
     <string name="palette_rgb_title">RGB</string>
     <string name="reset_android_title">Android Standard</string>
     <string name="reset_darkkat_title">DarkKat Standard</string>
+
+    <!-- Shortcut picker -->
+    <string name="shortcut_picker_choose_longpress_action">Aktion bei langem Drücken wählen:</string>
+    <string name="shortcut_picker_reassign_action">Aktion neu zuweisen:</string>
+    <string name="shortcut_picker_choose_new_action">Neue Aktion wählen:</string>
+    <string name="shortcut_picker_choose_action">Aktion wählen:</string>
+    <string name="shortcut_picker_applications_title">Anwendungen</string>
+    <string name="shortcut_picker_activities_title">Aktivitäten</string>
+    <string name="shortcut_picker_select_app_title">Anwendung auswählen:</string>
+    <string name="shortcut_picker_select_activity_title">Aktivität auswählen:</string>
+    <string name="shortcut_picker_choose_icon_type_title">Symbol Typ auswählen:</string>
+    <string name="shortcut_picker_icon_type_default_title">Standard</string>
+    <string name="shortcut_picker_icon_type_system_title">Systemsymbole</string>
+    <string name="shortcut_picker_select_system_icon_title">Systemsymbol auswählen:</string>
+    <string name="shortcut_picker_icon_type_custom_title">Galerie</string>
+    <string name="shortcut_action_none">Keine</string>
+
+    <!-- DSLV -->
+    <string name="shortcut_action_longpress">Lange drücken:</string>
+    <string name="shortcut_action_max">Maximale Anzahl an Schaltflächen erreicht</string>
+    <string name="shortcut_action_warning">Warnung</string>
+    <string name="shortcut_action_warning_message">Es ist nicht möglich, den letzten Eintrag zu löschen</string>
+    <string name="shortcut_action_required_warning_message">Es ist nicht möglich, die erforderlichen Tasten zu löschen</string>
+    <string name="shortcut_action_disable_message">Deaktiviert\nEintrag hinzufügen, um die Funktion zu aktivieren</string>
+    <string name="shortcut_image_not_valid">Die gewählte App zur Symbolbearbeitung hat einen Fehler verursacht. Bitte eine andere App benutzen.</string>
+    <string name="shortcut_duplicate_entry">Die ausgewählte Aktion kann nicht zweimal angelegt werden</string>
+    <string name="shortcut_action_help_shortcut">Kurzziel</string>
+    <string name="shortcut_action_help_button">Schaltfläche</string>
+    <string name="shortcut_action_help_app">App</string>
+    <string name="shortcut_action_help_icon">, während bei Markieren des Symbols individuelle Anpassungsmöglichkeiten eröffnet werden</string>
+    <string name="shortcut_action_help_main">Um eine %1$s hinzuzufügen, auf das \"(+)\"-Symbol drücken. Wenn eine %1$s hinzugefügt wurde, kann diese durch nochmaliges Drücken auf den Eintrag geändert werden%2$s\n\nUm eine %1$s zu löschen, den Eintrag einfach nach links oder rechts aus dem Bildschirm schieben. Um die Position einer %1$s zu ändern, das Symbol auf der linken Seite lange drücken und den Eintrag auf die neue Position verschieben.\n\nZum Löschen auf das \"Zurücksetzen\"-Symbol drücken.</string>
+    <string name="shortcut_action_help_delete_last_entry">Löschen aller %1$s deaktiviert die Funktion.</string>
 
     <!-- dashboard categories-->
     <string name="category_ui_section">Benutzeroberfläche</string>
@@ -194,29 +228,37 @@
     <string name="network_traffic_hide_traffic_summary">Aktivieren um die Anzeige bei keinem Datenverkehr zu verbergen</string>
 
     <!-- Status bar expanded settings -->
+    <string name="status_bar_expanded_cat_qab_title">Schnellzugriffsleiste</string>
     <string name="status_bar_expanded_header_settings_title">Kopfzeile</string>
     <string name="status_bar_expanded_header_settings_summary">Die Kopfzeile anpassen</string>
-    <string name="status_bar_expanded_qs_settings_title">Schnelleinstellungen</string>
-    <string name="status_bar_expanded_qs_settings_summary">Schnelleinstellungen anpassen</string>
     <string name="status_bar_expanded_quick_pulldown_title">Schnelles Öffnen</string>
     <string name="status_bar_expanded_quick_pulldown_summary">%1$s Rand der Statusleiste öffnet die Erweiterte Ansicht</string>
     <string name="status_bar_expanded_quick_pulldown_summary_right">Rechter</string>
     <string name="status_bar_expanded_quick_pulldown_summary_left">Linker</string>
     <string name="status_bar_expanded_quick_pulldown_dlg_title">Wähle welcher Rand der Statusleiste die die Erweiterte Ansicht öffnet</string>
+    <string name="status_bar_expanded_show_brightness_slider_title">Helligkeitsregler anzeigen</string>
+    <string name="status_bar_expanded_show_brightness_slider_summary">Aktivieren um den Helligkeitsregler anzuzeigen</string>
+    <string name="status_bar_expanded_show_qab_summary">Aktivieren um die Schnellzugriffsleiste anzuzeigen</string>
+    <string name="status_bar_expanded_qab_buttons_summary">Ordne die Schaltflächen an, und wähle welche Schaltflächen in der Schnellzugriffsleiste angezeigt werden sollen.</string>
 
     <!-- Statusbar expanded header settings -->
     <string name="expanded_header_network_icons_settings_title">Netzwerk Symbole</string>
     <string name="expanded_header_network_icons_settings_summary">Die Netzwerk Symbole anpassen</string>
 
-    <!-- Statusbar expanded qs settings -->
-    <string name="qs_show_brightness_slider_title">Helligkeitsregler anzeigen</string>
-    <string name="qs_show_brightness_slider_summary">Aktivieren um den Helligkeitsregler anzuzeigen</string>
-    <string name="qs_tile_arrengment_title">Kachelanordnung</string>
-    <string name="qs_tile_arrengment_summary">Ordne die Kacheln an, und wähle welche Kacheln in dem Schnelleinstellungen Feld angezeigt werden sollen</string>
-
     <!-- Expanded header network icons settings -->
     <string name="header_network_icons_no_sim_color_title">Keine Simkarte Farbe</string>
     <string name="header_network_icons_airplane_mode_color_title">Flugmodus Farbe</string>
+
+    <!-- Quick access bar buttons -->
+    <string name="qab_button_wifi">Wi\u2011Fi</string>
+    <string name="qab_button_bluetooth">Bluetooth</string>
+    <string name="qab_button_display_inversion">Farbumkehrung</string>
+    <string name="qab_button_airplane_mode">Flugmodus</string>
+    <string name="qab_button_display_rotation">Bildschirm-Ausrichtung</string>
+    <string name="qab_button_flashlight">Taschenlampe</string>
+    <string name="qab_button_location">Standort</string>
+    <string name="qab_button_hotspot">Hotspot</string>
+    <string name="qab_button_mobile_data">Mobile Daten</string>
 
     <!-- Advanced -->
     <string name="lock_clock_title">Uhr-Widget</string>

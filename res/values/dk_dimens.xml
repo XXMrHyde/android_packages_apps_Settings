@@ -15,16 +15,14 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Color picker panel view buttons -->
-    <item type="id" name="panel_view_button_1" />
-    <item type="id" name="panel_view_button_2" />
-    <item type="id" name="panel_view_button_3" />
-    <item type="id" name="panel_view_button_4" />
-    <item type="id" name="panel_view_button_5" />
-    <item type="id" name="panel_view_button_6" />
-    <item type="id" name="panel_view_button_7" />
-    <item type="id" name="panel_view_button_8" />
+    <!-- Shortcut picker -->
+    <dimen name="shortcut_picker_left_padding">40dip</dimen>
 
-    <!-- DSLV drag handle icon -->
-    <item type="id" name="drag_handle" />
+    <!-- Floating action button -->
+    <dimen name="fab_line_width">2dp</dimen>
+    <dimen name="fab_size">56dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fab_icon_size">24dp</dimen>
+    <dimen name="fab_elevation_normal">8dp</dimen>
+    <dimen name="fab_elevation_pressed">6dp</dimen>
 </resources>

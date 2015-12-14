@@ -59,6 +59,12 @@
         <item>@color/orange</item>
     </array>
 
+    <string-array name="icon_types">
+        <item>@string/shortcut_picker_icon_type_default_title</item>
+        <item>@string/shortcut_picker_icon_type_system_title</item>
+        <item>@string/shortcut_picker_icon_type_custom_title</item>
+    </string-array>
+
     <string-array name="number_of_notifications_entries">
         <item>@string/always_title</item>
         <item>@string/number_of_notifications_two_title</item>
@@ -247,5 +253,39 @@
         <item>0</item>
         <item>1</item>
         <item>2</item>
+    </string-array>
+
+    <string-array name="qab_button_entries">
+        <item>@string/qab_button_airplane_mode</item>
+        <item>@string/qab_button_bluetooth</item>
+        <item>@string/qab_button_display_inversion</item>
+        <item>@string/qab_button_display_rotation</item>
+        <item>@string/qab_button_flashlight</item>
+        <item>@string/qab_button_hotspot</item>
+        <item>@string/qab_button_location</item>
+        <item>@string/qab_button_mobile_data</item>
+        <item>@string/qab_button_wifi</item>
+    </string-array>
+
+    <string-array name="qab_button_values" translatable="false">
+        <item>airplane</item>
+        <item>bt</item>
+        <item>inversion</item>
+        <item>rotation</item>
+        <item>flashlight</item>
+        <item>hotspot</item>
+        <item>location</item>
+        <item>data</item>
+        <item>wifi</item>
+    </string-array>
+
+    <!-- Placeholder -->
+    <string-array name="shortcut_icon_picker_labels">
+        <item>@string/shortcut_action_none</item>
+    </string-array>
+
+    <!-- Placeholder -->
+    <string-array name="shortcut_icon_picker_icons" translatable="false">
+        <item>drawable/empty_icon</item>
     </string-array>
 </resources>
