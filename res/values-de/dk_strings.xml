@@ -55,6 +55,9 @@
     <string name="number_of_notifications_four_title">4</string>
     <string name="number_of_notifications_five_title">5</string>
     <string name="number_of_notifications_six_title">6</string>
+    <string name="weather_icon_monochrome_title">Einfarbig</string>
+    <string name="weather_icon_colored_title">Farbig</string>
+    <string name="weather_icon_vclouds_title">VClouds</string>
 
     <!-- Pickers -->
 
@@ -240,6 +243,7 @@
     <string name="status_bar_expanded_show_brightness_slider_summary">Aktivieren um den Helligkeitsregler anzuzeigen</string>
     <string name="status_bar_expanded_show_qab_summary">Aktivieren um die Schnellzugriffsleiste anzuzeigen</string>
     <string name="status_bar_expanded_qab_buttons_summary">Ordne die Schaltflächen an, und wähle welche Schaltflächen in der Schnellzugriffsleiste angezeigt werden sollen.</string>
+    <string name="status_bar_expanded_show_weather_summary">Aktivieren um das Wetter anzuzeigen</string>
 
     <!-- Statusbar expanded header settings -->
     <string name="expanded_header_network_icons_settings_title">Netzwerk Symbole</string>
@@ -259,6 +263,11 @@
     <string name="qab_button_location">Standort</string>
     <string name="qab_button_hotspot">Hotspot</string>
     <string name="qab_button_mobile_data">Mobile Daten</string>
+
+    <!-- Weather -->
+    <string name="weather_show_current_title">Aktuelles Wetter anzeigen</string>
+    <string name="weather_show_current_summary">Aktivieren um neben der Wettervorhersage auch das aktuelle Wetter anzuzeigen, deaktivieren um nur die Wettervorhersage anzuzeigen</string>
+    <string name="weather_icon_type_title">Wetterlage Symbol</string>
 
     <!-- Advanced -->
     <string name="lock_clock_title">Uhr-Widget</string>
