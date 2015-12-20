@@ -231,19 +231,15 @@
     <string name="network_traffic_hide_traffic_summary">Aktivieren um die Anzeige bei keinem Datenverkehr zu verbergen</string>
 
     <!-- Status bar expanded settings -->
-    <string name="status_bar_expanded_cat_qab_title">Schnellzugriffsleiste</string>
-    <string name="status_bar_expanded_header_settings_title">Kopfzeile</string>
-    <string name="status_bar_expanded_header_settings_summary">Die Kopfzeile anpassen</string>
     <string name="status_bar_expanded_quick_pulldown_title">Schnelles Öffnen</string>
     <string name="status_bar_expanded_quick_pulldown_summary">%1$s Rand der Statusleiste öffnet die Erweiterte Ansicht</string>
     <string name="status_bar_expanded_quick_pulldown_summary_right">Rechter</string>
     <string name="status_bar_expanded_quick_pulldown_summary_left">Linker</string>
     <string name="status_bar_expanded_quick_pulldown_dlg_title">Wähle welcher Rand der Statusleiste die die Erweiterte Ansicht öffnet</string>
-    <string name="status_bar_expanded_show_brightness_slider_title">Helligkeitsregler anzeigen</string>
-    <string name="status_bar_expanded_show_brightness_slider_summary">Aktivieren um den Helligkeitsregler anzuzeigen</string>
-    <string name="status_bar_expanded_show_qab_summary">Aktivieren um die Schnellzugriffsleiste anzuzeigen</string>
-    <string name="status_bar_expanded_qab_buttons_summary">Ordne die Schaltflächen an, und wähle welche Schaltflächen in der Schnellzugriffsleiste angezeigt werden sollen.</string>
-    <string name="status_bar_expanded_show_weather_summary">Aktivieren um das Wetter anzuzeigen</string>
+    <string name="status_bar_expanded_header_settings_title">Kopfzeile</string>
+    <string name="status_bar_expanded_header_settings_summary">Die Kopfzeile anpassen</string>
+    <string name="status_bar_expanded_panel_settings_title">Feld</string>
+    <string name="status_bar_expanded_panel_settings_summary">Das Feld anpassen</string>
 
     <!-- Statusbar expanded header settings -->
     <string name="expanded_header_network_icons_settings_title">Netzwerk Symbole</string>
@@ -252,6 +248,14 @@
     <!-- Expanded header network icons settings -->
     <string name="header_network_icons_no_sim_color_title">Keine Simkarte Farbe</string>
     <string name="header_network_icons_airplane_mode_color_title">Flugmodus Farbe</string>
+
+    <!-- Statusbar expanded panel settings -->
+    <string name="expanded_panel_cat_qab_title">Schnellzugriffsleiste</string>
+    <string name="expanded_panel_show_brightness_slider_title">Helligkeitsregler anzeigen</string>
+    <string name="expanded_panel_show_brightness_slider_summary">Aktivieren um den Helligkeitsregler anzuzeigen</string>
+    <string name="expanded_panel_show_qab_summary">Aktivieren um die Schnellzugriffsleiste anzuzeigen</string>
+    <string name="expanded_panel_qab_buttons_summary">Ordne die Schaltflächen an, und wähle welche Schaltflächen in der Schnellzugriffsleiste angezeigt werden sollen.</string>
+    <string name="expanded_panel_show_weather_summary">Aktivieren um das Wetter anzuzeigen</string>
 
     <!-- Quick access bar buttons -->
     <string name="qab_button_wifi">Wi\u2011Fi</string>
