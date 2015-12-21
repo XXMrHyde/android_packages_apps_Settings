@@ -25,7 +25,7 @@
         android:defaultValue="true" />
 
     <PreferenceCategory
-        android:key="sexpanded_panel_cat_qab"
+        android:key="expanded_panel_cat_qab"
         android:title="@string/expanded_panel_cat_qab_title">
 
         <SwitchPreference
