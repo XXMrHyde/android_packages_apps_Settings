@@ -251,10 +251,10 @@
 
     <!-- Statusbar expanded panel settings -->
     <string name="expanded_panel_cat_qab_title">Schnellzugriffsleiste</string>
-    <string name="expanded_panel_show_brightness_slider_title">Helligkeitsregler anzeigen</string>
-    <string name="expanded_panel_show_brightness_slider_summary">Aktivieren um den Helligkeitsregler anzuzeigen</string>
+    <string name="expanded_panel_cat_brightness_slider_title">Helligkeitsregler</string>
     <string name="expanded_panel_show_qab_summary">Aktivieren um die Schnellzugriffsleiste anzuzeigen</string>
     <string name="expanded_panel_qab_buttons_summary">Ordne die Schaltflächen an, und wähle welche Schaltflächen in der Schnellzugriffsleiste angezeigt werden sollen.</string>
+    <string name="expanded_panel_show_brightness_slider_summary">Aktivieren um den Helligkeitsregler anzuzeigen</string>
     <string name="expanded_panel_show_weather_summary">Aktivieren um das Wetter anzuzeigen</string>
 
     <!-- Quick access bar buttons -->

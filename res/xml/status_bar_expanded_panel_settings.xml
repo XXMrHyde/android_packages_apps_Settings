@@ -18,12 +18,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/status_bar_expanded_panel_settings_title">
 
-    <SwitchPreference
-        android:key="expanded_panel_show_brightness_slider"
-        android:title="@string/expanded_panel_show_brightness_slider_title"
-        android:summary="@string/expanded_panel_show_brightness_slider_summary"
-        android:defaultValue="true" />
-
     <PreferenceCategory
         android:key="expanded_panel_cat_qab"
         android:title="@string/expanded_panel_cat_qab_title">
@@ -48,6 +42,18 @@
                 <extra android:name="actionValues" android:value="qab_button_values" />
                 <extra android:name="actionEntries" android:value="qab_button_entries" />
         </PreferenceScreen>
+
+	</PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="expanded_panel_cat_brightness_slider"
+        android:title="@string/expanded_panel_cat_brightness_slider_title">
+
+        <SwitchPreference
+            android:key="expanded_panel_show_brightness_slider"
+            android:title="@string/show_title"
+            android:summary="@string/expanded_panel_show_brightness_slider_summary"
+            android:defaultValue="true" />
 
 	</PreferenceCategory>
 

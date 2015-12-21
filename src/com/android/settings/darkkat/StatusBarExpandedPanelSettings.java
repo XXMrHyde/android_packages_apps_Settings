@@ -55,10 +55,10 @@ public class StatusBarExpandedPanelSettings extends SettingsPreferenceFragment i
             "expanded_panel_cat_weather";
     private static final String PREF_CAT_COLORS =
             "expanded_panel_cat_colors";
-    private static final String PREF_SHOW_BRIGHTNESS_SLIDER =
-            "expanded_panel_show_brightness_slider";
     private static final String PREF_SHOW_QAB =
             "expanded_panel_show_qab";
+    private static final String PREF_SHOW_BRIGHTNESS_SLIDER =
+            "expanded_panel_show_brightness_slider";
     private static final String PREF_SHOW_WEATHER =
             "expanded_panel_show_weather";
     private static final String PREF_LOCK_CLOCK_MISSING =
@@ -88,8 +88,8 @@ public class StatusBarExpandedPanelSettings extends SettingsPreferenceFragment i
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET  = 0;
 
-    private SwitchPreference mShowBrightnessSlider;
     private SwitchPreference mShowQab;
+    private SwitchPreference mShowBrightnessSlider;
     private SwitchPreference mShowWeather;
     private ColorPickerPreference mBackgroundColor;
     private ColorPickerPreference mIconColor;
@@ -116,23 +116,23 @@ public class StatusBarExpandedPanelSettings extends SettingsPreferenceFragment i
         int intColor;
         String hexColor;
 
-        boolean showBrightnessSlider = Settings.System.getInt(mResolver,
-               Settings.System.STATUS_BAR_EXPANDED_SHOW_BRIGHTNESS_SLIDER, 1) == 1;
         boolean showQab = Settings.System.getInt(mResolver,
                Settings.System.STATUS_BAR_EXPANDED_SHOW_QAB, 1) == 1;
+        boolean showBrightnessSlider = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_EXPANDED_SHOW_BRIGHTNESS_SLIDER, 1) == 1;
         boolean showWeather = Settings.System.getInt(mResolver,
                Settings.System.STATUS_BAR_EXPANDED_SHOW_WEATHER, 0) == 1;
         boolean isLockClockInstalled = Utils.isPackageInstalled(getActivity(), "com.cyanogenmod.lockclock");
-
-        mShowBrightnessSlider =
-                (SwitchPreference) findPreference(PREF_SHOW_BRIGHTNESS_SLIDER);
-        mShowBrightnessSlider.setChecked(showBrightnessSlider);
-        mShowBrightnessSlider.setOnPreferenceChangeListener(this);
 
         mShowQab =
                 (SwitchPreference) findPreference(PREF_SHOW_QAB);
         mShowQab.setChecked(showQab);
         mShowQab.setOnPreferenceChangeListener(this);
+
+        mShowBrightnessSlider =
+                (SwitchPreference) findPreference(PREF_SHOW_BRIGHTNESS_SLIDER);
+        mShowBrightnessSlider.setChecked(showBrightnessSlider);
+        mShowBrightnessSlider.setOnPreferenceChangeListener(this);
 
         mShowWeather =
                 (SwitchPreference) findPreference(PREF_SHOW_WEATHER);
@@ -157,7 +157,7 @@ public class StatusBarExpandedPanelSettings extends SettingsPreferenceFragment i
             catWeather.removePreference(findPreference("expanded_panel_lock_clock_missing"));
         }
 
-        if (showBrightnessSlider || showQab || showWeather) {
+        if (showQab || showBrightnessSlider || showWeather) {
             mBackgroundColor =
                     (ColorPickerPreference) findPreference(PREF_BG_COLOR);
             intColor = Settings.System.getInt(mResolver,
@@ -209,7 +209,7 @@ public class StatusBarExpandedPanelSettings extends SettingsPreferenceFragment i
             catColors.removePreference(findPreference(PREF_TEXT_COLOR));
         }
 
-        if (!showBrightnessSlider && !showQab && (!showWeather || !isLockClockInstalled)) {
+        if (!showQab && !showBrightnessSlider && (!showWeather || !isLockClockInstalled)) {
             removePreference(PREF_CAT_COLORS);
         }
 
@@ -239,17 +239,17 @@ public class StatusBarExpandedPanelSettings extends SettingsPreferenceFragment i
         String hex;
         int intHex;
 
-        if (preference == mShowBrightnessSlider) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(mResolver,
-                    Settings.System.STATUS_BAR_EXPANDED_SHOW_BRIGHTNESS_SLIDER,
-                    value ? 1 : 0);
-            refreshSettings();
-            return true;
-        } else if (preference == mShowQab) {
+        if (preference == mShowQab) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_EXPANDED_SHOW_QAB,
+                    value ? 1 : 0);
+            refreshSettings();
+            return true;
+        } else if (preference == mShowBrightnessSlider) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_EXPANDED_SHOW_BRIGHTNESS_SLIDER,
                     value ? 1 : 0);
             refreshSettings();
             return true;
@@ -328,9 +328,9 @@ public class StatusBarExpandedPanelSettings extends SettingsPreferenceFragment i
                             new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_EXPANDED_SHOW_BRIGHTNESS_SLIDER, 1);
-                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_SHOW_QAB, 1);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_EXPANDED_SHOW_BRIGHTNESS_SLIDER, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_SHOW_WEATHER, 0);
                             Settings.System.putInt(getOwner().mResolver,
@@ -352,9 +352,9 @@ public class StatusBarExpandedPanelSettings extends SettingsPreferenceFragment i
                             new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_EXPANDED_SHOW_BRIGHTNESS_SLIDER, 1);
-                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_SHOW_QAB, 1);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_EXPANDED_SHOW_BRIGHTNESS_SLIDER, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_SHOW_WEATHER, 1);
                             Settings.System.putInt(getOwner().mResolver,

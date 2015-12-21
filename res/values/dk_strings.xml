@@ -251,10 +251,10 @@
 
     <!-- Statusbar expanded panel settings -->
     <string name="expanded_panel_cat_qab_title">Quick access bar</string>
-    <string name="expanded_panel_show_brightness_slider_title">Show brightness slider</string>
-    <string name="expanded_panel_show_brightness_slider_summary">Enable to show the brightness slider</string>
+    <string name="expanded_panel_cat_brightness_slider_title">Brightness slider</string>
     <string name="expanded_panel_show_qab_summary">Enable to show the quick access bar</string>
     <string name="expanded_panel_qab_buttons_summary">Arrange the buttons, and choose the buttons to display in the quick access bar</string>
+    <string name="expanded_panel_show_brightness_slider_summary">Enable to show the brightness slider</string>
     <string name="expanded_panel_show_weather_summary">Enable to show the weather</string>
 
     <!-- Quick access bar buttons -->
