@@ -28,7 +28,8 @@ public abstract class InstrumentedFragment extends PreferenceFragment {
     public static final int BUTTONS             = 100001;
     public static final int STATUSBAR           = 100002;
     public static final int ADVANCED            = 100003;
-    public static final int STATUSBAR_EXPANDED  = 100002;
+    public static final int STATUSBAR_EXPANDED  = 100004;
+    public static final int LOCK_SCREEN         = 100005;
 
     /**
      * Declare the view of this category.

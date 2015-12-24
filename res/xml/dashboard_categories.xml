@@ -78,6 +78,14 @@
             android:key="@string/category_key_interface"
             android:title="@string/category_ui_section" >
 
+        <!-- Lock screen -->
+        <dashboard-tile
+            android:id="@+id/lock_screen"
+            android:title="@string/lock_screen_title"
+            android:fragment="com.android.settings.darkkat.LockScreen"
+            android:icon="@drawable/ic_settings_lockscreen"
+            />
+
         <!-- Status bar -->
         <dashboard-tile
                 android:id="@+id/status_bar"

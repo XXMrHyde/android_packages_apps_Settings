@@ -106,10 +106,20 @@
     <string name="category_ui_section">Benutzeroberfläche</string>
 
     <!-- dashboard tiles-->
+    <string name="lock_screen_title">Sperrbildschirm</string>
     <string name="status_bar_title">Statusleiste</string>
     <string name="status_bar_expanded_settings_title">Erweiterte Statusleiste</string>
     <string name="advanced_title">Erweitert</string>
     <string name="button_settings_title">Tasten</string>
+
+    <!-- Lock screen (preference screen) -->
+    <string name="lock_screen_visualizer_settings_title">Musik Visualisierung</string>
+    <string name="lock_screen_visualizer_settings_summary">Die Musik Visualisierung anpassen</string>
+
+    <!-- Lock screen visualizer settings -->
+    <string name="visualizer_show_summary">Aktivieren um die Musik Visualisierung auf dem Sperrbildschirm anzuzeigen</string>
+    <string name="visualizer_use_custom_color_title">Angepasste Farbe</string>
+    <string name="visualizer_use_custom_color_summary">Aktivieren um die Farbe anzupassen, deaktivieren um die Farbe automatisch aus dem Sperrbildschirm Hintergrund zu erstellen</string>
 
     <!-- Status bar -->
     <string name="status_bar_gesture_settings_title">Gesten</string>
