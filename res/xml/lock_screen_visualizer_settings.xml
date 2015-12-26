@@ -28,9 +28,4 @@
         android:summary="@string/visualizer_use_custom_color_summary"
         android:defaultValue="false" />
 
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="visualizer_color"
-        android:title="@string/color_title"
-        android:defaultValue="0xff33b5e5" />
-
 </PreferenceScreen>

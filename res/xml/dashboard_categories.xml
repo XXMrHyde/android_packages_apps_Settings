@@ -80,9 +80,9 @@
 
         <!-- Lock screen -->
         <dashboard-tile
-            android:id="@+id/lock_screen"
-            android:title="@string/lock_screen_title"
-            android:fragment="com.android.settings.darkkat.LockScreen"
+            android:id="@+id/lock_screen_settings"
+            android:title="@string/lock_screen_settings_title"
+            android:fragment="com.android.settings.darkkat.LockScreenSettings"
             android:icon="@drawable/ic_settings_lockscreen"
             />
 

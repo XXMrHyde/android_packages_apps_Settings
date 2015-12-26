@@ -14,7 +14,7 @@
      limitations under the License.
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/lock_screen_title" >
+    android:title="@string/lock_screen_settings_title" >
 
     <PreferenceScreen
         android:key="lock_screen_visualizer_settings"
@@ -22,4 +22,19 @@
 		android:summary="@string/lock_screen_visualizer_settings_summary"
         android:fragment="com.android.settings.darkkat.LockScreenVisualizerSettings" />
 
+    <PreferenceCategory
+        android:key="lock_screen_cat_colors"
+        android:title="@string/colors_title">
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="lock_screen_icon_color"
+            android:title="@string/icon_title"
+            android:defaultValue="0xffffffff" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="lock_screen_text_color"
+            android:title="@string/text_title"
+            android:defaultValue="0xffffffff" />
+
+    </PreferenceCategory>
 </PreferenceScreen>
