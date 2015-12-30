@@ -22,14 +22,30 @@
 		android:summary="@string/lock_screen_visualizer_settings_summary"
         android:fragment="com.android.settings.darkkat.LockScreenVisualizerSettings" />
 
+    <PreferenceScreen
+        android:key="lock_screen_button_settings"
+        android:title="@string/button_settings_title"
+		android:summary="@string/lock_screen_button_settings_summary"
+        android:fragment="com.android.settings.darkkat.LockScreenButtonSettings" />
+
     <PreferenceCategory
         android:key="lock_screen_cat_colors"
         android:title="@string/colors_title">
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="lock_screen_background_color"
+            android:title="@string/background_title"
+            android:defaultValue="0xd4ffffff" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="lock_screen_icon_color"
             android:title="@string/icon_title"
             android:defaultValue="0xffffffff" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="lock_screen_ripple_color"
+            android:title="@string/ripple_title"
+            android:defaultValue="0x33ffffff" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="lock_screen_text_color"

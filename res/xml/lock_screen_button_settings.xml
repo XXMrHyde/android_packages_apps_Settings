@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2015 DarkKat
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/button_settings_title" >
+
+    <PreferenceCategory
+        android:key="button_cat_button_bar"
+        android:title="@string/button_cat_button_bar_title">
+
+        <PreferenceScreen
+            android:key="button_bar_buttons"
+            android:title="@string/customize_title"
+            android:summary="@string/button_bar_buttons_summary"
+            android:fragment="com.android.settings.slim.dslv.ActionListViewSettings">
+                <extra android:name="actionMode" android:value="1" />
+                <extra android:name="maxAllowedActions" android:value="5" />
+                <extra android:name="defaultNumberOfActions" android:value="0" />
+                <extra android:name="disableLongpress" android:value="true" />
+                <extra android:name="disableIconPicker" android:value="true" />
+                <extra android:name="useAppPickerOnly" android:value="true" />
+        </PreferenceScreen>
+
+        <ListPreference
+            android:key="button_bar_launch_type"
+            android:title="@string/button_bar_launch_type_title"
+            android:entries="@array/button_bar_launch_type_entries"
+            android:entryValues="@array/button_bar_launch_type_values" />
+
+        <SwitchPreference
+            android:key="button_bar_show_background"
+            android:title="@string/button_bar_show_background_title"
+            android:summary="@string/button_bar_show_background_summary"
+            android:defaultValue="true" />
+
+        <SwitchPreference
+            android:key="button_bar_colorize_ripple_effect"
+            android:title="@string/colorize_ripple_title"
+            android:summary="@string/button_bar_colorize_ripple_effect_summary"
+            android:defaultValue="false" />
+
+        <SwitchPreference
+            android:key="button_bar_hide_bar"
+            android:title="@string/button_bar_hide_bar_title"
+            android:summary="@string/button_bar_hide_bar_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+</PreferenceScreen>

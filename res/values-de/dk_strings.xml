@@ -40,6 +40,7 @@
     <string name="disabled_title">Deaktiviert</string>
     <string name="background_title">Hintergrund</string>
     <string name="ripple_title">Ripple Effekt</string>
+    <string name="colorize_ripple_title">Ripple Effekt einfärben</string>
     <string name="icon_title">Symbol</string>
     <string name="icons_title">Symbole</string>
     <string name="icon_color_dark_mode_title">Symbol (helle Statusleiste)</string>
@@ -115,11 +116,27 @@
     <!-- Lock screen (preference screen) -->
     <string name="lock_screen_visualizer_settings_title">Musik Visualisierung</string>
     <string name="lock_screen_visualizer_settings_summary">Die Musik Visualisierung anpassen</string>
+    <string name="lock_screen_button_settings_summary">Die Schaltflächen anpassen</string>
 
     <!-- Lock screen visualizer settings -->
     <string name="visualizer_show_summary">Aktivieren um die Musik Visualisierung auf dem Sperrbildschirm anzuzeigen</string>
     <string name="visualizer_use_custom_color_title">Angepasste Farbe</string>
     <string name="visualizer_use_custom_color_summary">Aktivieren um die allgemeine Sperrbildschirm Symbol Farbe zu benutzen, deaktivieren um die Farbe automatisch aus dem Sperrbildschirm Hintergrund zu erstellen</string>
+
+    <!-- Lock screen buttons settings -->
+    <string name="button_cat_button_bar_title">Zusätzliche Schaltflächenleiste</string>
+
+    <!-- Lock screen button bar settings -->
+    <string name="button_bar_buttons_summary">Ordne die Schaltflächen an, und wähle welche Schaltflächen in der Schaltflächenleiste angezeigt werden sollen.</string>
+    <string name="button_bar_launch_type_title">Klicktyp um Aktion auzuführen</string>
+    <string name="button_bar_launch_type_click_title">Einfacher Klick</string>
+    <string name="button_bar_launch_type_double_click_title">Doppel Klick</string>
+    <string name="button_bar_launch_type_longpress_title">Gedrückt halten</string>
+    <string name="button_bar_show_background_title">Hintergrund anzeigen</string>
+    <string name="button_bar_show_background_summary">Aktivieren um den Hintergrund anzuzeigen</string>
+    <string name="button_bar_colorize_ripple_effect_summary">Aktivieren um die allgemeine Sperrbildschirm Ripple Effekt Farbe zu benutzen, deaktivieren um die Farbe automatisch aus den Schaltflächenleisten Symbolen zu erstellen</string>
+    <string name="button_bar_hide_bar_title">Schaltflächenleiste verbergen</string>
+    <string name="button_bar_hide_bar_summary">Aktivieren um die Schaltflächenleiste zu verbergen, sobald nicht genügend Platz vorhanden ist, um alle sichtbaren Benchrichtigungen anuzuzeigen</string>
 
     <!-- Status bar -->
     <string name="status_bar_gesture_settings_title">Gesten</string>

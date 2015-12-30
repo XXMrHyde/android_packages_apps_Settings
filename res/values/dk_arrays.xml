@@ -59,6 +59,18 @@
         <item>@color/orange</item>
     </array>
 
+    <string-array name="button_bar_launch_type_entries">
+        <item>@string/button_bar_launch_type_click_title</item>
+        <item>@string/button_bar_launch_type_double_click_title</item>
+        <item>@string/button_bar_launch_type_longpress_title</item>
+    </string-array>
+
+    <string-array name="button_bar_launch_type_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
     <string-array name="icon_types">
         <item>@string/shortcut_picker_icon_type_default_title</item>
         <item>@string/shortcut_picker_icon_type_system_title</item>
