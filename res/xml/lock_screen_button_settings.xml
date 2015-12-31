@@ -58,4 +58,22 @@
             android:defaultValue="true" />
 
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="button_cat_bottom_buttons"
+        android:title="@string/button_cat_bottom_buttons_title">
+
+        <ListPreference
+            android:key="bottom_buttons_left"
+            android:title="@string/bottom_buttons_left_title"
+            android:entries="@array/bottom_buttons_left_entries"
+            android:entryValues="@array/bottom_buttons_left_values" />
+
+        <SwitchPreference
+            android:key="bottom_buttons_right"
+            android:title="@string/bottom_buttons_right_title"
+            android:summary="@string/bottom_buttons_right_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
 </PreferenceScreen>

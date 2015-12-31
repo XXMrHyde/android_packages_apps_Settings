@@ -40,11 +40,17 @@ public class LockScreenButtonSettings extends SettingsPreferenceFragment impleme
             "button_bar_colorize_ripple_effect";
     private static final String PREF_HIDE_BUTTON_BAR =
             "button_bar_hide_bar";
+    private static final String PREF_BOTTOM_LEFT =
+            "bottom_buttons_left";
+    private static final String PREF_BOTTOM_RIGHT =
+            "bottom_buttons_right";
 
     private ListPreference mButtonBarLaunchType;
     private SwitchPreference mButtonBarShowBackground;
     private SwitchPreference mButtonBarColorizeRipple;
     private SwitchPreference mHideButtonBar;
+    private ListPreference mBottomLeft;
+    private SwitchPreference mBottomRight;
 
     private ContentResolver mResolver;
 
@@ -90,14 +96,30 @@ public class LockScreenButtonSettings extends SettingsPreferenceFragment impleme
                 Settings.System.LOCK_SCREEN_BUTTON_BAR_HIDE_BAR, 1) == 1);
         mHideButtonBar.setOnPreferenceChangeListener(this);
 
+        mBottomLeft =
+                (ListPreference) findPreference(PREF_BOTTOM_LEFT);
+        int bottomLeft = Settings.System.getInt(mResolver,
+                Settings.System.LOCK_SCREEN_BOTTOM_BUTTON_LEFT, 1);
+        mBottomLeft.setValue(String.valueOf(bottomLeft));
+        mBottomLeft.setSummary(mBottomLeft.getEntry());
+        mBottomLeft.setOnPreferenceChangeListener(this);
+
+        mBottomRight =
+                (SwitchPreference) findPreference(PREF_BOTTOM_RIGHT);
+        mBottomRight.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.LOCK_SCREEN_BOTTOM_BUTTON_RIGHT, 1) == 1);
+        mBottomRight.setOnPreferenceChangeListener(this);
+
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        int intValue;
+        int index;
         boolean value;
 
         if (preference == mButtonBarLaunchType) {
-            int intValue = Integer.valueOf((String) newValue);
-            int index = mButtonBarLaunchType.findIndexOfValue((String) newValue);
+            intValue = Integer.valueOf((String) newValue);
+            index = mButtonBarLaunchType.findIndexOfValue((String) newValue);
             Settings.System.putInt(mResolver,
                     Settings.System.LOCK_SCREEN_BUTTON_BAR_LAUNCH_TYPE, intValue);
             preference.setSummary(mButtonBarLaunchType.getEntries()[index]);
@@ -118,6 +140,19 @@ public class LockScreenButtonSettings extends SettingsPreferenceFragment impleme
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                     Settings.System.LOCK_SCREEN_BUTTON_BAR_HIDE_BAR,
+                    value ? 1 : 0);
+            return true;
+        } else if (preference == mBottomLeft) {
+            intValue = Integer.valueOf((String) newValue);
+            index = mBottomLeft.findIndexOfValue((String) newValue);
+            Settings.System.putInt(mResolver,
+                    Settings.System.LOCK_SCREEN_BOTTOM_BUTTON_LEFT, intValue);
+            preference.setSummary(mBottomLeft.getEntries()[index]);
+            return true;
+        } else if (preference == mBottomRight) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.LOCK_SCREEN_BOTTOM_BUTTON_RIGHT,
                     value ? 1 : 0);
             return true;
         }

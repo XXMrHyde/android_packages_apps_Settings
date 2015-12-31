@@ -125,6 +125,7 @@
 
     <!-- Lock screen buttons settings -->
     <string name="button_cat_button_bar_title">Zusätzliche Schaltflächenleiste</string>
+    <string name="button_cat_bottom_buttons_title">Untere Schaltflächen</string>
 
     <!-- Lock screen button bar settings -->
     <string name="button_bar_buttons_summary">Ordne die Schaltflächen an, und wähle welche Schaltflächen in der Schaltflächenleiste angezeigt werden sollen.</string>
@@ -137,6 +138,11 @@
     <string name="button_bar_colorize_ripple_effect_summary">Aktivieren um die allgemeine Sperrbildschirm Ripple Effekt Farbe zu benutzen, deaktivieren um die Farbe automatisch aus den Schaltflächenleisten Symbolen zu erstellen</string>
     <string name="button_bar_hide_bar_title">Schaltflächenleiste verbergen</string>
     <string name="button_bar_hide_bar_summary">Aktivieren um die Schaltflächenleiste zu verbergen, sobald nicht genügend Platz vorhanden ist, um alle sichtbaren Benchrichtigungen anuzuzeigen</string>
+    <string name="bottom_buttons_left_title">Linke Schaltfläche</string>
+    <string name="bottom_buttons_left_phone_title">Telefon</string>
+    <string name="bottom_buttons_left_voice_assist_title">Sprachassistent</string>
+    <string name="bottom_buttons_right_title">Kamera Schaltfläche</string>
+    <string name="bottom_buttons_right_summary">Aktivieren um die Kamera Schaltfläche anzuzeigen</string>
 
     <!-- Status bar -->
     <string name="status_bar_gesture_settings_title">Gesten</string>

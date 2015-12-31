@@ -125,6 +125,7 @@
 
     <!-- Lock screen buttons settings -->
     <string name="button_cat_button_bar_title">Additional button bar</string>
+    <string name="button_cat_bottom_buttons_title">Bottom buttons</string>
 
     <!-- Lock screen button bar settings -->
     <string name="button_bar_buttons_summary">Arrange the buttons, and choose the buttons to display on the aditional button bar.</string>
@@ -137,6 +138,11 @@
     <string name="button_bar_colorize_ripple_effect_summary">Enable to use the general lock screen ripple effect color, disable to create the color from the button bar icons automatically</string>
     <string name="button_bar_hide_bar_title">Hide the bar</string>
     <string name="button_bar_hide_bar_summary">Enable to hide the button bar, as soon as there isn\`t enough space to show all visible notifications</string>
+    <string name="bottom_buttons_left_title">Left button</string>
+    <string name="bottom_buttons_left_phone_title">Phone</string>
+    <string name="bottom_buttons_left_voice_assist_title">Voice Assist</string>
+    <string name="bottom_buttons_right_title">Camera button</string>
+    <string name="bottom_buttons_right_summary">Enable to show the camera button on the right side</string>
 
     <!-- Status bar -->
     <string name="status_bar_gesture_settings_title">Gestures</string>
