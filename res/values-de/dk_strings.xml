@@ -315,6 +315,18 @@
     <string name="lock_clock_calendar_section_title">Kalender</string>
     <string name="lock_clock_calendar_section_summary">Kalender des \"cLock-Widget\" konfigurieren</string>
 
+    <!-- Display settings -->
+    <string name="display_rotation_settings_title">Bildschirmausrichtung</string>
+
+    <!-- Display rotation settings -->
+    <string name="display_rotation_disabled">Deaktiviert</string>
+    <string name="display_rotation_unit">Grad</string>
+    <string name="display_rotation_category_title">Bei Drehung um</string>
+    <string name="display_rotation_0_title">0 Grad</string>
+    <string name="display_rotation_90_title">90 Grad</string>
+    <string name="display_rotation_180_title">180 Grad</string>
+    <string name="display_rotation_270_title">270 Grad</string>
+
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Ein&#47;Aus Menü</string>
     <string name="button_power_menu_settings_summary">Ein&#47;Aus Menü anpassen</string>
