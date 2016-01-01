@@ -34,5 +34,12 @@ limitations under the License.
             android:summary="@string/button_swap_volume_buttons_summary" 
             android:defaultValue="false" />
 
+        <SwitchPreference
+            android:key="button_volume_button_wake"
+            android:title="@string/button_volume_button_wake_title"
+            android:summary="@string/button_volume_button_wake_summary" 
+            android:defaultValue="false" />
+
+
     </PreferenceCategory>
 </PreferenceScreen>

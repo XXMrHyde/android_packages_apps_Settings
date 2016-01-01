@@ -333,10 +333,18 @@
     <string name="button_power_menu_settings_summary">Ein&#47;Aus Menü anpassen</string>
     <string name="button_swap_volume_buttons_title">Umkehren</string>
     <string name="button_swap_volume_buttons_summary">Belegung der Lautstärketasten umkehren, wenn das Gerät gedreht wird</string>
+    <string name="button_volume_button_wake_title">Bildschirm aufwecken</string>
+    <string name="button_volume_button_wake_summary">Aktivieren, damit der Bildschirm aufgeweckt wird, sobald die Lauter/Leiser Taste gedrückt wird</string>
 
     <!-- Power menu settings -->
     <string name="power_menu_show_advanced_reboot_title">Erweitertes Neustart Menu</string>
     <string name="power_menu_show_advanced_reboot_summary">Aktivieren um erweiterte Optionen im Neustart Menü anzuzeigen</string>
+
+    <!-- Battery settings -->
+
+    <!-- Wake on plug -->
+    <string name="wake_when_plugged_or_unplugged_title">Ladegerät weckt Bildschirm</string>
+    <string name="wake_when_plugged_or_unplugged_summary">Aktivieren, damit der Bildschirm aufgeweckt wird, sobald ein Ladegerät angeschlossen oder entfernt wird</string>
 
     <!-- Development settings -->
     <string name="demo_mode_title">Demomodus</string>

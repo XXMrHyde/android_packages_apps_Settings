@@ -333,10 +333,18 @@
     <string name="button_power_menu_settings_summary">Customize power menu</string>
     <string name="button_swap_volume_buttons_title">Reorient</string>
     <string name="button_swap_volume_buttons_summary">Swap volume buttons when the screen is rotated</string>
+    <string name="button_volume_button_wake_title">Screen wake up</string>
+    <string name="button_volume_button_wake_summary">Enable to turn the screen on when pressing the volume button up/down</string>
 
     <!-- Power menu settings -->
     <string name="power_menu_show_advanced_reboot_title">Advanced reboot menu</string>
     <string name="power_menu_show_advanced_reboot_summary">Enable to show advanced options in the reboot menu</string>
+
+    <!-- Battery settings -->
+
+    <!-- Wake on plug -->
+    <string name="wake_when_plugged_or_unplugged_title">Wake on plug</string>
+    <string name="wake_when_plugged_or_unplugged_summary">Turn the screen on when connecting or disconnecting the charger</string>
 
     <!-- Development settings -->
     <string name="demo_mode_title">Demomodus</string>

@@ -28,6 +28,8 @@ import android.os.UserHandle;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import android.util.TypedValue;
@@ -54,7 +56,8 @@ import java.util.List;
  * Displays a list of apps and subsystems that consume power, ordered by how much power was
  * consumed since the last time it was unplugged.
  */
-public class PowerUsageSummary extends PowerUsageBase {
+public class PowerUsageSummary extends PowerUsageBase implements
+        Preference.OnPreferenceChangeListener {
 
     private static final boolean DEBUG = false;
 
@@ -62,6 +65,8 @@ public class PowerUsageSummary extends PowerUsageBase {
 
     static final String TAG = "PowerUsageSummary";
 
+    private static final String KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED =
+            "wake_when_plugged_or_unplugged";
     private static final String KEY_APP_LIST = "app_list";
     private static final String KEY_BATTERY_HISTORY = "battery_history";
 
@@ -70,6 +75,7 @@ public class PowerUsageSummary extends PowerUsageBase {
     private static final int MENU_HIGH_POWER_APPS = Menu.FIRST + 3;
     private static final int MENU_HELP = Menu.FIRST + 4;
 
+    private SwitchPreference mWakeWhenPluggedOrUnplugged;
     private BatteryHistoryPreference mHistPref;
     private PreferenceGroup mAppListGroup;
 
@@ -85,6 +91,18 @@ public class PowerUsageSummary extends PowerUsageBase {
         super.onCreate(icicle);
 
         addPreferencesFromResource(R.xml.power_usage_summary);
+
+        // Default value for wake-on-plug behavior from config.xml
+        boolean wakeUpWhenPluggedOrUnpluggedConfig = getResources().getBoolean(
+                com.android.internal.R.bool.config_unplugTurnsOnScreen);
+        mWakeWhenPluggedOrUnplugged =
+                (SwitchPreference) findPreference(KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED);
+        mWakeWhenPluggedOrUnplugged.setChecked(
+                Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
+                (wakeUpWhenPluggedOrUnpluggedConfig ? 1 : 0)) == 1);
+        mWakeWhenPluggedOrUnplugged.setOnPreferenceChangeListener(this);
+
         mHistPref = (BatteryHistoryPreference) findPreference(KEY_BATTERY_HISTORY);
         mAppListGroup = (PreferenceGroup) findPreference(KEY_APP_LIST);
     }
@@ -126,6 +144,18 @@ public class PowerUsageSummary extends PowerUsageBase {
                 mStatsType, entry, true);
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
+        if (preference == mWakeWhenPluggedOrUnplugged) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.WAKE_WHEN_PLUGGED_OR_UNPLUGGED, value ? 1 : 0);
+            return true;
+        }
+        return false;
+    }
+
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -284,6 +314,8 @@ public class PowerUsageSummary extends PowerUsageBase {
         updatePreference(mHistPref);
         mAppListGroup.removeAll();
         mAppListGroup.setOrderingAsAdded(false);
+        mWakeWhenPluggedOrUnplugged.setOrder(-2);
+        mAppListGroup.addPreference(mWakeWhenPluggedOrUnplugged);
         boolean addedSome = false;
 
         final PowerProfile powerProfile = mStatsHelper.getPowerProfile();
