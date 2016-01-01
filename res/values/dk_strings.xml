@@ -328,8 +328,11 @@
     <string name="display_rotation_270_title">270 degrees</string>
 
     <!-- Button settings -->
+    <string name="button_volume_button_category_title">Volume buttons</string>
     <string name="button_power_menu_settings_title">Power menu</string>
     <string name="button_power_menu_settings_summary">Customize power menu</string>
+    <string name="button_swap_volume_buttons_title">Reorient</string>
+    <string name="button_swap_volume_buttons_summary">Swap volume buttons when the screen is rotated</string>
 
     <!-- Power menu settings -->
     <string name="power_menu_show_advanced_reboot_title">Advanced reboot menu</string>

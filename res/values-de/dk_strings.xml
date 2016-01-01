@@ -328,8 +328,11 @@
     <string name="display_rotation_270_title">270 Grad</string>
 
     <!-- Button settings -->
+    <string name="button_volume_button_category_title">Lautstärke Tasten</string>
     <string name="button_power_menu_settings_title">Ein&#47;Aus Menü</string>
     <string name="button_power_menu_settings_summary">Ein&#47;Aus Menü anpassen</string>
+    <string name="button_swap_volume_buttons_title">Umkehren</string>
+    <string name="button_swap_volume_buttons_summary">Belegung der Lautstärketasten umkehren, wenn das Gerät gedreht wird</string>
 
     <!-- Power menu settings -->
     <string name="power_menu_show_advanced_reboot_title">Erweitertes Neustart Menu</string>

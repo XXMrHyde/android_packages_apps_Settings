@@ -17,18 +17,43 @@
 package com.android.settings.darkkat;
 
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.SwitchPreference;
+import android.provider.Settings;
 
 import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class ButtonSettings extends SettingsPreferenceFragment {
+public class ButtonSettings extends SettingsPreferenceFragment implements
+        Preference.OnPreferenceChangeListener {
+
+    private static final String PREF_SWAP_VOLUME =
+            "button_swap_volume_buttons";
+
+    private SwitchPreference mSwapVolume;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.button_settings);
+
+        mSwapVolume = (SwitchPreference) findPreference(PREF_SWAP_VOLUME);
+        mSwapVolume.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.SWAP_VOLUME_BUTTONS_ON_ROTATION, 0) == 1);
+        mSwapVolume.setOnPreferenceChangeListener(this);
+    }
+
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mSwapVolume) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.SWAP_VOLUME_BUTTONS_ON_ROTATION,
+                    value ? 1 : 0);
+            return true;
+        }
+        return false;
     }
 
     @Override
