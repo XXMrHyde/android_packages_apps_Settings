@@ -21,6 +21,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
+import android.content.res.ColorStateList;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.ListFragment;
@@ -68,8 +69,8 @@ import com.android.internal.util.darkkat.ActionUtils.FilteredDeviceFeaturesArray
 import com.android.internal.util.darkkat.ImageHelper;
 import com.android.internal.util.darkkat.LockScreenButtonBarHelper;
 // import com.android.internal.util.darkkat.NavigationBarColorHelper;
-// import com.android.internal.util.darkkat.PowerMenuColorHelper;
-// import com.android.internal.util.darkkat.PowerMenuHelper;
+import com.android.internal.util.darkkat.PowerMenuColorHelper;
+import com.android.internal.util.darkkat.PowerMenuHelper;
 import com.android.internal.util.darkkat.QABHelper;
 import com.android.internal.util.darkkat.SBEPanelColorHelper;
 
@@ -552,9 +553,9 @@ public class ActionListViewSettings extends ListFragment implements
 //                    mActivity, mActionValuesKey, mActionEntriesKey);
             case LOCK_SCREEN_BUTTONS_BAR:
                 return LockScreenButtonBarHelper.getButtonBarConfig(mActivity);
-//            case POWER_MENU:
-//                return PowerMenuHelper.getPowerMenuConfigWithDescription(
-//                    mActivity, mActionValuesKey, mActionEntriesKey);
+            case POWER_MENU:
+                return PowerMenuHelper.getPowerMenuConfigWithDescription(
+                    mActivity, mActionValuesKey, mActionEntriesKey);
             case QUICK_ACESS_BAR:
                 return QABHelper.getQABarConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
@@ -572,10 +573,10 @@ public class ActionListViewSettings extends ListFragment implements
                 LockScreenButtonBarHelper.setButtonBarConfig(mActivity, actionConfigs, reset);
                 updateFabVisibility(reset ? mDefaultNumberOfActions : actionConfigs.size());
                 break;
-//            case POWER_MENU:
-//                PowerMenuHelper.setPowerMenuConfig(mActivity, actionConfigs, reset);
-//                updateFabVisibility(reset ? mDefaultNumberOfActions : actionConfigs.size());
-//                break;
+            case POWER_MENU:
+                PowerMenuHelper.setPowerMenuConfig(mActivity, actionConfigs, reset);
+                updateFabVisibility(reset ? mDefaultNumberOfActions : actionConfigs.size());
+                break;
             case QUICK_ACESS_BAR:
                 QABHelper.setQABarConfig(mActivity, actionConfigs, reset);
                 updateFabVisibility(reset ? mDefaultNumberOfActions : actionConfigs.size());
@@ -662,17 +663,15 @@ public class ActionListViewSettings extends ListFragment implements
             if (mActionMode == LOCK_SCREEN_BUTTONS_BAR) {
                 holder.iconView.setImageDrawable(LockScreenButtonBarHelper.getButtonBarIconImage(
                         mActivity, getItem(position).getClickAction(), iconUri));
-/*
             } else if (mActionMode == POWER_MENU) {
                 final int textColor = PowerMenuColorHelper.getTextColor(mActivity);
                 holder.clickActionDescriptionView.setTextColor(textColor);
                 d = ImageHelper.resize(
                         mActivity, PowerMenuHelper.getPowerMenuIconImage(mActivity,
                         getItem(position).getClickAction()), 32);
-                final int iconColor = PowerMenuColorHelper.getIconNormalColor(mActivity);
+                final ColorStateList iconColor = PowerMenuColorHelper.getIconColors(mActivity, 0);
                 holder.iconView.setImageBitmap(ImageHelper.drawableToBitmap(d));
-                holder.iconView.setColorFilter(iconColor, Mode.MULTIPLY);
-*/
+                holder.iconView.setImageTintList(iconColor);
             } else if (mActionMode == QUICK_ACESS_BAR) {
                 d = ImageHelper.resize(
                         mActivity, QABHelper.getQABarIconImage(mActivity,
@@ -776,7 +775,7 @@ public class ActionListViewSettings extends ListFragment implements
                     switch (getOwner().mActionMode) {
 //                        case NAV_BAR:
                         case LOCK_SCREEN_BUTTONS_BAR:
-//                        case POWER_MENU:
+                        case POWER_MENU:
                         case QUICK_ACESS_BAR:
                         default:
                             actionMode = res.getString(R.string.shortcut_action_help_button);

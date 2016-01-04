@@ -43,6 +43,8 @@
     <string name="colorize_ripple_title">Ripple Effekt einfärben</string>
     <string name="icon_title">Symbol</string>
     <string name="icons_title">Symbole</string>
+    <string name="icons_normal_title">Symbole normal</string>
+    <string name="icons_enabled_selected_title">Symbole aktiviert&#47;ausgewählt</string>
     <string name="icon_color_dark_mode_title">Symbol (helle Statusleiste)</string>
     <string name="text_title">Text</string>
     <string name="text_color_dark_mode_title">Text (helle Statusleiste)</string>
@@ -86,6 +88,16 @@
     <string name="shortcut_picker_select_system_icon_title">Systemsymbol auswählen:</string>
     <string name="shortcut_picker_icon_type_custom_title">Galerie</string>
     <string name="shortcut_action_none">Keine</string>
+
+    <!-- Shortcut action names -->
+    <string name="shortcut_action_airplane_mode">Flugmodus</string>
+    <string name="shortcut_action_power_off">Ausschalten</string>
+    <string name="shortcut_action_reboot">Neustarten</string>
+    <string name="shortcut_action_users">Benutzer</string>
+    <string name="shortcut_action_system_settings">Einstellungen</string>
+    <string name="shortcut_action_lock_down">Jetzt sperren</string>
+    <string name="shortcut_action_screenshot">Bildschirmfoto</string>
+    <string name="shortcut_action_sound">Lautstärkemodus</string>
 
     <!-- DSLV -->
     <string name="shortcut_action_longpress">Lange drücken:</string>
@@ -339,6 +351,7 @@
     <!-- Power menu settings -->
     <string name="power_menu_show_advanced_reboot_title">Erweitertes Neustart Menu</string>
     <string name="power_menu_show_advanced_reboot_summary">Aktivieren um erweiterte Optionen im Neustart Menü anzuzeigen</string>
+    <string name="power_menu_actions_summary">Ordne die Schaltflächen an, und wähle welche Schaltflächen in dem Ein&#47;Aus Menü angezeigt werden sollen</string>
 
     <!-- Battery settings -->
 
