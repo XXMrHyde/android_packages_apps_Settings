@@ -319,6 +319,8 @@
     <string name="weather_icon_type_title">Wetterlage Symbol</string>
 
     <!-- Advanced -->
+    <string name="advanced_boot_dialog_settings_title">Boot Dialog</string>
+    <string name="advanced_boot_dialog_settings_summary">Den Boot Dialog anpassen</string>
     <string name="lock_clock_title">Uhr-Widget</string>
     <string name="lock_clock_clock_section_title">Uhrzeit und Alarme</string>
     <string name="lock_clock_clock_section_summary">Uhrzeit und Alarme des \"cLock-Widget\" konfigurieren</string>
@@ -326,6 +328,15 @@
     <string name="lock_clock_weather_section_summary">Wetter des \"cLock-Widget\" konfigurieren</string>
     <string name="lock_clock_calendar_section_title">Kalender</string>
     <string name="lock_clock_calendar_section_summary">Kalender des \"cLock-Widget\" konfigurieren</string>
+
+    <!-- Boot dialog settings -->
+    <string name="boot_dialog_show_progress_dialog_title">Fortschritt Symbol anzeigen</string>
+    <string name="boot_dialog_show_progress_dialog_summary">Aktivieren um das Fortschritt Symbol anzuzeigen</string>
+    <string name="boot_dialog_app_text_color_mode_title">App Text-Farbmodus</string>
+    <string name="boot_dialog_app_text_color_mode_custom_title">Eigene Farbe benutzen</string>
+    <string name="boot_dialog_app_text_color_mode_random_title">Zufällige Farbe benutzen</string>
+    <string name="boot_dialog_app_text_color_mode_text_title">Die allgemeine Textfarbe benutzen</string>
+    <string name="boot_dialog_app_text_color_title">App Text</string>
 
     <!-- Display settings -->
     <string name="display_rotation_settings_title">Bildschirmausrichtung</string>

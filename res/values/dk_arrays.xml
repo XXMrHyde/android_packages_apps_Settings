@@ -315,6 +315,18 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="boot_dialog_app_text_color_mode_entries" >
+        <item>@string/boot_dialog_app_text_color_mode_custom_title</item>
+        <item>@string/boot_dialog_app_text_color_mode_random_title</item>
+        <item>@string/boot_dialog_app_text_color_mode_text_title</item>
+    </string-array>
+
+    <string-array name="boot_dialog_app_text_color_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
     <string-array name="power_menu_action_entries">
         <item>@string/shortcut_action_power_off</item>
         <item>@string/shortcut_action_reboot</item>

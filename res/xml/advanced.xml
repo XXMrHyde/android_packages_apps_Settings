@@ -17,6 +17,12 @@ limitations under the License.
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/advanced_title">
 
+    <PreferenceScreen
+        android:key="advanced_boot_dialog_settings"
+        android:title="@string/advanced_boot_dialog_settings_title"
+        android:summary="@string/advanced_boot_dialog_settings_summary"
+        android:fragment="com.android.settings.darkkat.BootDialogSettings" />
+
     <PreferenceCategory
         android:key="advanced_cat_lock_clock"
         android:title="@string/lock_clock_title">
