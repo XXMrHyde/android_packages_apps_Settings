@@ -171,8 +171,8 @@
     <string name="status_bar_network_status_icon_settings_summary">Customize the network- &amp; status icons</string>
     <string name="status_bar_network_traffic_settings_title">Network traffic</string>
     <string name="status_bar_network_traffic_settings_summary">Customize the network traffic</string>
-    <string name="status_bar_notification_icon_settings_title">Notification icons</string>
-    <string name="status_bar_notification_icon_settings_summary">Customize the notification icons</string>
+    <string name="status_bar_notification_settings_title">Notifications</string>
+    <string name="status_bar_notification_settings_summary">Customize the notifications</string>
 
     <!-- Status bar gesture settings -->
     <string name="gesture_brightness_control_title">Brightness control</string>
@@ -274,6 +274,12 @@
     <string name="network_traffic_bit_byte_summary">Enable to show the values in bit instead of byte</string>
     <string name="network_traffic_hide_traffic_title">Hide the indicator</string>
     <string name="network_traffic_hide_traffic_summary">Enable to hide the indicator if there is no traffic</string>
+
+    <!-- Status bar notification settings -->
+    <string name="notification_show_ticker_title">Show ticker</string>
+    <string name="notification_show_ticker_summary">Enable to show the ticker</string>
+    <string name="notification_ticker_text_color_title">Ticker text</string>
+    <string name="notification_ticker_text_color_dark_mode_title">Ticker text (light status bar)</string>
 
     <!-- Statusbar expanded settings -->
     <string name="status_bar_expanded_quick_pulldown_title">Quick pulldown</string>

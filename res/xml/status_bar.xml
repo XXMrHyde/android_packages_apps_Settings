@@ -61,9 +61,9 @@
         android:fragment="com.android.settings.darkkat.StatusBarNetworkTrafficSettings" />
 
     <PreferenceScreen
-        android:key="status_bar_notification_icon_settings"
-        android:title="@string/status_bar_notification_icon_settings_title"
-        android:summary="@string/status_bar_notification_icon_settings_summary"
-        android:fragment="com.android.settings.darkkat.StatusBarNotificationIconSettings" />
+        android:key="status_bar_notification_settings"
+        android:title="@string/status_bar_notification_settings_title"
+        android:summary="@string/status_bar_notification_settings_summary"
+        android:fragment="com.android.settings.darkkat.StatusBarNotificationSettings" />
 
 </PreferenceScreen>

@@ -171,8 +171,8 @@
     <string name="status_bar_network_status_icon_settings_summary">Die Netzwerk- &amp; Status Symbole anpassen</string>
     <string name="status_bar_network_traffic_settings_title">Netzwerk Verkehr</string>
     <string name="status_bar_network_traffic_settings_summary">Den Netzwerk Verkehr anpassen</string>
-    <string name="status_bar_notification_icon_settings_title">Benachrichtigungs Symbole</string>
-    <string name="status_bar_notification_icon_settings_summary">Die Benachrichtigungs Symbole anpassen</string>
+    <string name="status_bar_notification_settings_title">Benachrichtigungen</string>
+    <string name="status_bar_notification_settings_summary">Die Benachrichtigungen anpassen</string>
 
     <!-- Status bar gesture settings -->
     <string name="gesture_brightness_control_title">Helligkeitskontrolle</string>
@@ -274,6 +274,12 @@
     <string name="network_traffic_bit_byte_summary">Aktivieren um die Werte in Bit anstatt Byte anzuzeigen</string>
     <string name="network_traffic_hide_traffic_title">Anzeige verbergen</string>
     <string name="network_traffic_hide_traffic_summary">Aktivieren um die Anzeige bei keinem Datenverkehr zu verbergen</string>
+
+    <!-- Status bar notification settings -->
+    <string name="notification_show_ticker_title">Ticker anzeigen</string>
+    <string name="notification_show_ticker_summary">Aktivieren um den Ticker anzuzeigen</string>
+    <string name="notification_ticker_text_color_title">Ticker Text</string>
+    <string name="notification_ticker_text_color_dark_mode_title">Ticker Text (helle Statusleiste)</string>
 
     <!-- Status bar expanded settings -->
     <string name="status_bar_expanded_quick_pulldown_title">Schnelles Öffnen</string>

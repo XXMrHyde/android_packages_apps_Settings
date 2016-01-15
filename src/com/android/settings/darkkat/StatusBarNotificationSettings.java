@@ -24,7 +24,9 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.os.Bundle;
 import android.preference.Preference;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -36,13 +38,21 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class StatusBarNotificationIconSettings extends SettingsPreferenceFragment implements
+public class StatusBarNotificationSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String PREF_COLOR =
+    private static final String PREF_CAT_COLORS =
+            "notification_cat_colors";
+    private static final String PREF_SHOW_TICKER =
+            "notification_show_ticker";
+    private static final String PREF_ICON_COLOR =
             "notification_icon_color";
-    private static final String PREF_COLOR_DARK =
+    private static final String PREF_ICON_COLOR_DARK =
             "notification_icon_color_dark_mode";
+    private static final String PREF_TICKER_TEXT_COLOR =
+            "notification_ticker_text_color";
+    private static final String PREF_TICKER_TEXT_COLOR_DARK =
+            "notification_ticker_text_color_dark_mode";
 
     private static final int WHITE           = 0xffffffff;
     private static final int BLACK           = 0xff000000;
@@ -51,8 +61,11 @@ public class StatusBarNotificationIconSettings extends SettingsPreferenceFragmen
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET  = 0;
 
-    private ColorPickerPreference mColor;
-    private ColorPickerPreference mColorDark;
+    private SwitchPreference mShowTicker;
+    private ColorPickerPreference mIconColor;
+    private ColorPickerPreference mIconColorDark;
+    private ColorPickerPreference mTickerTextColor;
+    private ColorPickerPreference mTickerTextColorDark;
 
     private ContentResolver mResolver;
 
@@ -68,32 +81,67 @@ public class StatusBarNotificationIconSettings extends SettingsPreferenceFragmen
             prefs.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.status_bar_notification_icon_settings);
+        addPreferencesFromResource(R.xml.status_bar_notification_settings);
         mResolver = getActivity().getContentResolver();
+
+        boolean showTicker = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_NOTIFICATION_SHOW_TICKER, 0) == 1;
 
         int intColor;
         String hexColor;
 
-        mColor =
-                (ColorPickerPreference) findPreference(PREF_COLOR);
+        mShowTicker = (SwitchPreference) findPreference(PREF_SHOW_TICKER);
+        mShowTicker.setChecked(showTicker);
+        mShowTicker.setOnPreferenceChangeListener(this);
+
+        mIconColor =
+                (ColorPickerPreference) findPreference(PREF_ICON_COLOR);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_NOTIFICATION_ICONS_COLOR, WHITE);
-        mColor.setNewPreviewColor(intColor);
+        mIconColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mColor.setSummary(hexColor);
-        mColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
-        mColor.setOnPreferenceChangeListener(this);
+        mIconColor.setSummary(hexColor);
+        mIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mIconColor.setOnPreferenceChangeListener(this);
 
-        mColorDark =
-                (ColorPickerPreference) findPreference(PREF_COLOR_DARK);
+        mIconColorDark =
+                (ColorPickerPreference) findPreference(PREF_ICON_COLOR_DARK);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_NOTIFICATION_ICONS_COLOR_DARK_MODE,
                 BLACK);
-        mColorDark.setNewPreviewColor(intColor);
+        mIconColorDark.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mColorDark.setSummary(hexColor);
-        mColorDark.setDefaultColors(BLACK, BLACK);
-        mColorDark.setOnPreferenceChangeListener(this);
+        mIconColorDark.setSummary(hexColor);
+        mIconColorDark.setDefaultColors(BLACK, BLACK);
+        mIconColorDark.setOnPreferenceChangeListener(this);
+
+        PreferenceCategory catColors =
+                (PreferenceCategory) findPreference(PREF_CAT_COLORS);
+        if (showTicker) {
+            mTickerTextColor =
+                    (ColorPickerPreference) findPreference(PREF_TICKER_TEXT_COLOR);
+            intColor = Settings.System.getInt(mResolver,
+                    Settings.System.STATUS_BAR_NOTIFICATION_TICKER_TEXT_COLOR, WHITE);
+            mTickerTextColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mTickerTextColor.setSummary(hexColor);
+            mTickerTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+            mTickerTextColor.setOnPreferenceChangeListener(this);
+
+            mTickerTextColorDark =
+                    (ColorPickerPreference) findPreference(PREF_TICKER_TEXT_COLOR_DARK);
+            intColor = Settings.System.getInt(mResolver,
+                    Settings.System.STATUS_BAR_NOTIFICATION_TICKER_TEXT_COLOR_DARK_MODE,
+                    BLACK);
+            mTickerTextColorDark.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mTickerTextColorDark.setSummary(hexColor);
+            mTickerTextColorDark.setDefaultColors(BLACK, BLACK);
+            mTickerTextColorDark.setOnPreferenceChangeListener(this);
+        } else {
+            catColors.removePreference(findPreference(PREF_TICKER_TEXT_COLOR));
+            catColors.removePreference(findPreference(PREF_TICKER_TEXT_COLOR_DARK));
+        }
 
         setHasOptionsMenu(true);
     }
@@ -119,8 +167,14 @@ public class StatusBarNotificationIconSettings extends SettingsPreferenceFragmen
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         String hex;
         int intHex;
-
-        if (preference == mColor) {
+        if (preference == mShowTicker) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_NOTIFICATION_SHOW_TICKER,
+                    value ? 1 : 0);
+            refreshSettings();
+            return true;
+        } else if (preference == mIconColor) {
             hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
@@ -128,12 +182,30 @@ public class StatusBarNotificationIconSettings extends SettingsPreferenceFragmen
                     Settings.System.STATUS_BAR_NOTIFICATION_ICONS_COLOR, intHex);
             preference.setSummary(hex);
             return true;
-        } else if (preference == mColorDark) {
+        } else if (preference == mIconColorDark) {
             hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_NOTIFICATION_ICONS_COLOR_DARK_MODE,
+                    intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mTickerTextColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_NOTIFICATION_TICKER_TEXT_COLOR,
+                    intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mTickerTextColorDark) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_NOTIFICATION_TICKER_TEXT_COLOR_DARK_MODE,
                     intHex);
             preference.setSummary(hex);
             return true;
@@ -157,8 +229,8 @@ public class StatusBarNotificationIconSettings extends SettingsPreferenceFragmen
             return frag;
         }
 
-        StatusBarNotificationIconSettings getOwner() {
-            return (StatusBarNotificationIconSettings) getTargetFragment();
+        StatusBarNotificationSettings getOwner() {
+            return (StatusBarNotificationSettings) getTargetFragment();
         }
 
         @Override
@@ -174,10 +246,18 @@ public class StatusBarNotificationIconSettings extends SettingsPreferenceFragmen
                             new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_NOTIFICATION_SHOW_TICKER, 0);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NOTIFICATION_ICONS_COLOR,
                                     WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NOTIFICATION_ICONS_COLOR_DARK_MODE,
+                                    BLACK);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_NOTIFICATION_TICKER_TEXT_COLOR,
+                                    WHITE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_NOTIFICATION_TICKER_TEXT_COLOR_DARK_MODE,
                                     BLACK);
                             getOwner().refreshSettings();
                         }
@@ -186,10 +266,18 @@ public class StatusBarNotificationIconSettings extends SettingsPreferenceFragmen
                             new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_NOTIFICATION_SHOW_TICKER, 1);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NOTIFICATION_ICONS_COLOR,
                                     HOLO_BLUE_LIGHT);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NOTIFICATION_ICONS_COLOR_DARK_MODE,
+                                    BLACK);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_NOTIFICATION_TICKER_TEXT_COLOR,
+                                    HOLO_BLUE_LIGHT);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_NOTIFICATION_TICKER_TEXT_COLOR_DARK_MODE,
                                     BLACK);
                             getOwner().refreshSettings();
                         }

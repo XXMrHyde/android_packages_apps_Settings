@@ -16,20 +16,35 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/status_bar_notification_icon_settings_title">
+    android:title="@string/status_bar_notification_settings_title">
+
+    <SwitchPreference
+        android:key="notification_show_ticker"
+        android:title="@string/notification_show_ticker_title"
+        android:summary="@string/notification_show_ticker_summary" />
 
     <PreferenceCategory
-        android:key="notification_icon_colors"
+        android:key="notification_cat_colors"
         android:title="@string/colors_title">
 
          <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="notification_icon_color"
-            android:title="@string/color_title"
+            android:title="@string/icon_title"
             android:defaultValue="#ffffffff" />
 
          <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="notification_icon_color_dark_mode"
-            android:title="@string/color_dark_mode_title"
+            android:title="@string/icon_color_dark_mode_title"
+            android:defaultValue="#ff000000" />
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="notification_ticker_text_color"
+            android:title="@string/notification_ticker_text_color_title"
+            android:defaultValue="#ffffffff" />
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="notification_ticker_text_color_dark_mode"
+            android:title="@string/notification_ticker_text_color_dark_mode_title"
             android:defaultValue="#ff000000" />
 
 	</PreferenceCategory>
