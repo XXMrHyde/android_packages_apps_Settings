@@ -303,6 +303,18 @@
         <item>wifi</item>
     </string-array>
 
+    <string-array name="battery_status_bar_icon_indicator_entries" translatable="false">
+        <item>@string/battery_status_icon_indicator_battery_portrait</item>
+        <item>@string/battery_status_icon_indicator_battery_landscape</item>
+        <item>@string/battery_status_icon_indicator_circle</item>
+    </string-array>
+
+    <string-array name="battery_status_bar_icon_indicator_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
     <string-array name="weather_icon_type_entries" >
         <item>@string/weather_icon_monochrome_title</item>
         <item>@string/weather_icon_colored_title</item>

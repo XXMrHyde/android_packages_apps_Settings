@@ -1,5 +1,5 @@
 /* 
- * Copyright (C) 2014 DarkKat
+ * Copyright (C) 2015 DarkKat
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,6 +35,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.android.internal.util.darkkat.DeviceUtils;
 import com.android.internal.util.darkkat.SBEPanelColorHelper;
 
 import com.android.settings.InstrumentedFragment;
@@ -46,31 +47,19 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import java.util.Locale;
 
-public class StatusBarExpandedPanelSettings extends SettingsPreferenceFragment implements
+public class StatusBarExpandedBarsSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String PREF_CAT_QAB =
-            "expanded_panel_cat_qab";
-    private static final String PREF_CAT_WEATHER =
-            "expanded_panel_cat_weather";
     private static final String PREF_CAT_COLORS =
-            "expanded_panel_cat_colors";
-    private static final String PREF_SHOW_QAB =
-            "expanded_panel_show_qab";
-    private static final String PREF_SHOW_BRIGHTNESS_SLIDER =
-            "expanded_panel_show_brightness_slider";
-    private static final String PREF_SHOW_WEATHER =
-            "expanded_panel_show_weather";
-    private static final String PREF_LOCK_CLOCK_MISSING =
-            "expanded_panel_lock_clock_missing";
+            "expanded_bars_cat_colors";
     private static final String PREF_BG_COLOR =
-            "expanded_panel_background_color";
+            "expanded_bars_background_color";
     private static final String PREF_ICON_COLOR =
-            "expanded_panel_icon_color";
+            "expanded_bars_icon_color";
     private static final String PREF_RIPPLE_COLOR =
-            "expanded_panel_ripple_color";
+            "expanded_bars_ripple_color";
     private static final String PREF_TEXT_COLOR =
-            "expanded_panel_text_color";
+            "expanded_bars_text_color";
 
     private static final int SYSTEMUI_PRIMARY =
             0xff263238;
@@ -88,9 +77,6 @@ public class StatusBarExpandedPanelSettings extends SettingsPreferenceFragment i
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET  = 0;
 
-    private SwitchPreference mShowQab;
-    private SwitchPreference mShowBrightnessSlider;
-    private SwitchPreference mShowWeather;
     private ColorPickerPreference mBackgroundColor;
     private ColorPickerPreference mIconColor;
     private ColorPickerPreference mRippleColor;
@@ -110,54 +96,99 @@ public class StatusBarExpandedPanelSettings extends SettingsPreferenceFragment i
             prefs.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.status_bar_expanded_panel_settings);
+        addPreferencesFromResource(R.xml.status_bar_expanded_bars_settings);
         mResolver = getContentResolver();
 
         int intColor;
         String hexColor;
 
-        boolean showQab = Settings.System.getInt(mResolver,
+        final boolean supportsMobileData = DeviceUtils.deviceSupportsMobileData(getActivity());
+        final boolean isLockClockInstalled =
+                Utils.isPackageInstalled(getActivity(), "com.cyanogenmod.lockclock");
+        final boolean showQuickAccessBar = Settings.System.getInt(mResolver,
                Settings.System.STATUS_BAR_EXPANDED_SHOW_QAB, 1) == 1;
-        boolean showBrightnessSlider = Settings.System.getInt(mResolver,
+        final boolean showBrightnessSliderBar = Settings.System.getInt(mResolver,
                Settings.System.STATUS_BAR_EXPANDED_SHOW_BRIGHTNESS_SLIDER, 1) == 1;
-        boolean showWeather = Settings.System.getInt(mResolver,
+        final boolean showWifiBar = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_EXPANDED_SHOW_WIFI_BAR, 0) == 1;
+        final boolean showMobileBar = supportsMobileData && Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_EXPANDED_SHOW_MOBILE_BAR, 0) == 1;
+        final boolean showBatteryStatusBar = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_EXPANDED_SHOW_BATTERY_STATUS_BAR, 0) == 1;
+        final boolean showWeatherBar = isLockClockInstalled && Settings.System.getInt(mResolver,
                Settings.System.STATUS_BAR_EXPANDED_SHOW_WEATHER, 0) == 1;
-        boolean isLockClockInstalled = Utils.isPackageInstalled(getActivity(), "com.cyanogenmod.lockclock");
 
-        mShowQab =
-                (SwitchPreference) findPreference(PREF_SHOW_QAB);
-        mShowQab.setChecked(showQab);
-        mShowQab.setOnPreferenceChangeListener(this);
+        final boolean disableAdvancedSettings = !showQuickAccessBar
+                && !showWeatherBar
+                && !showBatteryStatusBar;
+        final boolean removeRippleColorPicker = !showQuickAccessBar
+                && !showBrightnessSliderBar
+                && !showWeatherBar;
+        final boolean removeTextColorPicker = !showWifiBar
+                && !showMobileBar
+                && !showBatteryStatusBar
+                && !showWeatherBar;
+        final boolean allBarsHidden = !showQuickAccessBar
+                && !showBrightnessSliderBar
+                && !showWifiBar
+                && !showMobileBar
+                && !showBatteryStatusBar
+                && !showWeatherBar;
 
-        mShowBrightnessSlider =
-                (SwitchPreference) findPreference(PREF_SHOW_BRIGHTNESS_SLIDER);
-        mShowBrightnessSlider.setChecked(showBrightnessSlider);
-        mShowBrightnessSlider.setOnPreferenceChangeListener(this);
-
-        mShowWeather =
-                (SwitchPreference) findPreference(PREF_SHOW_WEATHER);
-        mShowWeather.setChecked(showWeather);
-        mShowWeather.setOnPreferenceChangeListener(this);
-
-        PreferenceCategory catQab =
-                (PreferenceCategory) findPreference(PREF_CAT_QAB);
-        PreferenceCategory catWeather =
-                (PreferenceCategory) findPreference(PREF_CAT_WEATHER);
         PreferenceCategory catColors =
                 (PreferenceCategory) findPreference(PREF_CAT_COLORS);
-
-        if (!showQab) {
-            catQab.removePreference(findPreference("expanded_panel_qab_buttons"));
+        Preference advancedSettings =
+                findPreference("expanded_bars_advanced_settings");
+        if (disableAdvancedSettings) {
+            if (allBarsHidden) {
+                advancedSettings.setSummary(
+                        getResources().getString(R.string.expanded_bars_no_bars_title));
+            } else {
+                advancedSettings.setSummary(
+                        getResources().getString(R.string.expanded_bars_no_advanced_settings_summary));
+            }
         }
+        advancedSettings.setEnabled(!disableAdvancedSettings);
 
-        if (!showWeather || !isLockClockInstalled) {
-            catWeather.removePreference(findPreference("expanded_panel_weather"));
-        }
-        if (isLockClockInstalled) {
-            catWeather.removePreference(findPreference("expanded_panel_lock_clock_missing"));
-        }
+        if (!removeRippleColorPicker) {
+            mRippleColor =
+                    (ColorPickerPreference) findPreference(PREF_RIPPLE_COLOR);
+            intColor = SBEPanelColorHelper.getRippleColor(getActivity()); 
+            mRippleColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mRippleColor.setSummary(hexColor);
+            mRippleColor.setDefaultColors(TRANSLUCENT_WHITE, TRANSLUCENT_HOLO_BLUE_LIGHT);
+            mRippleColor.setOnPreferenceChangeListener(this);
 
-        if (showQab || showBrightnessSlider || showWeather) {
+            catColors.removePreference(findPreference("expanded_bars_ripple_color_hidden"));
+        } else {
+            catColors.removePreference(findPreference(PREF_RIPPLE_COLOR));
+            if (allBarsHidden) {
+                catColors.removePreference(findPreference("expanded_bars_ripple_color_hidden"));
+            }
+        }
+        if (!removeTextColorPicker) {
+            mTextColor =
+                    (ColorPickerPreference) findPreference(PREF_TEXT_COLOR);
+            intColor = Settings.System.getInt(mResolver,
+                    Settings.System.STATUS_BAR_EXPANDED_TEXT_COLOR,
+                    WHITE); 
+            mTextColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mTextColor.setSummary(hexColor);
+            mTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+            mTextColor.setOnPreferenceChangeListener(this);
+
+            catColors.removePreference(findPreference("expanded_bars_text_color_hidden"));
+        } else {
+            catColors.removePreference(findPreference(PREF_TEXT_COLOR));
+            if (allBarsHidden) {
+                catColors.removePreference(findPreference("expanded_bars_text_color_hidden"));
+            }
+        }
+        if (!allBarsHidden) {
+            catColors.removePreference(findPreference("expanded_bars_no_bars"));
+
             mBackgroundColor =
                     (ColorPickerPreference) findPreference(PREF_BG_COLOR);
             intColor = Settings.System.getInt(mResolver,
@@ -179,41 +210,18 @@ public class StatusBarExpandedPanelSettings extends SettingsPreferenceFragment i
             mIconColor.setSummary(hexColor);
             mIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
             mIconColor.setOnPreferenceChangeListener(this);
-
-            mRippleColor =
-                    (ColorPickerPreference) findPreference(PREF_RIPPLE_COLOR);
-            intColor = SBEPanelColorHelper.getRippleColor(getActivity()); 
-            mRippleColor.setNewPreviewColor(intColor);
-            hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mRippleColor.setSummary(hexColor);
-            mRippleColor.setDefaultColors(TRANSLUCENT_WHITE, TRANSLUCENT_HOLO_BLUE_LIGHT);
-            mRippleColor.setOnPreferenceChangeListener(this);
         } else {
             catColors.removePreference(findPreference(PREF_BG_COLOR));
             catColors.removePreference(findPreference(PREF_ICON_COLOR));
-            catColors.removePreference(findPreference(PREF_RIPPLE_COLOR));
-        }
-
-        if (showWeather && isLockClockInstalled) {
-            mTextColor =
-                    (ColorPickerPreference) findPreference(PREF_TEXT_COLOR);
-            intColor = Settings.System.getInt(mResolver,
-                    Settings.System.STATUS_BAR_EXPANDED_TEXT_COLOR,
-                    WHITE); 
-            mTextColor.setNewPreviewColor(intColor);
-            hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mTextColor.setSummary(hexColor);
-            mTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
-            mTextColor.setOnPreferenceChangeListener(this);
-        } else {
-            catColors.removePreference(findPreference(PREF_TEXT_COLOR));
-        }
-
-        if (!showQab && !showBrightnessSlider && (!showWeather || !isLockClockInstalled)) {
-            removePreference(PREF_CAT_COLORS);
         }
 
         setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        refreshSettings();
     }
 
     @Override
@@ -235,32 +243,10 @@ public class StatusBarExpandedPanelSettings extends SettingsPreferenceFragment i
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        boolean value;
         String hex;
         int intHex;
 
-        if (preference == mShowQab) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(mResolver,
-                    Settings.System.STATUS_BAR_EXPANDED_SHOW_QAB,
-                    value ? 1 : 0);
-            refreshSettings();
-            return true;
-        } else if (preference == mShowBrightnessSlider) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(mResolver,
-                    Settings.System.STATUS_BAR_EXPANDED_SHOW_BRIGHTNESS_SLIDER,
-                    value ? 1 : 0);
-            refreshSettings();
-            return true;
-        } else if (preference == mShowWeather) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(mResolver,
-                    Settings.System.STATUS_BAR_EXPANDED_SHOW_WEATHER,
-                    value ? 1 : 0);
-            refreshSettings();
-            return true;
-        } else if (preference == mBackgroundColor) {
+        if (preference == mBackgroundColor) {
             hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
@@ -311,8 +297,8 @@ public class StatusBarExpandedPanelSettings extends SettingsPreferenceFragment i
             return frag;
         }
 
-        StatusBarExpandedPanelSettings getOwner() {
-            return (StatusBarExpandedPanelSettings) getTargetFragment();
+        StatusBarExpandedBarsSettings getOwner() {
+            return (StatusBarExpandedBarsSettings) getTargetFragment();
         }
 
         @Override
@@ -322,17 +308,11 @@ public class StatusBarExpandedPanelSettings extends SettingsPreferenceFragment i
                 case DLG_RESET:
                     return new AlertDialog.Builder(getActivity())
                     .setTitle(R.string.reset)
-                    .setMessage(R.string.dlg_reset_values_message)
+                    .setMessage(R.string.dlg_reset_colors_message)
                     .setNegativeButton(R.string.cancel, null)
                     .setNeutralButton(R.string.dlg_reset_android,
                             new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_EXPANDED_SHOW_QAB, 1);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_EXPANDED_SHOW_BRIGHTNESS_SLIDER, 1);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_EXPANDED_SHOW_WEATHER, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_BACKGROUND_COLOR,
                                     SYSTEMUI_PRIMARY);
@@ -351,12 +331,6 @@ public class StatusBarExpandedPanelSettings extends SettingsPreferenceFragment i
                     .setPositiveButton(R.string.dlg_reset_darkkat,
                             new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_EXPANDED_SHOW_QAB, 1);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_EXPANDED_SHOW_BRIGHTNESS_SLIDER, 1);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_EXPANDED_SHOW_WEATHER, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_BACKGROUND_COLOR,
                                     DARKKAT_BLUE_GREY);

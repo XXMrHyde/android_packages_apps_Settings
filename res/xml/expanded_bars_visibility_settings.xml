@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2015 DarkKat
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/expanded_bars_visibility_settings_title">
+
+    <SwitchPreference
+        android:key="expanded_bars_show_quick_access_bar"
+        android:title="@string/expanded_bars_quick_access_bar_title"
+        android:summary="@string/expanded_bars_show_quick_access_bar_summary"
+        android:defaultValue="true" />
+
+    <SwitchPreference
+        android:key="expanded_bars_show_brightness_slider_bar"
+        android:title="@string/expanded_bars_show_brightness_slider_bar_title"
+        android:summary="@string/expanded_bars_show_brightness_slider_bar_summary"
+        android:defaultValue="true" />
+
+    <SwitchPreference
+        android:key="expanded_bars_show_wifi_network_bar"
+        android:title="@string/expanded_bars_wifi_network_bar_title"
+        android:summary="@string/expanded_bars_show_wifi_network_bar_summary"
+        android:defaultValue="false" />
+
+    <SwitchPreference
+        android:key="expanded_bars_show_mobile_network_bar"
+        android:title="@string/expanded_bars_mobile_network_bar_title"
+        android:summary="@string/expanded_bars_show_mobile_network_bar_summary"
+        android:defaultValue="false" />
+
+    <SwitchPreference
+        android:key="expanded_bars_show_battery_status_bar"
+        android:title="@string/expanded_bars_battery_status_bar_title"
+        android:summary="@string/expanded_bars_show_battery_status_bar_summary"
+        android:defaultValue="false" />
+
+    <SwitchPreference
+        android:key="expanded_bars_show_weather_bar"
+        android:title="@string/expanded_bars_weather_bar_title"
+        android:summary="@string/expanded_bars_show_weather_summary"
+        android:defaultValue="false" />
+
+</PreferenceScreen>

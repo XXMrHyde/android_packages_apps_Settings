@@ -289,8 +289,8 @@
     <string name="status_bar_expanded_quick_pulldown_dlg_title">Wähle welcher Rand der Statusleiste die die Erweiterte Ansicht öffnet</string>
     <string name="status_bar_expanded_header_settings_title">Kopfzeile</string>
     <string name="status_bar_expanded_header_settings_summary">Die Kopfzeile anpassen</string>
-    <string name="status_bar_expanded_panel_settings_title">Feld</string>
-    <string name="status_bar_expanded_panel_settings_summary">Das Feld anpassen</string>
+    <string name="status_bar_expanded_bars_settings_title">Leisten</string>
+    <string name="status_bar_expanded_bars_settings_summary">Die Leisten anpassen</string>
 
     <!-- Statusbar expanded header settings -->
     <string name="expanded_header_network_icons_settings_title">Netzwerk Symbole</string>
@@ -300,15 +300,39 @@
     <string name="header_network_icons_no_sim_color_title">Keine Simkarte Farbe</string>
     <string name="header_network_icons_airplane_mode_color_title">Flugmodus Farbe</string>
 
-    <!-- Statusbar expanded panel settings -->
-    <string name="expanded_panel_cat_qab_title">Schnellzugriffsleiste</string>
-    <string name="expanded_panel_cat_brightness_slider_title">Helligkeitsregler</string>
-    <string name="expanded_panel_show_qab_summary">Aktivieren um die Schnellzugriffsleiste anzuzeigen</string>
-    <string name="expanded_panel_qab_buttons_summary">Ordne die Schaltflächen an, und wähle welche Schaltflächen in der Schnellzugriffsleiste angezeigt werden sollen.</string>
-    <string name="expanded_panel_show_brightness_slider_summary">Aktivieren um den Helligkeitsregler anzuzeigen</string>
-    <string name="expanded_panel_show_weather_summary">Aktivieren um das Wetter anzuzeigen</string>
+    <!-- Statusbar expanded bars settings -->
+    <string name="expanded_bars_visibility_settings_title">Anzuzeigende Leisten</string>
+    <string name="expanded_bars_visibility_settings_summary">Wähle welche Leisten angezeigt werden sollen</string>
+    <string name="expanded_bars_advanced_settings_title">Erweiterte Anpassungen</string>
+    <string name="expanded_bars_advanced_settings_summary">Die erweiterten Einstellungen anpassen</string>
+    <string name="expanded_bars_no_advanced_settings_summary">Es werden aktuell keine Leisten mit erweiterten Einstellungen angezeigt</string>
+    <string name="expanded_bars_no_bars_title">Es werden aktuell keine Leisten angezeigt</string>
+    <string name="expanded_bars_ripple_color_hidden_summary">Die Ripple Effekt Farbe wird von keiner aktuell angezeigten Leiste unterstüzt</string>
+    <string name="expanded_bars_text_color_hidden_summary">Die Text Farbe wird von keiner aktuell angezeigten Leiste unterstüzt</string>
 
-    <!-- Quick access bar buttons -->
+    <!-- Expanded bars visibility settings -->
+    <string name="expanded_bars_quick_access_bar_title">Schnellzugriffsleiste</string>
+    <string name="expanded_bars_show_quick_access_bar_summary">Aktivieren um die Schnellzugriffsleiste anzuzeigen</string>
+    <string name="expanded_bars_show_brightness_slider_bar_title">Helligkeits-Reglerleiste</string>
+    <string name="expanded_bars_show_brightness_slider_bar_summary">Aktivieren um die Helligkeits-Reglerleiste anzuzeigen</string>
+    <string name="expanded_bars_wifi_network_bar_title">Wifi-Netzwerkleiste</string>
+    <string name="expanded_bars_show_wifi_network_bar_summary">ktivieren um die Wifi-Netzwerkleiste anzuzeigen</string>
+    <string name="expanded_bars_mobile_network_bar_title">Mobil-Netzwerkleiste</string>
+    <string name="expanded_bars_show_mobile_network_bar_summary">Aktivieren um die Mobil-Netzwerkleiste anzuzeigen</string>
+    <string name="expanded_bars_battery_status_bar_title">Akku-Statusleiste</string>
+    <string name="expanded_bars_show_battery_status_bar_summary">Aktivieren um die Akku-Statusleiste anzuzeigen</string>
+    <string name="expanded_bars_weather_bar_title">Wetterleiste</string>
+    <string name="expanded_bars_show_weather_summary">Aktivieren um die Wetterleiste anzuzeigen</string>
+
+    <!-- Expanded bars advanced settings -->
+    <string name="advanced_quick_access_bar_settings_summary">Ordne die Schaltflächen an, und wähle welche Schaltflächen in der Schnellzugriffsleiste angezeigt werden sollen</string>
+    <string name="advanced_quick_access_bar_settings_disabled_summary">Die Schnellzugriffsleiste wird nicht angezeigt</string>
+    <string name="advanced_battery_status_bar_settings_summary">Die Akku-Statusleiste anpassen</string>
+    <string name="advanced_battery_status_bar_settings_disabled_summary">Die Akku-Statusleiste wird nicht angezeigt</string>
+    <string name="advanced_weather_bar_settings_summary">Die Wetterleiste anpassen</string>
+    <string name="advanced_weather_bar_settings_disabled_summary">Die Wetterleiste wird nicht angezeigt</string>
+
+    <!-- Expanded bars advanced quick access bar settings -->
     <string name="qab_button_wifi">Wi\u2011Fi</string>
     <string name="qab_button_bluetooth">Bluetooth</string>
     <string name="qab_button_display_inversion">Farbumkehrung</string>
@@ -319,10 +343,14 @@
     <string name="qab_button_hotspot">Hotspot</string>
     <string name="qab_button_mobile_data">Mobile Daten</string>
 
-    <!-- Weather -->
-    <string name="weather_show_current_title">Aktuelles Wetter anzeigen</string>
-    <string name="weather_show_current_summary">Aktivieren um neben der Wettervorhersage auch das aktuelle Wetter anzuzeigen, deaktivieren um nur die Wettervorhersage anzuzeigen</string>
-    <string name="weather_icon_type_title">Wetterlage Symbol</string>
+    <!-- Expanded bars advanced battery status bar settings -->
+    <string name="battery_status_bar_cat_battery_bar_title">Akkuleiste</string>
+    <string name="battery_status_bar_show_battery_bar_summary">Aktivieren um die zusätzliche Akkuleiste anzuzeigen</string>
+
+    <!-- Expanded bars advanced weather bar settings -->
+    <string name="weather_bar_show_current_title">Aktuelles Wetter anzeigen</string>
+    <string name="weather_bar_show_current_summary">Aktivieren um neben der Wettervorhersage auch das aktuelle Wetter anzuzeigen, deaktivieren um nur die Wettervorhersage anzuzeigen</string>
+    <string name="weather_bar_icon_type_title">Wetterlage Symbol</string>
 
     <!-- Advanced -->
     <string name="advanced_boot_dialog_settings_title">Boot Dialog</string>

@@ -37,13 +37,13 @@ import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class StatusBarExpandedWeatherSettings extends SettingsPreferenceFragment implements
+public class AdvancedWeatherBarSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String PREF_SHOW_CURRENT =
-            "weather_show_current";
+            "weather_bar_show_current";
     private static final String PREF_ICON_TYPE =
-            "weather_icon_type";
+            "weather_bar_icon_type";
 
     private SwitchPreference mShowCurrent;
     private ListPreference mIconType;
@@ -62,7 +62,7 @@ public class StatusBarExpandedWeatherSettings extends SettingsPreferenceFragment
             prefs.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.status_bar_expanded_weather_settings);
+        addPreferencesFromResource(R.xml.advanced_weather_bar_settings);
         mResolver = getActivity().getContentResolver();
 
         mShowCurrent =

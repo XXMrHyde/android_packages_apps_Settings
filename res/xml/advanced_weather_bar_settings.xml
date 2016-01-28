@@ -19,14 +19,14 @@
     android:title="@string/weather_title">
 
     <SwitchPreference
-        android:key="weather_show_current"
-        android:title="@string/weather_show_current_title"
-        android:summary="@string/weather_show_current_summary"
+        android:key="weather_bar_show_current"
+        android:title="@string/weather_bar_show_current_title"
+        android:summary="@string/weather_bar_show_current_summary"
         android:defaultValue="true" />
 
     <ListPreference
-        android:key="weather_icon_type"
-        android:title="@string/weather_icon_type_title"
+        android:key="weather_bar_icon_type"
+        android:title="@string/weather_bar_icon_type_title"
         android:entries="@array/weather_icon_type_entries"
         android:entryValues="@array/weather_icon_type_values" />
 

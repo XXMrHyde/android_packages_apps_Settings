@@ -289,8 +289,8 @@
     <string name="status_bar_expanded_quick_pulldown_dlg_title">Choose which edge of the status bar pulls down to the expanded view</string>
     <string name="status_bar_expanded_header_settings_title">Header</string>
     <string name="status_bar_expanded_header_settings_summary">Customize the header</string>
-    <string name="status_bar_expanded_panel_settings_title">Panel</string>
-    <string name="status_bar_expanded_panel_settings_summary">Customize the panel</string>
+    <string name="status_bar_expanded_bars_settings_title">Bars</string>
+    <string name="status_bar_expanded_bars_settings_summary">Customize the bars</string>
 
     <!-- Statusbar expanded header settings -->
     <string name="expanded_header_network_icons_settings_title">Network icons</string>
@@ -300,15 +300,39 @@
     <string name="header_network_icons_no_sim_color_title">No sim card color</string>
     <string name="header_network_icons_airplane_mode_color_title">Airplane mode color</string>
 
-    <!-- Statusbar expanded panel settings -->
-    <string name="expanded_panel_cat_qab_title">Quick access bar</string>
-    <string name="expanded_panel_cat_brightness_slider_title">Brightness slider</string>
-    <string name="expanded_panel_show_qab_summary">Enable to show the quick access bar</string>
-    <string name="expanded_panel_qab_buttons_summary">Arrange the buttons, and choose the buttons to display in the quick access bar</string>
-    <string name="expanded_panel_show_brightness_slider_summary">Enable to show the brightness slider</string>
-    <string name="expanded_panel_show_weather_summary">Enable to show the weather</string>
+    <!-- Statusbar expanded bars settings -->
+    <string name="expanded_bars_visibility_settings_title">Bars to display</string>
+    <string name="expanded_bars_visibility_settings_summary">Choose the bars to display</string>
+    <string name="expanded_bars_advanced_settings_title">Advanced customizations</string>
+    <string name="expanded_bars_advanced_settings_summary">Customize the advanced settings</string>
+    <string name="expanded_bars_no_advanced_settings_summary">Advanced settings aren\'t supported by currently shown bars</string>
+    <string name="expanded_bars_no_bars_title">All bars are curremtly hidden</string>
+    <string name="expanded_bars_ripple_color_hidden_summary">Ripple color isn\'t supported by currently shown bars</string>
+    <string name="expanded_bars_text_color_hidden_summary">Text color isn\'t supported by currently shown bars</string>
 
-    <!-- Quick access bar buttons -->
+    <!-- Expanded bars visibility settings -->
+    <string name="expanded_bars_quick_access_bar_title">Quick access bar</string>
+    <string name="expanded_bars_show_quick_access_bar_summary">Enable to show the quick access bar</string>
+    <string name="expanded_bars_show_brightness_slider_bar_title">Brightness slider bar</string>
+    <string name="expanded_bars_show_brightness_slider_bar_summary">Enable to show the brightness slider bar</string>
+    <string name="expanded_bars_wifi_network_bar_title">Wifi network bar</string>
+    <string name="expanded_bars_show_wifi_network_bar_summary">Enable to show the wifi network bar</string>
+    <string name="expanded_bars_mobile_network_bar_title">Mobile network bar</string>
+    <string name="expanded_bars_show_mobile_network_bar_summary">Enable to show the mobile network bar</string>
+    <string name="expanded_bars_battery_status_bar_title">Battery status bar</string>
+    <string name="expanded_bars_show_battery_status_bar_summary">Enable to show the battery status bar</string>
+    <string name="expanded_bars_weather_bar_title">Weather bar</string>
+    <string name="expanded_bars_show_weather_summary">Enable to show the weather bar</string>
+
+    <!-- Expanded bars advanced settings -->
+    <string name="advanced_quick_access_bar_settings_summary">Arrange the buttons, and choose the buttons to display on the quick access bar</string>
+    <string name="advanced_quick_access_bar_settings_disabled_summary">The quick access bar is curremtly hidden</string>
+    <string name="advanced_battery_status_bar_settings_summary">Customize the battery status bar</string>
+    <string name="advanced_battery_status_bar_settings_disabled_summary">The battery status bar is curremtly hidden</string>
+    <string name="advanced_weather_bar_settings_summary">Customize the weather bar</string>
+    <string name="advanced_weather_bar_settings_disabled_summary">The weather bar curremtly is hidden</string>
+
+    <!-- Expanded bars advanced quick access bar settings -->
     <string name="qab_button_wifi">Wi\u2011Fi</string>
     <string name="qab_button_bluetooth">Bluetooth</string>
     <string name="qab_button_display_inversion">Color inversion</string>
@@ -319,10 +343,14 @@
     <string name="qab_button_hotspot">Hotspot</string>
     <string name="qab_button_mobile_data">Mobile data</string>
 
-    <!-- Weather -->
-    <string name="weather_show_current_title">Show current weather</string>
-    <string name="weather_show_current_summary">Enable to also show the current weather informations beside the weather forcasts, disable to only show weather forcasts</string>
-    <string name="weather_icon_type_title">Weather condition icon</string>
+    <!-- Expanded bars advanced battery status bar settings -->
+    <string name="battery_status_bar_cat_battery_bar_title">Battery bar</string>
+    <string name="battery_status_bar_show_battery_bar_summary">Enable to show the additional battery bar</string>
+
+    <!-- Expanded bars advanced weather bar settings -->
+    <string name="weather_bar_show_current_title">Show current weather</string>
+    <string name="weather_bar_show_current_summary">Enable to also show the current weather informations beside the weather forcasts, disable to only show weather forcasts</string>
+    <string name="weather_bar_icon_type_title">Weather condition icon</string>
 
     <!-- Advanced -->
     <string name="advanced_boot_dialog_settings_title">Boot dialog</string>
