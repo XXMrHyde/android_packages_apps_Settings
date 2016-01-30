@@ -921,7 +921,7 @@ public final class Utils {
             }
         }
         return CircleFramedDrawable.getInstance(context, UserIcons.convertToBitmap(
-                UserIcons.getDefaultUserIcon(user.id, /* light= */ false)));
+                UserIcons.getDefaultUserIcon(user.id, /* light= */ true)));
     }
 
     /**
@@ -1088,7 +1088,7 @@ public final class Utils {
         // Try finding the corresponding bitmap in the dark bitmap cache
         bitmap = sDarkDefaultUserBitmapCache.get(userId);
         if (bitmap == null) {
-            bitmap = UserIcons.convertToBitmap(UserIcons.getDefaultUserIcon(userId, false));
+            bitmap = UserIcons.convertToBitmap(UserIcons.getDefaultUserIcon(userId, true));
             // Save it to cache
             sDarkDefaultUserBitmapCache.put(userId, bitmap);
         }

@@ -25,6 +25,12 @@
         android:fragment="com.android.settings.darkkat.StatusBarGestureSettings" />
 
     <PreferenceScreen
+        android:key="status_bar_multi_user_switch_settings"
+        android:title="@string/status_bar_multi_user_switch_settings_title"
+        android:summary="@string/status_bar_multi_user_switch_settings_summary"
+        android:fragment="com.android.settings.darkkat.StatusBarMultiUserSwitchSettings" />
+
+    <PreferenceScreen
         android:key="status_bar_greeting_settings"
         android:title="@string/status_bar_greeting_settings_title"
         android:summary="@string/status_bar_greeting_settings_summary"

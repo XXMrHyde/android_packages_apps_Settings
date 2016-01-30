@@ -159,6 +159,10 @@
     <!-- Status bar -->
     <string name="status_bar_gesture_settings_title">Gesten</string>
     <string name="status_bar_gesture_settings_summary">Gesten anpassen</string>
+    <string name="status_bar_multi_user_switch_settings_title">Benutzer Symbol &amp; Mehrbenutzer Schalter</string>
+    <string name="status_bar_multi_user_switch_settings_summary">Benutzer Symbol &amp; Mehrbenutzer Schalter auf dem Sperrbildschirm anpassen</string>
+    <string name="status_bar_user_icon_settings_title">Benutzer Symbol</string>
+    <string name="status_bar_user_icon_settings_summary">Benutzer Symbol auf dem auf dem Sperrbildschirm anpassen</string>
     <string name="status_bar_greeting_settings_title">Begüßung</string>
     <string name="status_bar_greeting_settings_summary">Die Begüßung anpassen</string>
     <string name="status_bar_carrier_label_settings_title">Netzbetreiber Name</string>
@@ -173,6 +177,12 @@
     <string name="status_bar_network_traffic_settings_summary">Den Netzwerk Verkehr anpassen</string>
     <string name="status_bar_notification_settings_title">Benachrichtigungen</string>
     <string name="status_bar_notification_settings_summary">Die Benachrichtigungen anpassen</string>
+
+    <!-- Status bar User icon and multi user switch settings -->
+    <string name="multi_user_switch_icon_color_title">Gast- &amp; neuer Nutzer Symbol</string>
+    <string name="multi_user_switch_guest_icon_color_title">Gast Symbol</string>
+    <string name="multi_user_switch_active_text_frame_color_title">Text und Symbolrahmen, (aktiver Nutzer)</string>
+    <string name="multi_user_switch_inactive_text_color_title">Text, (inaktive Nutzer)</string>
 
     <!-- Status bar gesture settings -->
     <string name="gesture_brightness_control_title">Helligkeitskontrolle</string>

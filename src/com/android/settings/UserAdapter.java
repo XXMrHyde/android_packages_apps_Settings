@@ -62,7 +62,7 @@ public class UserAdapter implements SpinnerAdapter, ListAdapter {
                 if (um.getUserIcon(userId) != null) {
                     icon = new BitmapDrawable(context.getResources(), um.getUserIcon(userId));
                 } else {
-                    icon = UserIcons.getDefaultUserIcon(userId, /* light= */ false);
+                    icon = UserIcons.getDefaultUserIcon(userId, /* light= */ true);
                 }
             }
             this.mIcon = encircle(context, icon);

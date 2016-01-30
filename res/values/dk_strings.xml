@@ -159,6 +159,10 @@
     <!-- Status bar -->
     <string name="status_bar_gesture_settings_title">Gestures</string>
     <string name="status_bar_gesture_settings_summary">Customize gestures</string>
+    <string name="status_bar_multi_user_switch_settings_title">User icon &amp; multi user switch</string>
+    <string name="status_bar_multi_user_switch_settings_summary">Customize the user icon &amp; multi user switch on the lock screen</string>
+    <string name="status_bar_user_icon_settings_title">User icon</string>
+    <string name="status_bar_user_icon_settings_summary">Customize the user icon on the lock screen</string>
     <string name="status_bar_greeting_settings_title">Greeting</string>
     <string name="status_bar_greeting_settings_summary">Customize greeting</string>
     <string name="status_bar_carrier_label_settings_title">Carrier label</string>
@@ -173,6 +177,12 @@
     <string name="status_bar_network_traffic_settings_summary">Customize the network traffic</string>
     <string name="status_bar_notification_settings_title">Notifications</string>
     <string name="status_bar_notification_settings_summary">Customize the notifications</string>
+
+    <!-- Status bar User icon and multi user switch settings -->
+    <string name="multi_user_switch_icon_color_title">Guest- &amp; new user icon</string>
+    <string name="multi_user_switch_guest_icon_color_title">Guest icon</string>
+    <string name="multi_user_switch_active_text_frame_color_title">Text and icon frame, (active user)</string>
+    <string name="multi_user_switch_inactive_text_color_title">Text, (inactive users)</string>
 
     <!-- Status bar gesture settings -->
     <string name="gesture_brightness_control_title">Brightness control</string>

@@ -17,6 +17,7 @@
 package com.android.settings.darkkat;
 
 import android.os.Bundle;
+import android.preference.Preference;
 import android.preference.PreferenceScreen;
 
 import com.android.internal.util.darkkat.DeviceUtils;
@@ -32,6 +33,17 @@ public class Statusbar extends SettingsPreferenceFragment {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.status_bar);
+
+        final boolean hasMultiUserSwitch = getResources().getBoolean(
+                R.bool.config_has_status_bar_multi_user_switch);
+
+        if (!hasMultiUserSwitch) {
+            Preference multiUserSwitch = findPreference("status_bar_multi_user_switch_settings");
+            multiUserSwitch.setTitle(getResources().getString(
+                    R.string.status_bar_user_icon_settings_title));
+            multiUserSwitch.setSummary(getResources().getString(
+                    R.string.status_bar_user_icon_settings_summary));
+        }
 
         if (!DeviceUtils.deviceSupportsMobileData(getActivity())) {
             removePreference("status_bar_carrier_label_settings");
