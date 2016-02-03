@@ -45,4 +45,15 @@
         android:summary="@string/advanced_weather_bar_settings_summary"
         android:fragment="com.android.settings.darkkat.AdvancedWeatherBarSettings" />
 
+    <PreferenceCategory
+        android:key="advanced_cat_network_traffic"
+        android:title="@string/status_bar_network_traffic_settings_title">
+
+        <SwitchPreference
+            android:key="advanced_network_traffic_bit_byte"
+            android:title="@string/network_traffic_bit_byte_title"
+            android:summary="@string/network_traffic_bit_byte_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
 </PreferenceScreen>

@@ -16,29 +16,49 @@
 
 package com.android.settings.darkkat;
 
+import android.content.ContentResolver;
 import android.os.Bundle;
 import android.preference.Preference;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
+
+import com.android.internal.util.darkkat.DeviceUtils;
 
 import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-public class ExpandedBarsAdvancedSettings extends SettingsPreferenceFragment {
+public class ExpandedBarsAdvancedSettings extends SettingsPreferenceFragment implements
+        Preference.OnPreferenceChangeListener {
+
+    private static final String PREF_TRAFFIC_BIT_BYTE =
+            "advanced_network_traffic_bit_byte";
+
+    private SwitchPreference mTrafficBitByte;
+
+    private ContentResolver mResolver;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.expanded_bars_advanced_settings);
+        mResolver = getContentResolver();
 
-        final boolean showQuickAccessBar = Settings.System.getInt(getContentResolver(),
+        final boolean showQuickAccessBar = Settings.System.getInt(mResolver,
                Settings.System.STATUS_BAR_EXPANDED_SHOW_QAB, 1) == 1;
-        final boolean showWeatherBar = Settings.System.getInt(getContentResolver(),
-               Settings.System.STATUS_BAR_EXPANDED_SHOW_WEATHER, 0) == 1;
-        final boolean showBatteryStatusBar = Settings.System.getInt(getContentResolver(),
+
+        final boolean showWifiBarBar = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_EXPANDED_SHOW_WIFI_BAR, 0) == 1;
+        final boolean showMobileBar = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_EXPANDED_SHOW_MOBILE_BAR, 0) == 1;
+        final boolean supportsMobileData = DeviceUtils.deviceSupportsMobileData(getActivity());
+        final boolean bitByteSwitchDisabled = !showWifiBarBar && (!showMobileBar || !supportsMobileData);
+        final boolean showBatteryStatusBar = Settings.System.getInt(mResolver,
                Settings.System.STATUS_BAR_EXPANDED_SHOW_BATTERY_STATUS_BAR, 0) == 1;
+        final boolean showWeatherBar = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_EXPANDED_SHOW_WEATHER, 0) == 1;
         final boolean isLockClockInstalled =
                 Utils.isPackageInstalled(getActivity(), "com.cyanogenmod.lockclock");
 
@@ -68,6 +88,28 @@ public class ExpandedBarsAdvancedSettings extends SettingsPreferenceFragment {
                     getResources().getString(R.string.lock_clock_missing_summary));
         }
         advancedWeatherBarSettings.setEnabled(showWeatherBar && isLockClockInstalled);
+
+        mTrafficBitByte =
+                (SwitchPreference) findPreference(PREF_TRAFFIC_BIT_BYTE);
+        mTrafficBitByte.setChecked(Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_EXPANDED_BARS_TRAFFIC_BIT_BYTE, 1) == 1);
+        mTrafficBitByte.setOnPreferenceChangeListener(this);
+        mTrafficBitByte.setEnabled(!bitByteSwitchDisabled);
+        int summaryResId = bitByteSwitchDisabled
+                ? R.string.advanced_network_traffic_bit_byte_disabled_summary
+                : R.string.network_traffic_bit_byte_summary;
+        mTrafficBitByte.setSummary(summaryResId);
+    }
+
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mTrafficBitByte) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_EXPANDED_BARS_TRAFFIC_BIT_BYTE,
+                    value ? 1 : 0);
+            return true;
+        }
+        return false;
     }
 
     @Override

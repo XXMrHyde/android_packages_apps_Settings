@@ -341,6 +341,7 @@
     <string name="advanced_battery_status_bar_settings_disabled_summary">The battery status bar is curremtly hidden</string>
     <string name="advanced_weather_bar_settings_summary">Customize the weather bar</string>
     <string name="advanced_weather_bar_settings_disabled_summary">The weather bar curremtly is hidden</string>
+    <string name="advanced_network_traffic_bit_byte_disabled_summary">Wifi- &amp; mobile network bars are hidden</string>
 
     <!-- Expanded bars advanced quick access bar settings -->
     <string name="qab_button_wifi">Wi\u2011Fi</string>
