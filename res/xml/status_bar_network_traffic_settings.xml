@@ -18,15 +18,27 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/status_bar_network_traffic_settings_title">
 
-    <ListPreference
-        android:key="network_traffic_activity"
-        android:title="@string/network_traffic_activity_title"
-        android:entries="@array/network_traffic_activity_entries"
-        android:entryValues="@array/network_traffic_activity_values" />
+    <SwitchPreference
+        android:key="network_traffic_show"
+        android:title="@string/show_title"
+        android:summary="@string/network_traffic_show_summary"
+        android:persistent="false" />
+
+    <SwitchPreference
+        android:key="network_traffic_show_on_lock_screen"
+        android:title="@string/show_on_lock_screen_title"
+        android:summary="@string/network_traffic_show_on_lock_screen_summary"
+        android:persistent="false" />
 
     <PreferenceCategory
         android:key="network_traffic_cat_options"
         android:title="@string/options_title">
+
+        <ListPreference
+            android:key="network_traffic_activity_direction"
+            android:title="@string/network_traffic_activity_direction_title"
+            android:entries="@array/network_traffic_activity_direction_entries"
+            android:entryValues="@array/network_traffic_activity_direction_values" />
 
         <ListPreference
             android:key="network_traffic_type"

@@ -203,9 +203,7 @@
 
     <!-- Carrier label settings -->
     <string name="carrier_label_cat_notification_icons_title">Notification icons</string>
-    <string name="carrier_label_show_title">Show</string>
     <string name="carrier_label_show_summary">Enable to show the (custom) carrier label on the status bar</string>
-    <string name="carrier_label_show_on_lock_screen_title">Show on lock screen</string>
     <string name="carrier_label_show_on_lock_screen_summary">Enable to show the (custom) carrier label on the status bar of the lock screen</string>
     <string name="carrier_label_use_custom_title">Custom carrier label</string>
     <string name="carrier_label_use_custom_summary">Enable to use a custom carrier label</string>
@@ -274,10 +272,12 @@
     <string name="network_status_icon_cat_status_colors_title">Status colors</string>
 
     <!-- Status bar Network traffic settings -->
-    <string name="network_traffic_activity_title">Activity</string>
-    <string name="network_traffic_activity_down">Download</string>
-    <string name="network_traffic_activity_up">Upload</string>
-    <string name="network_traffic_activity_down_up">Download &amp; Upload</string>
+    <string name="network_traffic_show_summary">Enable to show the network traffic</string>
+    <string name="network_traffic_show_on_lock_screen_summary">Enable to show the network traffic on lock screen</string>
+    <string name="network_traffic_activity_direction_title">Activity</string>
+    <string name="network_traffic_activity_direction_down">Download</string>
+    <string name="network_traffic_activity_direction_up">Upload</string>
+    <string name="network_traffic_activity_direction_down_up">Download &amp; Upload</string>
     <string name="network_traffic_type_title">Type</string>
     <string name="network_traffic_type_text_icon">Text &amp; icon</string>
     <string name="network_traffic_bit_byte_title">Show bit values</string>

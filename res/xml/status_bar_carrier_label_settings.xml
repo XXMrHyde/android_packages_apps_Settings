@@ -20,13 +20,13 @@
 
     <SwitchPreference
         android:key="carrier_label_show"
-        android:title="@string/carrier_label_show_title"
+        android:title="@string/show_title"
         android:summary="@string/carrier_label_show_summary"
         android:persistent="false" />
 
     <SwitchPreference
         android:key="carrier_label_show_on_lock_screen"
-        android:title="@string/carrier_label_show_on_lock_screen_title"
+        android:title="@string/show_on_lock_screen_title"
         android:summary="@string/carrier_label_show_on_lock_screen_summary"
         android:persistent="false" />
 

@@ -45,8 +45,12 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
             "network_traffic_cat_options";
     private static final String PREF_CAT_COLORS =
             "network_traffic_cat_colors";
-    private static final String PREF_ACTIVITY =
-            "network_traffic_activity";
+    private static final String PREF_SHOW =
+            "network_traffic_show";
+    private static final String PREF_SHOW_ON_LOCK_SCREEN =
+            "network_traffic_show_on_lock_screen";
+    private static final String PREF_ACTIVITY_DIRECTION =
+            "network_traffic_activity_direction";
     private static final String PREF_TYPE =
             "network_traffic_type";
     private static final String PREF_BIT_BYTE =
@@ -62,8 +66,8 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
     private static final String PREF_ICON_COLOR_DARK_MODE =
             "network_traffic_icon_color_dark_mode";
 
-    private static final int UP_DOWN        = 2;
-    private static final int DISABLED       = 3;
+    private static final int DIRECTION_UP_DOWN = 2;
+
     private static final int TYPE_TEXT      = 0;
     private static final int TYPE_ICON      = 1;
     private static final int TYPE_TEXT_ICON = 2;
@@ -75,7 +79,9 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET  = 0;
 
-    private ListPreference mTrafficActivity;
+    private SwitchPreference mShow;
+    private SwitchPreference mShowOnLockScreen;
+    private ListPreference mActivityDirection;
     private ListPreference mType;
     private SwitchPreference mBitByte;
     private SwitchPreference mHide;
@@ -104,22 +110,35 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
         int intColor;
         String hexColor;
 
-        final int trafficActivity = Settings.System.getInt(mResolver,
-                Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ACTIVITY, DISABLED);
-        final boolean isTrafficEnabled = trafficActivity != DISABLED;
-
-        mTrafficActivity =
-                (ListPreference) findPreference(PREF_ACTIVITY);
-        mTrafficActivity.setValue(String.valueOf(trafficActivity));
-        mTrafficActivity.setSummary(mTrafficActivity.getEntry());
-        mTrafficActivity.setOnPreferenceChangeListener(this);
+        final boolean show = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_NETWORK_TRAFFIC_SHOW, 0) == 1;
+        final boolean showOnLockScreen = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_NETWORK_TRAFFIC_SHOW_ON_LOCK_SCREEN, 0) == 1;
+        final boolean isTrafficEnabled = show || showOnLockScreen;
 
         PreferenceCategory catOptions =
                 (PreferenceCategory) findPreference(PREF_CAT_OPTIONS);
         PreferenceCategory catColors =
                 (PreferenceCategory) findPreference(PREF_CAT_COLORS);
 
+        mShow = (SwitchPreference) findPreference(PREF_SHOW);
+        mShow.setChecked(show);
+        mShow.setOnPreferenceChangeListener(this);
+
+        mShowOnLockScreen = (SwitchPreference) findPreference(PREF_SHOW_ON_LOCK_SCREEN);
+        mShowOnLockScreen.setChecked(showOnLockScreen);
+        mShowOnLockScreen.setOnPreferenceChangeListener(this);
+
         if (isTrafficEnabled) {
+            mActivityDirection =
+                    (ListPreference) findPreference(PREF_ACTIVITY_DIRECTION);
+            final int activityDirection = Settings.System.getInt(mResolver,
+                    Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ACTIVITY_DIRECTION,
+                    DIRECTION_UP_DOWN);
+            mActivityDirection.setValue(String.valueOf(activityDirection));
+            mActivityDirection.setSummary(mActivityDirection.getEntry());
+            mActivityDirection.setOnPreferenceChangeListener(this);
+
             final int type = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_NETWORK_TRAFFIC_TYPE, TYPE_TEXT_ICON);
             final boolean showText  = type == TYPE_TEXT || type == TYPE_TEXT_ICON;
@@ -153,16 +172,20 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
                 mTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
                 mTextColor.setOnPreferenceChangeListener(this);
 
-                mTextColorDarkMode =
-                        (ColorPickerPreference) findPreference(PREF_TEXT_COLOR_DARK_MODE);
-                intColor = Settings.System.getInt(mResolver,
-                        Settings.System.STATUS_BAR_NETWORK_TRAFFIC_TEXT_COLOR_DARK_MODE,
-                        BLACK);
-                mTextColorDarkMode.setNewPreviewColor(intColor);
-                hexColor = String.format("#%08x", (0xffffffff & intColor));
-                mTextColorDarkMode.setSummary(hexColor);
-                mTextColorDarkMode.setDefaultColors(BLACK, BLACK);
-                mTextColorDarkMode.setOnPreferenceChangeListener(this);
+                if (show) {
+                    mTextColorDarkMode =
+                            (ColorPickerPreference) findPreference(PREF_TEXT_COLOR_DARK_MODE);
+                    intColor = Settings.System.getInt(mResolver,
+                            Settings.System.STATUS_BAR_NETWORK_TRAFFIC_TEXT_COLOR_DARK_MODE,
+                            BLACK);
+                    mTextColorDarkMode.setNewPreviewColor(intColor);
+                    hexColor = String.format("#%08x", (0xffffffff & intColor));
+                    mTextColorDarkMode.setSummary(hexColor);
+                    mTextColorDarkMode.setDefaultColors(BLACK, BLACK);
+                    mTextColorDarkMode.setOnPreferenceChangeListener(this);
+                } else {
+                    catColors.removePreference(findPreference(PREF_TEXT_COLOR_DARK_MODE));
+                }
             } else {
                 catOptions.removePreference(findPreference(PREF_BIT_BYTE));
                 catOptions.removePreference(findPreference(PREF_HIDE));
@@ -181,21 +204,26 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
                 mIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
                 mIconColor.setOnPreferenceChangeListener(this);
 
-                mIconColorDarkMode =
-                        (ColorPickerPreference) findPreference(PREF_ICON_COLOR_DARK_MODE);
-                intColor = Settings.System.getInt(mResolver,
-                        Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ICON_COLOR_DARK_MODE,
-                        BLACK);
-                mIconColorDarkMode.setNewPreviewColor(intColor);
-                hexColor = String.format("#%08x", (0xffffffff & intColor));
-                mIconColorDarkMode.setSummary(hexColor);
-                mIconColorDarkMode.setDefaultColors(BLACK, BLACK);
-                mIconColorDarkMode.setOnPreferenceChangeListener(this);
+                if (show) {
+                    mIconColorDarkMode =
+                            (ColorPickerPreference) findPreference(PREF_ICON_COLOR_DARK_MODE);
+                    intColor = Settings.System.getInt(mResolver,
+                            Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ICON_COLOR_DARK_MODE,
+                            BLACK);
+                    mIconColorDarkMode.setNewPreviewColor(intColor);
+                    hexColor = String.format("#%08x", (0xffffffff & intColor));
+                    mIconColorDarkMode.setSummary(hexColor);
+                    mIconColorDarkMode.setDefaultColors(BLACK, BLACK);
+                    mIconColorDarkMode.setOnPreferenceChangeListener(this);
+                } else {
+                    catColors.removePreference(findPreference(PREF_ICON_COLOR_DARK_MODE));
+                }
             } else {
                 catColors.removePreference(findPreference(PREF_ICON_COLOR));
                 catColors.removePreference(findPreference(PREF_ICON_COLOR_DARK_MODE));
             }
         } else {
+            catOptions.removePreference(findPreference(PREF_ACTIVITY_DIRECTION));
             catOptions.removePreference(findPreference(PREF_TYPE));
             catOptions.removePreference(findPreference(PREF_BIT_BYTE));
             catOptions.removePreference(findPreference(PREF_HIDE));
@@ -235,13 +263,27 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
         int intHex;
         String hex;
 
-        if (preference == mTrafficActivity) {
-            intValue = Integer.valueOf((String) newValue);
-            index = mTrafficActivity.findIndexOfValue((String) newValue);
+        if (preference == mShow) {
+            value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
-                    Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ACTIVITY, intValue);
-            mTrafficActivity.setSummary(mTrafficActivity.getEntries()[index]);
+                    Settings.System.STATUS_BAR_NETWORK_TRAFFIC_SHOW,
+                    value ? 1 : 0);
             refreshSettings();
+            return true;
+        } else if (preference == mShowOnLockScreen) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_NETWORK_TRAFFIC_SHOW_ON_LOCK_SCREEN,
+                    value ? 1 : 0);
+            refreshSettings();
+            return true;
+        } else if (preference == mActivityDirection) {
+            intValue = Integer.valueOf((String) newValue);
+            index = mActivityDirection.findIndexOfValue((String) newValue);
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ACTIVITY_DIRECTION,
+                    intValue);
+            mActivityDirection.setSummary(mActivityDirection.getEntries()[index]);
             return true;
         } else if (preference == mType) {
             intValue = Integer.valueOf((String) newValue);
@@ -339,7 +381,12 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
                             new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ACTIVITY, DISABLED);
+                                    Settings.System.STATUS_BAR_NETWORK_TRAFFIC_SHOW, 0);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_NETWORK_TRAFFIC_SHOW_ON_LOCK_SCREEN, 0);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ACTIVITY_DIRECTION,
+                                    DIRECTION_UP_DOWN);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NETWORK_TRAFFIC_TYPE, TYPE_TEXT_ICON);
                             Settings.System.putInt(getOwner().mResolver,
@@ -365,7 +412,12 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
                             new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ACTIVITY, UP_DOWN);
+                                    Settings.System.STATUS_BAR_NETWORK_TRAFFIC_SHOW, 1);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_NETWORK_TRAFFIC_SHOW_ON_LOCK_SCREEN, 1);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ACTIVITY_DIRECTION,
+                                    DIRECTION_UP_DOWN);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NETWORK_TRAFFIC_TYPE, TYPE_TEXT_ICON);
                             Settings.System.putInt(getOwner().mResolver,
