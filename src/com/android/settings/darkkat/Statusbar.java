@@ -45,6 +45,9 @@ public class Statusbar extends SettingsPreferenceFragment {
                     R.string.status_bar_user_icon_settings_summary));
         }
 
+        // remove greeting setting untill reimplemented
+        removePreference("status_bar_greeting_settings");
+
         if (!DeviceUtils.deviceSupportsMobileData(getActivity())) {
             removePreference("status_bar_carrier_label_settings");
         }
