@@ -61,6 +61,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.SWAP_VOLUME_BUTTONS_ON_ROTATION,
                     value ? 1 : 0);
+            return true;
         } else if (preference == mVolumeWake) {
             value = (Boolean) newValue;
             Settings.System.putInt(getContentResolver(),
