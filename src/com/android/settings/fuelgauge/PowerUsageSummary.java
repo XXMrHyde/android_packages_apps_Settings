@@ -315,7 +315,6 @@ public class PowerUsageSummary extends PowerUsageBase implements
         mAppListGroup.removeAll();
         mAppListGroup.setOrderingAsAdded(false);
         mWakeWhenPluggedOrUnplugged.setOrder(-2);
-        mAppListGroup.addPreference(mWakeWhenPluggedOrUnplugged);
         boolean addedSome = false;
 
         final PowerProfile powerProfile = mStatsHelper.getPowerProfile();
