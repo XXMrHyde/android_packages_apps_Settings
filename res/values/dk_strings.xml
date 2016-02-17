@@ -61,6 +61,7 @@
     <string name="weather_icon_monochrome_title">Monochrome</string>
     <string name="weather_icon_colored_title">Colored</string>
     <string name="weather_icon_vclouds_title">VClouds</string>
+    <string name="icon_is_greyscale_title">If the icon is an greyscale icon</string>
 
     <!-- Pickers -->
 
@@ -122,6 +123,7 @@
     <string name="lock_screen_settings_title">Lock screen</string>
     <string name="status_bar_title">Status bar</string>
     <string name="status_bar_expanded_settings_title">Status bar expanded</string>
+    <string name="notification_color_settings_title">Notifications</string>
     <string name="advanced_title">Advanced</string>
     <string name="button_settings_title">Buttons</string>
 
@@ -362,6 +364,14 @@
     <string name="weather_bar_show_current_title">Show current weather</string>
     <string name="weather_bar_show_current_summary">Enable to also show the current weather informations beside the weather forcasts, disable to only show weather forcasts</string>
     <string name="weather_bar_icon_type_title">Weather condition icon</string>
+
+    <!-- Notification color settings -->
+    <string name="notification_media_bg_mode_title">Colorize the media background</string>
+    <string name="notification_app_icon_bg_mode_title">Colorize the app icon background</string>
+    <string name="notification_app_icon_color_mode_title">Colorize app icon</string>
+    <string name="notification_bg_guts_color_title">Background on longpress</string>
+    <string name="notification_app_icon_bg_color_title">App icon background</string>
+    <string name="notification_bg_color_mode_no_color_title">If the notification doesn\`t include an own color</string>
 
     <!-- Advanced -->
     <string name="advanced_boot_dialog_settings_title">Boot dialog</string>

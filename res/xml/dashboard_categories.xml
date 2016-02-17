@@ -102,6 +102,14 @@
                 android:icon="@drawable/ic_settings_status_bar_expanded"
                 />
 
+        <!-- Notification colors -->
+        <dashboard-tile
+                android:id="@+id/notification_color_settings"
+                android:title="@string/notification_color_settings_title"
+                android:fragment="com.android.settings.darkkat.NotificationColorSettings"
+                android:icon="@drawable/ic_settings_notifications"
+                />
+
         <!-- Weather settings -->
         <dashboard-tile
                 android:id="@+id/weather_settings"

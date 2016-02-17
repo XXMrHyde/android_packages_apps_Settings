@@ -61,6 +61,7 @@
     <string name="weather_icon_monochrome_title">Einfarbig</string>
     <string name="weather_icon_colored_title">Farbig</string>
     <string name="weather_icon_vclouds_title">VClouds</string>
+    <string name="icon_is_greyscale_title">Wenn das Symbol ein Graustufen Symbol ist</string>
 
     <!-- Pickers -->
 
@@ -122,6 +123,7 @@
     <string name="lock_screen_settings_title">Sperrbildschirm</string>
     <string name="status_bar_title">Statusleiste</string>
     <string name="status_bar_expanded_settings_title">Erweiterte Statusleiste</string>
+    <string name="notification_color_settings_title">Benachrichtigungen</string>
     <string name="advanced_title">Erweitert</string>
     <string name="button_settings_title">Tasten</string>
 
@@ -362,6 +364,14 @@
     <string name="weather_bar_show_current_title">Aktuelles Wetter anzeigen</string>
     <string name="weather_bar_show_current_summary">Aktivieren um neben der Wettervorhersage auch das aktuelle Wetter anzuzeigen, deaktivieren um nur die Wettervorhersage anzuzeigen</string>
     <string name="weather_bar_icon_type_title">Wetterlage Symbol</string>
+
+    <!-- Notification color settings -->
+    <string name="notification_media_bg_mode_title">Medien Hintergrund einfärben</string>
+    <string name="notification_app_icon_bg_mode_title">App Symbol Hintergrund einfärben</string>
+    <string name="notification_app_icon_color_mode_title">App Symbol einfärben</string>
+    <string name="notification_bg_guts_color_title">Hintergrund bei Langklick</string>
+    <string name="notification_app_icon_bg_color_title">App Symbol Hintergrund</string>
+    <string name="notification_bg_color_mode_no_color_title">Wenn die Benachrichtigung keine eigene Farbe enthält</string>
 
     <!-- Advanced -->
     <string name="advanced_boot_dialog_settings_title">Boot Dialog</string>
