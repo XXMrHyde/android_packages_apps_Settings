@@ -123,6 +123,7 @@
     <string name="lock_screen_settings_title">Lock screen</string>
     <string name="status_bar_title">Status bar</string>
     <string name="status_bar_expanded_settings_title">Status bar expanded</string>
+    <string name="navigation_bar_settings_title">Navigation bar</string>
     <string name="notification_color_settings_title">Notifications</string>
     <string name="advanced_title">Advanced</string>
     <string name="button_settings_title">Buttons</string>

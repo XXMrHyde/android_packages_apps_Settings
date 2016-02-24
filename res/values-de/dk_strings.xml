@@ -123,6 +123,7 @@
     <string name="lock_screen_settings_title">Sperrbildschirm</string>
     <string name="status_bar_title">Statusleiste</string>
     <string name="status_bar_expanded_settings_title">Erweiterte Statusleiste</string>
+    <string name="navigation_bar_settings_title">Navigationsleiste</string>
     <string name="notification_color_settings_title">Benachrichtigungen</string>
     <string name="advanced_title">Erweitert</string>
     <string name="button_settings_title">Tasten</string>
