@@ -19,13 +19,47 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/navigation_bar_settings_title">
 
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
-         android:key="navigation_bar_button_icon_color"
-         android:title="@string/icon_title"
-         android:defaultValue="0xffffffff" />
+    <PreferenceCategory
+        android:key="navigation_bar_cat_menu_button"
+        android:title="@string/navigation_bar_cat_menu_button_title">
 
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
-         android:key="navigation_bar_button_ripple_color"
-         android:title="@string/ripple_title"
-         android:defaultValue="0xffffffff" />
+        <ListPreference
+            android:key="navigation_bar_menu_button_visibility"
+            android:title="@string/show_title"
+            android:entries="@array/navigation_bar_menu_button_visibility_entries"
+            android:entryValues="@array/navigation_bar_menu_button_visibility_values" />
+
+        <SwitchPreference
+            android:key="navigation_bar_menu_button_position"
+            android:title="@string/position_title"
+            android:summary="@string/navigation_bar_menu_button_position_summary" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="navigation_bar_cat_ime_button"
+        android:title="@string/navigation_bar_cat_ime_button_title">
+
+        <SwitchPreference
+            android:key="navigation_bar_ime_button_position"
+            android:title="@string/position_title"
+            android:summary="@string/navigation_bar_ime_button_position_summary" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="navigation_bar_cat_colors"
+        android:title="@string/colors_title">
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+             android:key="navigation_bar_button_icon_color"
+             android:title="@string/icon_title"
+             android:defaultValue="0xffffffff" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+             android:key="navigation_bar_button_ripple_color"
+             android:title="@string/ripple_title"
+             android:defaultValue="0xffffffff" />
+
+    </PreferenceCategory>
 </PreferenceScreen>

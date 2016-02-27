@@ -325,6 +325,18 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="navigation_bar_menu_button_visibility_entries">
+        <item>@string/navigation_bar_menu_button_visibility_request_title</item>
+        <item>@string/always_title</item>
+        <item>@string/never_title</item>
+    </string-array>
+
+    <string-array name="navigation_bar_menu_button_visibility_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
     <string-array name="boot_dialog_app_text_color_mode_entries" >
         <item>@string/boot_dialog_app_text_color_mode_custom_title</item>
         <item>@string/boot_dialog_app_text_color_mode_random_title</item>
