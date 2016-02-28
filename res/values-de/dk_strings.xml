@@ -367,9 +367,11 @@
     <string name="weather_bar_icon_type_title">Wetterlage Symbol</string>
 
     <!-- Navigation bar settings -->
+    <string name="navigation_bar_cat_ime_arrows_button_title">Cursor Pfeiltasten</string>
     <string name="navigation_bar_cat_menu_button_title">Menü Schaltfläche</string>
     <string name="navigation_bar_cat_ime_button_title">Eingabe Methode Schaltfläche</string>
     <string name="navigation_bar_menu_button_visibility_request_title">Bei Bedarf</string>
+    <string name="navigation_bar_show_ime_arrows_summary">Beim Tippen rechts und links Pfeiltasten anzeigen. Lange gedrückt halten um eine Zeile hoch/runter zu wechseln. Die Schaltflächen für Eingabe Methode und Menü werden verborgen.</string>
     <string name="navigation_bar_menu_button_position_summary">Aktivieren um die Menü Schaltfläche links/unten anzuzeigen (Hochformat/Querformat), deaktivieren um die Menü Schaltfläche rechts/oben anzuzeigen (Hochformat/Querformat).</string>
     <string name="navigation_bar_ime_button_position_summary">Aktivieren um die Eingabe Methode Schaltfläche links/unten anzuzeigen (Hochformat/Querformat), deaktivieren um die Eingabe Methode Schaltfläche rechts/oben anzuzeigen (Hochformat/Querformat).</string>
 

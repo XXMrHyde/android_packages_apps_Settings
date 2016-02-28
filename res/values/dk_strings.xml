@@ -367,8 +367,10 @@
     <string name="weather_bar_icon_type_title">Weather condition icon</string>
 
     <!-- Navigation bar settings -->
+    <string name="navigation_bar_cat_ime_arrows_button_title">Cursor Arrow buttons</string>
     <string name="navigation_bar_cat_menu_button_title">Menu button</string>
     <string name="navigation_bar_cat_ime_button_title">IME button</string>
+    <string name="navigation_bar_show_ime_arrows_summary">Show left and right cursor buttons while typing. Longpress to navigate up/down. The buttons for IME switcher and menu will be hidden.</string>
     <string name="navigation_bar_menu_button_visibility_request_title">On request</string>
     <string name="navigation_bar_menu_button_position_summary">Enable to show the menu button on the left/bottom (portrait/landscape), disable to show the menu button on the right/top (portrait/landscape).</string>
     <string name="navigation_bar_ime_button_position_summary">Enable to show the ime button on the left/bottom (portrait/landscape), disable to show the ime button on the right/top (portrait/landscape).</string>

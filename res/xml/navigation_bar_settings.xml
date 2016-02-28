@@ -20,6 +20,17 @@
     android:title="@string/navigation_bar_settings_title">
 
     <PreferenceCategory
+        android:key="navigation_bar_cat_ime_arrows_button"
+        android:title="@string/navigation_bar_cat_ime_arrows_button_title">
+
+        <SwitchPreference
+            android:key="navigation_bar_show_ime_arrows"
+            android:title="@string/show_title"
+            android:summary="@string/navigation_bar_show_ime_arrows_summary" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="navigation_bar_cat_menu_button"
         android:title="@string/navigation_bar_cat_menu_button_title">
 
