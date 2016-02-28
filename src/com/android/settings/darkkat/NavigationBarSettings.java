@@ -23,11 +23,8 @@ import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.os.Bundle;
-import android.preference.ListPreference;
 import android.preference.Preference;
-import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -42,29 +39,10 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class NavigationBarSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener { 
 
-    private static final String PREF_CAT_MENU_BUTTON =
-            "navigation_bar_cat_menu_button";
-    private static final String PREF_SHOW_IME_ARROWS =
-            "navigation_bar_show_ime_arrows";
-    private static final String PREF_MENU_BUTTON_VISIBILITY =
-            "navigation_bar_menu_button_visibility";
-    private static final String PREF_MENU_BUTTON_POSITION =
-            "navigation_bar_menu_button_position";
-    private static final String PREF_IME_BUTTON_POSITION =
-            "navigation_bar_ime_button_position";
     private static final String PREF_ICON_COLOR =
             "navigation_bar_button_icon_color";
     private static final String PREF_RIPPLE_COLOR =
             "navigation_bar_button_ripple_color";
-
-    private static final int HIDE_IME_ARROWS  = 0;
-    private static final int SHOW_IME_ARROWS  = 1;
-
-    private static final int MENU_BUTTON_VISIBILITY_ON_REQUEST = 0;
-    private static final int MENU_BUTTON_VISIBILITY_HIDDEN     = 2;
-
-    private static final int MENU_IME_BUTTON_POSITION_RIGHT = 0;
-    private static final int MENU_IME_BUTTON_POSITION_LEFT  = 1;
 
     private static final int WHITE           = 0xffffffff;
     private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
@@ -72,10 +50,6 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET  = 0;
 
-    private SwitchPreference mShowImeArrows;
-    private ListPreference mMenuButtonVisibility;
-    private SwitchPreference mMenuButtonPosition;
-    private SwitchPreference mImeButtonPosition;
     private ColorPickerPreference mIconColor;
     private ColorPickerPreference mRippleColor;
 
@@ -96,43 +70,8 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.navigation_bar_settings);
 
         mResolver = getContentResolver();
-        int intValue;
         int intColor;
         String hexColor;
-
-        PreferenceCategory catMenuButton =
-                (PreferenceCategory) findPreference(PREF_CAT_MENU_BUTTON);
-
-        mShowImeArrows = (SwitchPreference) findPreference(PREF_SHOW_IME_ARROWS);
-        mShowImeArrows.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.NAVIGATION_BAR_SHOW_IME_ARROWS, HIDE_IME_ARROWS)
-                == SHOW_IME_ARROWS);
-        mShowImeArrows.setOnPreferenceChangeListener(this);
-
-        mMenuButtonVisibility =
-                (ListPreference) findPreference(PREF_MENU_BUTTON_VISIBILITY);
-        final int menuButtonVisibility = Settings.System.getInt(mResolver,
-                Settings.System.NAVIGATION_BAR_MENU_BUTTON_VISIBILITY,
-                MENU_BUTTON_VISIBILITY_ON_REQUEST);
-        mMenuButtonVisibility.setValue(String.valueOf(menuButtonVisibility));
-        mMenuButtonVisibility.setSummary(mMenuButtonVisibility.getEntry());
-        mMenuButtonVisibility.setOnPreferenceChangeListener(this);
-
-        if (menuButtonVisibility != MENU_BUTTON_VISIBILITY_HIDDEN) {
-            mMenuButtonPosition = (SwitchPreference) findPreference(PREF_MENU_BUTTON_POSITION);
-            mMenuButtonPosition.setChecked(Settings.System.getInt(mResolver,
-                    Settings.System.NAVIGATION_BAR_MENU_BUTTON_POSITION,
-                    MENU_IME_BUTTON_POSITION_RIGHT) == MENU_IME_BUTTON_POSITION_LEFT);
-            mMenuButtonPosition.setOnPreferenceChangeListener(this);
-        } else {
-            catMenuButton.removePreference(findPreference(PREF_MENU_BUTTON_POSITION));
-        }
-
-        mImeButtonPosition = (SwitchPreference) findPreference(PREF_IME_BUTTON_POSITION);
-        mImeButtonPosition.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.NAVIGATION_BAR_IME_BUTTON_POSITION,
-                MENU_IME_BUTTON_POSITION_RIGHT) == MENU_IME_BUTTON_POSITION_LEFT);
-        mImeButtonPosition.setOnPreferenceChangeListener(this);
 
         mIconColor =
                 (ColorPickerPreference) findPreference(PREF_ICON_COLOR);
@@ -176,36 +115,10 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        boolean value;
         String hex;
         int intHex;
 
-        if (preference == mShowImeArrows) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(mResolver,
-                    Settings.System.NAVIGATION_BAR_SHOW_IME_ARROWS, value ? 1 : 0);
-            return true;
-        } else if (preference == mMenuButtonVisibility) {
-            int intValue = Integer.valueOf((String) newValue);
-            int index = mMenuButtonVisibility.findIndexOfValue((String) newValue);
-            Settings.System.putInt(mResolver,
-                    Settings.System.NAVIGATION_BAR_MENU_BUTTON_VISIBILITY, intValue);
-            preference.setSummary(mMenuButtonVisibility.getEntries()[index]);
-            refreshSettings();
-            return true;
-        } else if (preference == mMenuButtonPosition) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(mResolver,
-                    Settings.System.NAVIGATION_BAR_MENU_BUTTON_POSITION,
-                    value ? 1 : 0);
-            return true;
-        } else if (preference == mImeButtonPosition) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(mResolver,
-                    Settings.System.NAVIGATION_BAR_IME_BUTTON_POSITION,
-                    value ? 1 : 0);
-            return true;
-        } else if (preference == mIconColor) {
+        if (preference == mIconColor) {
             hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
@@ -252,23 +165,11 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
                 case DLG_RESET:
                     return new AlertDialog.Builder(getActivity())
                     .setTitle(R.string.reset)
-                    .setMessage(R.string.dlg_reset_values_message)
+                    .setMessage(R.string.dlg_reset_colors_message)
                     .setNegativeButton(R.string.cancel, null)
                     .setNeutralButton(R.string.dlg_reset_android,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.NAVIGATION_BAR_SHOW_IME_ARROWS,
-                                    HIDE_IME_ARROWS);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.NAVIGATION_BAR_MENU_BUTTON_VISIBILITY,
-                                    MENU_BUTTON_VISIBILITY_ON_REQUEST);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.NAVIGATION_BAR_MENU_BUTTON_POSITION,
-                                    MENU_IME_BUTTON_POSITION_RIGHT);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.NAVIGATION_BAR_IME_BUTTON_POSITION,
-                                    MENU_IME_BUTTON_POSITION_RIGHT);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.NAVIGATION_BAR_BUTTON_ICON_COLOR,
                                     WHITE);
@@ -281,18 +182,6 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
                     .setPositiveButton(R.string.dlg_reset_darkkat,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.NAVIGATION_BAR_SHOW_IME_ARROWS,
-                                    SHOW_IME_ARROWS);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.NAVIGATION_BAR_MENU_BUTTON_VISIBILITY,
-                                    MENU_BUTTON_VISIBILITY_ON_REQUEST);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.NAVIGATION_BAR_MENU_BUTTON_POSITION,
-                                    MENU_IME_BUTTON_POSITION_RIGHT);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.NAVIGATION_BAR_IME_BUTTON_POSITION,
-                                    MENU_IME_BUTTON_POSITION_LEFT);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.NAVIGATION_BAR_BUTTON_ICON_COLOR,
                                     HOLO_BLUE_LIGHT);

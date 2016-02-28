@@ -367,6 +367,10 @@
     <string name="weather_bar_icon_type_title">Weather condition icon</string>
 
     <!-- Navigation bar settings -->
+    <string name="navigation_bar_extra_buttons_settings_title">Extra buttons</string>
+    <string name="navigation_bar_extra_buttons_settings_summary">Choose how to display the cursor arrow-, ime switcher and menu button</string>
+
+    <!-- Navigation bar extra buttons settings -->
     <string name="navigation_bar_cat_ime_arrows_button_title">Cursor Arrow buttons</string>
     <string name="navigation_bar_cat_menu_button_title">Menu button</string>
     <string name="navigation_bar_cat_ime_button_title">IME button</string>
