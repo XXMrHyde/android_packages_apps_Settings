@@ -33,6 +33,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.android.internal.util.darkkat.DeviceUtils;
+
 import com.android.settings.R;
 import com.android.settings.InstrumentedFragment;
 import com.android.settings.SettingsPreferenceFragment;
@@ -85,6 +87,8 @@ public class NavigationBarExtraButtonsSettings extends SettingsPreferenceFragmen
         addPreferencesFromResource(R.xml.navigation_bar_extra_buttons_settings);
 
         mResolver = getContentResolver();
+        final boolean isPhone = DeviceUtils.isPhone(getActivity());
+
         int intValue;
 
         PreferenceCategory catMenuButton =
@@ -110,6 +114,9 @@ public class NavigationBarExtraButtonsSettings extends SettingsPreferenceFragmen
             mMenuButtonPosition.setChecked(Settings.System.getInt(mResolver,
                     Settings.System.NAVIGATION_BAR_MENU_BUTTON_POSITION,
                     MENU_IME_BUTTON_POSITION_RIGHT) == MENU_IME_BUTTON_POSITION_LEFT);
+            if (!isPhone) {
+                mMenuButtonPosition.setSummary(R.string.navigation_bar_menu_button_position_tablet_summary);
+            }
             mMenuButtonPosition.setOnPreferenceChangeListener(this);
         } else {
             catMenuButton.removePreference(findPreference(PREF_MENU_BUTTON_POSITION));
@@ -119,6 +126,9 @@ public class NavigationBarExtraButtonsSettings extends SettingsPreferenceFragmen
         mImeButtonPosition.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.NAVIGATION_BAR_IME_BUTTON_POSITION,
                 MENU_IME_BUTTON_POSITION_RIGHT) == MENU_IME_BUTTON_POSITION_LEFT);
+        if (!isPhone) {
+            mImeButtonPosition.setSummary(R.string.navigation_bar_ime_button_position_tablet_summary);
+        }
         mImeButtonPosition.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);

@@ -378,6 +378,8 @@
     <string name="navigation_bar_menu_button_visibility_request_title">On request</string>
     <string name="navigation_bar_menu_button_position_summary">Enable to show the menu button on the left/bottom (portrait/landscape), disable to show the menu button on the right/top (portrait/landscape).</string>
     <string name="navigation_bar_ime_button_position_summary">Enable to show the ime button on the left/bottom (portrait/landscape), disable to show the ime button on the right/top (portrait/landscape).</string>
+    <string name="navigation_bar_menu_button_position_tablet_summary">Enable to show the menu button on the left, disable to show the menu button on the right.</string>
+    <string name="navigation_bar_ime_button_position_tablet_summary">Enable to show the ime button on the left, disable to show the ime button on the right.</string>
 
     <!-- Notification color settings -->
     <string name="notification_media_bg_mode_title">Colorize the media background</string>
