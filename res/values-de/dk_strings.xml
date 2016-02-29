@@ -380,6 +380,7 @@
     <string name="navigation_bar_ime_button_position_summary">Aktivieren um die Eingabe Methode Schaltfläche links/unten anzuzeigen (Hochformat/Querformat), deaktivieren um die Eingabe Methode Schaltfläche rechts/oben anzuzeigen (Hochformat/Querformat).</string>
     <string name="navigation_bar_menu_button_position_tablet_summary">Aktivieren um die Menü Schaltfläche links, deaktivieren um die Menü Schaltfläche rechts.</string>
     <string name="navigation_bar_ime_button_position_tablet_summary">Aktivieren um die Eingabe Methode Schaltfläche links, deaktivieren um die Eingabe Methode Schaltfläche rechts.</string>
+
     <!-- Notification color settings -->
     <string name="notification_media_bg_mode_title">Medien Hintergrund einfärben</string>
     <string name="notification_app_icon_bg_mode_title">App Symbol Hintergrund einfärben</string>
