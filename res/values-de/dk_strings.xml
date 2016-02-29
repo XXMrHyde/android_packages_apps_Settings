@@ -367,8 +367,19 @@
     <string name="weather_bar_icon_type_title">Wetterlage Symbol</string>
 
     <!-- Navigation bar settings -->
+    <string name="navigation_bar_default_buttons_settings_title">Standard Schaltflächen</string>
+    <string name="navigation_bar_default_buttons_settings_summary">Die Zurück-, Home und App-Übersicht Schaltfläche anpassen</string>
     <string name="navigation_bar_extra_buttons_settings_title">Extra Schaltflächen</string>
     <string name="navigation_bar_extra_buttons_settings_summary">Wähle wie die Cursor Pfeiltasten, Eingabe Methode- und Menü Schaltfläche angezeigt werden sollen</string>
+
+    <!-- Navigation bar default buttons settings -->
+    <string name="navigation_bar_cat_long_click_actions_title">Aktion bei gedrückt halten</string>
+    <string name="navigation_bar_enable_back_button_long_click_title">Zurück Schaltfläche</string>
+    <string name="navigation_bar_enable_back_button_long_click_summary">Aktivieren um die aktuelle App per gedrückt halten zu beenden</string>
+    <string name="navigation_bar_enable_home_button_long_click_title">Home Schaltfläche</string>
+    <string name="navigation_bar_enable_home_button_long_click_summary">Aktivieren um Google Now per gedrückt halten zu öffnen</string>
+    <string name="navigation_bar_enable_recents_button_long_click_title">App-Übersicht Schaltfläche</string>
+    <string name="navigation_bar_enable_recents_button_long_click_summary">Aktivieren um per gedrückt halten zur letzen App zu wechseln</string>
 
     <!-- Navigation bar extra buttons settings -->
     <string name="navigation_bar_cat_ime_arrows_button_title">Cursor Pfeiltasten</string>

@@ -367,8 +367,19 @@
     <string name="weather_bar_icon_type_title">Weather condition icon</string>
 
     <!-- Navigation bar settings -->
+    <string name="navigation_bar_default_buttons_settings_title">Default buttons</string>
+    <string name="navigation_bar_default_buttons_settings_summary">Customize the back-, home- and recents button</string>
     <string name="navigation_bar_extra_buttons_settings_title">Extra buttons</string>
     <string name="navigation_bar_extra_buttons_settings_summary">Choose how to display the cursor arrow-, ime switcher and menu button</string>
+
+    <!-- Navigation bar default buttons settings -->
+    <string name="navigation_bar_cat_long_click_actions_title">Long click action</string>
+    <string name="navigation_bar_enable_back_button_long_click_title">Back button</string>
+    <string name="navigation_bar_enable_back_button_long_click_summary">Enable to close the current app on long click</string>
+    <string name="navigation_bar_enable_home_button_long_click_title">Home button</string>
+    <string name="navigation_bar_enable_home_button_long_click_summary">Enable to open Google Now on long click</string>
+    <string name="navigation_bar_enable_recents_button_long_click_title">Recents button</string>
+    <string name="navigation_bar_enable_recents_button_long_click_summary">Enable to switch to the last app on long click</string>
 
     <!-- Navigation bar extra buttons settings -->
     <string name="navigation_bar_cat_ime_arrows_button_title">Cursor Arrow buttons</string>

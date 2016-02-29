@@ -19,6 +19,12 @@
     android:title="@string/navigation_bar_settings_title">
 
     <PreferenceScreen
+        android:key="navigation_bar_default_buttons_settings"
+        android:title="@string/navigation_bar_default_buttons_settings_title"
+        android:summary="@string/navigation_bar_default_buttons_settings_summary"
+        android:fragment="com.android.settings.darkkat.NavigationBarDefaultButtonsSettings" />
+
+    <PreferenceScreen
         android:key="navigation_bar_extra_buttons_settings"
         android:title="@string/navigation_bar_extra_buttons_settings_title"
         android:summary="@string/navigation_bar_extra_buttons_settings_summary"
