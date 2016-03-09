@@ -42,9 +42,9 @@
 
         <ListPreference
             android:key="network_traffic_type"
-            android:title="@string/network_traffic_type_title"
-            android:entries="@array/network_traffic_type_entries"
-            android:entryValues="@array/network_traffic_type_values" />
+            android:title="@string/type_title"
+            android:entries="@array/icon_text_type_entries"
+            android:entryValues="@array/icon_text_type_values" />
 
         <SwitchPreference
             android:key="network_traffic_bit_byte"

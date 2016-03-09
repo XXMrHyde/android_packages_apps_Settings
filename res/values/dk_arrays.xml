@@ -253,13 +253,13 @@
         <item>2</item>
     </string-array>
 
-    <string-array name="network_traffic_type_entries" >
+    <string-array name="icon_text_type_entries" >
         <item>@string/text_title</item>
         <item>@string/icon_title</item>
-        <item>@string/network_traffic_type_text_icon</item>
+        <item>@string/type_text_icon</item>
     </string-array>
 
-    <string-array name="network_traffic_type_values" translatable="false">
+    <string-array name="icon_text_type_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>

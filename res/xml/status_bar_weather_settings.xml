@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright (C) 2015 Darkkat
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2015 DarkKat
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -16,43 +16,44 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/status_bar_carrier_label_settings_title">
+    android:title="@string/status_bar_weather_settings_title">
 
     <SwitchPreference
-        android:key="carrier_label_show"
+        android:key="weather_show"
         android:title="@string/show_title"
-        android:summary="@string/carrier_label_show_summary"
+        android:summary="@string/weather_show_summary"
         android:persistent="false" />
 
     <SwitchPreference
-        android:key="carrier_label_show_on_lock_screen"
+        android:key="weather_show_on_lock_screen"
         android:title="@string/show_on_lock_screen_title"
-        android:summary="@string/carrier_label_show_on_lock_screen_summary"
+        android:summary="@string/weather_show_on_lock_screen_summary"
         android:persistent="false" />
-
-    <SwitchPreference
-        android:key="carrier_label_use_custom"
-        android:title="@string/carrier_label_use_custom_title"
-        android:summary="@string/carrier_label_use_custom_summary"
-        android:persistent="false" />
-
-    <EditTextPreference
-        android:key="carrier_label_custom_label"
-        android:title="@string/carrier_label_custom_label_title"
-        android:dialogMessage="@string/carrier_label_custom_label_dlg_message" />
 
     <PreferenceCategory
-        android:key="carrier_label_cat_notification_icons"
+        android:key="weather_cat_options"
+        android:title="@string/options_title">
+
+        <ListPreference
+            android:key="weather_type"
+            android:title="@string/type_title"
+            android:entries="@array/icon_text_type_entries"
+            android:entryValues="@array/icon_text_type_values" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="weather_cat_notification_icons"
         android:title="@string/notification_icons_title">
 
         <SwitchPreference
-            android:key="carrier_label_hide_label"
+            android:key="weather_hide"
             android:title="@string/hide_title"
-            android:summary="@string/carrier_label_hide_label_summary"
+            android:summary="@string/weather_hide_weather_summary"
             android:persistent="false" />
 
         <ListPreference
-            android:key="carrier_label_number_of_notification_icons"
+            android:key="weather_number_of_notification_icons"
             android:title="@string/number_of_notification_icons_title"
             android:entries="@array/number_of_notifications_entries"
             android:entryValues="@array/number_of_notifications_values" />
@@ -60,17 +61,27 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="carrier_label_cat_colors"
+        android:key="weather_cat_colors"
         android:title="@string/colors_title">
 
          <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="carrier_label_color"
+            android:key="weather_text_color"
             android:title="@string/text_title"
             android:defaultValue="0xffffffff" />
 
          <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="carrier_label_color_dark_mode"
+            android:key="weather_text_color_dark_mode"
             android:title="@string/text_color_dark_mode_title"
+            android:defaultValue="0xff000000" />
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="weather_icon_color"
+            android:title="@string/icon_title"
+            android:defaultValue="0xffffffff" />
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="weather_icon_color_dark_mode"
+            android:title="@string/icon_color_dark_mode_title"
             android:defaultValue="0xff000000" />
 
     </PreferenceCategory>

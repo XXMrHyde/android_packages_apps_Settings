@@ -66,6 +66,8 @@ import android.widget.SearchView;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.XmlUtils;
+import com.android.internal.util.darkkat.WeatherHelper;
+
 import com.android.settings.accessibility.AccessibilitySettings;
 import com.android.settings.accessibility.CaptionPropertiesFragment;
 import com.android.settings.accounts.AccountSettings;
@@ -1253,7 +1255,8 @@ public class SettingsActivity extends Activity
                         removeTile = true;
                     }
                 } else if (id == R.id.weather_settings) {
-                    if (!Utils.isPackageInstalled(this, "com.cyanogenmod.lockclock")) {
+                    if (WeatherHelper.getLockClockAvailability(this)
+                            != WeatherHelper.LOCK_CLOCK_ENABLED) {
                         removeTile = true;
                     }
                 } else if (id == R.id.data_usage_settings) {

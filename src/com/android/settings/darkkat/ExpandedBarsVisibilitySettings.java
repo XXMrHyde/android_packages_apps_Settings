@@ -23,6 +23,7 @@ import android.preference.SwitchPreference;
 import android.provider.Settings;
 
 import com.android.internal.util.darkkat.DeviceUtils;
+import com.android.internal.util.darkkat.WeatherHelper;
 
 import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
@@ -61,8 +62,7 @@ public class ExpandedBarsVisibilitySettings extends SettingsPreferenceFragment i
         addPreferencesFromResource(R.xml.expanded_bars_visibility_settings);
         mResolver = getContentResolver();
 
-        final boolean isLockClockInstalled =
-                Utils.isPackageInstalled(getActivity(), "com.cyanogenmod.lockclock");
+        final int lockClockAvailability = WeatherHelper.getLockClockAvailability(getActivity());
         final boolean supportsMobileData = DeviceUtils.deviceSupportsMobileData(getActivity());
 
         mShowQuickAccessBar =
@@ -104,8 +104,15 @@ public class ExpandedBarsVisibilitySettings extends SettingsPreferenceFragment i
         mShowWeatherBar.setChecked(Settings.System.getInt(mResolver,
                Settings.System.STATUS_BAR_EXPANDED_SHOW_WEATHER, 0) == 1);
         mShowWeatherBar.setOnPreferenceChangeListener(this);
-        if (!isLockClockInstalled) {
-            mShowWeatherBar.setSummary(getResources().getString(R.string.lock_clock_missing_summary));
+
+        if (lockClockAvailability != WeatherHelper.LOCK_CLOCK_ENABLED) {
+            if (lockClockAvailability == WeatherHelper.LOCK_CLOCK_DISABLED) {
+                mShowWeatherBar.setSummary(getResources().getString(
+                        R.string.expanded_bars_lock_clock_disabled_summary));
+            } else {
+                mShowWeatherBar.setSummary(getResources().getString(
+                        R.string.expanded_bars_lock_clock_missing_summary));
+            }
         }
     }
 

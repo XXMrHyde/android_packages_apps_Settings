@@ -25,11 +25,15 @@
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="customize_title">Customize</string>
     <string name="weather_title">Weather</string>
-    <string name="lock_clock_missing_title">Clock widget isn\`t installed</string>
-    <string name="lock_clock_missing_summary">To use the weather feature, the Clock widget \'cLock\' has to be installed</string>
+    <string name="lock_clock_missing_title">\'cLock\' is not installed</string>
+    <string name="lock_clock_missing_summary">To use the weather feature, the app LockClock \'cLock\' has to be installed</string>
+    <string name="lock_clock_disabled_title">\'cLock\' is disabled</string>
+    <string name="lock_clock_disabled_summary">To use the weather feature, enable the app LockClock \'cLock\', and reboot your phone</string>
+    <string name="lock_clock_disabled_tablet_summary">To use the weather feature, enable the app LockClock \'cLock\', and reboot your tablet</string>
     <string name="options_title">Options</string>
     <string name="show_title">Show</string>
     <string name="show_on_lock_screen_title">Show on lock screen</string>
+    <string name="hide_title">Hide</string>
     <string name="colors_title">Colors</string>
     <string name="color_title">Color</string>
     <string name="color_dark_mode_title">Color (light status bar)</string>
@@ -48,11 +52,14 @@
     <string name="icon_color_dark_mode_title">Icon (light status bar)</string>
     <string name="text_title">Text</string>
     <string name="text_color_dark_mode_title">Text (light status bar)</string>
+    <string name="type_title">Type</string>
+    <string name="type_text_icon">Text &amp; icon</string>
     <string name="position_title">Position</string>
     <string name="position_right_title">Right</string>
     <string name="position_centered_title">Centered</string>
     <string name="position_left_title">Links</string>
-    <string name="number_of_notifications_title">Number of notifications</string>
+    <string name="notification_icons_title">Notification icons</string>
+    <string name="number_of_notification_icons_title">Number of notification icons</string>
     <string name="number_of_notifications_two_title">2</string>
     <string name="number_of_notifications_three_title">3</string>
     <string name="number_of_notifications_four_title">4</string>
@@ -176,6 +183,8 @@
     <string name="status_bar_battery_status_settings_summary">Customize the battery indicator</string>
     <string name="status_bar_network_status_icon_settings_title">Netw.- &amp; status icons</string>
     <string name="status_bar_network_status_icon_settings_summary">Customize the network- &amp; status icons</string>
+    <string name="status_bar_weather_settings_title">Weather</string>
+    <string name="status_bar_weather_settings_summary">Customize the weather</string>
     <string name="status_bar_network_traffic_settings_title">Network traffic</string>
     <string name="status_bar_network_traffic_settings_summary">Customize the network traffic</string>
     <string name="status_bar_notification_settings_title">Notifications</string>
@@ -205,16 +214,13 @@
     <string name="greeting_preview_summary">Click to show a preview</string>
 
     <!-- Carrier label settings -->
-    <string name="carrier_label_cat_notification_icons_title">Notification icons</string>
     <string name="carrier_label_show_summary">Enable to show the (custom) carrier label on the status bar</string>
     <string name="carrier_label_show_on_lock_screen_summary">Enable to show the (custom) carrier label on the status bar of the lock screen</string>
     <string name="carrier_label_use_custom_title">Custom carrier label</string>
     <string name="carrier_label_use_custom_summary">Enable to use a custom carrier label</string>
     <string name="carrier_label_custom_label_title">Custom label</string>
     <string name="carrier_label_custom_label_dlg_message">Enter a new custom label to display instead of the real carrier name. An empty field will revert the name to \'Darkkat\'</string>
-    <string name="carrier_label_hide_label_title">Hide</string>
     <string name="carrier_label_hide_label_summary">Enable to choose a number of visible notification icons to hide the (custom) carrier label on the status bar</string>
-    <string name="carrier_label_number_of_notification_icons_title">Number of notification icons</string>
 
     <!-- clock and date settings -->
     <string name="clock_date_cat_clock_title">Clock</string>
@@ -274,6 +280,11 @@
     <string name="network_status_icon_cat_airplane_mode_colors_title">Airplane mode colors</string>
     <string name="network_status_icon_cat_status_colors_title">Status colors</string>
 
+    <!-- Status bar weather settings -->
+    <string name="weather_show_summary">Enable to show the weather</string>
+    <string name="weather_show_on_lock_screen_summary">Enable to show the weather on lock screen</string>
+    <string name="weather_hide_weather_summary">Enable to choose a number of visible notification icons to hide the weather on the status bar</string>
+
     <!-- Status bar Network traffic settings -->
     <string name="network_traffic_show_summary">Enable to show the network traffic</string>
     <string name="network_traffic_show_on_lock_screen_summary">Enable to show the network traffic on lock screen</string>
@@ -281,8 +292,6 @@
     <string name="network_traffic_activity_direction_down">Download</string>
     <string name="network_traffic_activity_direction_up">Upload</string>
     <string name="network_traffic_activity_direction_down_up">Download &amp; Upload</string>
-    <string name="network_traffic_type_title">Type</string>
-    <string name="network_traffic_type_text_icon">Text &amp; icon</string>
     <string name="network_traffic_bit_byte_title">Show bit values</string>
     <string name="network_traffic_bit_byte_summary">Enable to show the values in bit instead of byte</string>
     <string name="network_traffic_hide_traffic_title">Hide the indicator</string>
@@ -336,6 +345,8 @@
     <string name="expanded_bars_show_battery_status_bar_summary">Enable to show the battery status bar</string>
     <string name="expanded_bars_weather_bar_title">Weather bar</string>
     <string name="expanded_bars_show_weather_summary">Enable to show the weather bar</string>
+    <string name="expanded_bars_lock_clock_missing_summary">The app LockClock \'cLock\' is not installed, disable to hide the weather bar.</string>
+    <string name="expanded_bars_lock_clock_disabled_summary">The app LockClock \'cLock\' is disabled, disable to hide the weather bar.</string>
 
     <!-- Expanded bars advanced settings -->
     <string name="advanced_quick_access_bar_settings_summary">Arrange the buttons, and choose the buttons to display on the quick access bar</string>

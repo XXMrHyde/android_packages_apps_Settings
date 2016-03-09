@@ -25,11 +25,15 @@
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="customize_title">Anpassen</string>
     <string name="weather_title">Wetter</string>
-    <string name="lock_clock_missing_title">Uhr-Widget ist nicht installiert</string>
-    <string name="lock_clock_missing_summary">Um die Wetter Funtion nutzen zu können, muss das Uhr-Widget \"cLock-Widget\" installiert sein</string>
+    <string name="lock_clock_missing_title">\"cLock\" ist nicht installiert</string>
+    <string name="lock_clock_missing_summary">Um die Wetter Funtion nutzen zu können, muss die App LockClock \"cLock\" installiert sein</string>
+    <string name="lock_clock_disabled_title">\"cLock\" ist deaktiviert</string>
+    <string name="lock_clock_disabled_summary">Um die Wetter Funtion nutzen zu können, aktiviere die App LockClock \"cLock\" und starte das Telefon neu</string>
+    <string name="lock_clock_disabledtablet_summary">Um die Wetter Funtion nutzen zu können, aktiviere die App LockClock \"cLock\" und starte das Tablet neu</string>
     <string name="options_title">Optionen</string>
     <string name="show_title">Anzeigen</string>
     <string name="show_on_lock_screen_title">Auf dem Sperrbildschirm anzeigen</string>
+    <string name="hide_title">Verbergen</string>
     <string name="colors_title">Farben</string>
     <string name="color_title">Farbe</string>
     <string name="color_dark_mode_title">Farbe (helle Statusleiste)</string>
@@ -48,11 +52,13 @@
     <string name="icon_color_dark_mode_title">Symbol (helle Statusleiste)</string>
     <string name="text_title">Text</string>
     <string name="text_color_dark_mode_title">Text (helle Statusleiste)</string>
+    <string name="type_title">Typ</string>
+    <string name="type_text_icon">Text &amp; Symbol</string>
     <string name="position_title">Position</string>
     <string name="position_right_title">Rechts</string>
     <string name="position_centered_title">Zentriert</string>
     <string name="position_left_title">Links</string>
-    <string name="number_of_notifications_title">Anzahl der Benachrichtigungen</string>
+    <string name="number_of_notification_icons_title">Anzahl an Benachrichtigungssymbolen</string>
     <string name="number_of_notifications_two_title">2</string>
     <string name="number_of_notifications_three_title">3</string>
     <string name="number_of_notifications_four_title">4</string>
@@ -176,6 +182,8 @@
     <string name="status_bar_battery_status_settings_summary">Den Akkuzeige anpassen</string>
     <string name="status_bar_network_status_icon_settings_title">Netw.- &amp; Status Symbole</string>
     <string name="status_bar_network_status_icon_settings_summary">Die Netzwerk- &amp; Status Symbole anpassen</string>
+    <string name="status_bar_weather_settings_title">Wetter</string>
+    <string name="status_bar_weather_settings_summary">Das Wetter anpassen</string>
     <string name="status_bar_network_traffic_settings_title">Netzwerk Verkehr</string>
     <string name="status_bar_network_traffic_settings_summary">Den Netzwerk Verkehr anpassen</string>
     <string name="status_bar_notification_settings_title">Benachrichtigungen</string>
@@ -212,9 +220,7 @@
     <string name="carrier_label_use_custom_summary">Aktivieren um einen angepassten Netzbetreiber Namen zu benutzen</string>
     <string name="carrier_label_custom_label_title">Angepasster Name</string>
     <string name="carrier_label_custom_label_dlg_message">Gebe einen neuen Namen ein, der anstelle des echten Netzbetreiber Namen angezeigt wird. Ein leeres Feld setzt den Namen auf \"DarkKat\" zurück.</string>
-    <string name="carrier_label_hide_label_title">Verbergen</string>
     <string name="carrier_label_hide_label_summary">Aktivieren um eine Anzahl an Benachrichtigungssymbolen zu wählen, bei deren Erreichen der (Angepassten) Netzbetreiber Name in der Statusleiste verborgen wird.</string>
-    <string name="carrier_label_number_of_notification_icons_title">Anzahl an Benachrichtigungssymbolen</string>
 
     <!-- clock and date settings -->
     <string name="clock_date_cat_clock_title">Uhr</string>
@@ -274,6 +280,11 @@
     <string name="network_status_icon_cat_airplane_mode_colors_title">Flugmodus Farben</string>
     <string name="network_status_icon_cat_status_colors_title">Status Farben</string>
 
+    <!-- Status bar weather settings -->
+    <string name="weather_show_summary">Aktivieren um das Wetter anzuzeigen</string>
+    <string name="weather_show_on_lock_screen_summary">Aktivieren um das Wetter auf dem Sperrbildschirm anzuzeigen</string>
+    <string name="weather_hide_weather_summary">Aktivieren um eine Anzahl an Benachrichtigungssymbolen zu wählen, bei deren Erreichen das Wetter in der Statusleiste verborgen wird.</string>
+
     <!-- Status bar Network traffic settings -->
     <string name="network_traffic_show_summary">Aktivieren um den Netzwerk Verkehr anzuzeigen</string>
     <string name="network_traffic_show_on_lock_screen_summary">Aktivieren um den Netzwerk Verkehr auf dem Sperrbildschirm anzuzeigen</string>
@@ -281,8 +292,6 @@
     <string name="network_traffic_activity_direction_down">Download</string>
     <string name="network_traffic_activity_direction_up">Upload</string>
     <string name="network_traffic_activity_direction_down_up">Download &amp; Upload</string>
-    <string name="network_traffic_type_title">Typ</string>
-    <string name="network_traffic_type_text_icon">Text &amp; Symbol</string>
     <string name="network_traffic_bit_byte_title">Bit-Werte anzeigen</string>
     <string name="network_traffic_bit_byte_summary">Aktivieren um die Werte in Bit anstatt Byte anzuzeigen</string>
     <string name="network_traffic_hide_traffic_title">Anzeige verbergen</string>
@@ -336,6 +345,8 @@
     <string name="expanded_bars_show_battery_status_bar_summary">Aktivieren um die Akku-Statusleiste anzuzeigen</string>
     <string name="expanded_bars_weather_bar_title">Wetterleiste</string>
     <string name="expanded_bars_show_weather_summary">Aktivieren um die Wetterleiste anzuzeigen</string>
+    <string name="expanded_bars_lock_clock_missing_summary">Die App LockClock \"cLock\" ist nicht installiert, deaktivieren um die Wetterleiste zu verbergen</string>
+    <string name="expanded_bars_lock_clock_disabled_summary">Die App LockClock \"cLock\" ist deaktiviert, deaktivieren um die Wetterleiste zu verbergen</string>
 
     <!-- Expanded bars advanced settings -->
     <string name="advanced_quick_access_bar_settings_summary">Ordne die Schaltflächen an, und wähle welche Schaltflächen in der Schnellzugriffsleiste angezeigt werden sollen</string>
