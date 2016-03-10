@@ -57,7 +57,7 @@
     <string name="position_title">Position</string>
     <string name="position_right_title">Right</string>
     <string name="position_centered_title">Centered</string>
-    <string name="position_left_title">Links</string>
+    <string name="position_left_title">Left</string>
     <string name="notification_icons_title">Notification icons</string>
     <string name="number_of_notification_icons_title">Number of notification icons</string>
     <string name="number_of_notifications_two_title">2</string>
