@@ -265,16 +265,34 @@
         <item>2</item>
     </string-array>
 
-    <string-array name="status_bar_expanded_quick_pulldown_entries" >
-        <item>@string/disabled_title</item>
-        <item>@string/position_right_title</item>
-        <item>@string/position_left_title</item>
+    <string-array name="smart_quick_pulldown_type_entries" >
+        <item>@string/always_title</item>
+        <item>@string/smart_quick_pulldown_type_dismissable_title</item>
+        <item>@string/smart_quick_pulldown_type_persistent_title</item>
+        <item>@string/smart_quick_pulldown_type_no_notifications_title</item>
+        <item>@string/never_title</item>
     </string-array>
 
-    <string-array name="status_bar_expanded_quick_pulldown_values" translatable="false">
+    <string-array name="smart_quick_pulldown_type_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="smart_quick_pulldown_area_entries" >
+        <item>@string/position_left_title</item>
+        <item>@string/position_center_title</item>
+        <item>@string/position_right_title</item>
+        <item>@string/smart_quick_pulldown_area_entire_width_title</item>
+    </string-array>
+
+    <string-array name="smart_quick_pulldown_area_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
     </string-array>
 
     <string-array name="qab_button_entries">

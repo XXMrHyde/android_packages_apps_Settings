@@ -21,6 +21,8 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.PreferenceCategory;
+import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.View;
@@ -36,59 +38,116 @@ import java.util.Locale;
 public class StatusBarExpandedSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String PREF_QUICK_PULLDOWN =
-            "status_bar_expanded_quick_pulldown";
+    private static final String PREF_CAT_SMART_QUICK_PULLDOWN =
+            "status_bar_expanded_cat_smart_quick_pulldown";
+    private static final String PREF_SMART_QUICK_PULLDOWN_TYPE =
+            "smart_quick_pulldown_type";
+    private static final String PREF_SMART_QUICK_PULLDOWN_AREA =
+            "smart_quick_pulldown_area";
 
-    private ListPreference mQuickPulldown;
+    private ListPreference mSmartQuickPulldownType;
+    private ListPreference mSmartQuickPulldownArea;
 
     private ContentResolver mResolver;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        refreshSettings();
+    }
+
+    public void refreshSettings() {
+        PreferenceScreen prefs = getPreferenceScreen();
+        if (prefs != null) {
+            prefs.removeAll();
+        }
 
         addPreferencesFromResource(R.xml.status_bar_expanded_settings);
         mResolver = getContentResolver();
 
-        mQuickPulldown =
-                (ListPreference) findPreference(PREF_QUICK_PULLDOWN);
-        int quickPulldown = Settings.System.getInt(mResolver,
-               Settings.System.STATUS_BAR_EXPANDED_QUICK_PULLDOWN, 0);
-        mQuickPulldown.setValue(String.valueOf(quickPulldown));
-        updateQuickPulldownSummary(quickPulldown);
-        mQuickPulldown.setOnPreferenceChangeListener(this);
+        final int smartQuickPulldownType = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_EXPANDED_SMART_QUICK_PULLDOWN_TYPE, 4);
+
+        mSmartQuickPulldownType =
+                (ListPreference) findPreference(PREF_SMART_QUICK_PULLDOWN_TYPE);
+        mSmartQuickPulldownType.setValue(String.valueOf(smartQuickPulldownType));
+        updateSmartQuickPulldownTypeSummary(smartQuickPulldownType);
+        mSmartQuickPulldownType.setOnPreferenceChangeListener(this);
+
+        PreferenceCategory catSmartQuickPulldown =
+                (PreferenceCategory) findPreference(PREF_CAT_SMART_QUICK_PULLDOWN);
+        if (smartQuickPulldownType != 4) {
+            mSmartQuickPulldownArea =
+                    (ListPreference) findPreference(PREF_SMART_QUICK_PULLDOWN_AREA);
+            int smartQuickPulldownArea = Settings.System.getInt(mResolver,
+                   Settings.System.STATUS_BAR_EXPANDED_SMART_QUICK_PULLDOWN_AREA, 3);
+            mSmartQuickPulldownArea.setValue(String.valueOf(smartQuickPulldownArea));
+            if (smartQuickPulldownArea == 1 || smartQuickPulldownArea == 3) {
+                mSmartQuickPulldownArea.setSummary(mSmartQuickPulldownArea.getEntry());
+            } else {
+                updateSmartQuickPulldownAreaSummary(smartQuickPulldownArea);
+            }
+            mSmartQuickPulldownArea.setOnPreferenceChangeListener(this);
+        } else {
+            catSmartQuickPulldown.removePreference(findPreference(PREF_SMART_QUICK_PULLDOWN_AREA));
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mQuickPulldown) {
-            int intValue = Integer.valueOf((String) newValue);
+        int intValue;
+        if (preference == mSmartQuickPulldownType) {
+            intValue = Integer.valueOf((String) newValue);
             Settings.System.putInt(mResolver,
-                    Settings.System.STATUS_BAR_EXPANDED_QUICK_PULLDOWN,
+                    Settings.System.STATUS_BAR_EXPANDED_SMART_QUICK_PULLDOWN_TYPE,
                     intValue);
-            updateQuickPulldownSummary(intValue);
+            updateSmartQuickPulldownTypeSummary(intValue);
+            refreshSettings();
+            return true;
+        } else if (preference == mSmartQuickPulldownArea) {
+            intValue = Integer.valueOf((String) newValue);
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_EXPANDED_SMART_QUICK_PULLDOWN_AREA,
+                    intValue);
+            if (intValue == 1 || intValue == 3) {
+                int index = mSmartQuickPulldownArea.findIndexOfValue((String) newValue);
+                mSmartQuickPulldownArea.setSummary(mSmartQuickPulldownArea.getEntries()[index]);
+            } else {
+                updateSmartQuickPulldownAreaSummary(intValue);
+            }
             return true;
         }
         return false;
     }
 
-    private void updateQuickPulldownSummary(int value) {
+    private void updateSmartQuickPulldownTypeSummary(int value) {
         Resources res = getResources();
+        int summaryResId = 0;
 
         if (value == 0) {
-            // quick pulldown deactivated
-            mQuickPulldown.setSummary(res.getString(R.string.disabled_title));
-        } else {
-            Locale l = Locale.getDefault();
-            boolean isRtl = TextUtils.getLayoutDirectionFromLocale(l) == View.LAYOUT_DIRECTION_RTL;
-            String direction = res.getString(value == 2
-                    ? (isRtl
-                            ? R.string.status_bar_expanded_quick_pulldown_summary_right
-                            : R.string.status_bar_expanded_quick_pulldown_summary_left)
-                    : (isRtl
-                            ? R.string.status_bar_expanded_quick_pulldown_summary_left
-                            : R.string.status_bar_expanded_quick_pulldown_summary_right));
-            mQuickPulldown.setSummary(res.getString(R.string.status_bar_expanded_quick_pulldown_summary, direction));
+            summaryResId = R.string.smart_quick_pulldown_type_always_summary;
+        } else if (value == 1) {
+            summaryResId = R.string.smart_quick_pulldown_type_dismissable_summary;
+        } else if (value == 2) {
+            summaryResId = R.string.smart_quick_pulldown_type_persistent_summary;
+        } else if (value == 3) {
+            summaryResId = R.string.smart_quick_pulldown_type_no_notifications_summary;
+        } else if (value == 4) {
+            summaryResId = R.string.smart_quick_pulldown_type_never_summary;
         }
+        if (summaryResId > 0) {
+            mSmartQuickPulldownType.setSummary(res.getString(summaryResId));
+        }
+    }
+
+    private void updateSmartQuickPulldownAreaSummary(int value) {
+        Resources res = getResources();
+
+        Locale l = Locale.getDefault();
+        boolean isRtl = TextUtils.getLayoutDirectionFromLocale(l) == View.LAYOUT_DIRECTION_RTL;
+        int resId = value == 0
+                ? (isRtl ? R.string.position_right_title : R.string.position_left_title)
+                : (isRtl ? R.string.position_left_title : R.string.position_right_title);
+        mSmartQuickPulldownArea.setSummary(res.getString(resId));
     }
 
     @Override

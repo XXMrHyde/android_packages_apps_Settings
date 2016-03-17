@@ -57,6 +57,7 @@
     <string name="position_title">Position</string>
     <string name="position_right_title">Right</string>
     <string name="position_centered_title">Centered</string>
+    <string name="position_center_title">Center</string>
     <string name="position_left_title">Left</string>
     <string name="notification_icons_title">Notification icons</string>
     <string name="number_of_notification_icons_title">Number of notification icons</string>
@@ -304,15 +305,23 @@
     <string name="notification_ticker_text_color_dark_mode_title">Ticker text (light status bar)</string>
 
     <!-- Statusbar expanded settings -->
-    <string name="status_bar_expanded_quick_pulldown_title">Quick pulldown</string>
-    <string name="status_bar_expanded_quick_pulldown_summary">%1$s edge of the status bar pulls down to the expanded view</string>
-    <string name="status_bar_expanded_quick_pulldown_summary_right">Right</string>
-    <string name="status_bar_expanded_quick_pulldown_summary_left">Left</string>
-    <string name="status_bar_expanded_quick_pulldown_dlg_title">Choose which edge of the status bar pulls down to the expanded view</string>
+    <string name="status_bar_expanded_cat_smart_quick_pulldown_title">Smart quick pulldown</string>
     <string name="status_bar_expanded_header_settings_title">Header</string>
     <string name="status_bar_expanded_header_settings_summary">Customize the header</string>
     <string name="status_bar_expanded_bars_settings_title">Bars</string>
     <string name="status_bar_expanded_bars_settings_summary">Customize the bars</string>
+    <string name="smart_quick_pulldown_type_dlg_title">Choose when to pull down to the expanded view directly</string>
+    <string name="smart_quick_pulldown_type_dismissable_title">No dismissable notifications</string>
+    <string name="smart_quick_pulldown_type_persistent_title">No persistent notifications</string>
+    <string name="smart_quick_pulldown_type_no_notifications_title">No notifications</string>
+    <string name="smart_quick_pulldown_type_always_summary">Always pull down to the expanded view directly</string>
+    <string name="smart_quick_pulldown_type_dismissable_summary">Pull down to the expanded view directly, when there are no dismissable notifications present</string>
+    <string name="smart_quick_pulldown_type_persistent_summary">Pull down to the expanded view directly, when there are no persistent notifications present</string>
+    <string name="smart_quick_pulldown_type_no_notifications_summary">Pull down to the expanded view directly, when there are no notifications present</string>
+    <string name="smart_quick_pulldown_type_never_summary">Never pull down to the expanded view directly</string>
+    <string name="smart_quick_pulldown_area_title">Area</string>
+    <string name="smart_quick_pulldown_area_dlg_title">Choose which area of the status bar is used to pull down to the expanded view directly</string>
+    <string name="smart_quick_pulldown_area_entire_width_title">Entire width</string>
 
     <!-- Statusbar expanded header settings -->
     <string name="expanded_header_network_icons_settings_title">Network icons</string>
