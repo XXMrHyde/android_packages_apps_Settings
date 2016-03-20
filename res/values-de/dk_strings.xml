@@ -29,7 +29,7 @@
     <string name="lock_clock_missing_summary">Um die Wetter Funtion nutzen zu können, muss die App LockClock \"cLock\" installiert sein</string>
     <string name="lock_clock_disabled_title">\"cLock\" ist deaktiviert</string>
     <string name="lock_clock_disabled_summary">Um die Wetter Funtion nutzen zu können, aktiviere die App LockClock \"cLock\" und starte das Telefon neu</string>
-    <string name="lock_clock_disabledtablet_summary">Um die Wetter Funtion nutzen zu können, aktiviere die App LockClock \"cLock\" und starte das Tablet neu</string>
+    <string name="lock_clock_disabled_tablet_summary">Um die Wetter Funtion nutzen zu können, aktiviere die App LockClock \"cLock\" und starte das Tablet neu</string>
     <string name="options_title">Optionen</string>
     <string name="show_title">Anzeigen</string>
     <string name="show_on_lock_screen_title">Auf dem Sperrbildschirm anzeigen</string>
@@ -59,6 +59,7 @@
     <string name="position_centered_title">Zentriert</string>
     <string name="position_center_title">Mitte</string>
     <string name="position_left_title">Links</string>
+    <string name="notification_icons_title">Benachrichtigungssymbole</string>
     <string name="number_of_notification_icons_title">Anzahl an Benachrichtigungssymbolen</string>
     <string name="number_of_notifications_two_title">2</string>
     <string name="number_of_notifications_three_title">3</string>
@@ -214,7 +215,6 @@
     <string name="greeting_preview_summary">Klicke um eine Vorschau anzuzeigen</string>
 
     <!-- Carrier label settings -->
-    <string name="carrier_label_cat_notification_icons_title">Benachrichtigungssymbole</string>
     <string name="carrier_label_show_summary">Aktivieren um den (Angepassten) Netzbetreiber Namen in der Statusleiste anzuzeigen</string>
     <string name="carrier_label_show_on_lock_screen_summary">Aktivieren um den (Angepassten) Netzbetreiber Namen in der Statusleiste auf dem Sperrbildschirm anzuzeigen</string>
     <string name="carrier_label_use_custom_title">Angepasster Netzbetreiber Name</string>
