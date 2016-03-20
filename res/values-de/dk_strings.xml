@@ -287,6 +287,8 @@
     <string name="weather_hide_weather_summary">Aktivieren um eine Anzahl an Benachrichtigungssymbolen zu wählen, bei deren Erreichen das Wetter in der Statusleiste verborgen wird.</string>
 
     <!-- Status bar Network traffic settings -->
+    <string name="network_traffic_cat_style_title">Darstellung</string>
+    <string name="network_traffic_cat_visibility_title">Sichtbarkeit</string>
     <string name="network_traffic_show_summary">Aktivieren um den Netzwerk Verkehr anzuzeigen</string>
     <string name="network_traffic_show_on_lock_screen_summary">Aktivieren um den Netzwerk Verkehr auf dem Sperrbildschirm anzuzeigen</string>
     <string name="network_traffic_activity_direction_title">Aktivität</string>
@@ -296,7 +298,34 @@
     <string name="network_traffic_bit_byte_title">Bit-Werte anzeigen</string>
     <string name="network_traffic_bit_byte_summary">Aktivieren um die Werte in Bit anstatt Byte anzuzeigen</string>
     <string name="network_traffic_hide_traffic_title">Anzeige verbergen</string>
-    <string name="network_traffic_hide_traffic_summary">Aktivieren um die Anzeige bei keinem Datenverkehr zu verbergen</string>
+    <string name="network_traffic_hide_traffic_summary">Aktivieren um die Anzeige zu verbergen, wenn die aktuelle Netzwerkgeschwindigkeit dem Grenzwert enstpricht oder darunter liegt</string>
+    <string name="network_traffic_threshold_title">Grenzwert</string>
+    <string name="network_traffic_threshold_summary">Die Anzeige wird verborgen, wenn die aktuelle Netzwerkgeschwindigkeit %1$s ist</string>
+    <string name="network_traffic_threshold_no_traffic_summary">Die Anzeige wird verborgen, wenn kein Netzwerk Verkehr vorhanden ist</string>
+    <string name="network_traffic_threshold_dlg_title">Wähle einen Grenzwert um die Anzeige zu verbergen</string>
+    <string name="network_traffic_threshold_0">Kein Datenverkehr</string>
+    <string name="network_traffic_threshold_bit_80">80 kbit/s oder weniger</string>
+    <string name="network_traffic_threshold_bit_160">160 kbit/s oder weniger</string>
+    <string name="network_traffic_threshold_bit_240">240 kbit/s oder weniger</string>
+    <string name="network_traffic_threshold_bit_320">320 kbit/s oder weniger</string>
+    <string name="network_traffic_threshold_bit_400">400 kbit/s oder weniger</string>
+    <string name="network_traffic_threshold_bit_480">480 kbit/s oder weniger</string>
+    <string name="network_traffic_threshold_bit_560">560 kbit/s oder weniger</string>
+    <string name="network_traffic_threshold_bit_640">640 kbit/s oder weniger</string>
+    <string name="network_traffic_threshold_bit_720">720 kbit/s oder weniger</string>
+    <string name="network_traffic_threshold_bit_800">800 kbit/s oder weniger</string>
+    <string name="network_traffic_threshold_byte_10">10 kB/s oder weniger</string>
+    <string name="network_traffic_threshold_byte_20">20 kB/s oder weniger</string>
+    <string name="network_traffic_threshold_byte_30">30 kB/s oder weniger</string>
+    <string name="network_traffic_threshold_byte_40">40 kB/s oder weniger</string>
+    <string name="network_traffic_threshold_byte_50">50 kB/s oder weniger</string>
+    <string name="network_traffic_threshold_byte_60">60 kB/s oder weniger</string>
+    <string name="network_traffic_threshold_byte_70">70 kB/s oder weniger</string>
+    <string name="network_traffic_threshold_byte_80">80 kB/s oder weniger</string>
+    <string name="network_traffic_threshold_byte_90">90 kB/s oder weniger</string>
+    <string name="network_traffic_threshold_byte_100">100 kB/s oder weniger</string>
+    <string name="network_traffic_icon_as_indicator_title">Symbol zeigt Aktivität an</string>
+    <string name="network_traffic_icon_as_indicator_summary">Aktivieren um das Symbol als Aktivitätsindikator zu nutzen, deaktivieren um das Symbol zu verbergen, wenn die aktuelle Netzwerkgeschwindigkeit dem Grenzwert enstpricht oder darunter liegt</string>
 
     <!-- Status bar notification settings -->
     <string name="notification_show_ticker_title">Ticker anzeigen</string>

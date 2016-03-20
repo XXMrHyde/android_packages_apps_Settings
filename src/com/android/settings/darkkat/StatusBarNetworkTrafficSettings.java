@@ -41,8 +41,10 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
-    private static final String PREF_CAT_OPTIONS =
-            "network_traffic_cat_options";
+    private static final String PREF_CAT_STYLE =
+            "network_traffic_cat_style";
+    private static final String PREF_CAT_VISIBILITY =
+            "network_traffic_cat_visibility";
     private static final String PREF_CAT_COLORS =
             "network_traffic_cat_colors";
     private static final String PREF_SHOW =
@@ -55,8 +57,14 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
             "network_traffic_type";
     private static final String PREF_BIT_BYTE =
             "network_traffic_bit_byte";
-    private static final String PREF_HIDE =
+    private static final String PREF_HIDE_TRAFFIC =
             "network_traffic_hide_traffic";
+    private static final String PREF_THRESHOLD_BIT =
+            "network_traffic_threshold_bit";
+    private static final String PREF_THRESHOLD_BYTE =
+            "network_traffic_threshold_byte";
+    private static final String PREF_ICON_AS_INDICATOR =
+            "network_traffic_icon_as_indicator";
     private static final String PREF_TEXT_COLOR =
             "network_traffic_text_color";
     private static final String PREF_TEXT_COLOR_DARK_MODE =
@@ -72,6 +80,8 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
     private static final int TYPE_ICON      = 1;
     private static final int TYPE_TEXT_ICON = 2;
 
+    private static final int DEFAULT_THRESHOLD = 0;
+
     private static final int WHITE           = 0xffffffff;
     private static final int BLACK           = 0xff000000;
     private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
@@ -84,7 +94,10 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
     private ListPreference mActivityDirection;
     private ListPreference mType;
     private SwitchPreference mBitByte;
-    private SwitchPreference mHide;
+    private SwitchPreference mHideTraffic;
+    private ListPreference mThresholdBit;
+    private ListPreference mThresholdByte;
+    private SwitchPreference mIconAsIndicator;
     private ColorPickerPreference mTextColor;
     private ColorPickerPreference mTextColorDarkMode;
     private ColorPickerPreference mIconColor;
@@ -116,8 +129,10 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
                Settings.System.STATUS_BAR_NETWORK_TRAFFIC_SHOW_ON_LOCK_SCREEN, 0) == 1;
         final boolean isTrafficEnabled = show || showOnLockScreen;
 
-        PreferenceCategory catOptions =
-                (PreferenceCategory) findPreference(PREF_CAT_OPTIONS);
+        PreferenceCategory catStyle =
+                (PreferenceCategory) findPreference(PREF_CAT_STYLE);
+        PreferenceCategory catVisibility =
+                (PreferenceCategory) findPreference(PREF_CAT_VISIBILITY);
         PreferenceCategory catColors =
                 (PreferenceCategory) findPreference(PREF_CAT_COLORS);
 
@@ -130,37 +145,70 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
         mShowOnLockScreen.setOnPreferenceChangeListener(this);
 
         if (isTrafficEnabled) {
-            mActivityDirection =
-                    (ListPreference) findPreference(PREF_ACTIVITY_DIRECTION);
             final int activityDirection = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ACTIVITY_DIRECTION,
                     DIRECTION_UP_DOWN);
-            mActivityDirection.setValue(String.valueOf(activityDirection));
-            mActivityDirection.setSummary(mActivityDirection.getEntry());
-            mActivityDirection.setOnPreferenceChangeListener(this);
-
             final int type = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_NETWORK_TRAFFIC_TYPE, TYPE_TEXT_ICON);
             final boolean showText  = type == TYPE_TEXT || type == TYPE_TEXT_ICON;
             final boolean showIcon = type == TYPE_ICON || type == TYPE_TEXT_ICON;
+            final boolean isBit = Settings.System.getInt(mResolver,
+                   Settings.System.STATUS_BAR_NETWORK_TRAFFIC_BIT_BYTE, 0) == 1;
+            final boolean hideTraffic = Settings.System.getInt(mResolver,
+                    Settings.System.STATUS_BAR_NETWORK_TRAFFIC_HIDE_TRAFFIC, 1) == 1;
+            final int threshold = Settings.System.getInt(mResolver,
+                    Settings.System.STATUS_BAR_NETWORK_TRAFFIC_THRESHOLD,
+                    DEFAULT_THRESHOLD);
+
+            mActivityDirection =
+                    (ListPreference) findPreference(PREF_ACTIVITY_DIRECTION);
+            mActivityDirection.setValue(String.valueOf(activityDirection));
+            mActivityDirection.setSummary(mActivityDirection.getEntry());
+            mActivityDirection.setOnPreferenceChangeListener(this);
 
             mType = (ListPreference) findPreference(PREF_TYPE);
             mType.setValue(String.valueOf(type));
             mType.setSummary(mType.getEntry());
             mType.setOnPreferenceChangeListener(this);
 
+            mHideTraffic =
+                    (SwitchPreference) findPreference(PREF_HIDE_TRAFFIC);
+            mHideTraffic.setChecked(hideTraffic);
+            mHideTraffic.setOnPreferenceChangeListener(this);
+
+            if (hideTraffic) {
+                if (isBit) {
+                    mThresholdBit = (ListPreference) findPreference(PREF_THRESHOLD_BIT);
+                    mThresholdBit.setValue(String.valueOf(threshold));
+                    mThresholdBit.setOnPreferenceChangeListener(this);
+                    catVisibility.removePreference(findPreference(PREF_THRESHOLD_BYTE));
+                } else {
+                    mThresholdByte = (ListPreference) findPreference(PREF_THRESHOLD_BYTE);
+                    mThresholdByte.setValue(String.valueOf(threshold));
+                    mThresholdByte.setOnPreferenceChangeListener(this);
+                    catVisibility.removePreference(findPreference(PREF_THRESHOLD_BIT));
+                }
+                updateThresholdSummary(threshold, isBit ? mThresholdBit : mThresholdByte);
+                if (showIcon) {
+                    mIconAsIndicator =
+                            (SwitchPreference) findPreference(PREF_ICON_AS_INDICATOR);
+                    mIconAsIndicator.setChecked(Settings.System.getInt(mResolver,
+                        Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ICON_AS_INDICATOR, 1) == 1);
+                    mIconAsIndicator.setOnPreferenceChangeListener(this);
+                } else {
+                    catVisibility.removePreference(findPreference(PREF_ICON_AS_INDICATOR));
+                }
+            } else {
+                catVisibility.removePreference(findPreference(PREF_THRESHOLD_BIT));
+                catVisibility.removePreference(findPreference(PREF_THRESHOLD_BYTE));
+                catVisibility.removePreference(findPreference(PREF_ICON_AS_INDICATOR));
+            }
+
             if (showText) {
                 mBitByte =
                         (SwitchPreference) findPreference(PREF_BIT_BYTE);
-                mBitByte.setChecked((Settings.System.getInt(mResolver,
-                        Settings.System.STATUS_BAR_NETWORK_TRAFFIC_BIT_BYTE, 0) == 1));
+                mBitByte.setChecked(isBit);
                 mBitByte.setOnPreferenceChangeListener(this);
-
-                mHide =
-                        (SwitchPreference) findPreference(PREF_HIDE);
-                mHide.setChecked((Settings.System.getInt(mResolver,
-                        Settings.System.STATUS_BAR_NETWORK_TRAFFIC_HIDE_TRAFFIC, 1) == 1));
-                mHide.setOnPreferenceChangeListener(this);
 
                 mTextColor =
                         (ColorPickerPreference) findPreference(PREF_TEXT_COLOR);
@@ -187,8 +235,7 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
                     catColors.removePreference(findPreference(PREF_TEXT_COLOR_DARK_MODE));
                 }
             } else {
-                catOptions.removePreference(findPreference(PREF_BIT_BYTE));
-                catOptions.removePreference(findPreference(PREF_HIDE));
+                catStyle.removePreference(findPreference(PREF_BIT_BYTE));
                 catColors.removePreference(findPreference(PREF_TEXT_COLOR));
                 catColors.removePreference(findPreference(PREF_TEXT_COLOR_DARK_MODE));
             }
@@ -223,15 +270,19 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
                 catColors.removePreference(findPreference(PREF_ICON_COLOR_DARK_MODE));
             }
         } else {
-            catOptions.removePreference(findPreference(PREF_ACTIVITY_DIRECTION));
-            catOptions.removePreference(findPreference(PREF_TYPE));
-            catOptions.removePreference(findPreference(PREF_BIT_BYTE));
-            catOptions.removePreference(findPreference(PREF_HIDE));
+            catStyle.removePreference(findPreference(PREF_ACTIVITY_DIRECTION));
+            catStyle.removePreference(findPreference(PREF_TYPE));
+            catStyle.removePreference(findPreference(PREF_BIT_BYTE));
+            catVisibility.removePreference(findPreference(PREF_HIDE_TRAFFIC));
+            catVisibility.removePreference(findPreference(PREF_THRESHOLD_BIT));
+            catVisibility.removePreference(findPreference(PREF_THRESHOLD_BYTE));
+            catVisibility.removePreference(findPreference(PREF_ICON_AS_INDICATOR));
             catColors.removePreference(findPreference(PREF_TEXT_COLOR));
             catColors.removePreference(findPreference(PREF_TEXT_COLOR_DARK_MODE));
             catColors.removePreference(findPreference(PREF_ICON_COLOR));
             catColors.removePreference(findPreference(PREF_ICON_COLOR_DARK_MODE));
-            removePreference(PREF_CAT_OPTIONS);
+            removePreference(PREF_CAT_STYLE);
+            removePreference(PREF_CAT_VISIBILITY);
             removePreference(PREF_CAT_COLORS);
         }
 
@@ -298,11 +349,31 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
             Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_NETWORK_TRAFFIC_BIT_BYTE,
                     value ? 1 : 0);
+            refreshSettings();
             return true;
-        } else if (preference == mHide) {
+        } else if (preference == mHideTraffic) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_NETWORK_TRAFFIC_HIDE_TRAFFIC,
+                    value ? 1 : 0);
+            refreshSettings();
+            return true;
+        } else if (preference == mThresholdBit) {
+            intValue = Integer.valueOf((String) newValue);
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_NETWORK_TRAFFIC_THRESHOLD, intValue);
+            refreshSettings();
+            return true;
+        } else if (preference == mThresholdByte) {
+            intValue = Integer.valueOf((String) newValue);
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_NETWORK_TRAFFIC_THRESHOLD, intValue);
+            refreshSettings();
+            return true;
+        } else if (preference == mIconAsIndicator) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ICON_AS_INDICATOR,
                     value ? 1 : 0);
             return true;
         } else if (preference == mTextColor) {
@@ -394,6 +465,11 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NETWORK_TRAFFIC_HIDE_TRAFFIC, 1);
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_NETWORK_TRAFFIC_THRESHOLD,
+                                    DEFAULT_THRESHOLD);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ICON_AS_INDICATOR, 1);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NETWORK_TRAFFIC_TEXT_COLOR,
                                     WHITE);
                             Settings.System.putInt(getOwner().mResolver,
@@ -425,6 +501,10 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NETWORK_TRAFFIC_HIDE_TRAFFIC, 1);
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_NETWORK_TRAFFIC_THRESHOLD, 10);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ICON_AS_INDICATOR, 1);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NETWORK_TRAFFIC_TEXT_COLOR,
                                     HOLO_BLUE_LIGHT);
                             Settings.System.putInt(getOwner().mResolver,
@@ -447,6 +527,16 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
         @Override
         public void onCancel(DialogInterface dialog) {
 
+        }
+    }
+
+    private void updateThresholdSummary(int threshold, ListPreference lp) {
+        if (threshold == DEFAULT_THRESHOLD) {
+            lp.setSummary(getResources().getString(
+                        R.string.network_traffic_threshold_no_traffic_summary));
+        } else {
+            lp.setSummary(getResources().getString(
+                    R.string.network_traffic_threshold_summary, lp.getEntry()));
         }
     }
 

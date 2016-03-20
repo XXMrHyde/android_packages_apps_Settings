@@ -287,6 +287,8 @@
     <string name="weather_hide_weather_summary">Enable to choose a number of visible notification icons to hide the weather on the status bar</string>
 
     <!-- Status bar Network traffic settings -->
+    <string name="network_traffic_cat_style_title">Style</string>
+    <string name="network_traffic_cat_visibility_title">Visibility</string>
     <string name="network_traffic_show_summary">Enable to show the network traffic</string>
     <string name="network_traffic_show_on_lock_screen_summary">Enable to show the network traffic on lock screen</string>
     <string name="network_traffic_activity_direction_title">Activity</string>
@@ -296,7 +298,34 @@
     <string name="network_traffic_bit_byte_title">Show bit values</string>
     <string name="network_traffic_bit_byte_summary">Enable to show the values in bit instead of byte</string>
     <string name="network_traffic_hide_traffic_title">Hide the indicator</string>
-    <string name="network_traffic_hide_traffic_summary">Enable to hide the indicator if there is no traffic</string>
+    <string name="network_traffic_hide_traffic_summary">Enable to hide the indicator if the current network speed matches or is below the threshold</string>
+    <string name="network_traffic_threshold_title">Threshold</string>
+    <string name="network_traffic_threshold_summary">The traffic indicator will be hidden, if the current network speed is %1$s</string>
+    <string name="network_traffic_threshold_no_traffic_summary">The traffic indicator will be hidden, if there is no traffic</string>
+    <string name="network_traffic_threshold_dlg_title">Choose a threshold to hide the traffic indicator</string>
+    <string name="network_traffic_threshold_0">No traffic</string>
+    <string name="network_traffic_threshold_bit_80">80 kbit/s or below</string>
+    <string name="network_traffic_threshold_bit_160">160 kbit/s or below</string>
+    <string name="network_traffic_threshold_bit_240">240 kbit/s or below</string>
+    <string name="network_traffic_threshold_bit_320">320 kbit/s or below</string>
+    <string name="network_traffic_threshold_bit_400">400 kbit/s or below</string>
+    <string name="network_traffic_threshold_bit_480">480 kbit/s or below</string>
+    <string name="network_traffic_threshold_bit_560">560 kbit/s or below</string>
+    <string name="network_traffic_threshold_bit_640">640 kbit/s or below</string>
+    <string name="network_traffic_threshold_bit_720">720 kbit/s or below</string>
+    <string name="network_traffic_threshold_bit_800">800 kKbit/s or below</string>
+    <string name="network_traffic_threshold_byte_10">10 kB/s or below</string>
+    <string name="network_traffic_threshold_byte_20">20 kB/s or below</string>
+    <string name="network_traffic_threshold_byte_30">30 kB/s or below</string>
+    <string name="network_traffic_threshold_byte_40">40 kB/s or below</string>
+    <string name="network_traffic_threshold_byte_50">50 kB/s or below</string>
+    <string name="network_traffic_threshold_byte_60">60 kB/s or below</string>
+    <string name="network_traffic_threshold_byte_70">70 kB/s or below</string>
+    <string name="network_traffic_threshold_byte_80">80 kB/s or below</string>
+    <string name="network_traffic_threshold_byte_90">90 kB/s or below</string>
+    <string name="network_traffic_threshold_byte_100">100 kB/s or below</string>
+    <string name="network_traffic_icon_as_indicator_title">Icon indicates activity</string>
+    <string name="network_traffic_icon_as_indicator_summary">Enable to use the icon as activity indicator, disable to hide the icon if the current network speed matches or is below the threshold</string>
 
     <!-- Status bar notification settings -->
     <string name="notification_show_ticker_title">Show ticker</string>

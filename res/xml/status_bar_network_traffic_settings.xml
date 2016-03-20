@@ -31,8 +31,8 @@
         android:persistent="false" />
 
     <PreferenceCategory
-        android:key="network_traffic_cat_options"
-        android:title="@string/options_title">
+        android:key="network_traffic_cat_style"
+        android:title="@string/network_traffic_cat_style_title">
 
         <ListPreference
             android:key="network_traffic_activity_direction"
@@ -51,10 +51,35 @@
             android:title="@string/network_traffic_bit_byte_title"
             android:summary="@string/network_traffic_bit_byte_summary" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="network_traffic_cat_visibility"
+        android:title="@string/network_traffic_cat_visibility_title">
+
         <SwitchPreference
             android:key="network_traffic_hide_traffic"
             android:title="@string/network_traffic_hide_traffic_title"
             android:summary="@string/network_traffic_hide_traffic_summary" />
+
+        <ListPreference
+            android:key="network_traffic_threshold_bit"
+            android:title="@string/network_traffic_threshold_title"
+            android:dialogTitle="@string/network_traffic_threshold_dlg_title"
+            android:entries="@array/network_traffic_threshold_bit_entries"
+            android:entryValues="@array/network_traffic_threshold_values" />
+
+        <ListPreference
+            android:key="network_traffic_threshold_byte"
+            android:title="@string/network_traffic_threshold_title"
+            android:dialogTitle="@string/network_traffic_threshold_dlg_title"
+            android:entries="@array/network_traffic_threshold_byte_entries"
+            android:entryValues="@array/network_traffic_threshold_values" />
+
+        <SwitchPreference
+            android:key="network_traffic_icon_as_indicator"
+            android:title="@string/network_traffic_icon_as_indicator_title"
+            android:summary="@string/network_traffic_icon_as_indicator_summary" />
 
     </PreferenceCategory>
 

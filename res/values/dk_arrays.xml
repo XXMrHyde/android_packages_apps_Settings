@@ -253,6 +253,48 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="network_traffic_threshold_bit_entries" >
+        <item>@string/network_traffic_threshold_0</item>
+        <item>@string/network_traffic_threshold_bit_80</item>
+        <item>@string/network_traffic_threshold_bit_160</item>
+        <item>@string/network_traffic_threshold_bit_240</item>
+        <item>@string/network_traffic_threshold_bit_320</item>
+        <item>@string/network_traffic_threshold_bit_400</item>
+        <item>@string/network_traffic_threshold_bit_480</item>
+        <item>@string/network_traffic_threshold_bit_560</item>
+        <item>@string/network_traffic_threshold_bit_640</item>
+        <item>@string/network_traffic_threshold_bit_720</item>
+        <item>@string/network_traffic_threshold_bit_800</item>
+    </string-array>
+
+    <string-array name="network_traffic_threshold_byte_entries" >
+        <item>@string/network_traffic_threshold_0</item>
+        <item>@string/network_traffic_threshold_byte_10</item>
+        <item>@string/network_traffic_threshold_byte_20</item>
+        <item>@string/network_traffic_threshold_byte_30</item>
+        <item>@string/network_traffic_threshold_byte_40</item>
+        <item>@string/network_traffic_threshold_byte_50</item>
+        <item>@string/network_traffic_threshold_byte_60</item>
+        <item>@string/network_traffic_threshold_byte_70</item>
+        <item>@string/network_traffic_threshold_byte_80</item>
+        <item>@string/network_traffic_threshold_byte_90</item>
+        <item>@string/network_traffic_threshold_byte_100</item>
+    </string-array>
+
+    <string-array name="network_traffic_threshold_values" translatable="false">
+        <item>0</item>
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+        <item>60</item>
+        <item>70</item>
+        <item>80</item>
+        <item>90</item>
+        <item>100</item>
+    </string-array>
+
     <string-array name="icon_text_type_entries" >
         <item>@string/text_title</item>
         <item>@string/icon_title</item>
