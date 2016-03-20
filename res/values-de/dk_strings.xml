@@ -291,10 +291,10 @@
     <string name="network_traffic_cat_visibility_title">Sichtbarkeit</string>
     <string name="network_traffic_show_summary">Aktivieren um den Netzwerk Verkehr anzuzeigen</string>
     <string name="network_traffic_show_on_lock_screen_summary">Aktivieren um den Netzwerk Verkehr auf dem Sperrbildschirm anzuzeigen</string>
-    <string name="network_traffic_activity_direction_title">Aktivität</string>
-    <string name="network_traffic_activity_direction_down">Download</string>
-    <string name="network_traffic_activity_direction_up">Upload</string>
-    <string name="network_traffic_activity_direction_down_up">Download &amp; Upload</string>
+    <string name="network_traffic_activity_title">Aktivität</string>
+    <string name="network_traffic_activity_in">Eingehend</string>
+    <string name="network_traffic_activity_out">Ausgehend</string>
+    <string name="network_traffic_activity_in_out">Eingehend &amp; Ausgehend</string>
     <string name="network_traffic_bit_byte_title">Bit-Werte anzeigen</string>
     <string name="network_traffic_bit_byte_summary">Aktivieren um die Werte in Bit anstatt Byte anzuzeigen</string>
     <string name="network_traffic_hide_traffic_title">Anzeige verbergen</string>

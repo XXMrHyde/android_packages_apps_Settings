@@ -291,10 +291,10 @@
     <string name="network_traffic_cat_visibility_title">Visibility</string>
     <string name="network_traffic_show_summary">Enable to show the network traffic</string>
     <string name="network_traffic_show_on_lock_screen_summary">Enable to show the network traffic on lock screen</string>
-    <string name="network_traffic_activity_direction_title">Activity</string>
-    <string name="network_traffic_activity_direction_down">Download</string>
-    <string name="network_traffic_activity_direction_up">Upload</string>
-    <string name="network_traffic_activity_direction_down_up">Download &amp; Upload</string>
+    <string name="network_traffic_activity_title">Activity</string>
+    <string name="network_traffic_activity_in">Incoming</string>
+    <string name="network_traffic_activity_out">Outgoing</string>
+    <string name="network_traffic_activity_in_out">Incoming &amp; Outgoing</string>
     <string name="network_traffic_bit_byte_title">Show bit values</string>
     <string name="network_traffic_bit_byte_summary">Enable to show the values in bit instead of byte</string>
     <string name="network_traffic_hide_traffic_title">Hide the indicator</string>

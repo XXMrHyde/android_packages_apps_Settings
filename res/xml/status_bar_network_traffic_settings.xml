@@ -35,10 +35,10 @@
         android:title="@string/network_traffic_cat_style_title">
 
         <ListPreference
-            android:key="network_traffic_activity_direction"
-            android:title="@string/network_traffic_activity_direction_title"
-            android:entries="@array/network_traffic_activity_direction_entries"
-            android:entryValues="@array/network_traffic_activity_direction_values" />
+            android:key="network_traffic_activity"
+            android:title="@string/network_traffic_activity_title"
+            android:entries="@array/network_traffic_activity_entries"
+            android:entryValues="@array/network_traffic_activity_values" />
 
         <ListPreference
             android:key="network_traffic_type"

@@ -51,8 +51,8 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
             "network_traffic_show";
     private static final String PREF_SHOW_ON_LOCK_SCREEN =
             "network_traffic_show_on_lock_screen";
-    private static final String PREF_ACTIVITY_DIRECTION =
-            "network_traffic_activity_direction";
+    private static final String PREF_ACTIVITY =
+            "network_traffic_activity";
     private static final String PREF_TYPE =
             "network_traffic_type";
     private static final String PREF_BIT_BYTE =
@@ -74,7 +74,7 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
     private static final String PREF_ICON_COLOR_DARK_MODE =
             "network_traffic_icon_color_dark_mode";
 
-    private static final int DIRECTION_UP_DOWN = 2;
+    private static final int ACTIVITY_IN_OUT = 2;
 
     private static final int TYPE_TEXT      = 0;
     private static final int TYPE_ICON      = 1;
@@ -91,7 +91,7 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
 
     private SwitchPreference mShow;
     private SwitchPreference mShowOnLockScreen;
-    private ListPreference mActivityDirection;
+    private ListPreference mActivity;
     private ListPreference mType;
     private SwitchPreference mBitByte;
     private SwitchPreference mHideTraffic;
@@ -145,9 +145,6 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
         mShowOnLockScreen.setOnPreferenceChangeListener(this);
 
         if (isTrafficEnabled) {
-            final int activityDirection = Settings.System.getInt(mResolver,
-                    Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ACTIVITY_DIRECTION,
-                    DIRECTION_UP_DOWN);
             final int type = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_NETWORK_TRAFFIC_TYPE, TYPE_TEXT_ICON);
             final boolean showText  = type == TYPE_TEXT || type == TYPE_TEXT_ICON;
@@ -160,11 +157,14 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
                     Settings.System.STATUS_BAR_NETWORK_TRAFFIC_THRESHOLD,
                     DEFAULT_THRESHOLD);
 
-            mActivityDirection =
-                    (ListPreference) findPreference(PREF_ACTIVITY_DIRECTION);
-            mActivityDirection.setValue(String.valueOf(activityDirection));
-            mActivityDirection.setSummary(mActivityDirection.getEntry());
-            mActivityDirection.setOnPreferenceChangeListener(this);
+            mActivity =
+                    (ListPreference) findPreference(PREF_ACTIVITY);
+            final int activity = Settings.System.getInt(mResolver,
+                    Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ACTIVITY_DIRECTION,
+                    ACTIVITY_IN_OUT);
+            mActivity.setValue(String.valueOf(activity));
+            mActivity.setSummary(mActivity.getEntry());
+            mActivity.setOnPreferenceChangeListener(this);
 
             mType = (ListPreference) findPreference(PREF_TYPE);
             mType.setValue(String.valueOf(type));
@@ -270,7 +270,7 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
                 catColors.removePreference(findPreference(PREF_ICON_COLOR_DARK_MODE));
             }
         } else {
-            catStyle.removePreference(findPreference(PREF_ACTIVITY_DIRECTION));
+            catStyle.removePreference(findPreference(PREF_ACTIVITY));
             catStyle.removePreference(findPreference(PREF_TYPE));
             catStyle.removePreference(findPreference(PREF_BIT_BYTE));
             catVisibility.removePreference(findPreference(PREF_HIDE_TRAFFIC));
@@ -328,13 +328,13 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
                     value ? 1 : 0);
             refreshSettings();
             return true;
-        } else if (preference == mActivityDirection) {
+        } else if (preference == mActivity) {
             intValue = Integer.valueOf((String) newValue);
-            index = mActivityDirection.findIndexOfValue((String) newValue);
+            index = mActivity.findIndexOfValue((String) newValue);
             Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ACTIVITY_DIRECTION,
                     intValue);
-            mActivityDirection.setSummary(mActivityDirection.getEntries()[index]);
+            mActivity.setSummary(mActivity.getEntries()[index]);
             return true;
         } else if (preference == mType) {
             intValue = Integer.valueOf((String) newValue);
@@ -457,7 +457,7 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
                                     Settings.System.STATUS_BAR_NETWORK_TRAFFIC_SHOW_ON_LOCK_SCREEN, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ACTIVITY_DIRECTION,
-                                    DIRECTION_UP_DOWN);
+                                    ACTIVITY_IN_OUT);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NETWORK_TRAFFIC_TYPE, TYPE_TEXT_ICON);
                             Settings.System.putInt(getOwner().mResolver,
@@ -493,7 +493,7 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
                                     Settings.System.STATUS_BAR_NETWORK_TRAFFIC_SHOW_ON_LOCK_SCREEN, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NETWORK_TRAFFIC_ACTIVITY_DIRECTION,
-                                    DIRECTION_UP_DOWN);
+                                    ACTIVITY_IN_OUT);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NETWORK_TRAFFIC_TYPE, TYPE_TEXT_ICON);
                             Settings.System.putInt(getOwner().mResolver,
