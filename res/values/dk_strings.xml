@@ -412,7 +412,7 @@
 
     <!-- Expanded bars advanced weather bar settings -->
     <string name="weather_bar_show_current_title">Show current weather</string>
-    <string name="weather_bar_show_current_summary">Enable to also show the current weather informations beside the weather forcasts, disable to only show weather forcasts</string>
+    <string name="weather_bar_show_current_summary">Enable to show the current weather along with day forecasts for the next 4 days, disable to show the today\'s forecast along with forcasts for the next 4 days</string>
     <string name="weather_bar_icon_type_title">Weather condition icon</string>
 
     <!-- Navigation bar settings -->

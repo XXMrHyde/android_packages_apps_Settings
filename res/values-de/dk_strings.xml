@@ -412,7 +412,7 @@
 
     <!-- Expanded bars advanced weather bar settings -->
     <string name="weather_bar_show_current_title">Aktuelles Wetter anzeigen</string>
-    <string name="weather_bar_show_current_summary">Aktivieren um neben der Wettervorhersage auch das aktuelle Wetter anzuzeigen, deaktivieren um nur die Wettervorhersage anzuzeigen</string>
+    <string name="weather_bar_show_current_summary">Aktivieren um das aktuelle Wetter neben den Wettervorhersagen für die nächsten 4 Tage anzuzeigen, deaktivieren um die heutige Wettervorhersage neben den Wettervorhersagen für die nächsten 4 Tage anzuzeigen</string>
     <string name="weather_bar_icon_type_title">Wetterlage Symbol</string>
 
     <!-- Navigation bar settings -->
