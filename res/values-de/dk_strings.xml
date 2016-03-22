@@ -452,6 +452,12 @@
     <!-- Advanced -->
     <string name="advanced_boot_dialog_settings_title">Boot Dialog</string>
     <string name="advanced_boot_dialog_settings_summary">Den Boot Dialog anpassen</string>
+
+    <string name="cat_recents_title">Anwendungsverlauf</string>
+    <string name="use_slim_recents_title">SlimRoms Anwendungsverlauf benutzen</string>
+    <string name="slim_recents_settings_title">SlimRoms Anwendungsverlauf</string>
+    <string name="recents_settings_summary">Den Anwendungsverlauf anpassen</string>
+
     <string name="lock_clock_title">Uhr-Widget</string>
     <string name="lock_clock_clock_section_title">Uhrzeit und Alarme</string>
     <string name="lock_clock_clock_section_summary">Uhrzeit und Alarme des \"cLock-Widget\" konfigurieren</string>
@@ -468,6 +474,47 @@
     <string name="boot_dialog_app_text_color_mode_random_title">Zufällige Farbe benutzen</string>
     <string name="boot_dialog_app_text_color_mode_text_title">Die allgemeine Textfarbe benutzen</string>
     <string name="boot_dialog_app_text_color_title">App Text</string>
+
+    <!-- Slim recents settings -->
+    <string name="cat_appearance_title">Erscheinungsbild</string>
+    <string name="cat_apps_title">Anwendungen</string>
+
+    <!-- Slim recents settings -->
+    <string name="slim_recents_color_settings_summary">Die Farben anpassen</string>
+    <string name="slim_recents_scale_title">Größe</string>
+    <string name="slim_recents_scale_60">60\uff05</string>
+    <string name="slim_recents_scale_65">65\uff05</string>
+    <string name="slim_recents_scale_70">70\uff05</string>
+    <string name="slim_recents_scale_75">75\uff05</string>
+    <string name="slim_recents_scale_80">80\uff05</string>
+    <string name="slim_recents_scale_85">85\uff05</string>
+    <string name="slim_recents_scale_90">90\uff05</string>
+    <string name="slim_recents_scale_95">95\uff05</string>
+    <string name="slim_recents_scale_100">100\uff05</string>
+    <string name="slim_recents_expanded_mode_title">Erweiterter Modus</string>
+    <string name="slim_recents_mode_auto">Automatisch</string>
+    <string name="slim_recents_expanded_mode_always">Immer</string>
+    <string name="slim_recents_expanded_mode_never">Nie</string>
+    <string name="slim_recents_lefty_mode_title">Auf der linken Seite anzeigen</string>
+    <string name="slim_recents_lefty_mode_summary">Anwendungsverlauf auf der linken Seite des Bildschirmes anzeigen</string>
+    <string name="slim_recents_popup_theme_mode_title">Popup Menu Theme</string>
+    <string name="slim_recents_popup_theme_mode_dark">Dunkel</string>
+    <string name="slim_recents_popup_theme_mode_light">Hell</string>
+    <string name="slim_recents_only_show_running_tasks_title">Nur laufende</string>
+    <string name="slim_recents_only_show_running_tasks_summary">Aktivieren um nur laufende Anwendungen anzuzeigen</string>
+    <string name="slim_recents_show_topmost_title">Aktueller Task</string>
+    <string name="slim_recents_show_topmost_summary">Aktivieren um den Aktuellen Task anzuzeigen</string>
+    <string name="slim_recents_max_apps_title">Maximale Anzahl</string>
+
+    <!-- Slim recents colors -->
+    <string name="slim_recents_use_text_color_summary">Aktivieren um die Farbe des Anwendungsnamens anzupassen, deaktivieren um weiss auf dunklen Hintergründen und schwarz auf hellen Hintergünden zu nutzen</string>
+    <string name="slim_recents_use_expand_icon_color_title">Symbol der Aufklappen Schaltfläche</string>
+    <string name="slim_recents_use_expand_icon_color_summary">Aktivieren um die Farbe des Symbols der Aufklappen Schaltfläche anzupassen, deaktivieren um weiss auf dunklen Hintergründen und schwarz auf hellen Hintergünden zu nutzen</string>
+    <string name="slim_recents_use_empty_icon_color_title">Symbol bei leerem Verlauf</string>
+    <string name="slim_recents_use_empty_icon_color_summary">Aktivieren um die Farbe des Symbols bei leerem Verlauf anzupassen, deaktivieren um weiss auf dunklen Hintergründen und schwarz auf hellen Hintergünden zu nutzen</string>
+    <string name="slim_recents_card_bg_color_title">Karten Hintergrund</string>
+    <string name="slim_recents_expand_icon_color_title">Aufklappen Schaltfläche</string>
+    <string name="slim_recents_empty_icon_color_title">Symbol bei leerem Verlauf</string>
 
     <!-- Display settings -->
     <string name="display_rotation_settings_title">Bildschirmausrichtung</string>

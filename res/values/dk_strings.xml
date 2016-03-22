@@ -333,7 +333,7 @@
     <string name="notification_ticker_text_color_title">Ticker text</string>
     <string name="notification_ticker_text_color_dark_mode_title">Ticker text (light status bar)</string>
 
-    <!-- Statusbar expanded settings -->
+    <!-- Status bar expanded settings -->
     <string name="status_bar_expanded_cat_smart_quick_pulldown_title">Smart quick pulldown</string>
     <string name="status_bar_expanded_header_settings_title">Header</string>
     <string name="status_bar_expanded_header_settings_summary">Customize the header</string>
@@ -452,6 +452,12 @@
     <!-- Advanced -->
     <string name="advanced_boot_dialog_settings_title">Boot dialog</string>
     <string name="advanced_boot_dialog_settings_summary">Customize the boot dialog</string>
+
+    <string name="cat_recents_title">Recent apps view</string>
+    <string name="use_slim_recents_title">Use SlimRoms recents</string>
+    <string name="slim_recents_settings_title">SlimRoms recent apps view</string>
+    <string name="recents_settings_summary">Customize recent apps view</string>
+
     <string name="lock_clock_title">Clock widget</string>
     <string name="lock_clock_clock_section_title">Clock and alarm</string>
     <string name="lock_clock_clock_section_summary">View or change how the clock and alarm of the \'cLock\' Home  widget will display</string>
@@ -468,6 +474,51 @@
     <string name="boot_dialog_app_text_color_mode_random_title">Use a random color</string>
     <string name="boot_dialog_app_text_color_mode_text_title">Use the global text color</string>
     <string name="boot_dialog_app_text_color_title">App text</string>
+
+    <!-- Slim recents settings -->
+    <string name="cat_appearance_title">Appearance</string>
+    <string name="cat_apps_title">Apps</string>
+
+    <!-- Slim recents options -->
+    <string name="slim_recents_color_settings_summary">Customize the colors</string>
+    <string name="slim_recents_scale_title">Size</string>
+    <string name="slim_recents_scale_60">60\uff05</string>
+    <string name="slim_recents_scale_65">65\uff05</string>
+    <string name="slim_recents_scale_70">70\uff05</string>
+    <string name="slim_recents_scale_75">75\uff05</string>
+    <string name="slim_recents_scale_80">80\uff05</string>
+    <string name="slim_recents_scale_85">85\uff05</string>
+    <string name="slim_recents_scale_90">90\uff05</string>
+    <string name="slim_recents_scale_95">95\uff05</string>
+    <string name="slim_recents_scale_100">100\uff05</string>
+    <string name="slim_recents_expanded_mode_title">Expanded mode</string>
+    <string name="slim_recents_mode_auto">Auto</string>
+    <string name="slim_recents_expanded_mode_always">Always</string>
+    <string name="slim_recents_expanded_mode_never">Never</string>
+
+    <!-- ATTENTION: RTL languages need to replace left with right -->
+    <string name="slim_recents_lefty_mode_title">Show on the left edge</string>
+    <!-- ATTENTION: RTL languages need to replace left with right -->
+    <string name="slim_recents_lefty_mode_summary">Show recent apps panel on the left edge</string>
+
+    <string name="slim_recents_popup_theme_mode_title">Popup menu theme</string>
+    <string name="slim_recents_popup_theme_mode_dark">Dark</string>
+    <string name="slim_recents_popup_theme_mode_light">Light</string>
+    <string name="slim_recents_only_show_running_tasks_title">Only show running</string>
+    <string name="slim_recents_only_show_running_tasks_summary">Enable to show only apps which are currently running</string>
+    <string name="slim_recents_show_topmost_title">Show topmost task</string>
+    <string name="slim_recents_show_topmost_summary">Enable to show the topmost task</string>
+    <string name="slim_recents_max_apps_title">Max allowed</string>
+
+    <!-- Slim recents colors -->
+    <string name="slim_recents_use_text_color_summary">Enable to use a custom color for the app name, disable to use white on dark backgrounds and black on light backgrounds</string>
+    <string name="slim_recents_use_expand_icon_color_title">Expand button icon</string>
+    <string name="slim_recents_use_expand_icon_color_summary">Enable to use a custom color for the expand button icon, disable to use white on dark backgrounds and black on light backgrounds</string>
+    <string name="slim_recents_use_empty_icon_color_title">Empty recents icon</string>
+    <string name="slim_recents_use_empty_icon_color_summary">Enable to use a custom color for the icon on empty recent apps view, disable to use white on dark backgrounds and black on light backgrounds</string>
+    <string name="slim_recents_card_bg_color_title">Card background</string>
+    <string name="slim_recents_expand_icon_color_title">Expand button icon</string>
+    <string name="slim_recents_empty_icon_color_title">Empty recents icon</string>
 
     <!-- Display settings -->
     <string name="display_rotation_settings_title">Rotation</string>
