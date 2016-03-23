@@ -52,6 +52,7 @@
     <string name="icon_color_dark_mode_title">Icon (light status bar)</string>
     <string name="text_title">Text</string>
     <string name="text_color_dark_mode_title">Text (light status bar)</string>
+    <string name="text_color_title">Text color</string>
     <string name="type_title">Type</string>
     <string name="type_text_icon">Text &amp; icon</string>
     <string name="position_title">Position</string>
@@ -337,6 +338,8 @@
     <string name="status_bar_expanded_cat_smart_quick_pulldown_title">Smart quick pulldown</string>
     <string name="status_bar_expanded_header_settings_title">Header</string>
     <string name="status_bar_expanded_header_settings_summary">Customize the header</string>
+    <string name="status_bar_expanded_empty_shade_view_settings_title">No notifications view</string>
+    <string name="status_bar_expanded_empty_shade_view_settings_summary">Customize the no notifications view</string>
     <string name="status_bar_expanded_bars_settings_title">Bars</string>
     <string name="status_bar_expanded_bars_settings_summary">Customize the bars</string>
     <string name="smart_quick_pulldown_type_dlg_title">Choose when to pull down to the expanded view directly</string>
@@ -359,6 +362,12 @@
     <!-- Expanded header network icons settings -->
     <string name="header_network_icons_no_sim_color_title">No sim card color</string>
     <string name="header_network_icons_airplane_mode_color_title">Airplane mode color</string>
+
+    <!-- Statusbar expanded empty shade view settings -->
+    <string name="empty_shade_view_show_carrier_name_title">Show carrier name</string>
+    <string name="empty_shade_view_show_carrier_name_summary">Enable to show the carrier name</string>
+    <string name="empty_shade_view_show_wifi_name_title">Show wifi network name</string>
+    <string name="empty_shade_view_show_wifi_name_summary">Enable to show the wifi network name</string>
 
     <!-- Statusbar expanded bars settings -->
     <string name="expanded_bars_visibility_settings_title">Bars to display</string>

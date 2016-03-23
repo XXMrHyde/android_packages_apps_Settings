@@ -25,6 +25,12 @@
         android:fragment="com.android.settings.darkkat.StatusBarExpandedHeaderSettings" />
 
     <PreferenceScreen
+        android:key="status_bar_expanded_empty_shade_view"
+        android:title="@string/status_bar_expanded_empty_shade_view_settings_title"
+        android:summary="@string/status_bar_expanded_empty_shade_view_settings_summary"
+        android:fragment="com.android.settings.darkkat.StatusBarExpandedEmptyShadeViewSettings" />
+
+    <PreferenceScreen
         android:key="status_bar_expanded_bars"
         android:title="@string/status_bar_expanded_bars_settings_title"
         android:summary="@string/status_bar_expanded_bars_settings_summary"
