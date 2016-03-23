@@ -19,7 +19,6 @@ package com.android.settings.darkkat;
 import android.content.ContentResolver;
 import android.os.Bundle;
 import android.preference.Preference;
-import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
 
@@ -53,51 +52,33 @@ public class StatusBarExpandedEmptyShadeViewSettings extends SettingsPreferenceF
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        refreshSettings();
-    }
-
-    public void refreshSettings() {
-        PreferenceScreen prefs = getPreferenceScreen();
-        if (prefs != null) {
-            prefs.removeAll();
-        }
 
         addPreferencesFromResource(R.xml.status_bar_expanded_empty_shade_view_settings);
         mResolver = getContentResolver();
 
-        final boolean showCarrierName = Settings.System.getInt(mResolver,
-               Settings.System.EMPTY_SHADE_VIEW_SHOW_CARRIER_NAME, 0) == 1;
-        final boolean showWifiName = Settings.System.getInt(mResolver,
-               Settings.System.EMPTY_SHADE_VIEW_SHOW_WIFI_NAME, 0) == 1;
-        final boolean supportsMobileData = DeviceUtils.deviceSupportsMobileData(getActivity());
-
-        if (supportsMobileData) {
+        if (DeviceUtils.deviceSupportsMobileData(getActivity())) {
             mShowCarrierName = (SwitchPreference) findPreference(PREF_SHOW_CARRIER_NAME);
-            mShowCarrierName.setChecked(showCarrierName);
+            mShowCarrierName.setChecked(Settings.System.getInt(mResolver,
+               Settings.System.EMPTY_SHADE_VIEW_SHOW_CARRIER_NAME, 0) == 1);
             mShowCarrierName.setOnPreferenceChangeListener(this);
         } else {
             removePreference(PREF_SHOW_CARRIER_NAME);
-
         }
 
         mShowWifiName = (SwitchPreference) findPreference(PREF_SHOW_WIFI_NAME);
-        mShowWifiName.setChecked(showWifiName);
+        mShowWifiName.setChecked(Settings.System.getInt(mResolver,
+               Settings.System.EMPTY_SHADE_VIEW_SHOW_WIFI_NAME, 0) == 1);
         mShowWifiName.setOnPreferenceChangeListener(this);
 
-        if ((showCarrierName && supportsMobileData) || showWifiName) {
-            mTextColor =
-                    (ColorPickerPreference) findPreference(PREF_TEXT_COLOR);
-            int intColor = Settings.System.getInt(mResolver,
-                    Settings.System.EMPTY_SHADE_VIEW_TEXT_COLOR, WHITE);
-            mTextColor.setNewPreviewColor(intColor);
-            String hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mTextColor.setSummary(hexColor);
-            mTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
-            mTextColor.setOnPreferenceChangeListener(this);
-        } else {
-            removePreference(PREF_TEXT_COLOR);
-
-        }
+        mTextColor =
+                (ColorPickerPreference) findPreference(PREF_TEXT_COLOR);
+        int intColor = Settings.System.getInt(mResolver,
+                Settings.System.EMPTY_SHADE_VIEW_TEXT_COLOR, WHITE);
+        mTextColor.setNewPreviewColor(intColor);
+        String hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mTextColor.setSummary(hexColor);
+        mTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mTextColor.setOnPreferenceChangeListener(this);
 
     }
 
@@ -109,14 +90,12 @@ public class StatusBarExpandedEmptyShadeViewSettings extends SettingsPreferenceF
             Settings.System.putInt(mResolver,
                     Settings.System.EMPTY_SHADE_VIEW_SHOW_CARRIER_NAME,
                     value ? 1 : 0);
-            refreshSettings();
             return true;
         } else if (preference == mShowWifiName) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                     Settings.System.EMPTY_SHADE_VIEW_SHOW_WIFI_NAME,
                     value ? 1 : 0);
-            refreshSettings();
             return true;
         } else if (preference == mTextColor) {
             String hex = ColorPickerPreference.convertToARGB(
