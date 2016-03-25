@@ -164,6 +164,14 @@
                 android:icon="@drawable/ic_settings_display"
                 />
 
+        <!-- LED light -->
+        <dashboard-tile
+                android:id="@+id/led_light_settings"
+                android:title="@string/led_light_settings"
+                android:fragment="com.android.settings.darkkat.LedLightSettings"
+                android:icon="@drawable/ic_settings_led"
+                />
+
         <!-- Buttons -->
         <dashboard-tile
             android:id="@+id/button_settings"

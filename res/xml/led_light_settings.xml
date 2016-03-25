@@ -13,19 +13,17 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/led_light_settings" >
 
-    <!-- Shortcut picker -->
-    <dimen name="shortcut_picker_left_padding">40dip</dimen>
+        <PreferenceScreen
+                android:key="battery_light"
+                android:title="@string/battery_light_title"
+                android:fragment="com.android.settings.notificationlight.BatteryLightSettings" />
 
-    <!-- Floating action button -->
-    <dimen name="fab_line_width">2dp</dimen>
-    <dimen name="fab_size">56dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
-    <dimen name="fab_icon_size">24dp</dimen>
-    <dimen name="fab_elevation_normal">8dp</dimen>
-    <dimen name="fab_elevation_pressed">6dp</dimen>
+        <PreferenceScreen
+                android:key="notification_light"
+                android:title="@string/notification_light_title"
+                android:fragment="com.android.settings.notificationlight.NotificationLightSettings" />
 
-  <!-- CyanogenMod additions -->
-    <dimen name="oval_notification_size">26dp</dimen>
-</resources>
+</PreferenceScreen>
