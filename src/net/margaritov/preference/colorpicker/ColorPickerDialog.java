@@ -47,6 +47,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 
 import com.android.settings.R;
 
@@ -69,7 +70,8 @@ public class ColorPickerDialog extends Dialog implements
     private View mDivider;
 
     private ColorPickerView mColorPicker;
-    private ColorPickerPanelView[] mPanelViewButtons;
+    private TextView mPanelButtonsTitle;
+    private ColorPickerPanelButton[] mPanelButtons;
     private ColorPickerPanelView mOldColor;
     private ColorPickerPanelView mNewColor;
 
@@ -160,7 +162,8 @@ public class ColorPickerDialog extends Dialog implements
         mColorPicker = (ColorPickerView) mColorPickerView.findViewById(R.id.color_picker_view);
         mColorPicker.setOnColorChangedListener(this);
 
-        setUpPanelViewButtons();
+        mPanelButtonsTitle = (TextView) mColorPickerView.findViewById(R.id.panel_view_buttons_title);
+        setUpPanelButtons();
 
         mOldColor = (ColorPickerPanelView) mColorPickerView.findViewById(R.id.old_color_panel);
         mOldColor.setOnClickListener(this);
@@ -176,18 +179,18 @@ public class ColorPickerDialog extends Dialog implements
         mColorPicker.setColor(mInitialColor, true);
     }
 
-    private void setUpPanelViewButtons() {
+    private void setUpPanelButtons() {
         TypedArray ta = mResources.obtainTypedArray(R.array.color_picker_panel_view_buttons);
-        mPanelViewButtons = new ColorPickerPanelView[8];
+        mPanelButtons = new ColorPickerPanelButton[8];
 
-        for (int i=0; i<mPanelViewButtons.length; i++) {
+        for (int i=0; i<mPanelButtons.length; i++) {
             int resId = ta.getResourceId(i, 0);
-            mPanelViewButtons[i] = (ColorPickerPanelView) mColorPickerView.findViewById(resId);
-            mPanelViewButtons[i].setOnClickListener(this);
+            mPanelButtons[i] = (ColorPickerPanelButton) mColorPickerView.findViewById(resId);
+            mPanelButtons[i].setOnClickListener(this);
         }
 
         ta.recycle();
-        updatePanelViewButtonsColor();
+        updatePanelButtonsColor();
     }
 
     private void setupAnimators() {
@@ -263,12 +266,12 @@ public class ColorPickerDialog extends Dialog implements
                 float position = animation.getAnimatedFraction();
                 if (mIsPanelButtons) {
                     int[] blended = new int[8];
-                    for (int i=0; i<mPanelViewButtons.length; i++) {
+                    for (int i=0; i<mPanelButtons.length; i++) {
                         blended[i] = blendColors(
-                                mPanelViewButtons[i].getColor(),
-                                getPanelViewButtonColor(getPalette(), i),
+                                mPanelButtons[i].getColor(),
+                                getPanelButtonColor(getPalette(), i),
                                 position);
-                        mPanelViewButtons[i].setColor(blended[i]);
+                        mPanelButtons[i].setColor(blended[i]);
                     }
                 } else {
                     int blended = blendColors(mNewColor.getColor(), mNewColorValue, position);
@@ -279,7 +282,9 @@ public class ColorPickerDialog extends Dialog implements
         animator.addListener(new AnimatorListenerAdapter() {
                 @Override
                 public void onAnimationEnd(Animator animation) {
-                    if (!mIsPanelButtons) {
+                    if (mIsPanelButtons) {
+                        updatePanelButtonsTitle();
+                    } else {
                         mIsPanelButtons = true;
                     }
                 }
@@ -341,11 +346,11 @@ public class ColorPickerDialog extends Dialog implements
             }
             hideActionBarEditHex();
         } else {
-            for (int i=0; i<mPanelViewButtons.length; i++) {
-                int panelViewButtonId = mPanelViewButtons[i].getId();
-                if (v.getId() == panelViewButtonId) {
+            for (int i=0; i<mPanelButtons.length; i++) {
+                int panelButtonId = mPanelButtons[i].getId();
+                if (v.getId() == panelButtonId) {
                     try {
-                        mColorPicker.setColor(getPanelViewButtonColor(getPalette(), i), true);
+                        mColorPicker.setColor(getPanelButtonColor(getPalette(), i), true);
                     } catch (Exception e) {
                     }
                 }
@@ -442,10 +447,21 @@ public class ColorPickerDialog extends Dialog implements
         mColorPicker.setAlphaSliderVisible(visible);
     }
 
-    private void updatePanelViewButtonsColor() {
-        for (int i=0; i<mPanelViewButtons.length; i++) {
-            mPanelViewButtons[i].setColor(getPanelViewButtonColor(getPalette(), i));
+    private void updatePanelButtonsColor() {
+        for (int i=0; i<mPanelButtons.length; i++) {
+            mPanelButtons[i].setColor(getPanelButtonColor(getPalette(), i));
         }
+        updatePanelButtonsTitle();
+    }
+
+    private void updatePanelButtonsTitle() {
+        int resId = R.string.palette_darkkat_title;
+        if (getPalette() == PALETTE_MATERIAL) {
+            resId = R.string.palette_material_title;
+        } else if (getPalette() == PALETTE_RGB) {
+            resId = R.string.palette_rgb_title;
+        }
+        mPanelButtonsTitle.setText(resId);
     }
 
     private int getPalette() {
@@ -458,7 +474,7 @@ public class ColorPickerDialog extends Dialog implements
                 Settings.System.COLOR_PICKER_PALETTE, palette);
     }
 
-    private int getPanelViewButtonColor(int pallete, int index) {
+    private int getPanelButtonColor(int pallete, int index) {
         TypedArray ta;
         if (pallete == PALETTE_DARKKAT) {
             ta = mResources.obtainTypedArray(R.array.color_picker_darkkat_palette);
@@ -486,6 +502,6 @@ public class ColorPickerDialog extends Dialog implements
         super.onRestoreInstanceState(savedInstanceState);
         mOldColor.setColor(savedInstanceState.getInt("old_color"));
         mColorPicker.setColor(savedInstanceState.getInt("new_color"), true);
-        updatePanelViewButtonsColor();
+        updatePanelButtonsColor();
     }
 }
