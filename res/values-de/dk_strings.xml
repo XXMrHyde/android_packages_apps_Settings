@@ -82,6 +82,8 @@
     <string name="palette_rgb_title">RGB</string>
     <string name="reset_android_title">Android Standard</string>
     <string name="reset_darkkat_title">DarkKat Standard</string>
+    <string name="favorites_title">Favoriten</string>
+    <string name="empty_title">Leer</string>
 
     <!-- Shortcut picker -->
     <string name="shortcut_picker_choose_longpress_action">Aktion bei langem Drücken wählen:</string>

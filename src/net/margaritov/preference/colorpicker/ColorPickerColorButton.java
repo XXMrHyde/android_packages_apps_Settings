@@ -28,7 +28,7 @@ import android.util.AttributeSet;
 
 import com.android.settings.R;
 
-public class ColorPickerPanelButton extends LinearLayout {
+public class ColorPickerColorButton extends LinearLayout {
 
 	private ImageView mColorView;
 	private TextView mHexView;
@@ -36,15 +36,15 @@ public class ColorPickerPanelButton extends LinearLayout {
 	private int mBorderColor = 0xff6E6E6E;
 	private int mColor = Color.WHITE;
 
-	public ColorPickerPanelButton(Context context) {
+	public ColorPickerColorButton(Context context) {
 		this(context, null);
 	}
 
-	public ColorPickerPanelButton(Context context, AttributeSet attrs) {
+	public ColorPickerColorButton(Context context, AttributeSet attrs) {
 		this(context, attrs, 0);
 	}
 
-	public ColorPickerPanelButton(Context context, AttributeSet attrs, int defStyle) {
+	public ColorPickerColorButton(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 	}
 
@@ -52,53 +52,52 @@ public class ColorPickerPanelButton extends LinearLayout {
     protected void onFinishInflate() {
         super.onFinishInflate();
 
-	    mColorView = (ImageView) findViewById(R.id.panel_view_button_color);
-	    mHexView = (TextView) findViewById(R.id.panel_view_button_hex);
+	    mColorView = (ImageView) findViewById(R.id.color_button_color);
+	    mHexView = (TextView) findViewById(R.id.color_button_hex);
     }
 
-	/**
-	 * Set the color that should be shown by this view.
-	 * @param color
-	 */
 	public void setColor(int color) {
 		mColor = color;
         if (mColorView == null || mHexView == null) {
             return;
         }
-        if (mColorView.getDrawable() != null && mColorView.getDrawable() instanceof LayerDrawable) {
-            ((LayerDrawable) mColorView.getDrawable()).findDrawableByLayerId(R.id.color_fill).setColorFilter(mColor, Mode.MULTIPLY);
+        if (mColorView.getDrawable() != null
+                && mColorView.getDrawable() instanceof LayerDrawable) {
+            ((LayerDrawable) mColorView.getDrawable()).findDrawableByLayerId(R.id.color_fill)
+                    .setColorFilter(mColor, Mode.MULTIPLY);
         }
         mHexView.setText(ColorPickerPreference.convertToARGB(mColor));
 
 	}
 
-	/**
-	 * Get the color currently show by this view.
-	 * @return
-	 */
 	public int getColor() {
 		return mColor;
 	}
 
-	/**
-	 * Set the color of the border surrounding the panel.
-	 * @param color
-	 */
 	public void setBorderColor(int color) {
 		mBorderColor = color;
         if (mColorView == null) {
             return;
         }
-        if (mColorView.getDrawable() != null && mColorView.getDrawable() instanceof LayerDrawable) {
-            ((LayerDrawable) mColorView.getDrawable()).findDrawableByLayerId(R.id.boarder).setColorFilter(mBorderColor, Mode.MULTIPLY);
+        if (mColorView.getDrawable() != null
+                && mColorView.getDrawable() instanceof LayerDrawable) {
+            ((LayerDrawable) mColorView.getDrawable()).findDrawableByLayerId(R.id.boarder)
+                    .setColorFilter(mBorderColor, Mode.MULTIPLY);
         }
 	}
 
-	/**
-	 * Get the color of the border surrounding the panel.
-	 */
 	public int getBorderColor() {
 		return mBorderColor;
 	}
+
+    public void setImageResource(int resId) {
+        if (mColorView == null) {
+            return;
+        }
+
+        if (resId > 0) {
+            mColorView.setImageResource(resId);
+        }
+    }
 
 }
