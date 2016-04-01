@@ -89,8 +89,8 @@ import android.widget.TabWidget;
 import com.android.internal.util.UserIcons;
 import com.android.settings.UserAdapter.UserDetails;
 import com.android.settings.dashboard.DashboardTile;
-import com.android.settings.drawable.CircleFramedDrawable;
 import com.android.settingslib.applications.ApplicationsState;
+import com.android.settingslib.drawable.CircleFramedDrawable;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -458,36 +458,6 @@ public final class Utils {
                 com.android.internal.R.dimen.preference_fragment_padding_bottom);
 
         view.setPaddingRelative(paddingStart, 0, paddingEnd, paddingBottom);
-    }
-
-    /**
-     * Return string resource that best describes combination of tethering
-     * options available on this device.
-     */
-    public static int getTetheringLabel(ConnectivityManager cm) {
-        String[] usbRegexs = cm.getTetherableUsbRegexs();
-        String[] wifiRegexs = cm.getTetherableWifiRegexs();
-        String[] bluetoothRegexs = cm.getTetherableBluetoothRegexs();
-
-        boolean usbAvailable = usbRegexs.length != 0;
-        boolean wifiAvailable = wifiRegexs.length != 0;
-        boolean bluetoothAvailable = bluetoothRegexs.length != 0;
-
-        if (wifiAvailable && usbAvailable && bluetoothAvailable) {
-            return R.string.tether_settings_title_all;
-        } else if (wifiAvailable && usbAvailable) {
-            return R.string.tether_settings_title_all;
-        } else if (wifiAvailable && bluetoothAvailable) {
-            return R.string.tether_settings_title_all;
-        } else if (wifiAvailable) {
-            return R.string.tether_settings_title_wifi;
-        } else if (usbAvailable && bluetoothAvailable) {
-            return R.string.tether_settings_title_usb_bluetooth;
-        } else if (usbAvailable) {
-            return R.string.tether_settings_title_usb;
-        } else {
-            return R.string.tether_settings_title_bluetooth;
-        }
     }
 
     /* Used by UserSettings as well. Call this on a non-ui thread. */
