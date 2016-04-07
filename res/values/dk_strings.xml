@@ -144,6 +144,7 @@
     <string name="lock_screen_visualizer_settings_title">Music visualizer</string>
     <string name="lock_screen_visualizer_settings_summary">Customize the music visualizer</string>
     <string name="lock_screen_button_settings_summary">Customize the buttons</string>
+    <string name="lock_screen_ambient_display_summary">Customize the ambient display</string>
 
     <!-- Lock screen visualizer settings -->
     <string name="visualizer_show_summary">Enable to show the music visualizer on the lock screen</string>
@@ -170,6 +171,10 @@
     <string name="bottom_buttons_left_voice_assist_title">Voice Assist</string>
     <string name="bottom_buttons_right_title">Camera button</string>
     <string name="bottom_buttons_right_summary">Enable to show the camera button on the right side</string>
+
+    <!-- Ambient display settings -->
+    <string name="ambient_display_show_battery_title">Show battery status</string>
+    <string name="ambient_display_show_battery_summary">Enable to show the battery status</string>
 
     <!-- Status bar -->
     <string name="status_bar_gesture_settings_title">Gestures</string>

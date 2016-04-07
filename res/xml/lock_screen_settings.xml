@@ -28,6 +28,12 @@
 		android:summary="@string/lock_screen_button_settings_summary"
         android:fragment="com.android.settings.darkkat.LockScreenButtonSettings" />
 
+    <PreferenceScreen
+        android:key="lock_screen_ambient_display"
+        android:title="@string/doze_title"
+        android:summary="@string/lock_screen_ambient_display_summary"
+        android:fragment="com.android.settings.darkkat.LockScreenAmbientDisplaySettings" />
+
     <PreferenceCategory
         android:key="lock_screen_cat_colors"
         android:title="@string/colors_title">
