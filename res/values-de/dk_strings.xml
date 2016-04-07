@@ -142,6 +142,7 @@
     <string name="lock_screen_visualizer_settings_title">Musik Visualisierung</string>
     <string name="lock_screen_visualizer_settings_summary">Die Musik Visualisierung anpassen</string>
     <string name="lock_screen_button_settings_summary">Die Schaltflächen anpassen</string>
+    <string name="lock_screen_ambient_display_summary">Das Inaktivitätsdisplay anpassen</string>
 
     <!-- Lock screen visualizer settings -->
     <string name="visualizer_show_summary">Aktivieren um die Musik Visualisierung auf dem Sperrbildschirm anzuzeigen</string>
@@ -168,6 +169,10 @@
     <string name="bottom_buttons_left_voice_assist_title">Sprachassistent</string>
     <string name="bottom_buttons_right_title">Kamera Schaltfläche</string>
     <string name="bottom_buttons_right_summary">Aktivieren um die Kamera Schaltfläche anzuzeigen</string>
+
+    <!-- Ambient display settings -->
+    <string name="ambient_display_show_battery_title">Akkustatus anzeigen</string>
+    <string name="ambient_display_show_battery_summary">Aktivieren um den Akkustatus anzuzeigen</string>
 
     <!-- Status bar -->
     <string name="status_bar_gesture_settings_title">Gesten</string>

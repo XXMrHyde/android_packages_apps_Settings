@@ -22,10 +22,13 @@ import android.app.DialogFragment;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.SystemProperties;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -91,6 +94,10 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         int intColor;
         String hexColor;
 
+        if (!isDozeAvailable()) {
+            removePreference("lock_screen_ambient_display");
+        }
+
         mBackgroundColor =
                 (ColorPickerPreference) findPreference(PREF_BACKGROUND_COLOR);
         intColor = LockScreenColorHelper.getBackgroundColor(getActivity());
@@ -130,6 +137,15 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         mTextColor.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
+    }
+
+    private boolean isDozeAvailable() {
+        String name = Build.IS_DEBUGGABLE ? SystemProperties.get("debug.doze.component") : null;
+        if (TextUtils.isEmpty(name)) {
+            name = getActivity().getResources().getString(
+                    com.android.internal.R.string.config_dozeComponent);
+        }
+        return !TextUtils.isEmpty(name);
     }
 
     @Override
