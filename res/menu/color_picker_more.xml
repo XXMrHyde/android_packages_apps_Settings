@@ -13,9 +13,21 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Color Picker -->
-    <string name="hex" translatable="false">Hex:</string>
-    <string name="hex_hint" translatable="false">#ff000000</string>
-</resources>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/reset_color"
+            android:icon="@drawable/ic_action_reset"
+            android:title="@string/reset_color_title">
+        <menu>
+            <item android:id="@+id/reset_android"
+                android:title="@string/reset_android_title" />
+
+            <item android:id="@+id/reset_darkkat"
+                android:title="@string/reset_darkkat_title" />
+        </menu>
+    </item>
+    <item android:id="@+id/edit_hex"
+        android:title="@string/edit_hex_title"
+        android:icon="@drawable/ic_action_edit" />
+</menu>
+
