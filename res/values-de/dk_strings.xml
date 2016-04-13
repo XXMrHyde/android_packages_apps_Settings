@@ -310,7 +310,7 @@
     <string name="network_traffic_hide_traffic_title">Anzeige verbergen</string>
     <string name="network_traffic_hide_traffic_summary">Aktivieren um die Anzeige zu verbergen, wenn die aktuelle Netzwerkgeschwindigkeit dem Grenzwert enstpricht oder darunter liegt</string>
     <string name="network_traffic_threshold_title">Grenzwert</string>
-    <string name="network_traffic_threshold_summary">Die Anzeige wird verborgen, wenn die aktuelle Netzwerkgeschwindigkeit %1$s ist</string>
+    <string name="network_traffic_threshold_summary">Die Anzeige wird verborgen, wenn die aktuelle Netzwerkgeschwindigkeit %1$s beträgt</string>
     <string name="network_traffic_threshold_no_traffic_summary">Die Anzeige wird verborgen, wenn kein Netzwerk Verkehr vorhanden ist</string>
     <string name="network_traffic_threshold_dlg_title">Wähle einen Grenzwert um die Anzeige zu verbergen</string>
     <string name="network_traffic_threshold_0">Kein Datenverkehr</string>
