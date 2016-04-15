@@ -33,6 +33,9 @@
     <!-- Size of the color picker dialog buttons -->
     <dimen name="color_picker_dialog_button_size">48dp</dimen>
 
+    <!-- Size of the color picker dialog buttons -->
+    <dimen name="color_picker_dialog_apply_color_button_width">96dp</dimen>
+
     <!-- Padding of the color picker dialog buttons -->
     <dimen name="color_picker_dialog_button_padding">11dp</dimen>
 

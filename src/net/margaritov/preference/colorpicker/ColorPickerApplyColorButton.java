@@ -23,12 +23,12 @@ import android.graphics.drawable.LayerDrawable;
 import android.graphics.PorterDuff.Mode;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
 import android.view.View;
 
 import com.android.settings.R;
 
-public class ColorPickerApplyColorButton extends LinearLayout {
+public class ColorPickerApplyColorButton extends FrameLayout {
 
 	private ImageView mColorView;
 	private ImageView mColorSet;
@@ -94,5 +94,19 @@ public class ColorPickerApplyColorButton extends LinearLayout {
             return;
         }
         mColorSet.setVisibility(show ? View.VISIBLE : View.INVISIBLE);
+    }
+
+    public void applySetIconAlpha(float alpha) {
+        if (mColorSet == null) {
+            return;
+        }
+        mColorSet.setAlpha(alpha);
+    }
+
+    public void setColorPreviewTranslationX(float x) {
+        if (mColorSet == null) {
+            return;
+        }
+        mColorView.setTranslationX(x);
     }
 }
