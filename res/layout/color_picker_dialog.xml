@@ -194,7 +194,8 @@
                 android:id="@+id/color_buttons_material" />
 
             <include layout="@layout/color_picker_palette_color_buttons_layout"
-                android:id="@+id/color_buttons_rgb" />
+                android:id="@+id/color_buttons_rgb"
+                android:layout_marginBottom="0dp" />
 
         </LinearLayout>
     </ScrollView>

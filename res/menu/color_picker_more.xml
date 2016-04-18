@@ -29,5 +29,8 @@
     <item android:id="@+id/edit_hex"
         android:title="@string/edit_hex_title"
         android:icon="@drawable/ic_action_edit" />
+    <item android:id="@+id/show_hide_favorites"
+        android:title="@string/hide_favorites_title"
+        android:icon="@drawable/ic_hide_favorites" />
 </menu>
 

@@ -19,7 +19,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/color_picker_dialog_color_buttons_container_margin_top"
+    android:layout_marginBottom="@dimen/color_picker_dialog_color_buttons_container_margin_bottom"
     android:orientation="vertical">
 
     <TextView
@@ -55,7 +55,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/color_picker_dialog_color_buttons_container_margin_top"
+        android:layout_marginTop="@dimen/color_picker_dialog_color_buttons_second_layout_margin_top"
         android:layout_marginLeft="@dimen/color_picker_dialog_color_buttons_layout_margin_left"
         android:layout_marginRight="@dimen/color_picker_dialog_color_buttons_layout_margin_right"
         android:orientation="horizontal">

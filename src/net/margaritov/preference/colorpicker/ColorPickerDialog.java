@@ -57,6 +57,8 @@ public class ColorPickerDialog extends Dialog implements
 
     private static final String PREFERENCE_NAME  =
             "color_picker_dialog";
+    private static final String FAVORITES_VISIBLE  =
+            "favorites_visible";
     private static final String FAVORITE_COLOR_BUTTON  =
             "favorite_color_button_";
 
@@ -68,21 +70,26 @@ public class ColorPickerDialog extends Dialog implements
     private static final int HIDE = 1;
     private static final int NONE = 2;
 
+    private static final int COLOR_TRANSITION     = 0;
+    private static final int HEX_BAR_VISIBILITY   = 1;
+    private static final int FAVORITES_VISIBILITY = 2;
+
     private View mColorPickerView;
 
     private LinearLayout mActionBarMain;
-    private LinearLayout mActionBarEditHex;
-
     private ImageButton mBackButton;
     private ColorPickerApplyColorButton mApplyColorButton;
     private ImageButton mMoreButton;
 
+    private LinearLayout mActionBarEditHex;
     private ImageButton mHexBackButton;
     private EditText mHex;
     private ImageButton mSetButton;
     private View mDivider;
 
     private ColorPickerView mColorPicker;
+
+    private LinearLayout mFavoritesLayout;
 
     private final ContentResolver mResolver;
     private final Resources mResources;
@@ -95,11 +102,11 @@ public class ColorPickerDialog extends Dialog implements
     private int mNewColorValue;
     private final boolean mHideReset;
     private boolean mEditHexBarVisible;
-
-    private Animator mAlphaAnimator;
-    private Animator mApplyColorButtonAnimator;
-
+    private boolean mFavoritesVisible;
     private int mApplyColorIconAnimationType;
+    private int mAnimationType;
+
+    private Animator mAnimator;
 
     private OnColorChangedListener mListener;
 
@@ -175,8 +182,10 @@ public class ColorPickerDialog extends Dialog implements
         mColorPicker.setOnColorChangedListener(this);
         mColorPicker.setColor(mInitialColor);
 
-        mAlphaAnimator = createAlphaAnimator(0, 1);
-        mApplyColorButtonAnimator = createApplyColorButtonAnimator(0, 1);
+        mFavoritesLayout = (LinearLayout) mColorPickerView.findViewById(R.id.favorite_buttons);
+        mFavoritesVisible = getFavoritesVisibility();
+
+        mAnimator = createAnimator(0, 1);
 
         setUpFavoriteColorButtons();
         setUpPaletteColorButtons();
@@ -200,6 +209,15 @@ public class ColorPickerDialog extends Dialog implements
         }
 
         ta.recycle();
+
+        if (!mFavoritesVisible) {
+            hideFavorites();
+        }
+    }
+
+    private void hideFavorites() {
+        mFavoritesLayout.setVisibility(View.GONE);
+        mFavoritesLayout.setAlpha(0f);
     }
 
     private void setUpPaletteColorButtons() {
@@ -234,81 +252,68 @@ public class ColorPickerDialog extends Dialog implements
         colors.recycle();
     }
 
-    private ValueAnimator createAlphaAnimator(float start, float end) {
+    private ValueAnimator createAnimator(float start, float end) {
         ValueAnimator animator = ValueAnimator.ofFloat(start, end);
         animator.setDuration(500);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                float alpha = animation.getAnimatedFraction();
-                if (mEditHexBarVisible) {
-                    mActionBarMain.setAlpha(alpha);
-                    mActionBarEditHex.setAlpha(1f - alpha);
-                    mDivider.setAlpha(1f - alpha);
+            @Override public void onAnimationUpdate(ValueAnimator animation) {
+                float position = animation.getAnimatedFraction();
+                if (mAnimationType == COLOR_TRANSITION) {
+                    int blended = ColorHelper.getBlendColor(mOldColorValue, mNewColorValue, position);
+                    mApplyColorButton.setColor(blended);
+                    if (mApplyColorIconAnimationType != NONE) {
+                        float translationX = mApplyColorIconAnimationType == SHOW ? 1f : 0f;
+                        float alpha = 0f;
+                        boolean applyAlpha = false;
+
+                        if (mApplyColorIconAnimationType == SHOW) {
+                            translationX = 48 * mDensity * (1f - position);
+                            if (position > 0.5f) {
+                                alpha = (position - 0.5f) * 2;
+                                applyAlpha = true;
+                            }
+                        } else {
+                            translationX = 48 * mDensity * position;
+                            if (position <= 0.5f && position > 0f) {
+                                alpha = 1f - position * 2;
+                                applyAlpha = true;
+                            }
+                        }
+                        mApplyColorButton.setColorPreviewTranslationX(translationX);
+                        if (applyAlpha) {
+                            mApplyColorButton.applySetIconAlpha(alpha);
+                        }
+                    }
+                } else if (mAnimationType == HEX_BAR_VISIBILITY) {
+                    if (mEditHexBarVisible) {
+                        mActionBarMain.setAlpha(position);
+                        mActionBarEditHex.setAlpha(1f - position);
+                        mDivider.setAlpha(1f - position);
+                    } else {
+                        mActionBarMain.setAlpha(1f - position);
+                        mActionBarEditHex.setAlpha(position);
+                        mDivider.setAlpha(position);
+                    }
                 } else {
-                    mActionBarMain.setAlpha(1f - alpha);
-                    mActionBarEditHex.setAlpha(alpha);
-                    mDivider.setAlpha(alpha);
+                    mFavoritesLayout.setAlpha(mFavoritesVisible ? 1f - position : position);
                 }
             }
         });
         animator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationStart(Animator animation) {
-                if (mEditHexBarVisible) {
-                    mActionBarMain.setVisibility(View.VISIBLE);
-                    mActionBarMain.jumpDrawablesToCurrentState();
-                } else {
-                    mActionBarEditHex.setVisibility(View.VISIBLE);
-                    mActionBarEditHex.jumpDrawablesToCurrentState();
-                    mDivider.setVisibility(View.VISIBLE);
-                }
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                if (mEditHexBarVisible) {
-                    mActionBarEditHex.setVisibility(View.GONE);
-                    mDivider.setVisibility(View.GONE);
-                    mEditHexBarVisible = false;
-                } else {
-                    mActionBarMain.setVisibility(View.GONE);
-                    mEditHexBarVisible = true;
-                }
-            }
-        });
-        return animator;
-    }
-
-    private ValueAnimator createApplyColorButtonAnimator(float start, float end) {
-        ValueAnimator animator = ValueAnimator.ofFloat(start, end);
-        animator.setDuration(500);
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override public void onAnimationUpdate(ValueAnimator animation) {
-                float position = animation.getAnimatedFraction();
-                int blended = ColorHelper.getBlendColor(mOldColorValue, mNewColorValue, position);
-                mApplyColorButton.setColor(blended);
-                if (mApplyColorIconAnimationType != NONE) {
-                    float translationX = mApplyColorIconAnimationType == SHOW ? 1f : 0f;
-                    float alpha = 0f;
-                    boolean applyAlpha = false;
-
-                    if (mApplyColorIconAnimationType == SHOW) {
-                        translationX = 48 * mDensity * (1f - position);
-                        if (position > 0.5f) {
-                            alpha = (position - 0.5f) * 2;
-                            applyAlpha = true;
-                        }
+                if (mAnimationType == HEX_BAR_VISIBILITY) {
+                    if (mEditHexBarVisible) {
+                        mActionBarMain.setVisibility(View.VISIBLE);
+                        mActionBarMain.jumpDrawablesToCurrentState();
                     } else {
-                        translationX = 48 * mDensity * position;
-                        if (position <= 0.5f && position > 0f) {
-                            alpha = 1f - position * 2;
-                            applyAlpha = true;
-                        }
+                        mActionBarEditHex.setVisibility(View.VISIBLE);
+                        mActionBarEditHex.jumpDrawablesToCurrentState();
+                        mDivider.setVisibility(View.VISIBLE);
                     }
-                    mApplyColorButton.setColorPreviewTranslationX(translationX);
-                    if (applyAlpha) {
-                        mApplyColorButton.applySetIconAlpha(alpha);
+                } else if (mAnimationType != COLOR_TRANSITION) {
+                    if (!mFavoritesVisible) {
+                        mFavoritesLayout.setVisibility(View.VISIBLE);
                     }
                 }
             }
@@ -316,14 +321,31 @@ public class ColorPickerDialog extends Dialog implements
         animator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-                if (mApplyColorIconAnimationType != NONE) {
-                    if (mApplyColorIconAnimationType != SHOW) {
-                        mApplyColorButton.showSetIcon(false);
-                    } else {
-                        mApplyColorButton.setOnClickListener(getDialogOnClickListener());
+                if (mAnimationType == COLOR_TRANSITION) {
+                    if (mApplyColorIconAnimationType != NONE) {
+                        if (mApplyColorIconAnimationType != SHOW) {
+                            mApplyColorButton.showSetIcon(false);
+                        } else {
+                            mApplyColorButton.setOnClickListener(getDialogOnClickListener());
+                        }
                     }
+                    mOldColorValue = mNewColorValue;
+                } else if (mAnimationType == HEX_BAR_VISIBILITY) {
+                    if (mEditHexBarVisible) {
+                        mActionBarEditHex.setVisibility(View.GONE);
+                        mDivider.setVisibility(View.GONE);
+                        mEditHexBarVisible = false;
+                    } else {
+                        mActionBarMain.setVisibility(View.GONE);
+                        mEditHexBarVisible = true;
+                    }
+                } else {
+                    if (mFavoritesVisible) {
+                        mFavoritesLayout.setVisibility(View.GONE);
+                    }
+                    mFavoritesVisible = !mFavoritesVisible;
+                    writeFavoritesVisibility(mFavoritesVisible);
                 }
-                mOldColorValue = mNewColorValue;
             }
         });
         return animator;
@@ -352,7 +374,8 @@ public class ColorPickerDialog extends Dialog implements
                 mApplyColorIconAnimationType = SHOW;
                 mApplyColorButton.showSetIcon(true);
             }
-            mApplyColorButtonAnimator.start();
+            mAnimationType = COLOR_TRANSITION;
+            mAnimator.start();
 
             try {
                 if (mHex != null) {
@@ -374,8 +397,9 @@ public class ColorPickerDialog extends Dialog implements
         } else if (v.getId() == R.id.more) {
             showMorePopupMenu(v);
         } else if (v.getId() == R.id.action_bar_edit_hex_back) {
+            mAnimationType = HEX_BAR_VISIBILITY;
             mEditHexBarVisible = true;
-            mAlphaAnimator.start();
+            mAnimator.start();
         } else if (v.getId() == R.id.enter) {
             String text = mHex.getText().toString();
             try {
@@ -384,9 +408,9 @@ public class ColorPickerDialog extends Dialog implements
                     mColorPicker.setColor(newColor, true);
                 }
             } catch (Exception e) {}
-
+            mAnimationType = HEX_BAR_VISIBILITY;
             mEditHexBarVisible = true;
-            mAlphaAnimator.start();
+            mAnimator.start();
         } else if (v instanceof ColorPickerColorButton) {
             try {
                 int newColor = ((ColorPickerColorButton) v).getColor();
@@ -419,8 +443,13 @@ public class ColorPickerDialog extends Dialog implements
             mColorPicker.setColor(mDarkKatColor, true);
             return true;
         } else if (item.getItemId() == R.id.edit_hex) {
+            mAnimationType = HEX_BAR_VISIBILITY;
             mEditHexBarVisible = false;
-            mAlphaAnimator.start();
+            mAnimator.start();
+            return true;
+        } else if (item.getItemId() == R.id.show_hide_favorites) {
+            mAnimationType = FAVORITES_VISIBILITY;
+            mAnimator.start();
             return true;
         }
         return false;
@@ -434,6 +463,20 @@ public class ColorPickerDialog extends Dialog implements
         if (mHideReset) {
             popup.getMenu().removeItem(R.id.reset_color);
         }
+
+        MenuItem showHideFavorites = popup.getMenu().findItem(R.id.show_hide_favorites);
+        int titleResId;
+        int iconResId;
+        if (mFavoritesVisible) {
+            titleResId = R.string.hide_favorites_title;
+            iconResId = R.drawable.ic_hide_favorites;
+        } else {
+            titleResId = R.string.show_favorites_title;
+            iconResId = R.drawable.ic_show_favorites;
+        }
+        showHideFavorites.setTitle(mResources.getString(titleResId));
+        showHideFavorites.setIcon(mResources.getDrawable(iconResId));
+
         popup.show();
     }
 
@@ -469,6 +512,18 @@ public class ColorPickerDialog extends Dialog implements
         mColorPicker.setAlphaSliderVisible(visible);
     }
 
+    private void writeFavoritesVisibility(boolean show) {
+        SharedPreferences preferences =
+                getContext().getSharedPreferences(PREFERENCE_NAME, Activity.MODE_PRIVATE);
+        preferences.edit().putBoolean(FAVORITES_VISIBLE, show).commit();
+    }
+
+    private boolean getFavoritesVisibility() {
+        SharedPreferences preferences =
+                getContext().getSharedPreferences(PREFERENCE_NAME, Activity.MODE_PRIVATE);
+        return preferences.getBoolean(FAVORITES_VISIBLE, true);
+    }
+
     private void writeFavoriteButtonValue(ColorPickerColorButton button) {
         SharedPreferences preferences =
                 getContext().getSharedPreferences(PREFERENCE_NAME, Activity.MODE_PRIVATE);
@@ -488,6 +543,7 @@ public class ColorPickerDialog extends Dialog implements
         state.putInt("new_color", mNewColorValue);
         state.putInt("old_color", mOldColorValue);
         state.putBoolean("edit_hex_bar_visible", mEditHexBarVisible);
+        state.putBoolean(FAVORITES_VISIBLE, mFavoritesVisible);
         return state;
     }
 
@@ -497,6 +553,7 @@ public class ColorPickerDialog extends Dialog implements
         mNewColorValue = savedInstanceState.getInt("new_color");
         mOldColorValue = savedInstanceState.getInt("old_color");
         mEditHexBarVisible = savedInstanceState.getBoolean("edit_hex_bar_visible");
+        mFavoritesVisible = savedInstanceState.getBoolean(FAVORITES_VISIBLE);
 
         mColorPicker.setColor(mNewColorValue);
         if (mNewColorValue != mInitialColor) {

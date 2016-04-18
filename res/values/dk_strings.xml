@@ -84,6 +84,9 @@
     <string name="reset_android_title">Android default</string>
     <string name="reset_darkkat_title">DarkKat default</string>
     <string name="favorites_title">Favorites</string>
+    <string name="hide_favorites_title">Hide favorites</string>
+    <string name="show_favorites_title">Show favorites</string>
+
     <string name="empty_title">Empty</string>
 
     <!-- Shortcut picker -->
