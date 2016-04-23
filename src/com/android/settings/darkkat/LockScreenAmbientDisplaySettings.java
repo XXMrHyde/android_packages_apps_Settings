@@ -88,12 +88,6 @@ public class LockScreenAmbientDisplaySettings extends SettingsPreferenceFragment
     private static final int DEFAULT_PULSE_OUT_ANDROID             = 600;
     private static final int DEFAULT_PULSE_OUT_DARKKAT             = 900;
 
-    private static final String DEFAULT_PULSE_NOTIFICATION_SCHEDULE_ANDROID =
-            "10s,30s,60s";
-    // MUST be empty, (disabled) !
-    private static final String DEFAULT_PULSE_NOTIFICATION_SCHEDULE_DARKKAT =
-            "";
-
     private SwitchPreference mEnableDoze;
     private ListPreference mMode;
     private SwitchPreference mShowBattery;
