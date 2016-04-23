@@ -1,4 +1,4 @@
-<!-- Copyright (C) 2014 DarkKat
+<!-- Copyright (C) 2016 DarkKat
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,15 +15,74 @@ limitations under the License.
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/doze_title">
 
     <SwitchPreference
-            android:key="ambient_display_enable_doze"
-            android:title="@string/doze_title"
-            android:summary="@string/doze_summary" />
+        android:key="ambient_display_enable_doze"
+        android:title="@string/doze_title"
+        android:summary="@string/doze_summary" />
+
+    <ListPreference
+        android:key="ambient_display_mode"
+        android:title="@string/ambient_display_mode_title"
+        android:entries="@array/ambient_display_mode_entries"
+        android:entryValues="@array/ambient_display_mode_values" />
 
     <SwitchPreference
-            android:key="ambient_display_show_battery"
-            android:title="@string/ambient_display_show_battery_title"
-            android:summary="@string/ambient_display_show_battery_summary" />
+        android:key="ambient_display_show_battery"
+        android:title="@string/ambient_display_show_battery_title"
+        android:summary="@string/ambient_display_show_battery_summary" />
+
+    <SwitchPreference
+        android:key="ambient_display_show_button_bar"
+        android:title="@string/ambient_display_show_button_bar_title"
+        android:summary="@string/ambient_display_show_button_bar_summary" />
+
+    <SwitchPreference
+        android:key="ambient_display_enable_pulse_notification_schedule"
+        android:title="@string/ambient_display_enable_pulse_notification_schedule_title"
+        android:summary="@string/ambient_display_enable_pulse_notification_schedule_summary" />
+
+    <SwitchPreference
+        android:key="ambient_display_overwrite_values"
+        android:title="@string/ambient_display_overwrite_values_title"
+        android:summary="@string/ambient_display_overwrite_values_summary" />
+
+
+    <PreferenceCategory
+        android:key="ambient_display_current_values_category"
+        android:title="@string/ambient_display_current_values_category_title">
+
+        <com.android.settings.fusion.SeekBarPreference
+            android:key="ambient_display_brightness"
+            android:title="@string/ambient_display_brightness_title"
+            android:max="255"
+            settings:min="1" />
+
+        <ListPreference
+            android:key="ambient_display_pulse_in_notification"
+            android:title="@string/ambient_display_pulse_in_notification_title"
+            android:entries="@array/ambient_display_pulse_in_notification_entries"
+            android:entryValues="@array/ambient_display_pulse_in_out_values" />
+
+        <ListPreference
+            android:key="ambient_display_pulse_in_pickup"
+            android:title="@string/ambient_display_pulse_in_pickup_title"
+            android:entries="@array/ambient_display_pulse_in_pickup_entries"
+            android:entryValues="@array/ambient_display_pulse_in_out_values" />
+
+        <ListPreference
+            android:key="ambient_display_pulse_visible"
+            android:title="@string/ambient_display_pulse_visible_title"
+            android:entries="@array/ambient_display_pulse_visible_entries"
+            android:entryValues="@array/ambient_display_pulse_visible_values" />
+
+        <ListPreference
+            android:key="ambient_display_pulse_out"
+            android:title="@string/ambient_display_pulse_out_title"
+            android:entries="@array/ambient_display_pulse_out_entries"
+            android:entryValues="@array/ambient_display_pulse_in_out_values" />
+
+    </PreferenceCategory>
 </PreferenceScreen>

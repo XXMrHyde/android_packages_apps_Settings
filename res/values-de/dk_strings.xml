@@ -67,6 +67,18 @@
     <string name="number_of_notifications_four_title">4</string>
     <string name="number_of_notifications_five_title">5</string>
     <string name="number_of_notifications_six_title">6</string>
+    <string name="threehundred_ms">300 ms</string>
+    <string name="sixhundred_ms">600 ms</string>
+    <string name="ninehundred_ms">900 ms</string>
+    <string name="one_second">1 s</string>
+    <string name="onehalf_second">1.5 s</string>
+    <string name="two_second">2 s</string>
+    <string name="twohalf_second">2.5 s</string>
+    <string name="three_second">3 s</string>
+    <string name="threehalf_second">3.5 s</string>
+    <string name="four_second">4 s</string>
+    <string name="fourhalf_second">4.5 s</string>
+    <string name="five_second">5 s</string>
     <string name="weather_icon_monochrome_title">Einfarbig</string>
     <string name="weather_icon_colored_title">Farbig</string>
     <string name="weather_icon_vclouds_title">VClouds</string>
@@ -171,8 +183,30 @@
     <string name="bottom_buttons_right_summary">Aktivieren um die Kamera Schaltfläche anzuzeigen</string>
 
     <!-- Ambient display settings -->
+    <string name="ambient_display_current_values_category_title">Aktuelle Werte</string>
+    <string name="ambient_display_mode_title">Modus des Inaktivitätsdisplays</string>
+    <string name="ambient_display_mode_dlg_title">Wähle wann das Inaktivitätsdisplay angezeigt werden soll</string>
+    <string name="ambient_display_mode_notification_pick_up">Benachrichtigungen &amp; Anheben</string>
+    <string name="ambient_display_mode_notification">Benachrichtigungen</string>
+    <string name="ambient_display_mode_pick_up">Anheben</string>
     <string name="ambient_display_show_battery_title">Akkustatus anzeigen</string>
     <string name="ambient_display_show_battery_summary">Aktivieren um den Akkustatus anzuzeigen</string>
+    <string name="ambient_display_show_button_bar_title">Zusätzliche Schaltflächenleiste anzeigen</string>
+    <string name="ambient_display_show_button_bar_summary">Aktivieren um die Zusätzliche Schaltflächenleiste anzuzeigen</string>
+    <string name="ambient_display_show_button_bar_disabled_summary">Die Zusätzliche Schaltflächenleiste ist deaktiviert</string>
+    <string name="ambient_display_overwrite_values_title">Standard-Werte überschreiben</string>
+    <string name="ambient_display_overwrite_values_summary">Aktivieren um Standard-Werte zu überschreiben</string>
+    <string name="ambient_display_brightness_title">Helligkeit</string>
+    <string name="ambient_display_pulse_in_notification_title">Einblenden (Benachrichtigung)</string>
+    <string name="ambient_display_pulse_in_pickup_title">Einblenden (Anheben)</string>
+    <string name="ambient_display_pulse_visible_title">Anzeigedauer</string>
+    <string name="ambient_display_pulse_out_title">Ausblenden</string>
+    <string name="ambient_display_threehundred_ms_default">300 ms (Standard)</string>
+    <string name="ambient_display_sixhundred_ms_default">600 ms (Standard)</string>
+    <string name="ambient_display_ninehundred_ms_default">900 ms (Standard)</string>
+    <string name="ambient_display_three_second_default">3 s (Standard)</string>
+    <string name="ambient_display_enable_pulse_notification_schedule_title">Wiederholungsintervall</string>
+    <string name="ambient_display_enable_pulse_notification_schedule_summary">Aktivieren um das Inaktivitätsdisplay in vordefinierte Intervallen (normalerweise zwischen 10 - und 60 Sekunden) bei neuen Benachrichtigungen erneut einzuschalten</string>
 
     <!-- Status bar -->
     <string name="status_bar_gesture_settings_title">Gesten</string>
