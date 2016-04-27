@@ -192,6 +192,10 @@
     <string name="ambient_display_mode_pick_up">Pickup</string>
     <string name="ambient_display_show_battery_title">Show battery status</string>
     <string name="ambient_display_show_battery_summary">Enable to show the battery status</string>
+    <string name="ambient_display_show_weather_title">Show weather</string>
+    <string name="ambient_display_show_weather_summary">Enable to show the weather</string>
+    <string name="ambient_display_show_weather_location_title">Show battery weather location</string>
+    <string name="ambient_display_show_weather_location_summary">Enable to show the weather location</string>
     <string name="ambient_display_show_button_bar_title">Show the additional button bar</string>
     <string name="ambient_display_show_button_bar_summary">Enable to show the additional button bar</string>
     <string name="ambient_display_show_button_bar_disabled_summary">The additional button bar is disabled</string>

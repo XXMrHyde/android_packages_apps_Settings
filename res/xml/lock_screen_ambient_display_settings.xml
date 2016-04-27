@@ -35,6 +35,16 @@ limitations under the License.
         android:summary="@string/ambient_display_show_battery_summary" />
 
     <SwitchPreference
+        android:key="ambient_display_show_weather"
+        android:title="@string/ambient_display_show_weather_title"
+        android:summary="@string/ambient_display_show_weather_summary" />
+
+    <SwitchPreference
+        android:key="ambient_display_show_weather_location"
+        android:title="@string/ambient_display_show_weather_location_title"
+        android:summary="@string/ambient_display_show_weather_location_summary" />
+
+    <SwitchPreference
         android:key="ambient_display_show_button_bar"
         android:title="@string/ambient_display_show_button_bar_title"
         android:summary="@string/ambient_display_show_button_bar_summary" />
