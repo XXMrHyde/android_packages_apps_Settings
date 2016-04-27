@@ -196,6 +196,10 @@
     <string name="ambient_display_mode_pick_up">Anheben</string>
     <string name="ambient_display_show_battery_title">Akkustatus anzeigen</string>
     <string name="ambient_display_show_battery_summary">Aktivieren um den Akkustatus anzuzeigen</string>
+    <string name="ambient_display_show_weather_title">Wetter anzeigen</string>
+    <string name="ambient_display_show_weather_summary">Aktivieren um das Wetter anzuzeigen</string>
+    <string name="ambient_display_show_weather_location_title">Wetter Standort anzeigen</string>
+    <string name="ambient_display_show_weather_location_summary">Aktivieren um den Wetter Standort anzuzeigen</string>
     <string name="ambient_display_show_button_bar_title">Zusätzliche Schaltflächenleiste anzeigen</string>
     <string name="ambient_display_show_button_bar_summary">Aktivieren um die Zusätzliche Schaltflächenleiste anzuzeigen</string>
     <string name="ambient_display_show_button_bar_disabled_summary">Die Zusätzliche Schaltflächenleiste ist deaktiviert</string>
