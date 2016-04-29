@@ -24,12 +24,6 @@
         android:summary="@string/weather_show_summary"
         android:persistent="false" />
 
-    <SwitchPreference
-        android:key="weather_show_on_lock_screen"
-        android:title="@string/show_on_lock_screen_title"
-        android:summary="@string/weather_show_on_lock_screen_summary"
-        android:persistent="false" />
-
     <PreferenceCategory
         android:key="weather_cat_options"
         android:title="@string/options_title">

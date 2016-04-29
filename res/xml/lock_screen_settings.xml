@@ -22,6 +22,18 @@
 		android:summary="@string/lock_screen_visualizer_settings_summary"
         android:fragment="com.android.settings.darkkat.LockScreenVisualizerSettings" />
 
+    <Preference
+        android:key="lock_clock_missing"
+        android:title="@string/lock_clock_missing_title"
+        android:summary="@string/lock_clock_missing_summary"
+        android:enabled="false" />
+
+    <PreferenceScreen
+        android:key="lock_screen_weather_settings"
+        android:title="@string/lock_screen_weather_settings_title"
+		android:summary="@string/lock_screen_weather_settings_summary"
+        android:fragment="com.android.settings.darkkat.LockScreenWeatherSettings" />
+
     <PreferenceScreen
         android:key="lock_screen_button_settings"
         android:title="@string/button_settings_title"
