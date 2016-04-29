@@ -50,8 +50,6 @@ public class StatusBarWeatherSettings extends SettingsPreferenceFragment impleme
             "weather_cat_colors";
     private static final String PREF_SHOW =
             "weather_show";
-    private static final String PREF_SHOW_ON_LOCK_SCREEN =
-            "weather_show_on_lock_screen";
     private static final String PREF_TYPE =
             "weather_type";
     private static final String PREF_HIDE =
@@ -79,7 +77,6 @@ public class StatusBarWeatherSettings extends SettingsPreferenceFragment impleme
     private static final int DLG_RESET  = 0;
 
     private SwitchPreference mShow;
-    private SwitchPreference mShowOnLockScreen;
     private ListPreference mType;
     private SwitchPreference mHide;
     private ListPreference mNumberOfNotificationIcons;
@@ -110,9 +107,6 @@ public class StatusBarWeatherSettings extends SettingsPreferenceFragment impleme
 
         final boolean show = Settings.System.getInt(mResolver,
                Settings.System.STATUS_BAR_WEATHER_SHOW, 0) == 1;
-        final boolean showOnLockScreen = Settings.System.getInt(mResolver,
-               Settings.System.STATUS_BAR_WEATHER_SHOW_ON_LOCK_SCREEN, 0) == 1;
-        final boolean isWeatherEnabled = show || showOnLockScreen;
 
         PreferenceCategory catOptions =
                 (PreferenceCategory) findPreference(PREF_CAT_OPTIONS);
@@ -125,11 +119,7 @@ public class StatusBarWeatherSettings extends SettingsPreferenceFragment impleme
         mShow.setChecked(show);
         mShow.setOnPreferenceChangeListener(this);
 
-        mShowOnLockScreen = (SwitchPreference) findPreference(PREF_SHOW_ON_LOCK_SCREEN);
-        mShowOnLockScreen.setChecked(showOnLockScreen);
-        mShowOnLockScreen.setOnPreferenceChangeListener(this);
-
-        if (isWeatherEnabled) {
+        if (show) {
             final int type = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_WEATHER_TYPE, TYPE_TEXT_ICON);
             final boolean showText  = type == TYPE_TEXT || type == TYPE_TEXT_ICON;
@@ -265,13 +255,6 @@ public class StatusBarWeatherSettings extends SettingsPreferenceFragment impleme
                     value ? 1 : 0);
             refreshSettings();
             return true;
-        } else if (preference == mShowOnLockScreen) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(mResolver,
-                    Settings.System.STATUS_BAR_WEATHER_SHOW_ON_LOCK_SCREEN,
-                    value ? 1 : 0);
-            refreshSettings();
-            return true;
         } else if (preference == mType) {
             intValue = Integer.valueOf((String) newValue);
             index = mType.findIndexOfValue((String) newValue);
@@ -375,8 +358,6 @@ public class StatusBarWeatherSettings extends SettingsPreferenceFragment impleme
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_WEATHER_SHOW, 0);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_WEATHER_SHOW_ON_LOCK_SCREEN, 0);
-                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_WEATHER_TYPE, TYPE_TEXT_ICON);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CARRIER_LABEL_HIDE_LABEL, 1);
@@ -402,8 +383,6 @@ public class StatusBarWeatherSettings extends SettingsPreferenceFragment impleme
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_WEATHER_SHOW, 1);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_WEATHER_SHOW_ON_LOCK_SCREEN, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_WEATHER_TYPE, TYPE_TEXT_ICON);
                             Settings.System.putInt(getOwner().mResolver,
