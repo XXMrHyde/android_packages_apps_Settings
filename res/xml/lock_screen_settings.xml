@@ -31,7 +31,7 @@
     <PreferenceScreen
         android:key="lock_screen_weather_settings"
         android:title="@string/lock_screen_weather_settings_title"
-		android:summary="@string/lock_screen_weather_settings_summary"
+        android:summary="@string/lock_screen_weather_settings_summary"
         android:fragment="com.android.settings.darkkat.LockScreenWeatherSettings" />
 
     <PreferenceScreen
