@@ -405,7 +405,22 @@ public class ColorPickerDialog extends Dialog implements
             try {
                 int newColor = ColorPickerPreference.convertToColorInt(text);
                 if (newColor != mOldColorValue) {
-                    mColorPicker.setColor(newColor, true);
+                    mNewColorValue = newColor;
+                    mOldColorValue = mNewColorValue;
+                    mColorPicker.setColor(mNewColorValue);
+                    if (mNewColorValue != mInitialColor) {
+                        mApplyColorButton.setColor(mNewColorValue);
+                        mApplyColorButton.setColorPreviewTranslationX(0f);
+                        mApplyColorButton.showSetIcon(true);
+                        mApplyColorButton.applySetIconAlpha(1f);
+                        mApplyColorButton.setOnClickListener(getDialogOnClickListener());
+                    } else {
+                        mApplyColorButton.setColor(mNewColorValue);
+                        mApplyColorButton.setColorPreviewTranslationX(48 * mDensity);
+                        mApplyColorButton.showSetIcon(false);
+                        mApplyColorButton.applySetIconAlpha(0f);
+                        mApplyColorButton.setOnClickListener(null);
+                    }
                 }
             } catch (Exception e) {}
             mAnimationType = HEX_BAR_VISIBILITY;
