@@ -42,6 +42,8 @@ import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.widget.EditText;
+import android.widget.Button;
+import android.widget.CheckedTextView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
@@ -59,6 +61,10 @@ public class ColorPickerDialog extends Dialog implements
             "color_picker_dialog";
     private static final String FAVORITES_VISIBLE  =
             "favorites_visible";
+    private static final String SHOW_HELP_SCREEN  =
+            "show_help_screen";
+    private static final String HELP_SCREEN_VISIBLE  =
+            "help_screen_visible";
     private static final String FAVORITE_COLOR_BUTTON  =
             "favorite_color_button_";
 
@@ -70,9 +76,10 @@ public class ColorPickerDialog extends Dialog implements
     private static final int HIDE = 1;
     private static final int NONE = 2;
 
-    private static final int COLOR_TRANSITION     = 0;
-    private static final int HEX_BAR_VISIBILITY   = 1;
-    private static final int FAVORITES_VISIBILITY = 2;
+    private static final int COLOR_TRANSITION       = 0;
+    private static final int HEX_BAR_VISIBILITY     = 1;
+    private static final int FAVORITES_VISIBILITY   = 2;
+    private static final int HELP_SCREEN_VISIBILITY = 3;
 
     private View mColorPickerView;
 
@@ -91,6 +98,10 @@ public class ColorPickerDialog extends Dialog implements
 
     private LinearLayout mFavoritesLayout;
 
+    private View mHelpScreen;
+    private CheckedTextView mCheckShow;
+    private Button mCloseHelpScreen;
+
     private final ContentResolver mResolver;
     private final Resources mResources;
 	private final float mDensity;
@@ -103,6 +114,8 @@ public class ColorPickerDialog extends Dialog implements
     private final boolean mHideReset;
     private boolean mEditHexBarVisible;
     private boolean mFavoritesVisible;
+    private boolean mShowHelpScreen;
+    private boolean mHelpScreenVisible;
     private int mApplyColorIconAnimationType;
     private int mAnimationType;
 
@@ -185,10 +198,14 @@ public class ColorPickerDialog extends Dialog implements
         mFavoritesLayout = (LinearLayout) mColorPickerView.findViewById(R.id.favorite_buttons);
         mFavoritesVisible = getFavoritesVisibility();
 
+        mHelpScreen = mColorPickerView.findViewById(R.id.color_picker_dialog_help_screen);
+        mShowHelpScreen = getShowHelpScreen();
+
         mAnimator = createAnimator(0, 1);
 
         setUpFavoriteColorButtons();
         setUpPaletteColorButtons();
+        setUpHelpScreen();
     }
 
     private void setUpFavoriteColorButtons() {
@@ -252,6 +269,24 @@ public class ColorPickerDialog extends Dialog implements
         colors.recycle();
     }
 
+    private void setUpHelpScreen() {
+        mHelpScreenVisible = mShowHelpScreen;
+        mCheckShow = (CheckedTextView) mColorPickerView.findViewById(R.id.dialog_color_picker_help_check_show);
+        mCheckShow.setChecked(!mShowHelpScreen);
+        mCheckShow.setOnClickListener(this);
+        mCloseHelpScreen = (Button) mColorPickerView.findViewById(R.id.dialog_color_picker_help_button_ok);
+        mCloseHelpScreen.setOnClickListener(this);
+        if (!mShowHelpScreen) {
+            setHelpScreenVisibility(mShowHelpScreen);
+        }
+    }
+
+    private void setHelpScreenVisibility(boolean visible) {
+        mHelpScreen.setVisibility(visible ? View.VISIBLE : View.GONE);
+        mHelpScreen.setAlpha(visible ? 1f : 0f);
+    }
+
+
     private ValueAnimator createAnimator(float start, float end) {
         ValueAnimator animator = ValueAnimator.ofFloat(start, end);
         animator.setDuration(500);
@@ -294,8 +329,10 @@ public class ColorPickerDialog extends Dialog implements
                         mActionBarEditHex.setAlpha(position);
                         mDivider.setAlpha(position);
                     }
-                } else {
+                } else if (mAnimationType == FAVORITES_VISIBILITY) {
                     mFavoritesLayout.setAlpha(mFavoritesVisible ? 1f - position : position);
+                } else {
+                    mHelpScreen.setAlpha(mHelpScreenVisible ? 1f - position : position);
                 }
             }
         });
@@ -311,9 +348,13 @@ public class ColorPickerDialog extends Dialog implements
                         mActionBarEditHex.jumpDrawablesToCurrentState();
                         mDivider.setVisibility(View.VISIBLE);
                     }
-                } else if (mAnimationType != COLOR_TRANSITION) {
+                } else if (mAnimationType == FAVORITES_VISIBILITY) {
                     if (!mFavoritesVisible) {
                         mFavoritesLayout.setVisibility(View.VISIBLE);
+                    }
+                } else if (mAnimationType != COLOR_TRANSITION) {
+                    if (!mHelpScreenVisible) {
+                        mHelpScreen.setVisibility(View.VISIBLE);
                     }
                 }
             }
@@ -339,12 +380,22 @@ public class ColorPickerDialog extends Dialog implements
                         mActionBarMain.setVisibility(View.GONE);
                         mEditHexBarVisible = true;
                     }
-                } else {
+                } else if (mAnimationType == FAVORITES_VISIBILITY) {
                     if (mFavoritesVisible) {
                         mFavoritesLayout.setVisibility(View.GONE);
                     }
                     mFavoritesVisible = !mFavoritesVisible;
                     writeFavoritesVisibility(mFavoritesVisible);
+                } else {
+                    if (mHelpScreenVisible) {
+                        mHelpScreen.setVisibility(View.GONE);
+                        if (mShowHelpScreen == mCheckShow.isChecked()) {
+                            mShowHelpScreen = !mCheckShow.isChecked();
+                            writeShowHelpScreen(mShowHelpScreen);
+                        }
+                    }
+                    mHelpScreenVisible = !mHelpScreenVisible;
+                    writeHelpScreenVisibility(mHelpScreenVisible);
                 }
             }
         });
@@ -426,6 +477,12 @@ public class ColorPickerDialog extends Dialog implements
             mAnimationType = HEX_BAR_VISIBILITY;
             mEditHexBarVisible = true;
             mAnimator.start();
+        } else if (v.getId() == R.id.dialog_color_picker_help_check_show) {
+            mCheckShow.toggle();
+        } else if (v.getId() == R.id.dialog_color_picker_help_button_ok) {
+            mAnimationType = HELP_SCREEN_VISIBILITY;
+            mHelpScreenVisible = true;
+            mAnimator.start();
         } else if (v instanceof ColorPickerColorButton) {
             try {
                 int newColor = ((ColorPickerColorButton) v).getColor();
@@ -464,6 +521,11 @@ public class ColorPickerDialog extends Dialog implements
             return true;
         } else if (item.getItemId() == R.id.show_hide_favorites) {
             mAnimationType = FAVORITES_VISIBILITY;
+            mAnimator.start();
+            return true;
+        } else if (item.getItemId() == R.id.show_help) {
+            mAnimationType = HELP_SCREEN_VISIBILITY;
+            mHelpScreenVisible = false;
             mAnimator.start();
             return true;
         }
@@ -527,10 +589,10 @@ public class ColorPickerDialog extends Dialog implements
         mColorPicker.setAlphaSliderVisible(visible);
     }
 
-    private void writeFavoritesVisibility(boolean show) {
+    private void writeFavoritesVisibility(boolean visible) {
         SharedPreferences preferences =
                 getContext().getSharedPreferences(PREFERENCE_NAME, Activity.MODE_PRIVATE);
-        preferences.edit().putBoolean(FAVORITES_VISIBLE, show).commit();
+        preferences.edit().putBoolean(FAVORITES_VISIBLE, visible).commit();
     }
 
     private boolean getFavoritesVisibility() {
@@ -552,6 +614,30 @@ public class ColorPickerDialog extends Dialog implements
         return preferences.getInt(FAVORITE_COLOR_BUTTON + (String) button.getTag(), 0);
     }
 
+    private void writeShowHelpScreen(boolean show) {
+        SharedPreferences preferences =
+                getContext().getSharedPreferences(PREFERENCE_NAME, Activity.MODE_PRIVATE);
+        preferences.edit().putBoolean(SHOW_HELP_SCREEN, show).commit();
+    }
+
+    private boolean getShowHelpScreen() {
+        SharedPreferences preferences =
+                getContext().getSharedPreferences(PREFERENCE_NAME, Activity.MODE_PRIVATE);
+        return preferences.getBoolean(SHOW_HELP_SCREEN, true);
+    }
+
+    private void writeHelpScreenVisibility(boolean visible) {
+        SharedPreferences preferences =
+                getContext().getSharedPreferences(PREFERENCE_NAME, Activity.MODE_PRIVATE);
+        preferences.edit().putBoolean(HELP_SCREEN_VISIBLE, visible).commit();
+    }
+
+    private boolean getHelpScreenVisibility() {
+        SharedPreferences preferences =
+                getContext().getSharedPreferences(PREFERENCE_NAME, Activity.MODE_PRIVATE);
+        return preferences.getBoolean(HELP_SCREEN_VISIBLE, false);
+    }
+
     @Override
     public Bundle onSaveInstanceState() {
         Bundle state = super.onSaveInstanceState();
@@ -559,6 +645,8 @@ public class ColorPickerDialog extends Dialog implements
         state.putInt("old_color", mOldColorValue);
         state.putBoolean("edit_hex_bar_visible", mEditHexBarVisible);
         state.putBoolean(FAVORITES_VISIBLE, mFavoritesVisible);
+        state.putBoolean(HELP_SCREEN_VISIBLE, mHelpScreenVisible);
+        state.putBoolean("help_screen_check_show_is_checked", mCheckShow.isChecked());
         return state;
     }
 
@@ -569,6 +657,8 @@ public class ColorPickerDialog extends Dialog implements
         mOldColorValue = savedInstanceState.getInt("old_color");
         mEditHexBarVisible = savedInstanceState.getBoolean("edit_hex_bar_visible");
         mFavoritesVisible = savedInstanceState.getBoolean(FAVORITES_VISIBLE);
+        mHelpScreenVisible = savedInstanceState.getBoolean(HELP_SCREEN_VISIBLE);
+        boolean checkShowIsChecked = savedInstanceState.getBoolean("help_screen_check_show_is_checked");
 
         mColorPicker.setColor(mNewColorValue);
         if (mNewColorValue != mInitialColor) {
@@ -583,6 +673,12 @@ public class ColorPickerDialog extends Dialog implements
             mActionBarMain.setVisibility(View.GONE);
             mActionBarEditHex.setVisibility(View.VISIBLE);
             mDivider.setVisibility(View.VISIBLE);
+        }
+
+        setHelpScreenVisibility(mHelpScreenVisible);
+
+        if (mCheckShow.isChecked() != checkShowIsChecked) {
+            mCheckShow.setChecked(checkShowIsChecked);
         }
     }
 }

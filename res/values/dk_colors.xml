@@ -47,6 +47,11 @@
     <color name="yellow">#ffffff00</color>
     <color name="orange">#ffffa500</color>
 
+    <!-- Colors of the help screen -->
+    <color name="dialog_color_picker_help_background">#e0000000</color>
+    <color name="dialog_color_picker_help_summary_text_color">#b3ffffff</color>
+
+
     <!-- Floating action button -->
     <color name="floating_action_button_touch_tint">#80ffffff</color>
 

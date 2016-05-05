@@ -17,17 +17,17 @@
      limitations under the License.
 -->
 
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/color_picker_dialog_padding_bottom"
-    android:background="@*android:color/darkkat_blue_grey"
-    android:orientation="vertical">
+    android:background="@*android:color/darkkat_blue_grey">
 
     <FrameLayout
+        android:id="@+id/action_bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/color_picker_dialog_action_bar_height">
+        android:layout_height="@dimen/color_picker_dialog_action_bar_height"
+        android:layout_alignParentTop="true">
 
         <LinearLayout
             android:id="@+id/action_bar_main"
@@ -161,6 +161,7 @@
         android:id="@+id/color_picker_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/action_bar_layout"
         android:layout_marginTop="@dimen/color_picker_dialog_color_picker_view_margin"
         android:layout_marginLeft="@dimen/color_picker_dialog_color_picker_view_margin"
         android:layout_marginRight="@dimen/color_picker_dialog_color_picker_view_margin"
@@ -168,9 +169,10 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0px"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/color_picker_view"
         android:layout_marginTop="@dimen/color_picker_dialog_color_buttons_scroll_view_margin_top"
+        android:paddingBottom="@dimen/color_picker_dialog_padding_bottom"
         android:requiresFadingEdge="vertical"
         android:fadingEdgeLength="12dp"
         android:scrollbars="vertical"
@@ -199,4 +201,8 @@
 
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+
+    <include layout="@layout/color_picker_dialog_help_screen"
+            android:id="@+id/color_picker_dialog_help_screen" />
+
+</RelativeLayout>

@@ -17,17 +17,17 @@
      limitations under the License.
 -->
 
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/color_picker_dialog_padding_bottom"
-    android:background="@*android:color/darkkat_blue_grey"
-    android:orientation="vertical">
+    android:background="@*android:color/darkkat_blue_grey">
 
     <FrameLayout
+        android:id="@+id/action_bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/color_picker_dialog_action_bar_height">
+        android:layout_height="@dimen/color_picker_dialog_action_bar_height"
+        android:layout_alignParentTop="true">
 
         <LinearLayout
             android:id="@+id/action_bar_main"
@@ -160,6 +160,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/action_bar_layout"
+        android:paddingBottom="8dp"
         android:orientation="horizontal">
 
         <net.margaritov.preference.colorpicker.ColorPickerView 
@@ -207,4 +209,8 @@
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
-</LinearLayout>
+
+    <include layout="@layout/color_picker_dialog_help_screen"
+            android:id="@+id/color_picker_dialog_help_screen" />
+
+</RelativeLayout>

@@ -84,6 +84,38 @@
     <!-- Left and right margin of the color picker dialog color buttons  -->
     <dimen name="color_picker_dialog_color_button_margin_left_right">4dp</dimen>
 
+    <!-- Dialog help screen -->
+
+    <!-- Left and right padding of the color picker dialog help screen -->
+    <dimen name="color_picker_dialog_help_screen_padding_left_right">16dp</dimen>
+
+    <!-- Top margin of the color picker dialog help screen main title text -->
+    <dimen name="color_picker_dialog_help_screen_main_title_text_margin_top">16dp</dimen>
+
+    <!-- Top margin of the color picker dialog help screen title text -->
+    <dimen name="color_picker_dialog_help_screen_title_margin_top">8dp</dimen>
+
+    <!-- Top margin of the color picker dialog help screen secondary title text -->
+    <dimen name="color_picker_dialog_help_screen_secondary_title_margin_top">4dp</dimen>
+
+    <!-- Top margin of the color picker dialog help screen summary text -->
+    <dimen name="color_picker_dialog_help_screen_summary_margin_top">4dp</dimen>
+
+    <!-- Top and bottom margin of the color picker dialog help screen button bar -->
+    <dimen name="color_picker_dialog_help_screen_button_bar_margin_top_bottom">8dp</dimen>
+
+    <!-- Text size of the color picker dialog help screen main title text -->
+    <dimen name="color_picker_dialog_help_screen_main_title_text_size">20sp</dimen>
+
+    <!-- Text size of the color picker dialog help screen title text -->
+    <dimen name="color_picker_dialog_help_screen_title_text_size">16sp</dimen>
+
+    <!-- Text size of the color picker dialog help screen secondary title text -->
+    <dimen name="color_picker_dialog_help_screen_secondary_title_text_size">12sp</dimen>
+
+    <!-- Text size of the color picker dialog help screen summary text -->
+    <dimen name="color_picker_dialog_help_screen_summary_text_size">12sp</dimen>
+
     <!-- Floating action button -->
     <dimen name="fab_line_width">2dp</dimen>
     <dimen name="fab_size">56dp</dimen>
