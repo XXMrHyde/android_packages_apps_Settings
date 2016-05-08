@@ -220,6 +220,7 @@
     <string name="ambient_display_enable_pulse_notification_schedule_summary">Enable to turn on the ambient display in predefined intervals (normally between 10- and 60 seconds) for a new notifications</string>
 
     <!-- Status bar -->
+    <string name="status_bar_background_settings_summary">Customize the background</string>
     <string name="status_bar_gesture_settings_title">Gestures</string>
     <string name="status_bar_gesture_settings_summary">Customize gestures</string>
     <string name="status_bar_multi_user_switch_settings_title">User icon &amp; multi user switch</string>
@@ -242,6 +243,27 @@
     <string name="status_bar_network_traffic_settings_summary">Customize the network traffic</string>
     <string name="status_bar_notification_settings_title">Notifications</string>
     <string name="status_bar_notification_settings_summary">Customize the notifications</string>
+
+    <!-- Status bar background settings -->
+    <string name="background_cat_gradient_options_title">Gradient options</string>
+    <string name="background_type_title">Type</string>
+    <string name="background_type_dlg_title">Choose the status bar background type</string>
+    <string name="background_gradient_title">Gradient</string>
+    <string name="background_gradient_orientation_title">Orientation</string>
+    <string name="background_gradient_orientation_dlg_title">Choose the gradient orientation</string>
+    <string name="background_gradient_orientation_l_r_title">from left to right</string>
+    <string name="background_gradient_orientation_bl_tr_title">from bottom left to top right</string>
+    <string name="background_gradient_orientation_b_t_title">from bottom to top</string>
+    <string name="background_gradient_orientation_br_tl_title">from bottom right to top left</string>
+    <string name="background_gradient_orientation_r_l_title">from right to left</string>
+    <string name="background_gradient_orientation_tr_bl_title">from top right to bottom left</string>
+    <string name="background_gradient_orientation_t_b_title">from top to bottom</string>
+    <string name="background_gradient_orientation_tl_br_title">from top left to bottom right</string>
+    <string name="background_gradient_use_center_color_title">Use a center color</string>
+    <string name="background_gradient_use_center_color_summary">Enable to use a center color for the gradient</string>
+    <string name="background_start_color_title">Start</string>
+    <string name="background_center_color_title">Center</string>
+    <string name="background_end_color_title">End</string>
 
     <!-- Status bar User icon and multi user switch settings -->
     <string name="multi_user_switch_icon_color_title">Guest- &amp; new user icon</string>
