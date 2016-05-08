@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/color_picker_dialog_help_screen_main_title_text_size"
                 android:textColor="@color/theme_accent"
-                android:text="@string/dialog_color_picker_help_ab_title"
+                android:text="@string/dialog_color_picker_ab_bar_title"
                 android:singleLine="true" />
 
             <TextView
