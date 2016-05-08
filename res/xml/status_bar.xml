@@ -18,6 +18,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/status_bar_title">
 
+<!-- Disabled for now
+    <PreferenceScreen
+        android:key="status_bar_background_settings"
+        android:title="@string/background_title"
+        android:summary="@string/status_bar_background_settings_summary"
+        android:fragment="com.android.settings.darkkat.StatusBarBackgroundSettings" />
+-->
+
     <PreferenceScreen
         android:key="status_bar_gesture_settings"
         android:title="@string/status_bar_gesture_settings_title"
