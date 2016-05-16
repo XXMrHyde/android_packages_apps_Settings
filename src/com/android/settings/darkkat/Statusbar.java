@@ -29,8 +29,8 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
 public class Statusbar extends SettingsPreferenceFragment {
-    private static final String PREF_LOCK_CLOCK_MISSING =
-            "lock_clock_missing";
+    private static final String PREF_WEATHER_SERVICE_MISSING =
+            "weather_service_missing";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,21 +56,21 @@ public class Statusbar extends SettingsPreferenceFragment {
             removePreference("status_bar_carrier_label_settings");
         }
 
-        // Remove the weather settings preference if lock clock is not installed or disabled
+        // Remove the weather settings preference if weather service is not installed or disabled
         // and show an info preference instead
-        final int lockClockAvailability = WeatherHelper.getLockClockAvailability(getActivity());
-        if (lockClockAvailability != WeatherHelper.LOCK_CLOCK_ENABLED) {
+        final int weatherServiceAvailability = WeatherHelper.getWeatherServiceAvailability(getActivity());
+        if (weatherServiceAvailability != WeatherHelper.PACKAGE_ENABLED) {
             removePreference("status_bar_weather_settings");
-            if (lockClockAvailability == WeatherHelper.LOCK_CLOCK_DISABLED) {
-                Preference lockClockMissing = findPreference(PREF_LOCK_CLOCK_MISSING);
+            if (weatherServiceAvailability == WeatherHelper.PACKAGE_DISABLED) {
+                Preference weatherServiceMissing = findPreference(PREF_WEATHER_SERVICE_MISSING);
                 final CharSequence summary = getResources().getString(DeviceUtils.isPhone(getActivity())
-                        ? R.string.lock_clock_disabled_summary
-                        : R.string.lock_clock_disabled_tablet_summary);
-                lockClockMissing.setTitle(getResources().getString(R.string.lock_clock_disabled_title));
-                lockClockMissing.setSummary(summary);
+                        ? R.string.weather_service_disabled_summary
+                        : R.string.weather_service_disabled_tablet_summary);
+                weatherServiceMissing.setTitle(getResources().getString(R.string.weather_service_disabled_title));
+                weatherServiceMissing.setSummary(summary);
             }
         } else {
-            removePreference(PREF_LOCK_CLOCK_MISSING);
+            removePreference(PREF_WEATHER_SERVICE_MISSING);
         }
     }
 

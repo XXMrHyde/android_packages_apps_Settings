@@ -44,12 +44,6 @@ limitations under the License.
         android:key="advanced_cat_lock_clock"
         android:title="@string/lock_clock_title">
 
-        <Preference
-            android:key="lock_clock_missing"
-            android:title="@string/lock_clock_missing_title"
-            android:summary="@string/lock_clock_missing_summary"
-            android:enabled="false" />
-
         <PreferenceScreen
             android:key="lock_clock_clock_section"
             android:title="@string/lock_clock_clock_section_title"

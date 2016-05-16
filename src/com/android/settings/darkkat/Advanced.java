@@ -17,6 +17,7 @@
 package com.android.settings.darkkat;
 
 import android.content.ContentResolver;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
@@ -42,6 +43,10 @@ public class Advanced extends SettingsPreferenceFragment implements
             "advanced_cat_lock_clock";
     private static final String PREF_LOCK_CLOCK_MISSING =
             "lock_clock_missing";
+
+    public final int LOCK_CLOCK_ENABLED  = 0;
+    public final int LOCK_CLOCK_DISABLED = 1;
+    public final int LOCK_CLOCK_MISSING  = 2;
 
     private SwitchPreference mUseSlimRecents;
 
@@ -78,23 +83,13 @@ public class Advanced extends SettingsPreferenceFragment implements
 
         PreferenceCategory catLockClock =
                 (PreferenceCategory) findPreference(PREF_CAT_LOCK_CLOCK);
-        // Remove the lock clock preferences if lock clock is not installed or disabled
+        // Remove the lock clock preferences if the lock clock app is not installed or disabled
         // and show an info preference instead
-        final int lockClockAvailability = WeatherHelper.getLockClockAvailability(getActivity());
-        if (lockClockAvailability != WeatherHelper.LOCK_CLOCK_ENABLED) {
+        if (!isLockClockAvailable()) {
             catLockClock.removePreference(findPreference("lock_clock_clock_section"));
             catLockClock.removePreference(findPreference("lock_clock_weather_section"));
             catLockClock.removePreference(findPreference("lock_clock_calendar_section"));
-            if (lockClockAvailability == WeatherHelper.LOCK_CLOCK_DISABLED) {
-                Preference lockClockMissing = findPreference(PREF_LOCK_CLOCK_MISSING);
-                final CharSequence summary = getResources().getString(DeviceUtils.isPhone(getActivity())
-                        ? R.string.lock_clock_disabled_summary
-                        : R.string.lock_clock_disabled_tablet_summary);
-                lockClockMissing.setTitle(getResources().getString(R.string.lock_clock_disabled_title));
-                lockClockMissing.setSummary(summary);
-            }
-        } else {
-            catLockClock.removePreference(findPreference(PREF_LOCK_CLOCK_MISSING));
+            removePreference("advanced_cat_lock_clock");
         }
     }
 
@@ -110,9 +105,34 @@ public class Advanced extends SettingsPreferenceFragment implements
         return false;
     }
 
+    private boolean isLockClockAvailable() {
+        boolean isInstalled = false;
+        int availability = LOCK_CLOCK_MISSING;
+
+        PackageManager pm = getActivity().getPackageManager();
+        try {
+            pm.getPackageInfo("com.cyanogenmod.lockclock",
+                    PackageManager.GET_ACTIVITIES);
+            isInstalled = true;
+        } catch (PackageManager.NameNotFoundException e) {
+            // Do nothing
+        }
+
+        if (isInstalled) {
+            final int enabledState = pm.getApplicationEnabledSetting(
+                    "com.cyanogenmod.lockclock");
+            if (enabledState == PackageManager.COMPONENT_ENABLED_STATE_DISABLED
+                    || enabledState == PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER) {
+                availability = LOCK_CLOCK_DISABLED;
+            } else {
+                availability = LOCK_CLOCK_ENABLED;
+            }
+        }
+        return availability == LOCK_CLOCK_ENABLED;
+    }
+
     @Override
     protected int getMetricsCategory() {
         return InstrumentedFragment.ADVANCED;
     }
-
 }

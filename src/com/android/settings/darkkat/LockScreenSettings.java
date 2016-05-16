@@ -46,8 +46,8 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class LockScreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String PREF_LOCK_CLOCK_MISSING =
-            "lock_clock_missing";
+    private static final String PREF_WEATHER_SERVICE_MISSING =
+            "weather_service_missing";
     private static final String PREF_BACKGROUND_COLOR =
             "lock_screen_background_color";
     private static final String PREF_ICON_COLOR =
@@ -98,21 +98,21 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         int intColor;
         String hexColor;
 
-        // Remove the weather settings preference if lock clock is not installed or disabled
+        // Remove the weather settings preference if the weather service is not installed or disabled
         // and show an info preference instead
-        final int lockClockAvailability = WeatherHelper.getLockClockAvailability(getActivity());
-        if (lockClockAvailability != WeatherHelper.LOCK_CLOCK_ENABLED) {
+        final int weatherServiceAvailability = WeatherHelper.getWeatherServiceAvailability(getActivity());
+        if (weatherServiceAvailability != WeatherHelper.PACKAGE_ENABLED) {
             removePreference("lock_screen_weather_settings");
-            if (lockClockAvailability == WeatherHelper.LOCK_CLOCK_DISABLED) {
-                Preference lockClockMissing = findPreference(PREF_LOCK_CLOCK_MISSING);
+            if (weatherServiceAvailability == WeatherHelper.PACKAGE_DISABLED) {
+                Preference weatherServiceMissing = findPreference(PREF_WEATHER_SERVICE_MISSING);
                 final CharSequence summary = getResources().getString(DeviceUtils.isPhone(getActivity())
-                        ? R.string.lock_clock_disabled_summary
-                        : R.string.lock_clock_disabled_tablet_summary);
-                lockClockMissing.setTitle(getResources().getString(R.string.lock_clock_disabled_title));
-                lockClockMissing.setSummary(summary);
+                        ? R.string.weather_service_disabled_summary
+                        : R.string.weather_service_disabled_tablet_summary);
+                weatherServiceMissing.setTitle(getResources().getString(R.string.weather_service_disabled_title));
+                weatherServiceMissing.setSummary(summary);
             }
         } else {
-            removePreference(PREF_LOCK_CLOCK_MISSING);
+            removePreference(PREF_WEATHER_SERVICE_MISSING);
         }
 
         if (!isDozeAvailable()) {

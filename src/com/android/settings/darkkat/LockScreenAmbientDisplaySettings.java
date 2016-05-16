@@ -58,8 +58,8 @@ public class LockScreenAmbientDisplaySettings extends SettingsPreferenceFragment
             "ambient_display_mode";
     private static final String PREF_SHOW_BATTERY =
             "ambient_display_show_battery";
-    private static final String PREF_LOCK_CLOCK_MISSING =
-            "lock_clock_missing";
+    private static final String PREF_WEATHER_SERVICE_MISSING =
+            "weather_service_missing";
     private static final String PREF_SHOW_WEATHER =
             "ambient_display_show_weather";
     private static final String PREF_SHOW_BUTTON_BAR =
@@ -155,21 +155,21 @@ public class LockScreenAmbientDisplaySettings extends SettingsPreferenceFragment
                     Settings.System.AMBIENT_DISPLAY_SHOW_BATTERY, 1) == 1);
             mShowBattery.setOnPreferenceChangeListener(this);
 
-            // Remove the weather settings preference if lock clock is not installed or disabled
+            // Remove the weather settings preference if the weather service is not installed or disabled
             // and show an info preference instead
-            final int lockClockAvailability = WeatherHelper.getLockClockAvailability(getActivity());
-            if (lockClockAvailability != WeatherHelper.LOCK_CLOCK_ENABLED) {
+            final int weatherServiceAvailability = WeatherHelper.getWeatherServiceAvailability(getActivity());
+            if (weatherServiceAvailability != WeatherHelper.PACKAGE_ENABLED) {
                 removePreference(PREF_SHOW_WEATHER);
-                if (lockClockAvailability == WeatherHelper.LOCK_CLOCK_DISABLED) {
-                    Preference lockClockMissing = findPreference(PREF_LOCK_CLOCK_MISSING);
+                if (weatherServiceAvailability == WeatherHelper.PACKAGE_DISABLED) {
+                    Preference weatherServiceMissing = findPreference(PREF_WEATHER_SERVICE_MISSING);
                     final CharSequence summary = getResources().getString(DeviceUtils.isPhone(getActivity())
-                            ? R.string.lock_clock_disabled_summary
-                            : R.string.lock_clock_disabled_tablet_summary);
-                    lockClockMissing.setTitle(getResources().getString(R.string.lock_clock_disabled_title));
-                    lockClockMissing.setSummary(summary);
+                            ? R.string.weather_service_disabled_summary
+                            : R.string.weather_service_disabled_tablet_summary);
+                    weatherServiceMissing.setTitle(getResources().getString(R.string.weather_service_disabled_title));
+                    weatherServiceMissing.setSummary(summary);
                 }
             } else {
-                removePreference(PREF_LOCK_CLOCK_MISSING);
+                removePreference(PREF_WEATHER_SERVICE_MISSING);
                 mShowWeather = (SwitchPreference) findPreference(PREF_SHOW_WEATHER);
                 mShowWeather.setChecked(Settings.System.getInt(mResolver,
                         Settings.System.AMBIENT_DISPLAY_SHOW_WEATHER, 0) == 1);
@@ -252,7 +252,7 @@ public class LockScreenAmbientDisplaySettings extends SettingsPreferenceFragment
             }
         } else {
             removePreference(PREF_SHOW_BATTERY);
-            removePreference(PREF_LOCK_CLOCK_MISSING);
+            removePreference(PREF_WEATHER_SERVICE_MISSING);
             removePreference(PREF_SHOW_WEATHER);
             removePreference(PREF_SHOW_BUTTON_BAR);
             removePreference(PREF_MODE);

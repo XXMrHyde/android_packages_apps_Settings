@@ -1255,8 +1255,8 @@ public class SettingsActivity extends Activity
                         removeTile = true;
                     }
                 } else if (id == R.id.weather_settings) {
-                    if (WeatherHelper.getLockClockAvailability(this)
-                            != WeatherHelper.LOCK_CLOCK_ENABLED) {
+                    if (WeatherHelper.getWeatherServiceAvailability(this)
+                            != WeatherHelper.PACKAGE_ENABLED) {
                         removeTile = true;
                     }
                 } else if (id == R.id.data_usage_settings) {

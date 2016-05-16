@@ -29,7 +29,6 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
-import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -37,11 +36,11 @@ import android.view.View;
 
 import com.android.internal.util.darkkat.DeviceUtils;
 import com.android.internal.util.darkkat.SBEPanelColorHelper;
+import com.android.internal.util.darkkat.WeatherHelper;
 
 import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
@@ -103,8 +102,8 @@ public class StatusBarExpandedBarsSettings extends SettingsPreferenceFragment im
         String hexColor;
 
         final boolean supportsMobileData = DeviceUtils.deviceSupportsMobileData(getActivity());
-        final boolean isLockClockInstalled =
-                Utils.isPackageInstalled(getActivity(), "com.cyanogenmod.lockclock");
+        final boolean isWeatherServiceAvailable =
+                WeatherHelper.isWeatherServiceAvailable(getActivity());
         final boolean showQuickAccessBar = Settings.System.getInt(mResolver,
                Settings.System.STATUS_BAR_EXPANDED_SHOW_QAB, 1) == 1;
         final boolean showBrightnessSliderBar = Settings.System.getInt(mResolver,
@@ -115,7 +114,7 @@ public class StatusBarExpandedBarsSettings extends SettingsPreferenceFragment im
                Settings.System.STATUS_BAR_EXPANDED_SHOW_MOBILE_BAR, 0) == 1;
         final boolean showBatteryStatusBar = Settings.System.getInt(mResolver,
                Settings.System.STATUS_BAR_EXPANDED_SHOW_BATTERY_STATUS_BAR, 0) == 1;
-        final boolean showWeatherBar = isLockClockInstalled && Settings.System.getInt(mResolver,
+        final boolean showWeatherBar = isWeatherServiceAvailable && Settings.System.getInt(mResolver,
                Settings.System.STATUS_BAR_EXPANDED_SHOW_WEATHER, 0) == 1;
 
         final boolean disableAdvancedSettings = !showQuickAccessBar

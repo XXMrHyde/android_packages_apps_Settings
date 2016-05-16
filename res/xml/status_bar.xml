@@ -69,9 +69,9 @@
         android:fragment="com.android.settings.darkkat.StatusBarNetworkStatusIconSettings" />
 
     <Preference
-        android:key="lock_clock_missing"
-        android:title="@string/lock_clock_missing_title"
-        android:summary="@string/lock_clock_missing_summary"
+        android:key="weather_service_missing"
+        android:title="@string/weather_service_missing_title"
+        android:summary="@string/weather_service_missing_summary"
         android:enabled="false" />
 
     <PreferenceScreen
