@@ -23,11 +23,11 @@ import android.preference.SwitchPreference;
 import android.provider.Settings;
 
 import com.android.internal.util.darkkat.DeviceUtils;
+import com.android.internal.util.darkkat.WeatherHelper;
 
 import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
 
 public class ExpandedBarsAdvancedSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -59,8 +59,9 @@ public class ExpandedBarsAdvancedSettings extends SettingsPreferenceFragment imp
                Settings.System.STATUS_BAR_EXPANDED_SHOW_BATTERY_STATUS_BAR, 0) == 1;
         final boolean showWeatherBar = Settings.System.getInt(mResolver,
                Settings.System.STATUS_BAR_EXPANDED_SHOW_WEATHER, 0) == 1;
-        final boolean isLockClockInstalled =
-                Utils.isPackageInstalled(getActivity(), "com.cyanogenmod.lockclock");
+        final boolean isWeatherServiceAvailable =
+                WeatherHelper.isWeatherServiceAvailable(getActivity());
+        final int weatherServiceAvailability = WeatherHelper.getWeatherServiceAvailability(getActivity());
 
         Preference advancedQuickAccessBarSettings =
                 findPreference("advanced_quick_access_bar_settings");
@@ -83,11 +84,18 @@ public class ExpandedBarsAdvancedSettings extends SettingsPreferenceFragment imp
         if (!showWeatherBar) {
             advancedWeatherBarSettings.setSummary(
                     getResources().getString(R.string.advanced_weather_bar_settings_disabled_summary));
-        } else if (!isLockClockInstalled) {
-            advancedWeatherBarSettings.setSummary(
-                    getResources().getString(R.string.lock_clock_missing_summary));
+        } else {
+            if (weatherServiceAvailability == WeatherHelper.PACKAGE_DISABLED) {
+                final CharSequence summary = getResources().getString(DeviceUtils.isPhone(getActivity())
+                        ? R.string.weather_service_disabled_summary
+                        : R.string.weather_service_disabled_tablet_summary);
+                advancedWeatherBarSettings.setSummary(summary);
+            } else if (weatherServiceAvailability == WeatherHelper.PACKAGE_MISSING) {
+                advancedWeatherBarSettings.setSummary(
+                        getResources().getString(R.string.weather_service_missing_summary));
+            }
         }
-        advancedWeatherBarSettings.setEnabled(showWeatherBar && isLockClockInstalled);
+        advancedWeatherBarSettings.setEnabled(showWeatherBar && isWeatherServiceAvailable);
 
         mTrafficBitByte =
                 (SwitchPreference) findPreference(PREF_TRAFFIC_BIT_BYTE);

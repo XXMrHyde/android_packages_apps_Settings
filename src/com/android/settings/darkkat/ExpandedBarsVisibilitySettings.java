@@ -62,7 +62,7 @@ public class ExpandedBarsVisibilitySettings extends SettingsPreferenceFragment i
         addPreferencesFromResource(R.xml.expanded_bars_visibility_settings);
         mResolver = getContentResolver();
 
-        final int lockClockAvailability = WeatherHelper.getLockClockAvailability(getActivity());
+        final int weatherServiceAvailability = WeatherHelper.getWeatherServiceAvailability(getActivity());
         final boolean supportsMobileData = DeviceUtils.deviceSupportsMobileData(getActivity());
 
         mShowQuickAccessBar =
@@ -105,13 +105,13 @@ public class ExpandedBarsVisibilitySettings extends SettingsPreferenceFragment i
                Settings.System.STATUS_BAR_EXPANDED_SHOW_WEATHER, 0) == 1);
         mShowWeatherBar.setOnPreferenceChangeListener(this);
 
-        if (lockClockAvailability != WeatherHelper.LOCK_CLOCK_ENABLED) {
-            if (lockClockAvailability == WeatherHelper.LOCK_CLOCK_DISABLED) {
+        if (weatherServiceAvailability != WeatherHelper.PACKAGE_ENABLED) {
+            if (weatherServiceAvailability == WeatherHelper.PACKAGE_DISABLED) {
                 mShowWeatherBar.setSummary(getResources().getString(
-                        R.string.expanded_bars_lock_clock_disabled_summary));
+                        R.string.expanded_bars_weather_service_disabled_summary));
             } else {
                 mShowWeatherBar.setSummary(getResources().getString(
-                        R.string.expanded_bars_lock_clock_missing_summary));
+                        R.string.expanded_bars_weather_service_missing_summary));
             }
         }
     }

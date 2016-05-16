@@ -25,11 +25,11 @@
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="customize_title">Anpassen</string>
     <string name="weather_title">Wetter</string>
-    <string name="lock_clock_missing_title">\"cLock\" ist nicht installiert</string>
-    <string name="lock_clock_missing_summary">Um die Wetter Funtion nutzen zu können, muss die App LockClock \"cLock\" installiert sein</string>
-    <string name="lock_clock_disabled_title">\"cLock\" ist deaktiviert</string>
-    <string name="lock_clock_disabled_summary">Um die Wetter Funtion nutzen zu können, aktiviere die App LockClock \"cLock\" und starte das Telefon neu</string>
-    <string name="lock_clock_disabled_tablet_summary">Um die Wetter Funtion nutzen zu können, aktiviere die App LockClock \"cLock\" und starte das Tablet neu</string>
+    <string name="weather_service_missing_title">\"DK Wetter Dienst\" ist nicht installiert</string>
+    <string name="weather_service_missing_summary">Um die Wetter Funtion nutzen zu können, muss die App DKWeatherService \"DK Wetter Dienst\" installiert sein</string>
+    <string name="weather_service_disabled_title">\"DK Wetter Dienst\" ist deaktiviert</string>
+    <string name="weather_service_disabled_summary">Um die Wetter Funtion nutzen zu können, aktiviere die App DKWeatherService \"DK Wetter Dienst\" und starte das Telefon neu</string>
+    <string name="weather_service_disabled_tablet_summary">Um die Wetter Funtion nutzen zu können, aktiviere die App DKWeatherService \"DK Wetter Dienst\" und starte das Tablet neu</string>
     <string name="options_title">Optionen</string>
     <string name="show_title">Anzeigen</string>
     <string name="show_on_lock_screen_title">Auf dem Sperrbildschirm anzeigen</string>
@@ -441,8 +441,8 @@
     <string name="expanded_bars_show_battery_status_bar_summary">Aktivieren um die Akku-Statusleiste anzuzeigen</string>
     <string name="expanded_bars_weather_bar_title">Wetterleiste</string>
     <string name="expanded_bars_show_weather_summary">Aktivieren um die Wetterleiste anzuzeigen</string>
-    <string name="expanded_bars_lock_clock_missing_summary">Die App LockClock \"cLock\" ist nicht installiert, deaktivieren um die Wetterleiste zu verbergen</string>
-    <string name="expanded_bars_lock_clock_disabled_summary">Die App LockClock \"cLock\" ist deaktiviert, deaktivieren um die Wetterleiste zu verbergen</string>
+    <string name="expanded_bars_weather_service_missing_summary">Die App DKWeatherService \"DK Wetter Dienst\" ist nicht installiert, deaktivieren um die Wetterleiste zu verbergen</string>
+    <string name="expanded_bars_weather_service_disabled_summary">Die App DKWeatherService \"DK Wetter Dienst\" ist deaktiviert, deaktivieren um die Wetterleiste zu verbergen</string>
 
     <!-- Expanded bars advanced settings -->
     <string name="advanced_quick_access_bar_settings_summary">Ordne die Schaltflächen an, und wähle welche Schaltflächen in der Schnellzugriffsleiste angezeigt werden sollen</string>

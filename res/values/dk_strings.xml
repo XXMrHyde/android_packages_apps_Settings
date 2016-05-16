@@ -25,11 +25,11 @@
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="customize_title">Customize</string>
     <string name="weather_title">Weather</string>
-    <string name="lock_clock_missing_title">\'cLock\' is not installed</string>
-    <string name="lock_clock_missing_summary">To use the weather feature, the app LockClock \'cLock\' has to be installed</string>
-    <string name="lock_clock_disabled_title">\'cLock\' is disabled</string>
-    <string name="lock_clock_disabled_summary">To use the weather feature, enable the app LockClock \'cLock\', and reboot your phone</string>
-    <string name="lock_clock_disabled_tablet_summary">To use the weather feature, enable the app LockClock \'cLock\', and reboot your tablet</string>
+    <string name="weather_service_missing_title">\'DK Weather Service\' is not installed</string>
+    <string name="weather_service_missing_summary">To use the weather feature, the app DKWeatherService \'DK Weather Service\' has to be installed</string>
+    <string name="weather_service_disabled_title">\'DK Weather Service\' is disabled</string>
+    <string name="weather_service_disabled_summary">To use the weather feature, enable the app DKWeatherService \'DK Weather Service\', and reboot your phone</string>
+    <string name="weather_service_disabled_tablet_summary">To use the weather feature, enable the app DKWeatherService \'DK Weather Service\', and reboot your tablet</string>
     <string name="options_title">Options</string>
     <string name="show_title">Show</string>
     <string name="show_on_lock_screen_title">Show on lock screen</string>
@@ -442,8 +442,8 @@
     <string name="expanded_bars_show_battery_status_bar_summary">Enable to show the battery status bar</string>
     <string name="expanded_bars_weather_bar_title">Weather bar</string>
     <string name="expanded_bars_show_weather_summary">Enable to show the weather bar</string>
-    <string name="expanded_bars_lock_clock_missing_summary">The app LockClock \'cLock\' is not installed, disable to hide the weather bar.</string>
-    <string name="expanded_bars_lock_clock_disabled_summary">The app LockClock \'cLock\' is disabled, disable to hide the weather bar.</string>
+    <string name="expanded_bars_weather_service_missing_summary">The app DKWeatherService \'DK Weather Service\' is not installed, disable to hide the weather bar.</string>
+    <string name="expanded_bars_weather_service_disabled_summary">The app DKWeatherService \'DK Weather Service\' is disabled, disable to hide the weather bar.</string>
 
     <!-- Expanded bars advanced settings -->
     <string name="advanced_quick_access_bar_settings_summary">Arrange the buttons, and choose the buttons to display on the quick access bar</string>

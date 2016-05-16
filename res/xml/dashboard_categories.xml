@@ -125,11 +125,8 @@
                 android:icon="@drawable/ic_settings_weather">
                 <intent
                     android:action="android.intent.action.MAIN"
-                    android:targetClass="com.cyanogenmod.lockclock.preference.Preferences"
-                    android:targetPackage="com.cyanogenmod.lockclock" >
-                    <extra android:name=":android:show_fragment"
-                        android:value="com.cyanogenmod.lockclock.preference.WeatherSettingPreferences" />
-                </intent>
+                    android:targetClass="net.darkkatroms.weather.SettingsActivity"
+                    android:targetPackage="net.darkkatroms.weather" />
         </dashboard-tile>
 
         <!-- Advanced -->
