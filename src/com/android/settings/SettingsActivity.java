@@ -1254,7 +1254,7 @@ public class SettingsActivity extends Activity
                     if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH)) {
                         removeTile = true;
                     }
-                } else if (id == R.id.weather_settings) {
+                } else if (id == R.id.weather) {
                     if (WeatherHelper.getWeatherServiceAvailability(this)
                             != WeatherHelper.PACKAGE_ENABLED) {
                         removeTile = true;

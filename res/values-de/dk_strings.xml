@@ -83,6 +83,9 @@
     <string name="weather_icon_colored_title">Farbig</string>
     <string name="weather_icon_vclouds_title">VClouds</string>
     <string name="icon_is_greyscale_title">Wenn das Symbol ein Graustufen Symbol ist</string>
+    <string name="theme_material_title">Material</string>
+    <string name="theme_darkkat_title">DarkKat</string>
+    <string name="theme_material_light_title">Material light</string>
 
     <!-- Pickers -->
 
@@ -542,6 +545,25 @@
     <string name="notification_bg_guts_color_title">Hintergrund bei Langklick</string>
     <string name="notification_app_icon_bg_color_title">App Symbol Hintergrund</string>
     <string name="notification_bg_color_mode_no_color_title">Wenn die Benachrichtigung keine eigene Farbe enthält</string>
+
+    <!-- Weather -->
+    <string name="weather_config_title">Konfiguration</string>
+    <string name="weather_config_summary">Das Wetter konfigurieren</string>
+    <string name="weather_detailed_weather_settings_title">Detaillierte Wetteransicht</string>
+    <string name="weather_detailed_weather_settings_summary">Die detaillierte Wetteransicht anpassen</string>
+
+    <!-- Detailed weather -->
+    <string name="detailed_weather_theme_title">Theme</string>
+    <string name="detailed_weather_condition_icon_title">Wetterlage Symbol</string>
+    <string name="detailed_weather_customize_colors_title">Farben anpassen</string>
+    <string name="detailed_weather_customize_colors_summary">Aktivieren um die Farben anzupassen</string>
+    <string name="detailed_weather_status_bar_bg_color_title">Hintergrund der Statusleiste</string>
+    <string name="detailed_weather_action_bar_bg_color_title">Hintergrund der Aktionsleiste</string>
+    <string name="detailed_weather_content_bg_color_title">Hintergrund des Inhaltes</string>
+    <string name="detailed_weather_action_bar_text_color_title">Text der Aktionsleiste</string>
+    <string name="detailed_weather_content_text_color_title">Text des Inhaltes</string>
+    <string name="detailed_weather_action_bar_icon_color_title">Symbol der Aktionsleiste</string>
+    <string name="detailed_weather_condition_image_color_title">Wetterlage Symbol</string>
 
     <!-- Advanced -->
     <string name="advanced_boot_dialog_settings_title">Boot Dialog</string>

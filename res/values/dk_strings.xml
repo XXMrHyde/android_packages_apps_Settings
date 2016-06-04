@@ -84,6 +84,9 @@
     <string name="weather_icon_colored_title">Colored</string>
     <string name="weather_icon_vclouds_title">VClouds</string>
     <string name="icon_is_greyscale_title">If the icon is an greyscale icon</string>
+    <string name="theme_material_title">Material</string>
+    <string name="theme_darkkat_title">DarkKat</string>
+    <string name="theme_material_light_title">Material light</string>
 
     <!-- Pickers -->
 
@@ -543,6 +546,25 @@
     <string name="notification_bg_guts_color_title">Background on longpress</string>
     <string name="notification_app_icon_bg_color_title">App icon background</string>
     <string name="notification_bg_color_mode_no_color_title">If the notification doesn\`t include an own color</string>
+
+    <!-- Weather -->
+    <string name="weather_config_title">Configuration</string>
+    <string name="weather_config_summary">Configure the weather</string>
+    <string name="weather_detailed_weather_settings_title">Detailed weather view</string>
+    <string name="weather_detailed_weather_settings_summary">Customize the detailed weather view</string>
+
+    <!-- Detailed weather -->
+    <string name="detailed_weather_theme_title">Theme</string>
+    <string name="detailed_weather_condition_icon_title">Condition icon</string>
+    <string name="detailed_weather_customize_colors_title">Customize colors</string>
+    <string name="detailed_weather_customize_colors_summary">Enable to customize colors</string>
+    <string name="detailed_weather_status_bar_bg_color_title">Status bar background</string>
+    <string name="detailed_weather_action_bar_bg_color_title">Action bar background</string>
+    <string name="detailed_weather_content_bg_color_title">Content background</string>
+    <string name="detailed_weather_action_bar_text_color_title">Action bar text</string>
+    <string name="detailed_weather_content_text_color_title">Content text</string>
+    <string name="detailed_weather_action_bar_icon_color_title">Action bar icon</string>
+    <string name="detailed_weather_condition_image_color_title">Condition icon</string>
 
     <!-- Advanced -->
     <string name="advanced_boot_dialog_settings_title">Boot dialog</string>
