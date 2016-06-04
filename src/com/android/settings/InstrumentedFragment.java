@@ -33,6 +33,7 @@ public abstract class InstrumentedFragment extends PreferenceFragment {
     public static final int NOTIFICATION_COLORS = 100006;
     public static final int NAVIGATIONBAR       = 100007;
     public static final int LED_LIGHT           = 100008;
+    public static final int WEATHER             = 100009;
 
     /**
      * Declare the view of this category.

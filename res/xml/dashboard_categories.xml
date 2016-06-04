@@ -118,16 +118,12 @@
                 android:icon="@drawable/ic_settings_notifications"
                 />
 
-        <!-- Weather settings -->
+        <!-- Weather -->
         <dashboard-tile
-                android:id="@+id/weather_settings"
+                android:id="@+id/weather"
                 android:title="@string/weather_title"
-                android:icon="@drawable/ic_settings_weather">
-                <intent
-                    android:action="android.intent.action.MAIN"
-                    android:targetClass="net.darkkatroms.weather.SettingsActivity"
-                    android:targetPackage="net.darkkatroms.weather" />
-        </dashboard-tile>
+                android:fragment="com.android.settings.darkkat.Weather"
+                android:icon="@drawable/ic_settings_weather" />
 
         <!-- Advanced -->
         <dashboard-tile
