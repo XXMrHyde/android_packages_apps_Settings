@@ -21,6 +21,7 @@
     <string name="dlg_dslv_reset_message">Reset all entries to default?</string>
     <string name="dlg_reset_values_message">Reset values to\nAndroid- or DarkKat default?</string>
     <string name="dlg_reset_colors_message">Reset colors to\nAndroid- or DarkKat default?</string>
+    <string name="dlg_reset_theme_default_colors_message">Reset colors to theme default?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="customize_title">Customize</string>
@@ -99,6 +100,7 @@
     <string name="reset_color_title">Reset</string>
     <string name="reset_android_title">Android default</string>
     <string name="reset_darkkat_title">DarkKat default</string>
+    <string name="reset_theme_default_title">Theme default</string>
     <string name="favorites_title">Favorites</string>
     <string name="hide_favorites_title">Hide favorites</string>
     <string name="show_favorites_title">Show favorites</string>
