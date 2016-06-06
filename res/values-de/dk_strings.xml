@@ -21,6 +21,7 @@
     <string name="dlg_dslv_reset_message">Standardeinstellungen wiederherstellen?</string>
     <string name="dlg_reset_values_message">Werte auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
     <string name="dlg_reset_colors_message">Farben auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
+    <string name="dlg_reset_theme_default_colors_message">Farben auf Theme Standard zurück setzen?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="customize_title">Anpassen</string>
@@ -98,6 +99,7 @@
     <string name="reset_color_title">Zurücksetzen</string>
     <string name="reset_android_title">Android Standard</string>
     <string name="reset_darkkat_title">DarkKat Standard</string>
+    <string name="reset_theme_default_title">Theme Standard</string>
     <string name="favorites_title">Favoriten</string>
     <string name="hide_favorites_title">Favoriten verbergen</string>
     <string name="show_favorites_title">Favoriten anzeigen</string>

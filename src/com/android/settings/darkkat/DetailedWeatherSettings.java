@@ -137,8 +137,9 @@ public class DetailedWeatherSettings extends SettingsPreferenceFragment implemen
             mStatusBarBgColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mStatusBarBgColor.setSummary(hexColor);
-            mStatusBarBgColor.setDefaultColors(DetailedWeatherHelper.MATERIAL_BLUE_700,
-                    DetailedWeatherHelper.MATERIAL_BLUE_700);
+            mStatusBarBgColor.setResetColor(DetailedWeatherHelper.MATERIAL_BLUE_700);
+            mStatusBarBgColor.setResetColorTitle(
+                    R.string.reset_theme_default_title);
             mStatusBarBgColor.setOnPreferenceChangeListener(this);
 
             mActionBarBgColor =
@@ -149,8 +150,9 @@ public class DetailedWeatherSettings extends SettingsPreferenceFragment implemen
             mActionBarBgColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mActionBarBgColor.setSummary(hexColor);
-            mActionBarBgColor.setDefaultColors(DetailedWeatherHelper.MATERIAL_BLUE_500,
-                    DetailedWeatherHelper.MATERIAL_BLUE_500);
+            mActionBarBgColor.setResetColor(DetailedWeatherHelper.MATERIAL_BLUE_500);
+            mActionBarBgColor.setResetColorTitle(
+                    R.string.reset_theme_default_title);
             mActionBarBgColor.setOnPreferenceChangeListener(this);
 
             defaultColor = getThemeDefaultColor(DetailedWeatherHelper.INDEX_CONTENT_BG_COLOR);
@@ -161,7 +163,9 @@ public class DetailedWeatherSettings extends SettingsPreferenceFragment implemen
             mContentBgColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mContentBgColor.setSummary(hexColor);
-            mContentBgColor.setDefaultColors(defaultColor, defaultColor);
+            mContentBgColor.setResetColor(defaultColor);
+            mContentBgColor.setResetColorTitle(
+                    R.string.reset_theme_default_title);
             mContentBgColor.setOnPreferenceChangeListener(this);
 
             mActionBarTextColor =
@@ -172,8 +176,9 @@ public class DetailedWeatherSettings extends SettingsPreferenceFragment implemen
             mActionBarTextColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mActionBarTextColor.setSummary(hexColor);
-            mActionBarTextColor.setDefaultColors(DetailedWeatherHelper.White,
-                    DetailedWeatherHelper.White);
+            mActionBarTextColor.setResetColor(DetailedWeatherHelper.White);
+            mActionBarTextColor.setResetColorTitle(
+                    R.string.reset_theme_default_title);
             mActionBarTextColor.setOnPreferenceChangeListener(this);
 
             defaultColor = getThemeDefaultColor(DetailedWeatherHelper.INDEX_CONTENT_TEXT_COLOR);
@@ -184,7 +189,9 @@ public class DetailedWeatherSettings extends SettingsPreferenceFragment implemen
             mContentTextColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mContentTextColor.setSummary(hexColor);
-            mContentTextColor.setDefaultColors(defaultColor, defaultColor);
+            mContentTextColor.setResetColor(defaultColor);
+            mContentTextColor.setResetColorTitle(
+                    R.string.reset_theme_default_title);
             mContentTextColor.setOnPreferenceChangeListener(this);
 
             mActionBarIconColor =
@@ -195,8 +202,9 @@ public class DetailedWeatherSettings extends SettingsPreferenceFragment implemen
             mActionBarIconColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mActionBarIconColor.setSummary(hexColor);
-            mActionBarIconColor.setDefaultColors(DetailedWeatherHelper.White,
-                    DetailedWeatherHelper.White);
+            mActionBarIconColor.setResetColor(DetailedWeatherHelper.White);
+            mActionBarIconColor.setResetColorTitle(
+                    R.string.reset_theme_default_title);
             mActionBarIconColor.setOnPreferenceChangeListener(this);
 
             if (conditionIcon != WeatherHelper.ICON_MONOCHROME) {
@@ -211,7 +219,9 @@ public class DetailedWeatherSettings extends SettingsPreferenceFragment implemen
                 mConditionImageColor.setNewPreviewColor(intColor);
                 hexColor = String.format("#%08x", (0xffffffff & intColor));
                 mConditionImageColor.setSummary(hexColor);
-                mConditionImageColor.setDefaultColors(defaultColor, defaultColor);
+                mConditionImageColor.setResetColor(defaultColor);
+                mConditionImageColor.setResetColorTitle(
+                        R.string.reset_theme_default_title);
                 mConditionImageColor.setOnPreferenceChangeListener(this);
             }
         } else {
@@ -370,53 +380,11 @@ public class DetailedWeatherSettings extends SettingsPreferenceFragment implemen
                 case DLG_RESET:
                     return new AlertDialog.Builder(getActivity())
                     .setTitle(R.string.reset)
-                    .setMessage(R.string.dlg_reset_values_message)
+                    .setMessage(R.string.dlg_reset_theme_default_colors_message)
                     .setNegativeButton(R.string.cancel, null)
-                    .setNeutralButton(R.string.dlg_reset_android,
+                    .setPositiveButton(R.string.dlg_ok,
                             new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.DETAILED_WEATHER_THEME, 0);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.DETAILED_WEATHER_CONDITION_ICON, 0);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.DETAILED_WEATHER_CUSTOMIZE_COLORS, 0);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.DETAILED_WEATHER_STATUS_BAR_BG_COLOR,
-                                    DetailedWeatherHelper.MATERIAL_BLUE_700);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.DETAILED_WEATHER_ACTION_BAR_BG_COLOR,
-                                    DetailedWeatherHelper.MATERIAL_BLUE_500);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.DETAILED_WEATHER_CONTENT_BG_COLOR,
-                                    getOwner().getThemeDefaultColor(
-                                    DetailedWeatherHelper.INDEX_CONTENT_BG_COLOR));
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.DETAILED_WEATHER_ACTION_BAR_TEXT_COLOR,
-                                    DetailedWeatherHelper.White);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.DETAILED_WEATHER_CONTENT_TEXT_COLOR,
-                                    getOwner().getThemeDefaultColor(
-                                    DetailedWeatherHelper.INDEX_CONTENT_TEXT_COLOR));
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.DETAILED_WEATHER_ACTION_BAR_ICON_COLOR,
-                                    DetailedWeatherHelper.White);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.DETAILED_WEATHER_CONDITION_IMAGE_COLOR,
-                                    getOwner().getThemeDefaultColor(
-                                    DetailedWeatherHelper.INDEX_CONDITION_IMAGE_COLOR));
-                            getOwner().refreshSettings();
-                        }
-                    })
-                    .setPositiveButton(R.string.dlg_reset_darkkat,
-                            new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.DETAILED_WEATHER_THEME, 1);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.DETAILED_WEATHER_CONDITION_ICON, 2);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.DETAILED_WEATHER_CUSTOMIZE_COLORS, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.DETAILED_WEATHER_STATUS_BAR_BG_COLOR,
                                     DetailedWeatherHelper.MATERIAL_BLUE_700);
