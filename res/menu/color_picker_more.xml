@@ -15,17 +15,20 @@
 -->
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/reset_color"
+    <item android:id="@+id/reset_colors"
             android:icon="@drawable/ic_action_reset"
             android:title="@string/reset_color_title">
         <menu>
-            <item android:id="@+id/reset_android"
+            <item android:id="@+id/reset_color1"
                 android:title="@string/reset_android_title" />
 
-            <item android:id="@+id/reset_darkkat"
+            <item android:id="@+id/reset_color2"
                 android:title="@string/reset_darkkat_title" />
         </menu>
     </item>
+    <item android:id="@+id/reset_color"
+        android:icon="@drawable/ic_action_reset"
+        android:title="@string/reset_color_title" />
     <item android:id="@+id/edit_hex"
         android:title="@string/edit_hex_title"
         android:icon="@drawable/ic_action_edit" />

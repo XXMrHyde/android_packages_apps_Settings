@@ -15,6 +15,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Color picker preference -->
+
+    <declare-styleable name="ColorPickerPreference">
+        <attr name="defaultColor" format="color" />
+        <attr name="resetColor1" format="color" />
+        <attr name="resetColor2" format="color" />
+        <attr name="resetColor1Title" format="string" />
+        <attr name="resetColor2Title" format="string" />
+        <attr name="alphaSliderVisible" format="boolean" />
+    </declare-styleable>
+
     <!-- SlimRoms additions -->
     <!-- For DSLV -->
     <declare-styleable name="DragSortListView">

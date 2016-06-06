@@ -106,12 +106,16 @@ public class ColorPickerDialog extends Dialog implements
     private final Resources mResources;
 	private final float mDensity;
 
-    private final int mInitialColor;
-    private final int mAndroidColor;
-    private final int mDarkKatColor;
+    private int mInitialColor;
+    private int mResetColor1;
+    private int mResetColor2;
+    private String mResetColor1Title = null;
+    private String mResetColor2Title = null;
     private int mOldColorValue;
     private int mNewColorValue;
-    private final boolean mHideReset;
+    private boolean mHideResetColor1 = true;
+    private boolean mHideResetColor2 = true;
+    private boolean mShowSubMenu = false;
     private boolean mEditHexBarVisible;
     private boolean mFavoritesVisible;
     private boolean mShowHelpScreen;
@@ -127,31 +131,13 @@ public class ColorPickerDialog extends Dialog implements
         public void onColorChanged(int color);
     }
 
-    public ColorPickerDialog(Context context, int theme, int initialColor,
-            int androidColor, int darkkatColor) {
+    public ColorPickerDialog(Context context, int theme) {
         super(context, theme);
 
         mResolver = context.getContentResolver();
         mResources = context.getResources();
 		mDensity = mResources.getDisplayMetrics().density;
 
-        mInitialColor = initialColor;
-        mOldColorValue = mInitialColor;
-        mNewColorValue = mOldColorValue;
-        mAndroidColor = androidColor;
-        mDarkKatColor = darkkatColor;
-        if (mAndroidColor != 0x00000000 && mDarkKatColor != 0x00000000) {
-            mHideReset = false;
-        } else {
-            mHideReset = true;
-        }
-        mEditHexBarVisible = false;
-
-        setUp();
-    }
-
-    private void setUp() {
-        // To fight color branding.
         getWindow().setFormat(PixelFormat.RGBA_8888);
         getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -161,6 +147,26 @@ public class ColorPickerDialog extends Dialog implements
 
         mColorPickerView = inflater.inflate(R.layout.color_picker_dialog, null);
         setContentView(mColorPickerView);
+    }
+
+    public void setUp(int initialColor, int resetColor1, int resetColor2, String resetColor1Title,
+            String resetColor2Title, boolean alphaSliderVisible) {
+        mInitialColor = initialColor;
+        mOldColorValue = mInitialColor;
+        mNewColorValue = mInitialColor;
+        mResetColor1 = resetColor1;
+        mResetColor2 = resetColor2;
+        mResetColor1Title = resetColor1Title;
+        mResetColor2Title = resetColor2Title;
+        if (mResetColor1 != 0) {
+            mHideResetColor1 = false;
+            if (mResetColor2 != 0) {
+                mHideResetColor2 = false;
+                mShowSubMenu = true;
+            }
+        }
+
+        mEditHexBarVisible = false;
 
         mActionBarMain = (LinearLayout) mColorPickerView.findViewById(R.id.action_bar_main);
         mActionBarEditHex = (LinearLayout) mColorPickerView.findViewById(R.id.action_bar_edit_hex);
@@ -194,6 +200,9 @@ public class ColorPickerDialog extends Dialog implements
         mColorPicker = (ColorPickerView) mColorPickerView.findViewById(R.id.color_picker_view);
         mColorPicker.setOnColorChangedListener(this);
         mColorPicker.setColor(mInitialColor);
+        if (alphaSliderVisible) {
+            mColorPicker.setAlphaSliderVisible(alphaSliderVisible);
+        }
 
         mFavoritesLayout = (LinearLayout) mColorPickerView.findViewById(R.id.favorite_buttons);
         mFavoritesVisible = getFavoritesVisibility();
@@ -508,11 +517,11 @@ public class ColorPickerDialog extends Dialog implements
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
-        if (item.getItemId() == R.id.reset_android) {
-            mColorPicker.setColor(mAndroidColor, true);
+        if (item.getItemId() == R.id.reset_color1 || item.getItemId() == R.id.reset_color) {
+            mColorPicker.setColor(mResetColor1, true);
             return true;
-        } else if (item.getItemId() == R.id.reset_darkkat) {
-            mColorPicker.setColor(mDarkKatColor, true);
+        } else if (item.getItemId() == R.id.reset_color2) {
+            mColorPicker.setColor(mResetColor2, true);
             return true;
         } else if (item.getItemId() == R.id.edit_hex) {
             mAnimationType = HEX_BAR_VISIBILITY;
@@ -537,8 +546,26 @@ public class ColorPickerDialog extends Dialog implements
         popup.setOnMenuItemClickListener(this);
         popup.inflate(R.menu.color_picker_more);
         popup.setForceShowIcon();
-        if (mHideReset) {
+        if (mHideResetColor1) {
+            popup.getMenu().removeItem(R.id.reset_colors);
             popup.getMenu().removeItem(R.id.reset_color);
+        } else {
+            if (mShowSubMenu) {
+                popup.getMenu().removeItem(R.id.reset_color);
+                if (mResetColor1Title != null) {
+                    popup.getMenu().findItem(R.id.reset_colors).getSubMenu()
+                            .findItem(R.id.reset_color1).setTitle(mResetColor1Title);
+                }
+                if (mResetColor2Title != null) {
+                    popup.getMenu().findItem(R.id.reset_colors).getSubMenu()
+                    .findItem(R.id.reset_color2).setTitle(mResetColor2Title);
+                }
+            } else {
+                popup.getMenu().removeItem(R.id.reset_colors);
+                if (mResetColor1Title != null) {
+                    popup.getMenu().findItem(R.id.reset_color).setTitle(mResetColor1Title);
+                }
+            }
         }
 
         MenuItem showHideFavorites = popup.getMenu().findItem(R.id.show_hide_favorites);
@@ -583,10 +610,6 @@ public class ColorPickerDialog extends Dialog implements
 
     private int getColor() {
         return mColorPicker.getColor();
-    }
-
-    public void setAlphaSliderVisible(boolean visible) {
-        mColorPicker.setAlphaSliderVisible(visible);
     }
 
     private void writeFavoritesVisibility(boolean visible) {
