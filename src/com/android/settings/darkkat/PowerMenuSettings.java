@@ -114,7 +114,7 @@ public class PowerMenuSettings extends SettingsPreferenceFragment implements
         mBackgroundColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mBackgroundColor.setSummary(hexColor);
-        mBackgroundColor.setDefaultColors(DARKKAT_BLUE_GREY, DARKKAT_BLUE_GREY);
+        mBackgroundColor.setResetColors(DARKKAT_BLUE_GREY, DARKKAT_BLUE_GREY);
         mBackgroundColor.setOnPreferenceChangeListener(this);
 
         mIconNormalColor =
@@ -125,7 +125,7 @@ public class PowerMenuSettings extends SettingsPreferenceFragment implements
         mIconNormalColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mIconNormalColor.setSummary(hexColor);
-        mIconNormalColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mIconNormalColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
         mIconNormalColor.setOnPreferenceChangeListener(this);
 
         mIconEnabledSelectedColor =
@@ -136,7 +136,7 @@ public class PowerMenuSettings extends SettingsPreferenceFragment implements
         mIconEnabledSelectedColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mIconEnabledSelectedColor.setSummary(hexColor);
-        mIconEnabledSelectedColor.setDefaultColors(MATERIAL_TEAL_500, MATERIAL_TEAL_500);
+        mIconEnabledSelectedColor.setResetColors(MATERIAL_TEAL_500, MATERIAL_TEAL_500);
         mIconEnabledSelectedColor.setOnPreferenceChangeListener(this);
 
         mRippleColor =
@@ -145,7 +145,7 @@ public class PowerMenuSettings extends SettingsPreferenceFragment implements
         mRippleColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mRippleColor.setSummary(hexColor);
-        mRippleColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mRippleColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
         mRippleColor.setOnPreferenceChangeListener(this);
 
         mTextColor =
@@ -156,7 +156,7 @@ public class PowerMenuSettings extends SettingsPreferenceFragment implements
         mTextColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mTextColor.setSummary(hexColor);
-        mTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mTextColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
         mTextColor.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);

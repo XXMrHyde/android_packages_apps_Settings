@@ -94,7 +94,7 @@ public class StatusBarMultiUserSwitchSettings extends SettingsPreferenceFragment
         mIconColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mIconColor.setSummary(hexColor);
-        mIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mIconColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
         mIconColor.setOnPreferenceChangeListener(this);
 
         PreferenceCategory catColors =
@@ -108,7 +108,7 @@ public class StatusBarMultiUserSwitchSettings extends SettingsPreferenceFragment
             mActiveTextFrameColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mActiveTextFrameColor.setSummary(hexColor);
-            mActiveTextFrameColor.setDefaultColors(MATERIAL_TEAL_500, MATERIAL_TEAL_500);
+            mActiveTextFrameColor.setResetColors(MATERIAL_TEAL_500, MATERIAL_TEAL_500);
             mActiveTextFrameColor.setOnPreferenceChangeListener(this);
 
             mInactiveTextColor =
@@ -119,7 +119,7 @@ public class StatusBarMultiUserSwitchSettings extends SettingsPreferenceFragment
             mInactiveTextColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mInactiveTextColor.setSummary(hexColor);
-            mInactiveTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+            mInactiveTextColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
             mInactiveTextColor.setOnPreferenceChangeListener(this);
         } else {
             catColors.removePreference(findPreference(PREF_ACTIVE_TEXT_FRAME_COLOR));

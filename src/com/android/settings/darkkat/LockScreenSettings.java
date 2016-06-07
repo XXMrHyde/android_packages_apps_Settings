@@ -125,7 +125,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         mBackgroundColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mBackgroundColor.setSummary(hexColor);
-        mBackgroundColor.setDefaultColors(TRANSLUCENT_BG_WHITE, TRANSLUCENT_DARKKAT_BLUE_GREY);
+        mBackgroundColor.setResetColors(TRANSLUCENT_BG_WHITE, TRANSLUCENT_DARKKAT_BLUE_GREY);
         mBackgroundColor.setOnPreferenceChangeListener(this);
 
         mIconColor =
@@ -135,7 +135,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         mIconColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mIconColor.setSummary(hexColor);
-        mIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mIconColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
         mIconColor.setOnPreferenceChangeListener(this);
 
         mRippleColor =
@@ -144,7 +144,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         mRippleColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mRippleColor.setSummary(hexColor);
-        mRippleColor.setDefaultColors(TRANSLUCENT_WHITE, TRANSLUCENT_HOLO_BLUE_LIGHT);
+        mRippleColor.setResetColors(TRANSLUCENT_WHITE, TRANSLUCENT_HOLO_BLUE_LIGHT);
         mRippleColor.setOnPreferenceChangeListener(this);
 
         mTextColor =
@@ -154,7 +154,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         mTextColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mTextColor.setSummary(hexColor);
-        mTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mTextColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
         mTextColor.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);

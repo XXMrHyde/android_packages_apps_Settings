@@ -156,7 +156,7 @@ public class StatusBarWeatherSettings extends SettingsPreferenceFragment impleme
                 mTextColor.setNewPreviewColor(intColor);
                 hexColor = String.format("#%08x", (0xffffffff & intColor));
                 mTextColor.setSummary(hexColor);
-                mTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+                mTextColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
                 mTextColor.setOnPreferenceChangeListener(this);
 
                 if (show) {
@@ -168,7 +168,7 @@ public class StatusBarWeatherSettings extends SettingsPreferenceFragment impleme
                     mTextColorDarkMode.setNewPreviewColor(intColor);
                     hexColor = String.format("#%08x", (0xffffffff & intColor));
                     mTextColorDarkMode.setSummary(hexColor);
-                    mTextColorDarkMode.setDefaultColors(BLACK, BLACK);
+                    mTextColorDarkMode.setResetColors(BLACK, BLACK);
                     mTextColorDarkMode.setOnPreferenceChangeListener(this);
                 } else {
                     catColors.removePreference(findPreference(PREF_TEXT_COLOR_DARK_MODE));
@@ -186,7 +186,7 @@ public class StatusBarWeatherSettings extends SettingsPreferenceFragment impleme
                 mIconColor.setNewPreviewColor(intColor);
                 hexColor = String.format("#%08x", (0xffffffff & intColor));
                 mIconColor.setSummary(hexColor);
-                mIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+                mIconColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
                 mIconColor.setOnPreferenceChangeListener(this);
 
                 if (show) {
@@ -198,7 +198,7 @@ public class StatusBarWeatherSettings extends SettingsPreferenceFragment impleme
                     mIconColorDarkMode.setNewPreviewColor(intColor);
                     hexColor = String.format("#%08x", (0xffffffff & intColor));
                     mIconColorDarkMode.setSummary(hexColor);
-                    mIconColorDarkMode.setDefaultColors(BLACK, BLACK);
+                    mIconColorDarkMode.setResetColors(BLACK, BLACK);
                     mIconColorDarkMode.setOnPreferenceChangeListener(this);
                 } else {
                     catColors.removePreference(findPreference(PREF_ICON_COLOR_DARK_MODE));

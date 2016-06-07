@@ -198,7 +198,7 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
             mTextColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mTextColor.setSummary(hexColor);
-            mTextColor.setDefaultColors(WHITE, WHITE);
+            mTextColor.setResetColors(WHITE, WHITE);
             mTextColor.setOnPreferenceChangeListener(this);
 
             mTextColorDarkMode =
@@ -208,7 +208,7 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
             mTextColorDarkMode.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mTextColorDarkMode.setSummary(hexColor);
-            mTextColorDarkMode.setDefaultColors(BLACK, BLACK);
+            mTextColorDarkMode.setResetColors(BLACK, BLACK);
             mTextColorDarkMode.setOnPreferenceChangeListener(this);
         } else {
             catIcon.removePreference(findPreference(PREF_SHOW_TEXT));
@@ -234,7 +234,7 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
             mBatteryColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mBatteryColor.setSummary(hexColor);
-            mBatteryColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+            mBatteryColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
             mBatteryColor.setOnPreferenceChangeListener(this);
 
             mBatteryColorDarkMode =
@@ -244,7 +244,7 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
             mBatteryColorDarkMode.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mBatteryColorDarkMode.setSummary(hexColor);
-            mBatteryColorDarkMode.setDefaultColors(BLACK, BLACK);
+            mBatteryColorDarkMode.setResetColors(BLACK, BLACK);
             mBatteryColorDarkMode.setOnPreferenceChangeListener(this);
         }
 

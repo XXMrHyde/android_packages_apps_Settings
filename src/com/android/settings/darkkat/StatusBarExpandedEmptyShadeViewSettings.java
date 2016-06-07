@@ -77,7 +77,7 @@ public class StatusBarExpandedEmptyShadeViewSettings extends SettingsPreferenceF
         mTextColor.setNewPreviewColor(intColor);
         String hexColor = String.format("#%08x", (0xffffffff & intColor));
         mTextColor.setSummary(hexColor);
-        mTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mTextColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
         mTextColor.setOnPreferenceChangeListener(this);
 
     }

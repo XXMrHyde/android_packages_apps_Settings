@@ -158,7 +158,7 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
             mColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mColor.setSummary(hexColor);
-            mColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+            mColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
             mColor.setOnPreferenceChangeListener(this);
 
             mColorDarkMode =
@@ -168,7 +168,7 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
             mColorDarkMode.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mColorDarkMode.setSummary(hexColor);
-            mColorDarkMode.setDefaultColors(BLACK, BLACK);
+            mColorDarkMode.setResetColors(BLACK, BLACK);
             mColorDarkMode.setOnPreferenceChangeListener(this);
         } else {
             removePreference(PREF_SHOW_DATE);

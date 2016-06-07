@@ -134,7 +134,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
         mBgColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mBgColor.setSummary(hexColor);
-        mBgColor.setDefaultColors(DARKKAT_BLUE_GREY, DARKKAT_BLUE_GREY);
+        mBgColor.setResetColors(DARKKAT_BLUE_GREY, DARKKAT_BLUE_GREY);
         mBgColor.setOnPreferenceChangeListener(this);
 
         mBgGutsColor =
@@ -144,7 +144,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
         mBgGutsColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mBgGutsColor.setSummary(hexColor);
-        mBgGutsColor.setDefaultColors(SYSTEMUI_SECONDARY, SYSTEMUI_SECONDARY);
+        mBgGutsColor.setResetColors(SYSTEMUI_SECONDARY, SYSTEMUI_SECONDARY);
         mBgGutsColor.setOnPreferenceChangeListener(this);
 
         PreferenceCategory colorCat =
@@ -158,7 +158,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
             mAppIconBgColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mAppIconBgColor.setSummary(hexColor);
-            mAppIconBgColor.setDefaultColors(TRANSLUCENT_WHITE,
+            mAppIconBgColor.setResetColors(TRANSLUCENT_WHITE,
                     TRANSLUCENT_HOLO_BLUE_LIGHT);
             mAppIconBgColor.setOnPreferenceChangeListener(this);
         } else {     
@@ -171,7 +171,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
         mRippleColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mRippleColor.setSummary(hexColor);
-        mRippleColor.setDefaultColors(RIPPLE_WHITE, RIPPLE_HOLO_BLUE_LIGHT);
+        mRippleColor.setResetColors(RIPPLE_WHITE, RIPPLE_HOLO_BLUE_LIGHT);
         mRippleColor.setOnPreferenceChangeListener(this);
 
         mIconColor =
@@ -181,7 +181,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
         mIconColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mIconColor.setSummary(hexColor);
-        mIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mIconColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
         mIconColor.setOnPreferenceChangeListener(this);
 
         mTextColor =
@@ -191,7 +191,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
         mTextColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mTextColor.setSummary(hexColor);
-        mTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mTextColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
         mTextColor.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);

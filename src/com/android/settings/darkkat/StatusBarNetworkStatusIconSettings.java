@@ -100,7 +100,7 @@ public class StatusBarNetworkStatusIconSettings extends SettingsPreferenceFragme
         mSignal.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mSignal.setSummary(hexColor);
-        mSignal.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mSignal.setResetColors(WHITE, HOLO_BLUE_LIGHT);
         mSignal.setOnPreferenceChangeListener(this);
 
         mSignalDark =
@@ -111,7 +111,7 @@ public class StatusBarNetworkStatusIconSettings extends SettingsPreferenceFragme
         mSignalDark.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mSignalDark.setSummary(hexColor);
-        mSignalDark.setDefaultColors(BLACK, BLACK);
+        mSignalDark.setResetColors(BLACK, BLACK);
         mSignalDark.setOnPreferenceChangeListener(this);
 
         mNoSim =
@@ -121,7 +121,7 @@ public class StatusBarNetworkStatusIconSettings extends SettingsPreferenceFragme
         mNoSim.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mNoSim.setSummary(hexColor);
-        mNoSim.setDefaultColors(WHITE, RED_500);
+        mNoSim.setResetColors(WHITE, RED_500);
         mNoSim.setOnPreferenceChangeListener(this);
 
         mNoSimDark =
@@ -132,7 +132,7 @@ public class StatusBarNetworkStatusIconSettings extends SettingsPreferenceFragme
         mNoSimDark.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mNoSimDark.setSummary(hexColor);
-        mNoSimDark.setDefaultColors(BLACK, RED_500);
+        mNoSimDark.setResetColors(BLACK, RED_500);
         mNoSimDark.setOnPreferenceChangeListener(this);
 
         mAirplaneMode =
@@ -143,7 +143,7 @@ public class StatusBarNetworkStatusIconSettings extends SettingsPreferenceFragme
         mAirplaneMode.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mAirplaneMode.setSummary(hexColor);
-        mAirplaneMode.setDefaultColors(WHITE, RED_500);
+        mAirplaneMode.setResetColors(WHITE, RED_500);
         mAirplaneMode.setOnPreferenceChangeListener(this);
 
         mAirplaneModeDark =
@@ -154,7 +154,7 @@ public class StatusBarNetworkStatusIconSettings extends SettingsPreferenceFragme
         mAirplaneModeDark.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mAirplaneModeDark.setSummary(hexColor);
-        mAirplaneModeDark.setDefaultColors(BLACK, RED_500);
+        mAirplaneModeDark.setResetColors(BLACK, RED_500);
         mAirplaneModeDark.setOnPreferenceChangeListener(this);
 
         mStatus =
@@ -164,7 +164,7 @@ public class StatusBarNetworkStatusIconSettings extends SettingsPreferenceFragme
         mStatus.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mStatus.setSummary(hexColor);
-        mStatus.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mStatus.setResetColors(WHITE, HOLO_BLUE_LIGHT);
         mStatus.setOnPreferenceChangeListener(this);
 
         mStatusDark =
@@ -174,7 +174,7 @@ public class StatusBarNetworkStatusIconSettings extends SettingsPreferenceFragme
         mStatusDark.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mStatusDark.setSummary(hexColor);
-        mStatusDark.setDefaultColors(BLACK, BLACK);
+        mStatusDark.setResetColors(BLACK, BLACK);
         mStatusDark.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);

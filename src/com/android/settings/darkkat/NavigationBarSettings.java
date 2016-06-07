@@ -80,7 +80,7 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
         mIconColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mIconColor.setSummary(hexColor);
-        mIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mIconColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
         mIconColor.setOnPreferenceChangeListener(this);
 
         mRippleColor =
@@ -90,7 +90,7 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
         mRippleColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mRippleColor.setSummary(hexColor);
-        mRippleColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mRippleColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
         mRippleColor.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);

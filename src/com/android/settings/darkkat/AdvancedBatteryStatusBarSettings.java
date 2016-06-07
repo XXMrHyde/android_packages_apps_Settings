@@ -164,7 +164,7 @@ public class AdvancedBatteryStatusBarSettings extends SettingsPreferenceFragment
         mTextColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mTextColor.setSummary(hexColor);
-        mTextColor.setDefaultColors(WHITE, WHITE);
+        mTextColor.setResetColors(WHITE, WHITE);
         mTextColor.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
