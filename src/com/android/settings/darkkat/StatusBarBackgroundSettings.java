@@ -119,7 +119,7 @@ public class StatusBarBackgroundSettings extends SettingsPreferenceFragment impl
             mStartColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mStartColor.setSummary(hexColor);
-            mStartColor.setDefaultColors(BLACK, BLACK);
+            mStartColor.setResetColors(BLACK, BLACK);
             mStartColor.setOnPreferenceChangeListener(this);
 
             if (type == BACKGROUND_TYPE_GRADIENT) {
@@ -149,7 +149,7 @@ public class StatusBarBackgroundSettings extends SettingsPreferenceFragment impl
                     mCenterColor.setNewPreviewColor(intColor);
                     hexColor = String.format("#%08x", (0xffffffff & intColor));
                     mCenterColor.setSummary(hexColor);
-                    mCenterColor.setDefaultColors(BLACK, BLACK);
+                    mCenterColor.setResetColors(BLACK, BLACK);
                     mCenterColor.setOnPreferenceChangeListener(this);
                 } else {
                     catColors.removePreference(findPreference(PREF_CENTER_COLOR));
@@ -162,7 +162,7 @@ public class StatusBarBackgroundSettings extends SettingsPreferenceFragment impl
                 mEndColor.setNewPreviewColor(intColor);
                 hexColor = String.format("#%08x", (0xffffffff & intColor));
                 mEndColor.setSummary(hexColor);
-                mEndColor.setDefaultColors(BLACK, BLACK);
+                mEndColor.setResetColors(BLACK, BLACK);
                 mEndColor.setOnPreferenceChangeListener(this);
             } else {
                 catGradientOptions.removePreference(findPreference(PREF_GRADIENT_ORIENTATION));
