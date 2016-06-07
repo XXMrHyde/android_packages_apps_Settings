@@ -217,10 +217,6 @@ public class ColorPickerPreference extends DialogPreference implements
         return pickerDialog;
     }
 
-    public void setDefaultColors(int androidColor, int darkKatColor) {
-        setResetColors(androidColor, darkKatColor);
-    }
-
     public void setResetColors(int resetColor1, int resetColor2) {
         mResetColor1 = resetColor1;
         mResetColor2 = resetColor2;
@@ -255,15 +251,6 @@ public class ColorPickerPreference extends DialogPreference implements
      */
     public void setAlphaSliderVisible(boolean visible) {
         mAlphaSliderVisible = visible;
-    }
-
-    /**
-     * Toggle Alpha Slider visibility (by default it's disabled)
-     * 
-     * @param enable
-     */
-    public void setAlphaSliderEnabled(boolean enabled) {
-        setAlphaSliderVisible(enabled);
     }
 
     /**

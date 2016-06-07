@@ -80,7 +80,7 @@ public class ExpandedHeaderNetworkIconsSettings extends SettingsPreferenceFragme
         mNoSim.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mNoSim.setSummary(hexColor);
-        mNoSim.setDefaultColors(WHITE, RED_500);
+        mNoSim.setResetColors(WHITE, RED_500);
         mNoSim.setOnPreferenceChangeListener(this);
 
         mAirplaneMode =
@@ -91,7 +91,7 @@ public class ExpandedHeaderNetworkIconsSettings extends SettingsPreferenceFragme
         mAirplaneMode.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mAirplaneMode.setSummary(hexColor);
-        mAirplaneMode.setDefaultColors(WHITE, RED_500);
+        mAirplaneMode.setResetColors(WHITE, RED_500);
         mAirplaneMode.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);

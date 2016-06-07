@@ -101,7 +101,7 @@ public class StatusBarNotificationSettings extends SettingsPreferenceFragment im
         mIconColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mIconColor.setSummary(hexColor);
-        mIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mIconColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
         mIconColor.setOnPreferenceChangeListener(this);
 
         mIconColorDark =
@@ -112,7 +112,7 @@ public class StatusBarNotificationSettings extends SettingsPreferenceFragment im
         mIconColorDark.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mIconColorDark.setSummary(hexColor);
-        mIconColorDark.setDefaultColors(BLACK, BLACK);
+        mIconColorDark.setResetColors(BLACK, BLACK);
         mIconColorDark.setOnPreferenceChangeListener(this);
 
         PreferenceCategory catColors =
@@ -125,7 +125,7 @@ public class StatusBarNotificationSettings extends SettingsPreferenceFragment im
             mTickerTextColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mTickerTextColor.setSummary(hexColor);
-            mTickerTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+            mTickerTextColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
             mTickerTextColor.setOnPreferenceChangeListener(this);
 
             mTickerTextColorDark =
@@ -136,7 +136,7 @@ public class StatusBarNotificationSettings extends SettingsPreferenceFragment im
             mTickerTextColorDark.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mTickerTextColorDark.setSummary(hexColor);
-            mTickerTextColorDark.setDefaultColors(BLACK, BLACK);
+            mTickerTextColorDark.setResetColors(BLACK, BLACK);
             mTickerTextColorDark.setOnPreferenceChangeListener(this);
         } else {
             catColors.removePreference(findPreference(PREF_TICKER_TEXT_COLOR));

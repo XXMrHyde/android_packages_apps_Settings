@@ -156,7 +156,7 @@ public class StatusBarExpandedBarsSettings extends SettingsPreferenceFragment im
             mRippleColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mRippleColor.setSummary(hexColor);
-            mRippleColor.setDefaultColors(TRANSLUCENT_WHITE, TRANSLUCENT_HOLO_BLUE_LIGHT);
+            mRippleColor.setResetColors(TRANSLUCENT_WHITE, TRANSLUCENT_HOLO_BLUE_LIGHT);
             mRippleColor.setOnPreferenceChangeListener(this);
 
             catColors.removePreference(findPreference("expanded_bars_ripple_color_hidden"));
@@ -175,7 +175,7 @@ public class StatusBarExpandedBarsSettings extends SettingsPreferenceFragment im
             mTextColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mTextColor.setSummary(hexColor);
-            mTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+            mTextColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
             mTextColor.setOnPreferenceChangeListener(this);
 
             catColors.removePreference(findPreference("expanded_bars_text_color_hidden"));
@@ -196,7 +196,7 @@ public class StatusBarExpandedBarsSettings extends SettingsPreferenceFragment im
             mBackgroundColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mBackgroundColor.setSummary(hexColor);
-            mBackgroundColor.setDefaultColors(SYSTEMUI_PRIMARY, DARKKAT_BLUE_GREY);
+            mBackgroundColor.setResetColors(SYSTEMUI_PRIMARY, DARKKAT_BLUE_GREY);
             mBackgroundColor.setOnPreferenceChangeListener(this);
 
             mIconColor =
@@ -207,7 +207,7 @@ public class StatusBarExpandedBarsSettings extends SettingsPreferenceFragment im
             mIconColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mIconColor.setSummary(hexColor);
-            mIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+            mIconColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
             mIconColor.setOnPreferenceChangeListener(this);
         } else {
             catColors.removePreference(findPreference(PREF_BG_COLOR));

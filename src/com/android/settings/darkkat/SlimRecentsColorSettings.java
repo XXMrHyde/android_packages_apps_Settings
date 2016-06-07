@@ -127,8 +127,8 @@ public class SlimRecentsColorSettings extends SettingsPreferenceFragment impleme
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mBgColor.setNewPreviewColor(intColor);
         mBgColor.setSummary(hexColor);
-        mBgColor.setAlphaSliderEnabled(true);
-        mBgColor.setDefaultColors(TRANSLUCENT_BLACK, TRANSLUCENT_BLACK);
+        mBgColor.setAlphaSliderVisible(true);
+        mBgColor.setResetColors(TRANSLUCENT_BLACK, TRANSLUCENT_BLACK);
         mBgColor.setOnPreferenceChangeListener(this);
 
         mCardBgColor =
@@ -138,8 +138,8 @@ public class SlimRecentsColorSettings extends SettingsPreferenceFragment impleme
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mCardBgColor.setNewPreviewColor(intColor);
         mCardBgColor.setSummary(hexColor);
-        mCardBgColor.setAlphaSliderEnabled(true);
-        mCardBgColor.setDefaultColors(DARKKAT_BLUE_GREY, DARKKAT_BLUE_GREY);
+        mCardBgColor.setAlphaSliderVisible(true);
+        mCardBgColor.setResetColors(DARKKAT_BLUE_GREY, DARKKAT_BLUE_GREY);
         mCardBgColor.setOnPreferenceChangeListener(this);
 
         PreferenceCategory catColors =
@@ -152,8 +152,8 @@ public class SlimRecentsColorSettings extends SettingsPreferenceFragment impleme
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mTextColor.setNewPreviewColor(intColor);
             mTextColor.setSummary(hexColor);
-            mTextColor.setAlphaSliderEnabled(true);
-            mTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+            mTextColor.setAlphaSliderVisible(true);
+            mTextColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
             mTextColor.setOnPreferenceChangeListener(this);
         } else {
             catColors.removePreference(findPreference(PREF_TEXT_COLOR));
@@ -167,8 +167,8 @@ public class SlimRecentsColorSettings extends SettingsPreferenceFragment impleme
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mExpandIcontColor.setNewPreviewColor(intColor);
             mExpandIcontColor.setSummary(hexColor);
-            mExpandIcontColor.setAlphaSliderEnabled(true);
-            mExpandIcontColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+            mExpandIcontColor.setAlphaSliderVisible(true);
+            mExpandIcontColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
             mExpandIcontColor.setOnPreferenceChangeListener(this);
         } else {
             catColors.removePreference(findPreference(PREF_EXPAND_ICON_COLOR));
@@ -182,8 +182,8 @@ public class SlimRecentsColorSettings extends SettingsPreferenceFragment impleme
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mEmptyIcontColor.setNewPreviewColor(intColor);
             mEmptyIcontColor.setSummary(hexColor);
-            mEmptyIcontColor.setAlphaSliderEnabled(true);
-            mEmptyIcontColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+            mEmptyIcontColor.setAlphaSliderVisible(true);
+            mEmptyIcontColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
             mEmptyIcontColor.setOnPreferenceChangeListener(this);
         } else {
             catColors.removePreference(findPreference(PREF_EMPTY_ICON_COLOR));

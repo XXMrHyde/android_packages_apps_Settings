@@ -97,7 +97,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         mBackgroundColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mBackgroundColor.setSummary(hexColor);
-        mBackgroundColor.setDefaultColors(SYSTEMUI_SECONDARY, SYSTEMUI_SECONDARY);
+        mBackgroundColor.setResetColors(SYSTEMUI_SECONDARY, SYSTEMUI_SECONDARY);
         mBackgroundColor.setOnPreferenceChangeListener(this);
 
         mRippleColor =
@@ -106,7 +106,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         mRippleColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mRippleColor.setSummary(hexColor);
-        mRippleColor.setDefaultColors(TRANSLUCENT_WHITE, TRANSLUCENT_HOLO_BLUE_LIGHT);
+        mRippleColor.setResetColors(TRANSLUCENT_WHITE, TRANSLUCENT_HOLO_BLUE_LIGHT);
         mRippleColor.setOnPreferenceChangeListener(this);
 
         mTextColor =
@@ -117,7 +117,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         mTextColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mTextColor.setSummary(hexColor);
-        mTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mTextColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
         mTextColor.setOnPreferenceChangeListener(this);
 
         mIconColor =
@@ -128,7 +128,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         mIconColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mIconColor.setSummary(hexColor);
-        mIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mIconColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
         mIconColor.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);

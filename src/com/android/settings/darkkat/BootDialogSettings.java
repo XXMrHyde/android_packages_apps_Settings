@@ -121,7 +121,7 @@ public class BootDialogSettings extends SettingsPreferenceFragment implements
         mBackgroundColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mBackgroundColor.setSummary(hexColor);
-        mBackgroundColor.setDefaultColors(DARKKAT_BLUE_GREY, DARKKAT_BLUE_GREY);
+        mBackgroundColor.setResetColors(DARKKAT_BLUE_GREY, DARKKAT_BLUE_GREY);
         mBackgroundColor.setOnPreferenceChangeListener(this);
 
         mTextColor =
@@ -131,7 +131,7 @@ public class BootDialogSettings extends SettingsPreferenceFragment implements
         mTextColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mTextColor.setSummary(hexColor);
-        mTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+        mTextColor.setResetColors(WHITE, HOLO_BLUE_LIGHT);
         mTextColor.setOnPreferenceChangeListener(this);
 
         PreferenceCategory catColors =
@@ -145,7 +145,7 @@ public class BootDialogSettings extends SettingsPreferenceFragment implements
             mAppTextColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mAppTextColor.setSummary(hexColor);
-            mAppTextColor.setDefaultColors(MATERIAL_TEAL_500, MATERIAL_TEAL_500);
+            mAppTextColor.setResetColors(MATERIAL_TEAL_500, MATERIAL_TEAL_500);
             mAppTextColor.setOnPreferenceChangeListener(this);
         } else {
             catColors.removePreference(findPreference(PREF_APP_TEXT_COLOR));
