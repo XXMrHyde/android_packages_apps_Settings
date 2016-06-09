@@ -23,6 +23,7 @@
     <color name="icon_disabled">?android:attr/colorControlHighlight</color>
 
     <!-- Color picker -->
+    <color name="color_picker_color_view_drawable_boarder">#33ffffff</color>
 
     <!-- Color of the hex input divider -->
     <color name="divider">#1fffffff</color>
