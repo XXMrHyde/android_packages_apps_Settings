@@ -37,43 +37,76 @@
         android:persistent="false" />
 
     <PreferenceCategory
-        android:key="detailed_weather_cat_colors"
-        android:title="@string/colors_title">
+        android:key="detailed_weather_cat_background_colors"
+        android:title="@string/background_colors_title">
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="detailed_weather_status_bar_bg_color"
-            android:title="@string/detailed_weather_status_bar_bg_color_title"
+            android:title="@string/status_bar_title"
             android:defaultValue="0xffffffff" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="detailed_weather_action_bar_bg_color"
-            android:title="@string/detailed_weather_action_bar_bg_color_title"
+            android:title="@string/action_bar_title"
             android:defaultValue="0xffffffff" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="detailed_weather_content_bg_color"
-            android:title="@string/detailed_weather_content_bg_color_title"
+            android:title="@string/content_title"
             android:defaultValue="0xffffffff" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="detailed_weather_cards_bg_color"
+            android:title="@string/cards_title"
+            android:defaultValue="0xffffffff" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="detailed_weather_cat_text_colors"
+        android:title="@string/text_colors_title">
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="detailed_weather_action_bar_text_color"
-            android:title="@string/detailed_weather_action_bar_text_color_title"
+            android:title="@string/action_bar_title"
             android:defaultValue="0xffffffff" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="detailed_weather_content_text_color"
-            android:title="@string/detailed_weather_content_text_color_title"
-            android:defaultValue="0xff000000" />
+            android:key="detailed_weather_cards_text_color"
+            android:title="@string/cards_title"
+            android:defaultValue="0xffffffff" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="detailed_weather_cat_icon_colors"
+        android:title="@string/icon_colors_title">
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="detailed_weather_action_bar_icon_color"
-            android:title="@string/detailed_weather_action_bar_icon_color_title"
+            android:title="@string/action_bar_title"
             android:defaultValue="0xffffffff" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="detailed_weather_condition_image_color"
-            android:title="@string/detailed_weather_condition_image_color_title"
-            android:defaultValue="0xff000000" />
+            android:key="detailed_weather_cards_icon_color"
+            android:title="@string/cards_title"
+            android:defaultValue="0xffffffff" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="detailed_weather_cat_ripple_colors"
+        android:title="@string/ripple_colors_title">
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="detailed_weather_action_bar_ripple_color"
+            android:title="@string/action_bar_title"
+            android:defaultValue="0x31ffffff" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="detailed_weather_cards_ripple_color"
+            android:title="@string/cards_title"
+            android:defaultValue="0x31ffffff" />
 
     </PreferenceCategory>
 </PreferenceScreen>

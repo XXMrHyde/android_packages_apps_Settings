@@ -46,6 +46,10 @@
     <string name="background_title">Hintergrund</string>
     <string name="ripple_title">Ripple Effekt</string>
     <string name="colorize_ripple_title">Ripple Effekt einfärben</string>
+    <string name="status_bar_title">Statusleiste</string>
+    <string name="action_bar_title">Actionsleiste</string>
+    <string name="content_title">Inhalt</string>
+    <string name="cards_title">Karten</string>
     <string name="icon_title">Symbol</string>
     <string name="icons_title">Symbole</string>
     <string name="icons_normal_title">Symbole normal</string>
@@ -54,6 +58,10 @@
     <string name="text_title">Text</string>
     <string name="text_color_dark_mode_title">Text (helle Statusleiste)</string>
     <string name="text_color_title">Textfarbe</string>
+    <string name="background_colors_title">Hintergrund Farben</string>
+    <string name="text_colors_title">Text Farben</string>
+    <string name="icon_colors_title">Symbol Farben</string>
+    <string name="ripple_colors_title">Ripple Effekt Farben</string>
     <string name="type_title">Typ</string>
     <string name="type_text_icon">Text &amp; Symbol</string>
     <string name="position_title">Position</string>
@@ -559,13 +567,6 @@
     <string name="detailed_weather_condition_icon_title">Wetterlage Symbol</string>
     <string name="detailed_weather_customize_colors_title">Farben anpassen</string>
     <string name="detailed_weather_customize_colors_summary">Aktivieren um die Farben anzupassen</string>
-    <string name="detailed_weather_status_bar_bg_color_title">Hintergrund der Statusleiste</string>
-    <string name="detailed_weather_action_bar_bg_color_title">Hintergrund der Aktionsleiste</string>
-    <string name="detailed_weather_content_bg_color_title">Hintergrund des Inhaltes</string>
-    <string name="detailed_weather_action_bar_text_color_title">Text der Aktionsleiste</string>
-    <string name="detailed_weather_content_text_color_title">Text des Inhaltes</string>
-    <string name="detailed_weather_action_bar_icon_color_title">Symbol der Aktionsleiste</string>
-    <string name="detailed_weather_condition_image_color_title">Wetterlage Symbol</string>
 
     <!-- Advanced -->
     <string name="advanced_boot_dialog_settings_title">Boot Dialog</string>
