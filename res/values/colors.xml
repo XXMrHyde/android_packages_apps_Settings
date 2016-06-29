@@ -72,7 +72,7 @@
     <color name="running_processes_apps_ram">#ff009587</color>
     <color name="running_processes_free_ram">#ffced7db</color>
 
-    <color name="card_background">@*android:color/darkkat_blue_grey</color>
+    <color name="card_background">#ff1F2429</color>
 
     <color name="switchbar_background_color">#ff23282E</color>
     <color name="switch_accent_color">@color/theme_accent</color>
