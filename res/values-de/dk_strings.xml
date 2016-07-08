@@ -124,14 +124,14 @@
     <string name="color_picker_help_ab_name_summary">Zeigt nur den Namen, keine zusätzlichen Funktionen</string>
     <string name="color_picker_help_ab_color_apply_title">Farbvorschau und Farbe anwenden:</string>
     <string name="color_picker_help_ab_color_apply_summary">Die Farbvorschau wird immer angezeigt.\nWenn die neue Farbe nicht der alte Farbe entspricht, wird die Farbvorschau erweitert, um die neue Farbe anwenden zu können.</string>
+    <string name="color_picker_help_ab_hex_title">Hex-Wert:</string>
+    <string name="color_picker_help_ab_hex_summary">Zeigt das Hex-Eingabefeld an.\nHex-Werte müssen im Hex-Farbformat vorliegen:\n\"#aarrggbb\", (\"alpha\" (Transparenz), \"rot\", \"grün\" und \"blau\").\nDie Zurück-Schaltfläche schließt das Hex-Eingabefeld ohne den Hex-Wert zu setzen.\nDie Anwenden-Schaltfläche setzt den Hex-Wert als neue Farbe ohne die neue Farbe anzuwenden.</string>
     <string name="color_picker_help_ab_menu_title">Menü-Schaltfläche:</string>
     <string name="color_picker_help_ab_menu_reset_title">Zurücksetzen:</string>
-    <string name="color_picker_help_ab_menu_reset_summary">Setzt die neue Farbe auf die Standard Android oder Darkkat Farbe zurück ohne die neue Farbe anzuwenden.</string>
-    <string name="color_picker_help_ab_menu_hex_title">Hex-Wert:</string>
-    <string name="color_picker_help_ab_menu_hex_summary">Zeigt das Hex-Eingabefeld an.\nHex-Werte müssen im Hex-Farbformat vorliegen:\n\"#aarrggbb\", (\"alpha\" (Transparenz), \"rot\", \"grün\" und \"blau\").\nDie Zurück-Schaltfläche schließt das Hex-Eingabefeld ohne den Hex-Wert zu setzen.\nDie Anwenden-Schaltfläche setzt den Hex-Wert als neue Farbe ohne die neue Farbe anzuwenden.</string>
+    <string name="color_picker_help_ab_menu_reset_summary">Setzt die neue Farbe auf die Standard Android, Darkkat oder Theme abhängige Farbe zurück ohne die neue Farbe anzuwenden.</string>
     <string name="color_picker_help_ab_menu_favorites_title">Favoriten anzeigen/verbergen:</string>
     <string name="color_picker_help_ab_menu_favorites_summary">Zeigt/verbirgt die Favoriten.\nDas Verbergen der Favoriten setzt nicht die Favoritfarben zurück.</string>
-    <string name="color_picker_help_ab_menu_help_title">Hilfe:</string>
+    <string name="color_picker_help_ab_menu_help_title">Hilfe anzeigen:</string>
     <string name="color_picker_help_ab_menu_help_summary">Zeigt diese Hilfe an.</string>
     <string name="color_picker_help_colors_title">Farben:</string>
     <string name="color_picker_help_picker_view_title">Farbfeld:</string>
@@ -140,7 +140,7 @@
     <string name="color_picker_help_favorites_title">Favoriten:</string>
     <string name="color_picker_help_favorites_summary">Favoriten sind standardmäßig leer.\nEs kann zu jeder Zeit per Langklick die neue Farbe als Favorit gespeichert werden, (ein nicht leerer Favorit wird hierbei mit der aktuellen Farbe überschrieben).\nEin Klick setzt die Favoritenfarbe als neue Farbe, ohne die neue Farbe anzuwenden.</string>
     <string name="color_picker_help_palette_title">Palette:\n(DarkKat, Material und RGB)</string>
-    <string name="color_picker_help_palette_summary">Alle Palette Farben haben einen festen Wert.\nEin Klick setzt die Favoritfarbe als neue Farbe, ohne die neue Farbe anzuwenden.</string>
+    <string name="color_picker_help_palette_summary">Alle Palette Farben haben einen festen Wert.\nEin Klick setzt die Palette Farbe als neue Farbe, ohne die neue Farbe anzuwenden.</string>
     <string name="color_picker_help_do_not_show_title">Nicht erneut anzeigen</string>
     <string name="color_picker_help_button_ok_title">OK</string>
 
