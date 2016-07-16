@@ -587,6 +587,8 @@
     <string name="weather_detailed_weather_settings_summary">Customize the detailed weather view</string>
 
     <!-- Detailed weather -->
+    <string name="detailed_weather_show_location_title">Show location</string>
+    <string name="detailed_weather_show_location_summary">Enable to show the location</string>
     <string name="detailed_weather_theme_title">Theme</string>
     <string name="detailed_weather_condition_icon_title">Condition icon</string>
     <string name="detailed_weather_customize_colors_title">Customize colors</string>

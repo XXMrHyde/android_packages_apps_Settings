@@ -18,6 +18,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/weather_detailed_weather_settings_title">
 
+    <SwitchPreference
+        android:key="detailed_weather_show_location"
+        android:title="@string/detailed_weather_show_location_title"
+        android:summary="@string/detailed_weather_show_location_summary"
+        android:persistent="false" />
+
     <ListPreference
 	    android:key="detailed_weather_theme"
 	    android:title="@string/detailed_weather_theme_title"

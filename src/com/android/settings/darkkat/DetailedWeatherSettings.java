@@ -54,6 +54,8 @@ public class DetailedWeatherSettings extends SettingsPreferenceFragment implemen
             "detailed_weather_cat_icon_colors";
     private static final String PREF_CAT_RIPPLE_COLORS =
             "detailed_weather_cat_ripple_colors";
+    private static final String PREF_SHOW_LOCATION =
+            "detailed_weather_show_location";
     private static final String PREF_THEME =
             "detailed_weather_theme";
     private static final String PREF_CONDITION_ICON =
@@ -84,6 +86,7 @@ public class DetailedWeatherSettings extends SettingsPreferenceFragment implemen
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET  = 0;
 
+    private SwitchPreference mShowLocation;
     private ListPreference mTheme;
     private ListPreference mConditionIcon;
     private SwitchPreference mCustomizeColors;
@@ -126,6 +129,11 @@ public class DetailedWeatherSettings extends SettingsPreferenceFragment implemen
 
         final boolean customizeColors = Settings.System.getInt(mResolver,
                 Settings.System.DETAILED_WEATHER_CUSTOMIZE_COLORS, 0) == 1;
+
+        mShowLocation = (SwitchPreference) findPreference(PREF_SHOW_LOCATION);
+        mShowLocation.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.DETAILED_WEATHER_SHOW_LOCATION, 1) == 1);
+        mShowLocation.setOnPreferenceChangeListener(this);
 
         mTheme = (ListPreference) findPreference(PREF_THEME);
         final int theme = Settings.System.getInt(mResolver,
@@ -329,7 +337,12 @@ public class DetailedWeatherSettings extends SettingsPreferenceFragment implemen
         int intHex;
         String hex;
 
-        if (preference == mTheme) {
+        if (preference == mShowLocation) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.DETAILED_WEATHER_SHOW_LOCATION, value ? 1 : 0);
+            return true;
+        } else if (preference == mTheme) {
             intValue = Integer.valueOf((String) newValue);
             index = mTheme.findIndexOfValue((String) newValue);
             Settings.System.putInt(mResolver,
