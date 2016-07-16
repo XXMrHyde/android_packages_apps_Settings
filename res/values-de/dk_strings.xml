@@ -565,6 +565,8 @@
     <string name="weather_detailed_weather_settings_summary">Die detaillierte Wetteransicht anpassen</string>
 
     <!-- Detailed weather -->
+    <string name="detailed_weather_show_location_title">Standort anzeigen</string>
+    <string name="detailed_weather_show_location_summary">Aktivieren um den Standort anzuzeigen</string>
     <string name="detailed_weather_theme_title">Theme</string>
     <string name="detailed_weather_condition_icon_title">Wetterlage Symbol</string>
     <string name="detailed_weather_customize_colors_title">Farben anpassen</string>
