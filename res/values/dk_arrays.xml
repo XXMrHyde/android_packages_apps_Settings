@@ -429,6 +429,7 @@
         <item>@string/qab_button_mobile_data</item>
         <item>@string/qab_button_wifi</item>
         <item>@string/qab_button_nfc</item>
+        <item>@string/qab_button_sync</item>
     </string-array>
 
     <string-array name="qab_button_values" translatable="false">
@@ -442,6 +443,7 @@
         <item>data</item>
         <item>wifi</item>
         <item>nfc</item>
+        <item>sync</item>
     </string-array>
 
     <string-array name="battery_status_bar_icon_indicator_entries" translatable="false">
