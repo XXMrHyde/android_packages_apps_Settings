@@ -536,6 +536,7 @@
     <string name="qab_button_hotspot">Hotspot</string>
     <string name="qab_button_mobile_data">Mobile Daten</string>
     <string name="qab_button_nfc">NFC</string>
+    <string name="qab_button_sync">Autom. Synchronisation</string>
 
     <!-- Expanded bars advanced battery status bar settings -->
     <string name="battery_status_bar_cat_battery_bar_title">Akkuleiste</string>
