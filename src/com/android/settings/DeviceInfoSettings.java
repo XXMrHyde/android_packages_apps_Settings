@@ -64,20 +64,22 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String LOG_TAG = "DeviceInfoSettings";
     private static final String FILENAME_PROC_VERSION = "/proc/version";
     private static final String FILENAME_MSV = "/sys/board_properties/soc/msv";
+    private static final String FILENAME_PROC_MEMINFO = "/proc/meminfo";
+    private static final String FILENAME_PROC_CPUINFO = "/proc/cpuinfo";
 
     private static final String KEY_MANUAL = "manual";
     private static final String KEY_REGULATORY_INFO = "regulatory_info";
-    private static final String KEY_SYSTEM_UPDATE_SETTINGS = "system_update_settings";
     private static final String PROPERTY_URL_SAFETYLEGAL = "ro.url.safetylegal";
     private static final String PROPERTY_SELINUX_STATUS = "ro.build.selinux";
     private static final String KEY_KERNEL_VERSION = "kernel_version";
     private static final String KEY_BUILD_NUMBER = "build_number";
     private static final String KEY_DEVICE_MODEL = "device_model";
+    private static final String KEY_DEVICE_CPU = "device_cpu";
+    private static final String KEY_DEVICE_MEMORY = "device_memory";
     private static final String KEY_SELINUX_STATUS = "selinux_status";
     private static final String KEY_BASEBAND_VERSION = "baseband_version";
     private static final String KEY_FIRMWARE_VERSION = "firmware_version";
     private static final String KEY_SECURITY_PATCH = "security_patch";
-    private static final String KEY_UPDATE_SETTING = "additional_system_update_settings";
     private static final String KEY_EQUIPMENT_ID = "fcc_equipment_id";
     private static final String PROPERTY_EQUIPMENT_ID = "ro.ril.fccid";
     private static final String KEY_DEVICE_FEEDBACK = "device_feedback";
@@ -130,6 +132,22 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
 
+
+        final String cpuInfo = getCPUInfo();
+        String memInfo = getMemInfo();
+
+        if (cpuInfo != null) {
+            setStringSummary(KEY_DEVICE_CPU, cpuInfo);
+        } else {
+            getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_CPU));
+        }
+
+        if (memInfo != null) {
+            setStringSummary(KEY_DEVICE_MEMORY, memInfo);
+        } else {
+            getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_MEMORY));
+        }
+
         if (!SELinux.isSELinuxEnabled()) {
             String status = getResources().getString(R.string.selinux_status_disabled);
             setStringSummary(KEY_SELINUX_STATUS, status);
@@ -165,21 +183,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
          * info.
          */
         final Activity act = getActivity();
-
-        // These are contained by the root preference screen
-        PreferenceGroup parentPreference = getPreferenceScreen();
-        if (UserHandle.myUserId() == UserHandle.USER_OWNER) {
-            Utils.updatePreferenceToSpecificActivityOrRemove(act, parentPreference,
-                    KEY_SYSTEM_UPDATE_SETTINGS,
-                    Utils.UPDATE_PREFERENCE_FLAG_SET_TITLE_TO_MATCHING_ACTIVITY);
-        } else {
-            // Remove for secondary users
-            removePreference(KEY_SYSTEM_UPDATE_SETTINGS);
-        }
-
-        // Read platform settings for additional system update setting
-        removePreferenceIfBoolFalse(KEY_UPDATE_SETTING,
-                R.bool.config_additional_system_update_setting_enable);
 
         // Remove manual entry if none present.
         removePreferenceIfBoolFalse(KEY_MANUAL, R.bool.config_show_manual);
@@ -274,13 +277,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
             }
         } else if (preference.getKey().equals(KEY_DEVICE_FEEDBACK)) {
             sendFeedback();
-        } else if(preference.getKey().equals(KEY_SYSTEM_UPDATE_SETTINGS)) {
-            CarrierConfigManager configManager =
-                    (CarrierConfigManager) getSystemService(Context.CARRIER_CONFIG_SERVICE);
-            PersistableBundle b = configManager.getConfig();
-            if (b.getBoolean(CarrierConfigManager.KEY_CI_ACTION_ON_SYS_UPDATE_BOOL)) {
-                ciActionOnSysUpdate(b);
-            }
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
@@ -504,13 +500,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                 if (TextUtils.isEmpty(getFeedbackReporterPackage(context))) {
                     keys.add(KEY_DEVICE_FEEDBACK);
                 }
-                if (UserHandle.myUserId() != UserHandle.USER_OWNER) {
-                    keys.add(KEY_SYSTEM_UPDATE_SETTINGS);
-                }
-                if (!context.getResources().getBoolean(
-                        R.bool.config_additional_system_update_setting_enable)) {
-                    keys.add(KEY_UPDATE_SETTING);
-                }
                 return keys;
             }
 
@@ -518,6 +507,71 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                 return SystemProperties.get(property).equals("");
             }
         };
+
+    private String getMemInfo() {
+        String result = null;
+        BufferedReader reader = null;
+
+        try {
+            /* /proc/meminfo entries follow this format:
+             * MemTotal:         362096 kB
+             * MemFree:           29144 kB
+             * Buffers:            5236 kB
+             * Cached:            81652 kB
+             */
+            String firstLine = readLine(FILENAME_PROC_MEMINFO);
+            if (firstLine != null) {
+                String parts[] = firstLine.split("\\s+");
+                if (parts.length == 3) {
+                    result = Long.parseLong(parts[1])/1024 + " MB";
+                }
+            }
+        } catch (IOException e) {}
+
+        return result;
+    }
+
+    private String getCPUInfo() {
+        String result = null;
+        int coreCount = 0;
+
+        try {
+            /* The expected /proc/cpuinfo output is as follows:
+             * Processor	: ARMv7 Processor rev 2 (v7l)
+             * BogoMIPS	: 272.62
+             * BogoMIPS	: 272.62
+             *
+             * On kernel 3.10 this changed, it is now the last
+             * line. So let's read the whole thing, search
+             * specifically for "Processor" or "model name"
+             * and retain the old
+             * "first line" as fallback.
+             * Also, use "processor : <id>" to count cores
+             */
+            BufferedReader ci = new BufferedReader(new FileReader(FILENAME_PROC_CPUINFO));
+            String firstLine = ci.readLine();
+            String latestLine = firstLine;
+            while (latestLine != null) {
+                if (latestLine.startsWith("Processor")
+                    || latestLine.startsWith("model name"))
+                  result = latestLine.split(":")[1].trim();
+                if (latestLine.startsWith("processor"))
+                  coreCount++;
+                latestLine = ci.readLine();
+            }
+            if (result == null && firstLine != null) {
+                result = firstLine.split(":")[1].trim();
+            }
+            /* Don't do this. hotplug throws off the count
+            if (coreCount > 1) {
+                result = result + " (x" + coreCount + ")";
+            }
+            */
+            ci.close();
+        } catch (IOException e) {}
+
+        return result;
+    }
 
 }
 
