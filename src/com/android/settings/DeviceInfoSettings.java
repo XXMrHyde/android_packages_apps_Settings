@@ -1,6 +1,8 @@
 /*
  * Copyright (C) 2008 The Android Open Source Project
  *
+ * Copyright (C) 2016 DarkKat
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,80 +18,34 @@
 
 package com.android.settings;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.os.SELinux;
-import android.os.SystemClock;
 import android.os.SystemProperties;
-import android.os.UserHandle;
-import android.os.UserManager;
 import android.preference.Preference;
-import android.preference.PreferenceGroup;
-import android.preference.PreferenceScreen;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
-import android.telephony.CarrierConfigManager;
-import android.text.TextUtils;
-import android.text.format.DateFormat;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.android.internal.logging.MetricsLogger;
+
+import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.search.Index;
 import com.android.settings.search.Indexable;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class DeviceInfoSettings extends SettingsPreferenceFragment implements Indexable {
 
-    private static final String LOG_TAG = "DeviceInfoSettings";
-    private static final String FILENAME_PROC_VERSION = "/proc/version";
-    private static final String FILENAME_MSV = "/sys/board_properties/soc/msv";
-    private static final String FILENAME_PROC_MEMINFO = "/proc/meminfo";
-    private static final String FILENAME_PROC_CPUINFO = "/proc/cpuinfo";
+    private static final String PREF_REGULATORY_INFO = "regulatory_info";
+    private static final String PREF_ABOUT_HARDWARE  = "about_hardware";
+    private static final String PREF_ABOUT_SOFTWARE  = "about_software";
+    private static final String PREF_ABOUT_DARKKAT   = "about_darkkat";
 
-    private static final String KEY_MANUAL = "manual";
-    private static final String KEY_REGULATORY_INFO = "regulatory_info";
-    private static final String PROPERTY_URL_SAFETYLEGAL = "ro.url.safetylegal";
-    private static final String PROPERTY_SELINUX_STATUS = "ro.build.selinux";
-    private static final String KEY_KERNEL_VERSION = "kernel_version";
-    private static final String KEY_BUILD_NUMBER = "build_number";
-    private static final String KEY_DEVICE_MODEL = "device_model";
-    private static final String KEY_DEVICE_CPU = "device_cpu";
-    private static final String KEY_DEVICE_MEMORY = "device_memory";
-    private static final String KEY_SELINUX_STATUS = "selinux_status";
-    private static final String KEY_BASEBAND_VERSION = "baseband_version";
-    private static final String KEY_FIRMWARE_VERSION = "firmware_version";
-    private static final String KEY_SECURITY_PATCH = "security_patch";
-    private static final String KEY_EQUIPMENT_ID = "fcc_equipment_id";
-    private static final String PROPERTY_EQUIPMENT_ID = "ro.ril.fccid";
-    private static final String KEY_DEVICE_FEEDBACK = "device_feedback";
-    private static final String KEY_SAFETY_LEGAL = "safetylegal";
-
-    static final int TAPS_TO_BE_A_DEVELOPER = 7;
-
-    long[] mHits = new long[3];
-    int mDevHitCountdown;
-    Toast mDevHitToast;
+    private static final String PROP_DARKKAT_BUILD_VERSION = "ro.dk.build.version";
+    private static final String PROP_DARKKAT_BUILD_TYPE    = "ro.dk.build.type";
 
     @Override
     protected int getMetricsCategory() {
@@ -107,222 +63,27 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
 
         addPreferencesFromResource(R.xml.device_info_settings);
 
-        setStringSummary(KEY_FIRMWARE_VERSION, Build.VERSION.RELEASE);
-        findPreference(KEY_FIRMWARE_VERSION).setEnabled(true);
-        String patch = Build.VERSION.SECURITY_PATCH;
-        if (!"".equals(patch)) {
-            try {
-                SimpleDateFormat template = new SimpleDateFormat("yyyy-MM-dd");
-                Date patchDate = template.parse(patch);
-                String format = DateFormat.getBestDateTimePattern(Locale.getDefault(), "dMMMMyyyy");
-                patch = DateFormat.format(format, patchDate).toString();
-            } catch (ParseException e) {
-                // broken parse; fall through and use the raw string
-            }
-            setStringSummary(KEY_SECURITY_PATCH, patch);
-        } else {
-            getPreferenceScreen().removePreference(findPreference(KEY_SECURITY_PATCH));
-
-        }
-        setValueSummary(KEY_BASEBAND_VERSION, "gsm.version.baseband");
-        setStringSummary(KEY_DEVICE_MODEL, Build.MODEL + getMsvSuffix());
-        setValueSummary(KEY_EQUIPMENT_ID, PROPERTY_EQUIPMENT_ID);
-        setStringSummary(KEY_DEVICE_MODEL, Build.MODEL);
-        setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
-        findPreference(KEY_BUILD_NUMBER).setEnabled(true);
-        findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
-
-
-        final String cpuInfo = getCPUInfo();
-        String memInfo = getMemInfo();
-
-        if (cpuInfo != null) {
-            setStringSummary(KEY_DEVICE_CPU, cpuInfo);
-        } else {
-            getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_CPU));
-        }
-
-        if (memInfo != null) {
-            setStringSummary(KEY_DEVICE_MEMORY, memInfo);
-        } else {
-            getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_MEMORY));
-        }
-
-        if (!SELinux.isSELinuxEnabled()) {
-            String status = getResources().getString(R.string.selinux_status_disabled);
-            setStringSummary(KEY_SELINUX_STATUS, status);
-        } else if (!SELinux.isSELinuxEnforced()) {
-            String status = getResources().getString(R.string.selinux_status_permissive);
-            setStringSummary(KEY_SELINUX_STATUS, status);
-        }
-
-        // Remove selinux information if property is not present
-        removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_SELINUX_STATUS,
-                PROPERTY_SELINUX_STATUS);
-
-        // Remove Safety information preference if PROPERTY_URL_SAFETYLEGAL is not set
-        removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_SAFETY_LEGAL,
-                PROPERTY_URL_SAFETYLEGAL);
-
-        // Remove Equipment id preference if FCC ID is not set by RIL
-        removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_EQUIPMENT_ID,
-                PROPERTY_EQUIPMENT_ID);
-
-        // Remove Baseband version if wifi-only device
-        if (Utils.isWifiOnly(getActivity())) {
-            getPreferenceScreen().removePreference(findPreference(KEY_BASEBAND_VERSION));
-        }
-
-        // Dont show feedback option if there is no reporter.
-        if (TextUtils.isEmpty(getFeedbackReporterPackage(getActivity()))) {
-            getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_FEEDBACK));
-        }
-
-        /*
-         * Settings is a generic app and should not contain any device-specific
-         * info.
-         */
-        final Activity act = getActivity();
-
-        // Remove manual entry if none present.
-        removePreferenceIfBoolFalse(KEY_MANUAL, R.bool.config_show_manual);
+        String summarySoftware = Build.VERSION.RELEASE + " (" + Build.ID + ")";
+        String summaryDarkkat = getPropValue(PROP_DARKKAT_BUILD_VERSION)
+                + " (" + getPropValue(PROP_DARKKAT_BUILD_TYPE) + ")";
 
         // Remove regulatory information if none present.
         final Intent intent = new Intent(Settings.ACTION_SHOW_REGULATORY_INFO);
         if (getPackageManager().queryIntentActivities(intent, 0).isEmpty()) {
-            Preference pref = findPreference(KEY_REGULATORY_INFO);
+            Preference pref = findPreference(PREF_REGULATORY_INFO);
             if (pref != null) {
                 getPreferenceScreen().removePreference(pref);
             }
         }
-    }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        mDevHitCountdown = getActivity().getSharedPreferences(DevelopmentSettings.PREF_FILE,
-                Context.MODE_PRIVATE).getBoolean(DevelopmentSettings.PREF_SHOW, true)
-                        ? -1 : TAPS_TO_BE_A_DEVELOPER;
-        mDevHitToast = null;
-    }
-
-    @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference.getKey().equals(KEY_FIRMWARE_VERSION)) {
-            System.arraycopy(mHits, 1, mHits, 0, mHits.length-1);
-            mHits[mHits.length-1] = SystemClock.uptimeMillis();
-            if (mHits[0] >= (SystemClock.uptimeMillis()-500)) {
-                UserManager um = (UserManager) getActivity().getSystemService(Context.USER_SERVICE);
-                if (um.hasUserRestriction(UserManager.DISALLOW_FUN)) {
-                    Log.d(LOG_TAG, "Sorry, no fun for you!");
-                    return false;
-                }
-
-                Intent intent = new Intent(Intent.ACTION_MAIN);
-                intent.setClassName("android",
-                        com.android.internal.app.PlatLogoActivity.class.getName());
-                try {
-                    startActivity(intent);
-                } catch (Exception e) {
-                    Log.e(LOG_TAG, "Unable to start activity " + intent.toString());
-                }
-            }
-        } else if (preference.getKey().equals(KEY_BUILD_NUMBER)) {
-            // Don't enable developer options for secondary users.
-            if (UserHandle.myUserId() != UserHandle.USER_OWNER) return true;
-
-            // Don't enable developer options until device has been provisioned
-            if (Settings.Global.getInt(getActivity().getContentResolver(),
-                    Settings.Global.DEVICE_PROVISIONED, 0) == 0) {
-                return true;
-            }
-
-            final UserManager um = (UserManager) getSystemService(Context.USER_SERVICE);
-            if (um.hasUserRestriction(UserManager.DISALLOW_DEBUGGING_FEATURES)) return true;
-
-            if (mDevHitCountdown > 0) {
-                mDevHitCountdown--;
-                if (mDevHitCountdown == 0) {
-                    getActivity().getSharedPreferences(DevelopmentSettings.PREF_FILE,
-                            Context.MODE_PRIVATE).edit().putBoolean(
-                                    DevelopmentSettings.PREF_SHOW, true).apply();
-                    if (mDevHitToast != null) {
-                        mDevHitToast.cancel();
-                    }
-                    mDevHitToast = Toast.makeText(getActivity(), R.string.show_dev_on,
-                            Toast.LENGTH_LONG);
-                    mDevHitToast.show();
-                    // This is good time to index the Developer Options
-                    Index.getInstance(
-                            getActivity().getApplicationContext()).updateFromClassNameResource(
-                                    DevelopmentSettings.class.getName(), true, true);
-
-                } else if (mDevHitCountdown > 0
-                        && mDevHitCountdown < (TAPS_TO_BE_A_DEVELOPER-2)) {
-                    if (mDevHitToast != null) {
-                        mDevHitToast.cancel();
-                    }
-                    mDevHitToast = Toast.makeText(getActivity(), getResources().getQuantityString(
-                            R.plurals.show_dev_countdown, mDevHitCountdown, mDevHitCountdown),
-                            Toast.LENGTH_SHORT);
-                    mDevHitToast.show();
-                }
-            } else if (mDevHitCountdown < 0) {
-                if (mDevHitToast != null) {
-                    mDevHitToast.cancel();
-                }
-                mDevHitToast = Toast.makeText(getActivity(), R.string.show_dev_already,
-                        Toast.LENGTH_LONG);
-                mDevHitToast.show();
-            }
-        } else if (preference.getKey().equals(KEY_DEVICE_FEEDBACK)) {
-            sendFeedback();
+        setStringSummary(PREF_ABOUT_HARDWARE, Build.MODEL);
+        setStringSummary(PREF_ABOUT_SOFTWARE, summarySoftware);
+        if (Utils.isWifiOnly(getActivity())) {
+            findPreference(PREF_ABOUT_SOFTWARE).setTitle(
+                    getResources().getString(R.string.about_software_wifi_only_title));
         }
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
-    }
+        setStringSummary(PREF_ABOUT_DARKKAT, summaryDarkkat);
 
-    /**
-     * Trigger client initiated action (send intent) on system update
-     */
-    private void ciActionOnSysUpdate(PersistableBundle b) {
-        String intentStr = b.getString(CarrierConfigManager.
-                KEY_CI_ACTION_ON_SYS_UPDATE_INTENT_STRING);
-        if (!TextUtils.isEmpty(intentStr)) {
-            String extra = b.getString(CarrierConfigManager.
-                    KEY_CI_ACTION_ON_SYS_UPDATE_EXTRA_STRING);
-            String extraVal = b.getString(CarrierConfigManager.
-                    KEY_CI_ACTION_ON_SYS_UPDATE_EXTRA_VAL_STRING);
-
-            Intent intent = new Intent(intentStr);
-            if (!TextUtils.isEmpty(extra)) {
-                intent.putExtra(extra, extraVal);
-            }
-            Log.d(LOG_TAG, "ciActionOnSysUpdate: broadcasting intent " + intentStr +
-                    " with extra " + extra + ", " + extraVal);
-            getActivity().getApplicationContext().sendBroadcast(intent);
-        }
-    }
-
-    private void removePreferenceIfPropertyMissing(PreferenceGroup preferenceGroup,
-            String preference, String property ) {
-        if (SystemProperties.get(property).equals("")) {
-            // Property is missing so remove preference from group
-            try {
-                preferenceGroup.removePreference(findPreference(preference));
-            } catch (RuntimeException e) {
-                Log.d(LOG_TAG, "Property '" + property + "' missing and no '"
-                        + preference + "' preference");
-            }
-        }
-    }
-
-    private void removePreferenceIfBoolFalse(String preference, int resId) {
-        if (!getResources().getBoolean(resId)) {
-            Preference pref = findPreference(preference);
-            if (pref != null) {
-                getPreferenceScreen().removePreference(pref);
-            }
-        }
     }
 
     private void setStringSummary(String preference, String value) {
@@ -334,244 +95,26 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         }
     }
 
-    private void setValueSummary(String preference, String property) {
-        try {
-            findPreference(preference).setSummary(
-                    SystemProperties.get(property,
-                            getResources().getString(R.string.device_info_default)));
-        } catch (RuntimeException e) {
-            // No recovery
-        }
+    private String getPropValue(String property) {
+        return SystemProperties.get(property);
     }
 
-    private void sendFeedback() {
-        String reporterPackage = getFeedbackReporterPackage(getActivity());
-        if (TextUtils.isEmpty(reporterPackage)) {
-            return;
-        }
-        Intent intent = new Intent(Intent.ACTION_BUG_REPORT);
-        intent.setPackage(reporterPackage);
-        startActivityForResult(intent, 0);
-    }
-
-    /**
-     * Reads a line from the specified file.
-     * @param filename the file to read from
-     * @return the first line, if any.
-     * @throws IOException if the file couldn't be read
-     */
-    private static String readLine(String filename) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(filename), 256);
-        try {
-            return reader.readLine();
-        } finally {
-            reader.close();
-        }
-    }
-
-    public static String getFormattedKernelVersion() {
-        try {
-            return formatKernelVersion(readLine(FILENAME_PROC_VERSION));
-
-        } catch (IOException e) {
-            Log.e(LOG_TAG,
-                "IO Exception when getting kernel version for Device Info screen",
-                e);
-
-            return "Unavailable";
-        }
-    }
-
-    public static String formatKernelVersion(String rawKernelVersion) {
-        // Example (see tests for more):
-        // Linux version 3.0.31-g6fb96c9 (android-build@xxx.xxx.xxx.xxx.com) \
-        //     (gcc version 4.6.x-xxx 20120106 (prerelease) (GCC) ) #1 SMP PREEMPT \
-        //     Thu Jun 28 11:02:39 PDT 2012
-
-        final String PROC_VERSION_REGEX =
-            "Linux version (\\S+) " + /* group 1: "3.0.31-g6fb96c9" */
-            "\\((\\S+?)\\) " +        /* group 2: "x@y.com" (kernel builder) */
-            "(?:\\(gcc.+? \\)) " +    /* ignore: GCC version information */
-            "(#\\d+) " +              /* group 3: "#1" */
-            "(?:.*?)?" +              /* ignore: optional SMP, PREEMPT, and any CONFIG_FLAGS */
-            "((Sun|Mon|Tue|Wed|Thu|Fri|Sat).+)"; /* group 4: "Thu Jun 28 11:02:39 PDT 2012" */
-
-        Matcher m = Pattern.compile(PROC_VERSION_REGEX).matcher(rawKernelVersion);
-        if (!m.matches()) {
-            Log.e(LOG_TAG, "Regex did not match on /proc/version: " + rawKernelVersion);
-            return "Unavailable";
-        } else if (m.groupCount() < 4) {
-            Log.e(LOG_TAG, "Regex match on /proc/version only returned " + m.groupCount()
-                    + " groups");
-            return "Unavailable";
-        }
-        return m.group(1) + "\n" +                 // 3.0.31-g6fb96c9
-            m.group(2) + " " + m.group(3) + "\n" + // x@y.com #1
-            m.group(4);                            // Thu Jun 28 11:02:39 PDT 2012
-    }
-
-    /**
-     * Returns " (ENGINEERING)" if the msv file has a zero value, else returns "".
-     * @return a string to append to the model number description.
-     */
-    private String getMsvSuffix() {
-        // Production devices should have a non-zero value. If we can't read it, assume it's a
-        // production device so that we don't accidentally show that it's an ENGINEERING device.
-        try {
-            String msv = readLine(FILENAME_MSV);
-            // Parse as a hex number. If it evaluates to a zero, then it's an engineering build.
-            if (Long.parseLong(msv, 16) == 0) {
-                return " (ENGINEERING)";
-            }
-        } catch (IOException ioe) {
-            // Fail quietly, as the file may not exist on some devices.
-        } catch (NumberFormatException nfe) {
-            // Fail quietly, returning empty string should be sufficient
-        }
-        return "";
-    }
-
-    private static String getFeedbackReporterPackage(Context context) {
-        final String feedbackReporter =
-                context.getResources().getString(R.string.oem_preferred_feedback_reporter);
-        if (TextUtils.isEmpty(feedbackReporter)) {
-            // Reporter not configured. Return.
-            return feedbackReporter;
-        }
-        // Additional checks to ensure the reporter is on system image, and reporter is
-        // configured to listen to the intent. Otherwise, dont show the "send feedback" option.
-        final Intent intent = new Intent(Intent.ACTION_BUG_REPORT);
-
-        PackageManager pm = context.getPackageManager();
-        List<ResolveInfo> resolvedPackages =
-                pm.queryIntentActivities(intent, PackageManager.GET_RESOLVED_FILTER);
-        for (ResolveInfo info : resolvedPackages) {
-            if (info.activityInfo != null) {
-                if (!TextUtils.isEmpty(info.activityInfo.packageName)) {
-                    try {
-                        ApplicationInfo ai = pm.getApplicationInfo(info.activityInfo.packageName, 0);
-                        if ((ai.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
-                            // Package is on the system image
-                            if (TextUtils.equals(
-                                        info.activityInfo.packageName, feedbackReporter)) {
-                                return feedbackReporter;
-                            }
-                        }
-                    } catch (PackageManager.NameNotFoundException e) {
-                         // No need to do anything here.
-                    }
-                }
-            }
-        }
-        return null;
-    }
-
-    /**
-     * For Search.
-     */
     public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        new BaseSearchIndexProvider() {
+            new BaseSearchIndexProvider() {
 
-            @Override
-            public List<SearchIndexableResource> getXmlResourcesToIndex(
-                    Context context, boolean enabled) {
-                final SearchIndexableResource sir = new SearchIndexableResource(context);
-                sir.xmlResId = R.xml.device_info_settings;
-                return Arrays.asList(sir);
-            }
+        @Override
+        public List<SearchIndexableResource> getXmlResourcesToIndex(
+                Context context, boolean enabled) {
+            final SearchIndexableResource sir = new SearchIndexableResource(context);
+            sir.xmlResId = R.xml.device_info_settings;
+            return Arrays.asList(sir);
+        }
 
-            @Override
-            public List<String> getNonIndexableKeys(Context context) {
-                final List<String> keys = new ArrayList<String>();
-                if (isPropertyMissing(PROPERTY_SELINUX_STATUS)) {
-                    keys.add(KEY_SELINUX_STATUS);
-                }
-                if (isPropertyMissing(PROPERTY_URL_SAFETYLEGAL)) {
-                    keys.add(KEY_SAFETY_LEGAL);
-                }
-                if (isPropertyMissing(PROPERTY_EQUIPMENT_ID)) {
-                    keys.add(KEY_EQUIPMENT_ID);
-                }
-                // Remove Baseband version if wifi-only device
-                if (Utils.isWifiOnly(context)) {
-                    keys.add((KEY_BASEBAND_VERSION));
-                }
-                // Dont show feedback option if there is no reporter.
-                if (TextUtils.isEmpty(getFeedbackReporterPackage(context))) {
-                    keys.add(KEY_DEVICE_FEEDBACK);
-                }
-                return keys;
-            }
-
-            private boolean isPropertyMissing(String property) {
-                return SystemProperties.get(property).equals("");
-            }
-        };
-
-    private String getMemInfo() {
-        String result = null;
-        BufferedReader reader = null;
-
-        try {
-            /* /proc/meminfo entries follow this format:
-             * MemTotal:         362096 kB
-             * MemFree:           29144 kB
-             * Buffers:            5236 kB
-             * Cached:            81652 kB
-             */
-            String firstLine = readLine(FILENAME_PROC_MEMINFO);
-            if (firstLine != null) {
-                String parts[] = firstLine.split("\\s+");
-                if (parts.length == 3) {
-                    result = Long.parseLong(parts[1])/1024 + " MB";
-                }
-            }
-        } catch (IOException e) {}
-
-        return result;
-    }
-
-    private String getCPUInfo() {
-        String result = null;
-        int coreCount = 0;
-
-        try {
-            /* The expected /proc/cpuinfo output is as follows:
-             * Processor	: ARMv7 Processor rev 2 (v7l)
-             * BogoMIPS	: 272.62
-             * BogoMIPS	: 272.62
-             *
-             * On kernel 3.10 this changed, it is now the last
-             * line. So let's read the whole thing, search
-             * specifically for "Processor" or "model name"
-             * and retain the old
-             * "first line" as fallback.
-             * Also, use "processor : <id>" to count cores
-             */
-            BufferedReader ci = new BufferedReader(new FileReader(FILENAME_PROC_CPUINFO));
-            String firstLine = ci.readLine();
-            String latestLine = firstLine;
-            while (latestLine != null) {
-                if (latestLine.startsWith("Processor")
-                    || latestLine.startsWith("model name"))
-                  result = latestLine.split(":")[1].trim();
-                if (latestLine.startsWith("processor"))
-                  coreCount++;
-                latestLine = ci.readLine();
-            }
-            if (result == null && firstLine != null) {
-                result = firstLine.split(":")[1].trim();
-            }
-            /* Don't do this. hotplug throws off the count
-            if (coreCount > 1) {
-                result = result + " (x" + coreCount + ")";
-            }
-            */
-            ci.close();
-        } catch (IOException e) {}
-
-        return result;
-    }
-
+        @Override
+        public List<String> getNonIndexableKeys(Context context) {
+            final List<String> keys = new ArrayList<String>();
+            return keys;
+        }
+    };
 }
 

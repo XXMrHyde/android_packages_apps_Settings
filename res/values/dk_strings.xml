@@ -16,6 +16,20 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Device info settings -->
+    <string name="about_hardware_title">Model</string>
+    <string name="about_software_title">Android, kernel and baseband</string>
+    <string name="about_software_wifi_only_title">Android and kernel</string>
+    <string name="about_darkkat_title">Darkkat</string>
+
+    <!-- Hardware -->
     <string name="cpu_info">CPU</string>
     <string name="mem_info">Memory</string>
+
+    <!-- Software -->
+    <string name="build_id">Android build ID</string>
+
+    <!-- DarkKat -->
+    <string name="darkkat_build_version_title">Darkkat build version</string>
+    <string name="darkkat_build_type_title">Darkkat build type</string>
+    <string name="darkkat_build_date_title">Darkkat build date</string>
 </resources>
