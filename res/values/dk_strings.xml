@@ -15,6 +15,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- dashboard tiles-->
+    <string name="button_settings_title">Buttons</string>
+
+    <!-- Button settings -->
+    <string name="button_power_menu_settings_title">Power menu</string>
+    <string name="button_power_menu_settings_summary">Customize power menu</string>
+
+    <!-- Power menu settings -->
+    <string name="power_menu_show_advanced_reboot_title">Advanced reboot menu</string>
+    <string name="power_menu_show_advanced_reboot_summary">Enable to show advanced options in the reboot menu</string>
+
     <!-- Device info settings -->
     <string name="about_hardware_title">Model</string>
     <string name="about_software_title">Android, kernel and baseband</string>
