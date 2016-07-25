@@ -15,16 +15,30 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- dashboard tiles-->
+    <!-- Global used -->
+    <string name="theme_title">Theme</string>
+    <string name="theme_material_title">Material</string>
+    <string name="theme_darkkat_title">DarkKat</string>
+    <string name="theme_material_light_title">Material-Light</string>
+
+    <!-- dashboard categories-->
+    <string name="category_ui_section">Benutzeroberfläche</string>
+
+    <!-- Dashboard tiles-->
+    <string name="theme_color_title">Theme &amp; Farben</string>
     <string name="button_settings_title">Tasten</string>
 
+    <!-- Theme & colors -->
+    <string name="theme_color_power_menu_boot_dialog_title">Ein&#47;Aus-Menü &amp; Boot-Dialog</string>
+    <string name="theme_color_power_menu_boot_dialog_summary">Wähle das Ein&#47;Aus-Menü &amp; Boot-Dialog Theme</string>
+
     <!-- Button settings -->
-    <string name="button_power_menu_settings_title">Ein&#47;Aus Menü</string>
-    <string name="button_power_menu_settings_summary">Ein&#47;Aus Menü anpassen</string>
+    <string name="button_power_menu_settings_title">Ein&#47;Aus-Menü</string>
+    <string name="button_power_menu_settings_summary">Ein&#47;Aus-Menü anpassen</string>
 
     <!-- Power menu settings -->
-    <string name="power_menu_show_advanced_reboot_title">Erweitertes Neustart Menu</string>
-    <string name="power_menu_show_advanced_reboot_summary">Aktivieren um erweiterte Optionen im Neustart Menü anzuzeigen</string>
+    <string name="power_menu_show_advanced_reboot_title">Erweitertes Neustart-Menu</string>
+    <string name="power_menu_show_advanced_reboot_summary">Aktivieren um erweiterte Optionen im Neustart-Menü anzuzeigen</string>
 
     <!-- Device info settings -->
     <string name="about_hardware_title">Modell</string>

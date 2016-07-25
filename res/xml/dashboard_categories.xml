@@ -72,6 +72,21 @@
 
     </dashboard-category>
 
+    <!-- Interface -->
+    <dashboard-category
+            android:id="@+id/ui_section"
+            android:title="@string/category_ui_section" >
+
+        <!-- Power menu and boot dialog -->
+        <dashboard-tile
+            android:id="@+id/theme_color_settings"
+            android:title="@string/theme_color_title"
+            android:fragment="com.android.settings.darkkat.ThemeColorSettings"
+            android:icon="@drawable/ic_settings_theme_color"
+            />
+
+    </dashboard-category>
+
     <!-- DEVICE -->
     <dashboard-category
             android:id="@+id/device_section"

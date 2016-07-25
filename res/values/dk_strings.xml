@@ -15,8 +15,22 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- dashboard tiles-->
+    <!-- Global used -->
+    <string name="theme_title">Theme</string>
+    <string name="theme_material_title">Material</string>
+    <string name="theme_darkkat_title">DarkKat</string>
+    <string name="theme_material_light_title">Material light</string>
+
+    <!-- dashboard categories-->
+    <string name="category_ui_section">User interface</string>
+
+    <!-- Dashboard tiles-->
+    <string name="theme_color_title">Theme &amp; colors</string>
     <string name="button_settings_title">Buttons</string>
+
+    <!-- Theme & colors -->
+    <string name="theme_color_power_menu_boot_dialog_title">Power menu &amp; boot dialog</string>
+    <string name="theme_color_power_menu_boot_dialog_summary">Choose the power menu &amp; boot dialog theme</string>
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Power menu</string>
