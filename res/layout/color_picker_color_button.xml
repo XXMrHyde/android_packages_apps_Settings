@@ -37,6 +37,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/color_picker_color_button_value_text_size"
-        android:textColor="?android:attr/textColorSecondaryInverse" />
+        android:textColor="?android:attr/textColorSecondary" />
 
 </net.margaritov.preference.colorpicker.ColorViewButton>

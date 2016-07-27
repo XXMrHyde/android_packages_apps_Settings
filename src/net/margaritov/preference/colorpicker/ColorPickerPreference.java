@@ -31,6 +31,7 @@ import android.os.Parcelable;
 import android.preference.Preference;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -145,27 +146,31 @@ public class ColorPickerPreference extends Preference implements
         }
 
         float density = mResources.getDisplayMetrics().density;
-
-        widgetFrameView.setVisibility(View.VISIBLE);
-        widgetFrameView.setPadding(
-                widgetFrameView.getPaddingLeft(),
-                widgetFrameView.getPaddingTop(),
-                (int) (density * 8),
-                widgetFrameView.getPaddingBottom()
-                );
-
         final int size = (int) mResources.getDimension(
                 R.dimen.color_picker_preference_preview_width_height);
+        TypedValue tv = new TypedValue();
+        int borderColor;
+
+        getContext().getTheme().resolveAttribute(android.R.attr.colorControlHighlight, tv, true);
+        if (tv.type >= TypedValue.TYPE_FIRST_COLOR_INT && tv.type <= TypedValue.TYPE_LAST_COLOR_INT) {
+            borderColor = tv.data;
+        } else {
+            borderColor = mResources.getColor(tv.resourceId);
+        }
 
         mPreview = new View(getContext());
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(size, size);
-        mPreview.setLayoutParams(lp);
-        mPreview.setBackground(new ColorViewCircleDrawable(getContext(), size));
-        ((ColorViewCircleDrawable) mPreview.getBackground()).setColor(getValue());
+        ColorViewCircleDrawable drawable = new ColorViewCircleDrawable(getContext(), size);
 
+        widgetFrameView.setVisibility(View.VISIBLE);
+        widgetFrameView.setPadding(widgetFrameView.getPaddingLeft(), widgetFrameView.getPaddingTop(),
+                (int) (density * 8), widgetFrameView.getPaddingBottom());
+        mPreview.setLayoutParams(lp);
+        drawable.setColor(getValue());
+        drawable.setBorderColor(borderColor);
+        mPreview.setBackground(drawable);
         widgetFrameView.addView(mPreview);
         widgetFrameView.setMinimumWidth(0);
-
     }
 
     private int getValue() {

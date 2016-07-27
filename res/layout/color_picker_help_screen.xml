@@ -64,7 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/color_picker_help_screen_main_title_text_size"
-                android:textColor="@color/theme_accent"
+                android:textColor="?android:attr/colorAccent"
                 android:text="@string/color_picker_help_ab_title"
                 android:singleLine="true" />
 
@@ -201,7 +201,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/color_picker_help_screen_main_title_text_margin_top"
                 android:textSize="@dimen/color_picker_help_screen_main_title_text_size"
-                android:textColor="@color/theme_accent"
+                android:textColor="?android:attr/colorAccent"
                 android:text="@string/color_picker_help_colors_title"
                 android:singleLine="true" />
 

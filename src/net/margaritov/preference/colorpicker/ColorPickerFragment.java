@@ -21,7 +21,6 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.Fragment;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -32,6 +31,7 @@ import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.TypedValue;
 import android.view.inputmethod.InputMethodManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -122,6 +122,7 @@ public class ColorPickerFragment extends Fragment implements
     private boolean mHelpScreenVisible;
     private int mApplyColorIconAnimationType;
     private int mAnimationType;
+    private int mBorderColor;
 
     private Animator mAnimator;
 
@@ -177,6 +178,14 @@ public class ColorPickerFragment extends Fragment implements
             }
         }
 
+        TypedValue tv = new TypedValue();
+        getActivity().getTheme().resolveAttribute(android.R.attr.colorControlHighlight, tv, true);
+        if (tv.type >= TypedValue.TYPE_FIRST_COLOR_INT && tv.type <= TypedValue.TYPE_LAST_COLOR_INT) {
+            mBorderColor = tv.data;
+        } else {
+            mBorderColor = mResources.getColor(tv.resourceId);
+        }
+
         mColorPickerView = inflater.inflate(R.layout.color_picker_fragment, container, false);
         mColorPicker = (ColorPickerView) mColorPickerView.findViewById(R.id.color_picker_view);
         mColorButtonsLayout = (LinearLayout) mColorPickerView.findViewById(
@@ -186,6 +195,7 @@ public class ColorPickerFragment extends Fragment implements
 
         mColorPicker.setOnColorChangedListener(this);
         mColorPicker.setColor(mInitialColor);
+        mColorPicker.setBorderColor(mBorderColor);
 
         if (alphaSliderVisible) {
             mColorPicker.setAlphaSliderVisible(alphaSliderVisible);
@@ -375,6 +385,7 @@ public class ColorPickerFragment extends Fragment implements
             String tag = String.valueOf(buttonNumber);
             ColorViewButton button = (ColorViewButton) mColorPickerView.findViewById(resId);
             button.setTag(tag);
+            button.setBorderColor(mBorderColor);
             button.setOnLongClickListener(this);
             if (getFavoriteButtonValue(button) != 0) {
                 button.setColor(getFavoriteButtonValue(button));
@@ -433,6 +444,7 @@ public class ColorPickerFragment extends Fragment implements
                 int buttonResId = buttons.getResourceId(j, 0);
                 ColorViewButton button = (ColorViewButton) layout.findViewById(buttonResId);
                 button.setColor(mResources.getColor(colors.getResourceId(j, 0)));
+                button.setBorderColor(mBorderColor);
                 button.setOnClickListener(this);
             }
         }

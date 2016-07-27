@@ -20,8 +20,7 @@
     <color name="background_darkkat_blue_grey">#ff1b1f23</color>
 
     <!-- Color picker -->
-    <color name="theme_accent">@*android:color/material_deep_teal_500</color>
-    <color name="color_picker_color_view_drawable_boarder">#33ffffff</color>
+    <color name="color_picker_color_view_drawable_border">#33ffffff</color>
 
     <!-- Colors of the panel view buttons -->
     <color name="black">@android:color/black</color>
