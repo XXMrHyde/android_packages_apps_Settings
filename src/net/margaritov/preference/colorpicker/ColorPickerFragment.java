@@ -50,12 +50,7 @@ import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
-/*
- * Temporary moved to the settings package
- *
- * import com.android.internal.util.darkkat.ColorHelper;
- */
-import com.android.settings.darkkat.util.ColorHelper;
+import com.android.internal.util.darkkat.ColorHelper;
 
 import com.android.settings.R;
 

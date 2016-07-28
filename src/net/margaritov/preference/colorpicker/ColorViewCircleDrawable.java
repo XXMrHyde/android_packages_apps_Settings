@@ -36,12 +36,8 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 
-/*
- * Temporary moved to the settings package
- *
- * import com.android.internal.util.darkkat.ImageHelper;
- */
-import com.android.settings.darkkat.util.ImageHelper;
+import com.android.internal.util.darkkat.ImageHelper;
+
 import com.android.settings.R;
 
 public class ColorViewCircleDrawable extends Drawable {
