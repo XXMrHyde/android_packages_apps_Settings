@@ -16,10 +16,24 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Global used -->
+    <string name="reset">Zurücksetzen</string>
+    <string name="dlg_dslv_reset_message">Standardeinstellungen wiederherstellen?</string>
+    <string name="dlg_reset_values_message">Werte auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
+    <string name="dlg_reset_colors_message">Farben auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
+    <string name="dlg_reset_theme_default_colors_message">Farben auf Theme Standard zurück setzen?</string>
+    <string name="dlg_reset_android">Android</string>
+    <string name="dlg_reset_darkkat">DarkKat</string>
+    <string name="status_bar_title">Statusleiste</string>
     <string name="theme_title">Theme</string>
     <string name="theme_material_title">Material</string>
     <string name="theme_darkkat_title">DarkKat</string>
     <string name="theme_material_light_title">Material-Light</string>
+    <string name="colors_general_title">Farben allgemein</string>
+    <string name="colors_general_dark_mode_title">Farben allgemein (helle Statusleiste)</string>
+    <string name="colors_battery_title">Farben Akkustatus</string>
+    <string name="colors_battery_dark_mode_title">Farben Akkustatus (helle Statusleiste)</string>
+    <string name="text_title">Text</string>
+    <string name="icon_title">Symbol</string>
 
     <!-- Color picker -->
     <string name="color_picker_fragment_title">Farbauswahl</string>
@@ -78,6 +92,9 @@
     <!-- Theme & colors -->
     <string name="theme_color_power_menu_boot_dialog_title">Ein&#47;Aus-Menü &amp; Boot-Dialog</string>
     <string name="theme_color_power_menu_boot_dialog_summary">Wähle das Ein&#47;Aus-Menü &amp; Boot-Dialog Theme</string>
+
+    <!-- Theme & colors (status bar) -->
+    <string name="theme_color_status_bar_summary">Wähle die Farben der Statusleiste</string>
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Ein&#47;Aus-Menü</string>
