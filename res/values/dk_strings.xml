@@ -34,6 +34,11 @@
     <string name="colors_battery_dark_mode_title">Colors battery status (light status bar)</string>
     <string name="text_title">Text</string>
     <string name="icon_title">Icon</string>
+    <string name="normal_title">Normal</string>
+    <string name="hidden_title">Hidden</string>
+    <string name="position_title">Position</string>
+    <string name="position_right_title">Right</string>
+    <string name="position_centered_title">Centered</string>
 
     <!-- Color picker -->
     <string name="color_picker_fragment_title">Color Picker</string>
@@ -95,6 +100,28 @@
 
     <!-- Theme & colors (status bar) -->
     <string name="theme_color_status_bar_summary">Choose the colors of the status bar</string>
+
+    <!-- Status bar -->
+    <string name="status_bar_clock_date_settings_title">Clock &amp; date</string>
+    <string name="status_bar_clock_date_settings_summary">Customize the clock &amp; the date</string>
+
+    <!-- clock and date settings -->
+    <string name="clock_date_cat_clock_title">Clock</string>
+    <string name="clock_date_cat_date_title">Date</string>
+    <string name="clock_date_show_date_title">Show date</string>
+    <string name="clock_date_show_date_summary">Enable to show the date next to the clock in the status bar</string>
+    <string name="clock_date_am_pm_title">AM&#47;PM style</string>
+    <string name="clock_date_am_pm_disabled_summary">24-hour format is enabled</string>
+    <string name="clock_date_am_pm_small">Small</string>
+    <string name="clock_date_date_size_title">Size</string>
+    <string name="clock_date_date_size_summary">Enabe to display the date small sized</string>
+    <string name="clock_date_date_style_title">Style</string>
+    <string name="clock_date_date_style_lowercase">Lowercase</string>
+    <string name="clock_date_date_style_uppercase">Uppercase</string>
+    <string name="clock_date_date_format_title">Date format</string>
+    <string name="clock_date_date_custom_java_format">Custom java format</string>
+    <string name="clock_date_date_string_edittext_title">Must be in DateFormat eg. MM/dd/yy</string>
+    <string name="clock_date_date_string_edittext_summary">Enter string</string>
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Power menu</string>

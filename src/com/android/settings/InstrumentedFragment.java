@@ -27,6 +27,7 @@ public abstract class InstrumentedFragment extends PreferenceFragment {
     public static final int UNDECLARED = 100000;
     public static final int BUTTONS    = 100001;
     public static final int THEME      = 100002;
+    public static final int STATUSBAR  = 100003;
 
     /**
      * Declare the view of this category.

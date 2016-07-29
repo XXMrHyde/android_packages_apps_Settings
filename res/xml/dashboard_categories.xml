@@ -77,13 +77,21 @@
             android:id="@+id/ui_section"
             android:title="@string/category_ui_section" >
 
-        <!-- Power menu and boot dialog -->
+        <!-- Them & colors -->
         <dashboard-tile
             android:id="@+id/theme_color_settings"
             android:title="@string/theme_color_title"
             android:fragment="com.android.settings.darkkat.ThemeColorSettings"
             android:icon="@drawable/ic_settings_theme_color"
             />
+
+        <!-- Status bar -->
+        <dashboard-tile
+                android:id="@+id/status_bar"
+                android:title="@string/status_bar_title"
+                android:fragment="com.android.settings.darkkat.Statusbar"
+                android:icon="@drawable/ic_settings_status_bar"
+                />
 
     </dashboard-category>
 

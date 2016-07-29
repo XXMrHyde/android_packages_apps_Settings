@@ -34,6 +34,11 @@
     <string name="colors_battery_dark_mode_title">Farben Akkustatus (helle Statusleiste)</string>
     <string name="text_title">Text</string>
     <string name="icon_title">Symbol</string>
+    <string name="normal_title">Normal</string>
+    <string name="hidden_title">Verborgen</string>
+    <string name="position_title">Position</string>
+    <string name="position_right_title">Rechts</string>
+    <string name="position_centered_title">Zentriert</string>
 
     <!-- Color picker -->
     <string name="color_picker_fragment_title">Farbauswahl</string>
@@ -95,6 +100,28 @@
 
     <!-- Theme & colors (status bar) -->
     <string name="theme_color_status_bar_summary">Wähle die Farben der Statusleiste</string>
+
+    <!-- Status bar -->
+    <string name="status_bar_clock_date_settings_title">Uhr &amp; Datum</string>
+    <string name="status_bar_clock_date_settings_summary">Die Uhr &amp; das Datum anpassen</string>
+
+    <!-- clock and date settings -->
+    <string name="clock_date_cat_clock_title">Uhr</string>
+    <string name="clock_date_cat_date_title">Datum</string>
+    <string name="clock_date_show_date_title">Das Datum anzeigen</string>
+    <string name="clock_date_show_date_summary">Aktivieren um das Datum neben der Uhr in der Statusleiste anzuzeigen</string>
+    <string name="clock_date_am_pm_title">AM&#47;PM Style</string>
+    <string name="clock_date_am_pm_disabled_summary">24-Stunden-Format ist aktiviert</string>
+    <string name="clock_date_am_pm_small">Klein</string>
+    <string name="clock_date_date_size_title">Größe</string>
+    <string name="clock_date_date_size_summary">Aktivieren um ein kleines Datum anzuzeigen</string>
+    <string name="clock_date_date_style_title">Style</string>
+    <string name="clock_date_date_style_lowercase">Kleinbuchstaben</string>
+    <string name="clock_date_date_style_uppercase">Großbuchstaben</string>
+    <string name="clock_date_date_format_title">Datumsformat</string>
+    <string name="clock_date_date_custom_java_format">Eigenes Java Format</string>
+    <string name="clock_date_date_string_edittext_title">Muß in Java DateFormat Schreibweise sein, z.B. MM/dd/yy</string>
+    <string name="clock_date_date_string_edittext_summary">Zeichenfolge eingeben</string>
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Ein&#47;Aus-Menü</string>
