@@ -56,7 +56,7 @@
 
          <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="theme_color_status_bar_battery_text_color"
-            android:title="@string/text_title"
+            android:title="@string/text_charge_icon_title"
             android:defaultValue="0xffffffff" />
 
 	</PreferenceCategory>
@@ -67,7 +67,7 @@
 
          <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="theme_color_status_bar_battery_text_color_dark_mode"
-            android:title="@string/text_title"
+            android:title="@string/text_charge_icon_title"
             android:defaultValue="0x99000000" />
 
 	</PreferenceCategory>
