@@ -19,6 +19,12 @@
     android:title="@string/status_bar_title">
 
     <PreferenceScreen
+        android:key="status_bar_network_names_settings"
+        android:title="@string/status_bar_network_names_settings_title"
+        android:summary="@string/status_bar_network_names_settings_summary"
+        android:fragment="com.android.settings.darkkat.StatusNetworkNamesSettings" />
+
+    <PreferenceScreen
         android:key="status_bar_clock_date_settings"
         android:title="@string/status_bar_clock_date_settings_title"
         android:summary="@string/status_bar_clock_date_settings_summary"

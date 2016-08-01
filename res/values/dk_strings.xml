@@ -34,6 +34,8 @@
     <string name="colors_battery_dark_mode_title">Colors battery status (light status bar)</string>
     <string name="show_title">Show</string>
     <string name="show_on_lock_screen_title">Show on lock screen</string>
+    <string name="hide_title">Hide</string>
+    <string name="always_title">Always</string>
     <string name="text_title">Text</string>
     <string name="text_charge_icon_title">Percentage text &amp; charging indicator</string>
     <string name="icon_title">Icon</string>
@@ -42,6 +44,13 @@
     <string name="position_title">Position</string>
     <string name="position_right_title">Right</string>
     <string name="position_centered_title">Centered</string>
+    <string name="notification_icons_title">Notification icons</string>
+    <string name="number_of_notification_icons_title">Number of notification icons</string>
+    <string name="number_of_notifications_two_title">2</string>
+    <string name="number_of_notifications_three_title">3</string>
+    <string name="number_of_notifications_four_title">4</string>
+    <string name="number_of_notifications_five_title">5</string>
+    <string name="number_of_notifications_six_title">6</string>
 
     <!-- Color picker -->
     <string name="color_picker_fragment_title">Color Picker</string>
@@ -105,10 +114,24 @@
     <string name="theme_color_status_bar_summary">Choose the colors of the status bar</string>
 
     <!-- Status bar -->
+    <string name="status_bar_network_names_settings_title">Network names</string>
+    <string name="status_bar_network_names_settings_wifi_only_title">Wifi network name</string>
+    <string name="status_bar_network_names_settings_summary">Choose how to display the carrier- and Wifi network name in the status bar</string>
+    <string name="status_bar_network_names_settings_wifi_only_summary">Choose how to display the Wifi network name in the status bar</string>
     <string name="status_bar_clock_date_settings_title">Clock &amp; date</string>
     <string name="status_bar_clock_date_settings_summary">Customize the clock &amp; the date</string>
     <string name="status_bar_battery_status_settings_title">Battery indicator</string>
     <string name="status_bar_battery_status_settings_summary">Customize the battery indicator</string>
+
+    <!-- Network names settings -->
+    <string name="network_names_cat_carrier_title">Carrier</string>
+    <string name="network_names_cat_wifi_title">Wifi</string>
+    <string name="network_names_show_carrier_summary">Enable to show the the carrier name on the status bar</string>
+    <string name="network_names_show_carrier_on_lock_screen_summary">Enable to show the carrier name on the status bar when on lock screen</string>
+    <string name="network_names_show_wifi_summary">Enable to show the the wifi network name on the status bar</string>
+    <string name="network_names_show_wifi_on_lock_screen_summary">Enable to show the wifi network name on the status bar when on lock screen</string>
+    <string name="network_names_hide_summary">Enable to choose a number of visible notification icons to hide the carrier- and Wifi network name on the status bar.</string>
+    <string name="network_names_hide_wifi_only_summary">Enable to choose a number of visible notification icons to hide the Wifi network name on the status bar.</string>
 
     <!-- clock and date settings -->
     <string name="clock_date_cat_clock_title">Clock</string>

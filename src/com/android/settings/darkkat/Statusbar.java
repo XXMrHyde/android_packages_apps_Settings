@@ -19,6 +19,8 @@ package com.android.settings.darkkat;
 import android.os.Bundle;
 import android.preference.Preference;
 
+import com.android.internal.util.darkkat.DeviceUtils;
+
 import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -30,6 +32,13 @@ public class Statusbar extends SettingsPreferenceFragment {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.status_bar);
+
+        if (!DeviceUtils.deviceSupportsMobileData(getActivity())) {
+            findPreference("status_bar_network_names_settings").setTitle(
+                    R.string.status_bar_network_names_settings_wifi_only_title);
+            findPreference("status_bar_network_names_settings").setSummary(
+                    R.string.status_bar_network_names_settings_wifi_only_summary);
+        }
     }
 
     @Override

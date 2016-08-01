@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2016 Darkkat
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/status_bar_network_names_settings_title">
+
+    <PreferenceCategory
+        android:key="network_names_cat_carrier"
+        android:title="@string/network_names_cat_carrier_title">
+
+        <SwitchPreference
+            android:key="network_names_show_carrier"
+            android:title="@string/show_title"
+            android:summary="@string/network_names_show_carrier_summary"
+            android:persistent="false" />
+
+        <SwitchPreference
+            android:key="network_names_show_carrier_on_lock_screen"
+            android:title="@string/show_on_lock_screen_title"
+            android:summary="@string/network_names_show_carrier_on_lock_screen_summary"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="network_names_cat_wifi"
+        android:title="@string/network_names_cat_wifi_title">
+
+        <SwitchPreference
+            android:key="network_names_show_wifi"
+            android:title="@string/show_title"
+            android:summary="@string/network_names_show_wifi_summary"
+            android:persistent="false" />
+
+        <SwitchPreference
+            android:key="network_names_show_wifi_on_lock_screen"
+            android:title="@string/show_on_lock_screen_title"
+            android:summary="@string/network_names_show_wifi_on_lock_screen_summary"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="network_names_cat_notification_icons"
+        android:title="@string/notification_icons_title">
+
+        <SwitchPreference
+            android:key="network_names_hide"
+            android:title="@string/hide_title"
+            android:summary="@string/network_names_hide_summary"
+            android:persistent="true" />
+
+        <ListPreference
+            android:key="network_names_number_of_notification_icons"
+            android:title="@string/number_of_notification_icons_title"
+            android:entries="@array/number_of_notifications_entries"
+            android:entryValues="@array/number_of_notifications_values" />
+
+    </PreferenceCategory>
+</PreferenceScreen>
