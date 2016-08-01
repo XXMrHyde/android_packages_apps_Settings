@@ -111,17 +111,17 @@
     <string name="theme_color_power_menu_boot_dialog_summary">Wähle das Ein&#47;Aus-Menü &amp; Boot-Dialog Theme</string>
 
     <!-- Theme & colors (status bar) -->
-    <string name="theme_color_status_bar_summary">Wähle die Farben der Statusleiste</string>
+    <string name="theme_color_status_bar_summary">Wähle die Farben mit denen Symbole umd Text in der Statusleiste eingefärbt werden</string>
 
     <!-- Status bar -->
     <string name="status_bar_network_names_settings_title">Netzwerk Namen</string>
     <string name="status_bar_network_names_settings_wifi_only_title">Wifi Netzwerk Name</string>
-    <string name="status_bar_network_names_settings_summary">Wähle wie der Netzbetreiber- und der Wifi Netzwerk Name in der Statusleiste dargestellt werden</string>
+    <string name="status_bar_network_names_settings_summary">Wähle wie der Netzbetreiber- und Wifi Netzwerk Name in der Statusleiste dargestellt wird</string>
     <string name="status_bar_network_names_settings_wifi_only_summary">Wähle wie der Wifi Netzwerk Name in der Statusleiste dargestellt wird</string>
     <string name="status_bar_clock_date_settings_title">Uhr &amp; Datum</string>
-    <string name="status_bar_clock_date_settings_summary">Die Uhr &amp; das Datum anpassen</string>
+    <string name="status_bar_clock_date_settings_summary">Wähle wie die Uhr &amp; das Datum in der Statusleiste dargestellt werden</string>
     <string name="status_bar_battery_status_settings_title">Akkuanzeige</string>
-    <string name="status_bar_battery_status_settings_summary">Den Akkuzeige anpassen</string>
+    <string name="status_bar_battery_status_settings_summary">Wähle wie die Akkuzeige in der Statusleiste dargestellt wird</string>
 
     <!-- Network names settings -->
     <string name="network_names_cat_carrier_title">Netzbetreiber</string>
@@ -130,7 +130,7 @@
     <string name="network_names_show_carrier_on_lock_screen_summary">Aktivieren um den Netzbetreiber Namen in der Statusleiste auf dem Sperrbildschirm anzuzeigen</string>
     <string name="network_names_show_wifi_summary">Aktivieren um den Wifi-Netzwerk Namen in der Statusleiste anzuzeigen</string>
     <string name="network_names_show_wifi_on_lock_screen_summary">Aktivieren um den Wifi-Netzwerk Namen in der Statusleiste auf dem Sperrbildschirm anzuzeigen</string>
-    <string name="network_names_hide_summary">Aktivieren um eine Anzahl an Benachrichtigungssymbolen zu wählen, bei deren Erreichen der Netzbetreiber- und der Wifi Netzwerk Name in der Statusleiste verborgen werden.</string>
+    <string name="network_names_hide_summary">Aktivieren um eine Anzahl an Benachrichtigungssymbolen zu wählen, bei deren Erreichen der Netzbetreiber- und Wifi Netzwerk Name in der Statusleiste verborgen wird.</string>
     <string name="network_names_hide_wifi_only_summary">Aktivieren um eine Anzahl an Benachrichtigungssymbolen zu wählen, bei deren Erreichen der Wifi Netzwerk Name in der Statusleiste verborgen wird.</string>
 
     <!-- clock and date settings -->

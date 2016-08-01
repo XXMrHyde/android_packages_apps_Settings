@@ -111,7 +111,7 @@
     <string name="theme_color_power_menu_boot_dialog_summary">Choose the power menu &amp; boot dialog theme</string>
 
     <!-- Theme & colors (status bar) -->
-    <string name="theme_color_status_bar_summary">Choose the colors of the status bar</string>
+    <string name="theme_color_status_bar_summary">Choose the colors to colorize the text and icons in the status bar</string>
 
     <!-- Status bar -->
     <string name="status_bar_network_names_settings_title">Network names</string>
@@ -119,9 +119,9 @@
     <string name="status_bar_network_names_settings_summary">Choose how to display the carrier- and Wifi network name in the status bar</string>
     <string name="status_bar_network_names_settings_wifi_only_summary">Choose how to display the Wifi network name in the status bar</string>
     <string name="status_bar_clock_date_settings_title">Clock &amp; date</string>
-    <string name="status_bar_clock_date_settings_summary">Customize the clock &amp; the date</string>
+    <string name="status_bar_clock_date_settings_summary">Choose how to display the clock &amp; date in the status bar</string>
     <string name="status_bar_battery_status_settings_title">Battery indicator</string>
-    <string name="status_bar_battery_status_settings_summary">Customize the battery indicator</string>
+    <string name="status_bar_battery_status_settings_summary">Choose how to display the battery indicator in the status bar</string>
 
     <!-- Network names settings -->
     <string name="network_names_cat_carrier_title">Carrier</string>
