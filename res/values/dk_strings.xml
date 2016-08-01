@@ -26,8 +26,9 @@
     <string name="status_bar_title">Status bar</string>
     <string name="theme_title">Theme</string>
     <string name="theme_material_title">Material</string>
-    <string name="theme_darkkat_title">DarkKat</string>
     <string name="theme_material_light_title">Material light</string>
+    <string name="theme_darkkat_title">DarkKat-Blue</string>
+    <string name="theme_darkkat_blue_title">DarkKat</string>
     <string name="colors_general_title">Colors general</string>
     <string name="colors_general_dark_mode_title">Colors general (light status bar)</string>
     <string name="colors_battery_title">Colors battery status</string>

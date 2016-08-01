@@ -45,7 +45,7 @@ public class ThemeColorPowerMenuBootDialog extends SettingsPreferenceFragment im
 
         mTheme = (ListPreference) findPreference(PREF_THEME);
         final int theme = Settings.System.getInt(mResolver,
-                Settings.System.POWER_MENU_BOOT_DIALOG_THEME, 0);
+                Settings.System.POWER_MENU_BOOT_DIALOG_THEME, 2);
         mTheme.setValue(String.valueOf(theme));
         mTheme.setSummary(mTheme.getEntry());
         mTheme.setOnPreferenceChangeListener(this);

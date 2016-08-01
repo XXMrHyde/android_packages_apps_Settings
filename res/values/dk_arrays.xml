@@ -74,14 +74,16 @@
 
     <string-array name="theme_entries">
         <item>@string/theme_material_title</item>
-        <item>@string/theme_darkkat_title</item>
         <item>@string/theme_material_light_title</item>
+        <item>@string/theme_darkkat_title</item>
+        <item>@string/theme_darkkat_blue_title</item>
     </string-array>
 
     <string-array name="theme_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
+        <item>3</item>
     </string-array>
 
     <string-array name="number_of_notifications_entries">
