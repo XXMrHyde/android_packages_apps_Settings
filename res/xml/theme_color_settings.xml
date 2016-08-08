@@ -30,4 +30,10 @@ limitations under the License.
         android:summary="@string/theme_color_status_bar_summary"
         android:fragment="com.android.settings.darkkat.ThemeColorStatusBar" />
 
+    <PreferenceScreen
+        android:key="theme_color_qs"
+        android:title="@string/qs_title"
+        android:summary="@string/theme_color_qs_summary"
+        android:fragment="com.android.settings.darkkat.ThemeColorQS" />
+
 </PreferenceScreen>

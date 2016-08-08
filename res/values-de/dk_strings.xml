@@ -24,6 +24,7 @@
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="status_bar_title">Statusleiste</string>
+    <string name="qs_title">Schnelleinstellungen</string>
     <string name="theme_title">Theme</string>
     <string name="theme_material_title">Material</string>
     <string name="theme_material_light_title">Material-Light</string>
@@ -37,9 +38,12 @@
     <string name="show_on_lock_screen_title">Auf dem Sperrbildschirm anzeigen</string>
     <string name="hide_title">Verbergen</string>
     <string name="always_title">Immer</string>
+    <string name="background_title">Hintergrund</string>
+    <string name="accent_title">Akzent</string>
     <string name="text_title">Text</string>
     <string name="text_charge_icon_title">Prozentzahl &amp; Ladesymbol</string>
     <string name="icon_title">Symbol</string>
+    <string name="ripple_title">Ripple Effect</string>
     <string name="normal_title">Normal</string>
     <string name="hidden_title">Verborgen</string>
     <string name="position_title">Position</string>
@@ -112,7 +116,8 @@
     <string name="theme_color_power_menu_boot_dialog_summary">Wähle das Ein&#47;Aus-Menü &amp; Boot-Dialog Theme</string>
 
     <!-- Theme & colors (status bar) -->
-    <string name="theme_color_status_bar_summary">Wähle die Farben mit denen Symbole umd Text in der Statusleiste eingefärbt werden</string>
+    <string name="theme_color_status_bar_summary">Wähle die Farben mit denen Text und Symbole in der Statusleiste eingefärbt werden</string>
+    <string name="theme_color_qs_summary">Wähle die Farben mit denen Hintergrund, Text, Symbole, und Ripple Effekt in den Schnelleinstellungen eingefärbt werden</string>
 
     <!-- Status bar -->
     <string name="status_bar_network_names_settings_title">Netzwerk Namen</string>

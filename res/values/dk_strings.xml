@@ -24,6 +24,7 @@
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="status_bar_title">Status bar</string>
+    <string name="qs_title">Quick settings</string>
     <string name="theme_title">Theme</string>
     <string name="theme_material_title">Material</string>
     <string name="theme_material_light_title">Material light</string>
@@ -37,9 +38,12 @@
     <string name="show_on_lock_screen_title">Show on lock screen</string>
     <string name="hide_title">Hide</string>
     <string name="always_title">Always</string>
+    <string name="background_title">Background</string>
+    <string name="accent_title">Accent</string>
     <string name="text_title">Text</string>
     <string name="text_charge_icon_title">Percentage text &amp; charging indicator</string>
     <string name="icon_title">Icon</string>
+    <string name="ripple_title">Ripple effect</string>
     <string name="normal_title">Normal</string>
     <string name="hidden_title">Hidden</string>
     <string name="position_title">Position</string>
@@ -113,6 +117,8 @@
 
     <!-- Theme & colors (status bar) -->
     <string name="theme_color_status_bar_summary">Choose the colors to colorize the text and icons in the status bar</string>
+    <string name="theme_color_qs_summary">Choose the colors to colorize the background, text, icons and the ripple effect in the quick Settings panel</string>
+
 
     <!-- Status bar -->
     <string name="status_bar_network_names_settings_title">Network names</string>
