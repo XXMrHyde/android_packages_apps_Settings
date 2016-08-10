@@ -24,6 +24,8 @@
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="status_bar_title">Statusleiste</string>
+    <string name="status_bar_expanded_title">Erweiterte-Statusleiste</string>
+    <string name="header_title">Kopfzeile</string>
     <string name="qs_title">Schnelleinstellungen</string>
     <string name="theme_title">Theme</string>
     <string name="theme_material_title">Material</string>
@@ -117,7 +119,8 @@
 
     <!-- Theme & colors (status bar) -->
     <string name="theme_color_status_bar_summary">Wähle die Farben mit denen Text und Symbole in der Statusleiste eingefärbt werden</string>
-    <string name="theme_color_qs_summary">Wähle die Farben mit denen Hintergrund, Text, Symbole, und Ripple Effekt in den Schnelleinstellungen eingefärbt werden</string>
+    <string name="theme_color_header_summary">Wähle die Farben mit denen Hintergrund, Akzent, Text, Symbole, und Ripple Effekt der Kopfzeile in der Erweiterten-Statusleiste eingefärbt werden</string>
+    <string name="theme_color_qs_summary">Wähle die Farben mit denen Hintergrund, Akzent, Text, Symbole, und Ripple Effekt in den Schnelleinstellungen eingefärbt werden</string>
 
     <!-- Status bar -->
     <string name="status_bar_network_names_settings_title">Netzwerk Namen</string>

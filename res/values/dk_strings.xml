@@ -24,6 +24,8 @@
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="status_bar_title">Status bar</string>
+    <string name="status_bar_expanded_title">Status bar expanded</string>
+    <string name="header_title">Header</string>
     <string name="qs_title">Quick settings</string>
     <string name="theme_title">Theme</string>
     <string name="theme_material_title">Material</string>
@@ -117,7 +119,8 @@
 
     <!-- Theme & colors (status bar) -->
     <string name="theme_color_status_bar_summary">Choose the colors to colorize the text and icons in the status bar</string>
-    <string name="theme_color_qs_summary">Choose the colors to colorize the background, text, icons and the ripple effect in the quick Settings panel</string>
+    <string name="theme_color_header_summary">Choose the colors to colorize the background, accent, text, icons and the ripple effect in the header of the expanded status bar</string>
+    <string name="theme_color_qs_summary">Choose the colors to colorize the background, accent, text, icons and the ripple effect in the quick Settings panel</string>
 
 
     <!-- Status bar -->
