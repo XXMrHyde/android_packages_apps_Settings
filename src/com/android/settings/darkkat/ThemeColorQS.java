@@ -75,7 +75,7 @@ public class ThemeColorQS extends SettingsPreferenceFragment implements
         String hexColor;
 
         mBackgroundColor = (ColorPickerPreference) findPreference(PREF_BACKGROUND_COLOR);
-        intColor = StatusBarExpandedColorHelper.getBackgroundColor(getActivity());
+        intColor = StatusBarExpandedColorHelper.getQSBackgroundColor(getActivity());
         mBackgroundColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mBackgroundColor.setSummary(hexColor);
@@ -84,7 +84,7 @@ public class ThemeColorQS extends SettingsPreferenceFragment implements
         mBackgroundColor.setOnPreferenceChangeListener(this);
 
         mAccentColor = (ColorPickerPreference) findPreference(PREF_ACCENT_COLOR);
-        intColor = StatusBarExpandedColorHelper.getAccentColor(getActivity());
+        intColor = StatusBarExpandedColorHelper.getQSAccentColor(getActivity());
         mAccentColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mAccentColor.setSummary(hexColor);
@@ -94,7 +94,7 @@ public class ThemeColorQS extends SettingsPreferenceFragment implements
 
         mTextColor =
                 (ColorPickerPreference) findPreference(PREF_TEXT_COLOR);
-        intColor = StatusBarExpandedColorHelper.getTextColor(getActivity());
+        intColor = StatusBarExpandedColorHelper.getQSTextColor(getActivity());
         mTextColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mTextColor.setSummary(hexColor);
@@ -104,7 +104,7 @@ public class ThemeColorQS extends SettingsPreferenceFragment implements
 
         mIconColor =
                 (ColorPickerPreference) findPreference(PREF_ICON_COLOR);
-        intColor = StatusBarExpandedColorHelper.getIconColor(getActivity()); 
+        intColor = StatusBarExpandedColorHelper.getQSIconColor(getActivity()); 
         mIconColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mIconColor.setSummary(hexColor);
@@ -114,7 +114,7 @@ public class ThemeColorQS extends SettingsPreferenceFragment implements
 
         mRippleColor =
                 (ColorPickerPreference) findPreference(PREF_RIPPLE_COLOR);
-        intColor = StatusBarExpandedColorHelper.getRippleColor(getActivity()); 
+        intColor = StatusBarExpandedColorHelper.getQSRippleColor(getActivity()); 
         mRippleColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mRippleColor.setSummary(hexColor);
