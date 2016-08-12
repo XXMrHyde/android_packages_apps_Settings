@@ -59,6 +59,35 @@
     <string name="number_of_notifications_five_title">5</string>
     <string name="number_of_notifications_six_title">6</string>
 
+    <string name="battery_status_settings_title">Akkuanzeige</string>
+    <string name="battery_status_cat_circle_dotted_title">Punktierter Kreis</string>
+    <string name="battery_status_cat_text_charge_icon_title">Prozentzahl &amp; Ladesymbol</string>
+    <string name="battery_status_cat_bar_title">Leiste</string>
+    <string name="battery_status_cat_charge_animation_title">Ladeanimation</string>
+    <string name="battery_status_icon_indicator_title">Anzeige</string>
+    <string name="battery_status_icon_indicator_battery_portrait">Akku Hochformat</string>
+    <string name="battery_status_icon_indicator_battery_landscape">Akku Querformat</string>
+    <string name="battery_status_icon_indicator_circle">Kreis</string>
+    <string name="battery_status_show_text_title">Prozentzahl anzeigen</string>
+    <string name="battery_status_show_text_summary">Aktivieren um die Prozentzahl anzuzeigen</string>
+    <string name="battery_status_circle_dot_interval_title">Abstand</string>
+    <string name="battery_status_circle_dot_length_title">Länge</string>
+    <string name="battery_status_circle_dot_no_dot_summary">Der Kreis wird nicht punktiert angezeigt</string>
+    <string name="battery_status_circle_dot_no_dot">Keine Punkte</string>
+    <string name="battery_status_circle_dot_1">1</string>
+    <string name="battery_status_circle_dot_2">2</string>
+    <string name="battery_status_circle_dot_3">3</string>
+    <string name="battery_status_circle_dot_4">4</string>
+    <string name="battery_status_circle_dot_5">5</string>
+    <string name="battery_status_circle_dot_6">6</string>
+    <string name="battery_status_circle_dot_7">7</string>
+    <string name="battery_status_circle_dot_8">8</string>
+    <string name="battery_status_circle_dot_9">9</string>
+    <string name="battery_status_circle_dot_10">10</string>
+    <string name="battery_status_cut_out_title">Ausschneiden</string>
+    <string name="battery_status_cut_out_summary">Aktivieren um Prozentzahl/Ladesymbol aus dem Akkusymbol auszuschneiden, sobald die Akkufüllung Prozentzahl/Ladesymbol überlagert</string>
+    <string name="battery_status_show_charge_animation_summary">Aktivieren um die Ladeanimation anzuzeigen</string>
+
     <!-- Color picker -->
     <string name="color_picker_fragment_title">Farbauswahl</string>
     <string name="apply_color_title">Farbe anwenden</string>
@@ -129,7 +158,6 @@
     <string name="status_bar_network_names_settings_wifi_only_summary">Wähle wie der Wifi Netzwerk Name in der Statusleiste dargestellt wird</string>
     <string name="status_bar_clock_date_settings_title">Uhr &amp; Datum</string>
     <string name="status_bar_clock_date_settings_summary">Wähle wie die Uhr &amp; das Datum in der Statusleiste dargestellt werden</string>
-    <string name="status_bar_battery_status_settings_title">Akkuanzeige</string>
     <string name="status_bar_battery_status_settings_summary">Wähle wie die Akkuzeige in der Statusleiste dargestellt wird</string>
 
     <!-- Network names settings -->
@@ -161,35 +189,11 @@
     <string name="clock_date_date_string_edittext_summary">Zeichenfolge eingeben</string>
 
     <!-- Status bar battery status settings -->
-    <string name="battery_status_cat_circle_dotted_title">Punktierter Kreis</string>
-    <string name="battery_status_cat_text_charge_icon_title">Prozentzahl &amp; Ladesymbol</string>
-    <string name="battery_status_cat_bar_title">Leiste</string>
-    <string name="battery_status_cat_charge_animation_title">Ladeanimation</string>
-    <string name="battery_status_icon_indicator_title">Anzeige</string>
-    <string name="battery_status_icon_indicator_battery_portrait">Akku Hochformat</string>
-    <string name="battery_status_icon_indicator_battery_landscape">Akku Querformat</string>
-    <string name="battery_status_icon_indicator_circle">Kreis</string>
-    <string name="battery_status_show_text_title">Prozentzahl anzeigen</string>
-    <string name="battery_status_show_text_summary">Aktivieren um die Prozentzahl anzuzeigen</string>
-    <string name="battery_status_circle_dot_interval_title">Abstand</string>
-    <string name="battery_status_circle_dot_length_title">Länge</string>
-    <string name="battery_status_circle_dot_no_dot_summary">Der Kreis wird nicht punktiert angezeigt</string>
-    <string name="battery_status_circle_dot_no_dot">Keine Punkte</string>
-    <string name="battery_status_circle_dot_1">1</string>
-    <string name="battery_status_circle_dot_2">2</string>
-    <string name="battery_status_circle_dot_3">3</string>
-    <string name="battery_status_circle_dot_4">4</string>
-    <string name="battery_status_circle_dot_5">5</string>
-    <string name="battery_status_circle_dot_6">6</string>
-    <string name="battery_status_circle_dot_7">7</string>
-    <string name="battery_status_circle_dot_8">8</string>
-    <string name="battery_status_circle_dot_9">9</string>
-    <string name="battery_status_circle_dot_10">10</string>
-    <string name="battery_status_cut_out_title">Ausschneiden</string>
-    <string name="battery_status_cut_out_summary">Aktivieren um Prozentzahl/Ladesymbol aus dem Akkusymbol auszuschneiden, sobald die Akkufüllung Prozentzahl/Ladesymbol überlagert</string>
     <string name="battery_status_show_battery_bar_summary">Aktivieren um die Leiste anzuzeigen</string>
     <string name="battery_status_show_battery_bar_on_lock_screen_summary">Aktivieren um die Leiste auf dem Sperrbildschirm anzuzeigen</string>
-    <string name="battery_status_show_charge_animation_summary">Aktivieren um die Ladeanimation anzuzeigen</string>
+
+    <!-- Status bar expanded header settings -->
+    <string name="header_battery_status_settings_summary">Wähle wie die Akkuzeige in der Kopfzeile der Erweiterten-Statusleiste dargestellt wird</string>
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Ein&#47;Aus-Menü</string>
