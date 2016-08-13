@@ -131,7 +131,7 @@ public class ThemeColorHeader extends SettingsPreferenceFragment implements
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mBatteryTextColor.setSummary(hexColor);
         mBatteryTextColor.setResetColors(StatusBarExpandedColorHelper.WHITE,
-                StatusBarExpandedColorHelper.HOLO_BLUE_LIGHT);
+                StatusBarExpandedColorHelper.WHITE);
         mBatteryTextColor.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
@@ -284,7 +284,7 @@ public class ThemeColorHeader extends SettingsPreferenceFragment implements
                                             StatusBarExpandedColorHelper.HOLO_BLUE_LIGHT);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.HEADER_BATTERY_TEXT_COLOR,
-                                            StatusBarExpandedColorHelper.HOLO_BLUE_LIGHT);
+                                            StatusBarExpandedColorHelper.WHITE);
                             getOwner().refreshSettings();
                         }
                     })
