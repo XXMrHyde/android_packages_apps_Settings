@@ -230,11 +230,11 @@ public class ThemeColorQS extends SettingsPreferenceFragment implements
                                     Settings.System.QS_ACCENT_COLOR,
                                     StatusBarExpandedColorHelper.DEEP_TEAL_200);
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.QS_TEXT_COLOR, StatusBarExpandedColorHelper.WHITE);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_ICON_COLOR, StatusBarExpandedColorHelper.WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_RIPPLE_COLOR, StatusBarExpandedColorHelper.WHITE);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.QS_TEXT_COLOR, StatusBarExpandedColorHelper.WHITE);
                             getOwner().refreshSettings();
                         }
                     })
@@ -248,13 +248,13 @@ public class ThemeColorQS extends SettingsPreferenceFragment implements
                                     Settings.System.QS_ACCENT_COLOR,
                                     StatusBarExpandedColorHelper.DEEP_TEAL_500);
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.QS_TEXT_COLOR,
+                                            StatusBarExpandedColorHelper.HOLO_BLUE_LIGHT);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_ICON_COLOR,
                                             StatusBarExpandedColorHelper.HOLO_BLUE_LIGHT);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_RIPPLE_COLOR,
-                                            StatusBarExpandedColorHelper.HOLO_BLUE_LIGHT);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.QS_TEXT_COLOR,
                                             StatusBarExpandedColorHelper.HOLO_BLUE_LIGHT);
                             getOwner().refreshSettings();
                         }
