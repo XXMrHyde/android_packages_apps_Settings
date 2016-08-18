@@ -89,6 +89,7 @@
     <string name="battery_status_show_charge_animation_summary">Aktivieren um die Ladeanimation anzuzeigen</string>
     <string name="no_notifications_title">Keine Benachrichtigungen</string>
     <string name="dismiss_all_title">Alle schließen</string>
+    <string name="appearance_title">Darstellung</string>
 
     <!-- Color picker -->
     <string name="color_picker_fragment_title">Farbauswahl</string>
@@ -196,6 +197,18 @@
 
     <!-- Status bar expanded header settings -->
     <string name="header_battery_status_settings_summary">Wähle wie die Akkuzeige in der Kopfzeile der Erweiterten-Statusleiste dargestellt wird</string>
+
+    <!-- Status bar expanded Quick settings -->
+    <string name="qs_appearance_cat_show_tile_detail_on_click_title">Kachel Klick-Aktion</string>
+    <string name="qs_appearance_summary">Wähle wie die Schnelleinstellungen in der Erweiterten-Statusleiste dargestellt werden</string>
+    <string name="qs_appearance_show_brightness_slider_title">Helligkeitsregler anzeigen</string>
+    <string name="qs_appearance_show_brightness_slider_summary">Aktivieren um den Helligkeitsregler in den Schnelleinstellungen anzuzeigen</string>
+    <string name="qs_bluetooth_title">Bluetooth</string>
+    <string name="qs_appearance_show_bluetooth_detail_on_click_summary">Aktivieren um die Bluetooth Detailansicht anzuzeigen, deaktivieren um den Bluetooth Status umzuschalten</string>
+    <string name="qs_dnd_title">Nicht stören</string>
+    <string name="qs_appearance_show_dnd_detail_on_click_summary">Aktivieren um die Nicht stören Detailansicht anzuzeigen, deaktivieren um den Nicht stören Status umzuschalten</string>
+    <string name="qs_wifi_title">WLAN</string>
+    <string name="qs_appearance_show_wifi_detail_on_click_summary">Aktivieren um die WLAN Detailansicht anzuzeigen, deaktivieren um den WLAN Status umzuschalten</string>
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Ein&#47;Aus-Menü</string>

@@ -29,4 +29,16 @@
             android:fragment="com.android.settings.darkkat.HeaderBatteryStatusSettings" />
 
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="status_bar_expanded_cat_qs"
+        android:title="@string/qs_title">
+
+        <PreferenceScreen
+            android:key="qs_appearance"
+            android:title="@string/appearance_title"
+            android:summary="@string/qs_appearance_summary"
+            android:fragment="com.android.settings.darkkat.QSAppearance" />
+
+    </PreferenceCategory>
 </PreferenceScreen>
