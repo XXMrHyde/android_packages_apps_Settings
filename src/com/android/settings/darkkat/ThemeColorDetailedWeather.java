@@ -264,6 +264,7 @@ public class ThemeColorDetailedWeather extends SettingsPreferenceFragment implem
             mCardsRippleColor.setResetColorTitle(R.string.reset_theme_default_title);
             mCardsRippleColor.setOnPreferenceChangeListener(this);
         } else {
+            removePreference(PREF_ACCENT_COLOR);
             catBgColors.removePreference(findPreference(PREF_STATUS_BAR_BG_COLOR));
             catBgColors.removePreference(findPreference(PREF_ACTION_BAR_BG_COLOR));
             catBgColors.removePreference(findPreference(PREF_CONTENT_BG_COLOR));
