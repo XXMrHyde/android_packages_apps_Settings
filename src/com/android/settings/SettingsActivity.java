@@ -66,6 +66,7 @@ import android.widget.SearchView;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.XmlUtils;
+import com.android.internal.util.darkkat.WeatherHelper;
 import com.android.settings.accessibility.AccessibilitySettings;
 import com.android.settings.accessibility.CaptionPropertiesFragment;
 import com.android.settings.accounts.AccountSettings;
@@ -1249,6 +1250,11 @@ public class SettingsActivity extends Activity
                 } else if (id == R.id.bluetooth_settings) {
                     // Remove Bluetooth Settings if Bluetooth service is not available.
                     if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH)) {
+                        removeTile = true;
+                    }
+                } else if (id == R.id.weather) {
+                    if (WeatherHelper.getWeatherServiceAvailability(this)
+                            != WeatherHelper.PACKAGE_ENABLED) {
                         removeTile = true;
                     }
                 } else if (id == R.id.data_usage_settings) {

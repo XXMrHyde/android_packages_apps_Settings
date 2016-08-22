@@ -17,6 +17,10 @@
 package com.android.settings.darkkat;
 
 import android.os.Bundle;
+import android.preference.Preference;
+
+import com.android.internal.util.darkkat.DeviceUtils;
+import com.android.internal.util.darkkat.WeatherHelper;
 
 import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
@@ -29,6 +33,24 @@ public class ThemeColorSettings extends SettingsPreferenceFragment {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.theme_color_settings);
+
+        final boolean isWeatherServiceAvailable =
+                WeatherHelper.isWeatherServiceAvailable(getActivity());
+        final int weatherServiceAvailability = WeatherHelper.getWeatherServiceAvailability(getActivity());
+
+        Preference customizeDetailedWeather =
+                findPreference("theme_color_customize_detailed_weather");
+
+        if (weatherServiceAvailability == WeatherHelper.PACKAGE_DISABLED) {
+            final CharSequence summary = getResources().getString(DeviceUtils.isPhone(getActivity())
+                    ? R.string.weather_service_disabled_summary
+                    : R.string.weather_service_disabled_tablet_summary);
+            customizeDetailedWeather.setSummary(summary);
+        } else if (weatherServiceAvailability == WeatherHelper.PACKAGE_MISSING) {
+            customizeDetailedWeather.setSummary(
+                    getResources().getString(R.string.weather_service_missing_summary));
+        }
+        customizeDetailedWeather.setEnabled(isWeatherServiceAvailable);
     }
 
     @Override

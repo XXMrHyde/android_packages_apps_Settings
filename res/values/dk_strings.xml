@@ -23,19 +23,32 @@
     <string name="dlg_reset_theme_default_colors_message">Reset colors to theme default?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
+    <string name="action_show_detailed_weather_view_title">Show detailed weather view</string>
     <string name="status_bar_title">Status bar</string>
     <string name="status_bar_expanded_title">Status bar expanded</string>
     <string name="header_title">Header</string>
     <string name="qs_title">Quick settings</string>
+    <string name="weather_title">Weather</string>
+    <string name="detailed_weather_title">Detailed weather view</string>
+    <string name="weather_service_missing_title">\'DK Weather Service\' is not installed</string>
+    <string name="weather_service_missing_summary">To use the weather feature, the app DKWeatherService \'DK Weather Service\' has to be installed</string>
+    <string name="weather_service_disabled_title">\'DK Weather Service\' is disabled</string>
+    <string name="weather_service_disabled_summary">To use the weather feature, enable the app DKWeatherService \'DK Weather Service\', and reboot your phone</string>
+    <string name="weather_service_disabled_tablet_summary">To use the weather feature, enable the app DKWeatherService \'DK Weather Service\', and reboot your tablet</string>
     <string name="theme_title">Theme</string>
     <string name="theme_material_title">Material</string>
     <string name="theme_material_light_title">Material light</string>
     <string name="theme_darkkat_title">DarkKat-Blue</string>
     <string name="theme_darkkat_blue_title">DarkKat</string>
+    <string name="customize_title">Customize</string>
     <string name="colors_general_title">Colors general</string>
     <string name="colors_general_dark_mode_title">Colors general (light status bar)</string>
     <string name="colors_battery_title">Colors battery status</string>
     <string name="colors_battery_dark_mode_title">Colors battery status (light status bar)</string>
+    <string name="colors_background_title">Background colors</string>
+    <string name="colors_text_title">Text colors</string>
+    <string name="colors_icon_title">Icon colors</string>
+    <string name="colors_ripple_title">Ripple effect colors</string>
     <string name="show_title">Show</string>
     <string name="show_on_lock_screen_title">Show on lock screen</string>
     <string name="hide_title">Hide</string>
@@ -46,6 +59,9 @@
     <string name="text_charge_icon_title">Percentage text &amp; charging indicator</string>
     <string name="icon_title">Icon</string>
     <string name="ripple_title">Ripple effect</string>
+    <string name="action_bar_title">Action bar</string>
+    <string name="content_title">Content</string>
+    <string name="cards_title">Cards</string>
     <string name="normal_title">Normal</string>
     <string name="hidden_title">Hidden</string>
     <string name="position_title">Position</string>
@@ -90,6 +106,9 @@
     <string name="no_notifications_title">No Notifications</string>
     <string name="dismiss_all_title">Dismiss All</string>
     <string name="appearance_title">Appearance</string>
+    <string name="weather_icon_monochrome_title">Monochrome</string>
+    <string name="weather_icon_colored_title">Colored</string>
+    <string name="weather_icon_vclouds_title">VClouds</string>
 
     <!-- Color picker -->
     <string name="color_picker_fragment_title">Color Picker</string>
@@ -148,11 +167,16 @@
     <!-- Theme & colors -->
     <string name="theme_color_power_menu_boot_dialog_title">Power menu &amp; boot dialog</string>
     <string name="theme_color_power_menu_boot_dialog_summary">Choose the power menu &amp; boot dialog theme</string>
+    <string name="theme_color_customize_detailed_weather_summary">Choose the theme and colors to colorize the detailed weather view</string>
 
     <!-- Theme & colors (status bar) -->
     <string name="theme_color_status_bar_summary">Choose the colors to colorize the text and icons in the status bar</string>
     <string name="theme_color_header_summary">Choose the colors to colorize the background, accent, text, icons and the ripple effect in the header of the expanded status bar</string>
     <string name="theme_color_qs_summary">Choose the colors to colorize the background, accent, text, icons and the ripple effect in the quick Settings panel</string>
+
+    <!-- Theme & colors (detailed weather view) -->
+    <string name="theme_color_detailed_weather_customize_colors_title">Customize colors</string>
+    <string name="theme_color_detailed_weather_customize_colors_summary">Enable to customize colors</string>
 
     <!-- Status bar -->
     <string name="status_bar_network_names_settings_title">Network names</string>
@@ -209,6 +233,16 @@
     <string name="qs_appearance_show_dnd_detail_on_click_summary">Enable to show the do not disturb detail view, disable to toggle the do not disturb state</string>
     <string name="qs_wifi_title">Wi-Fi</string>
     <string name="qs_appearance_show_wifi_detail_on_click_summary">Enable to show the Wi-Fi detail view, disable to toggle the Wi-Fi state</string>
+
+    <!-- Weather -->
+    <string name="weather_config_title">Configuration</string>
+    <string name="weather_config_summary">Configure the weather</string>
+    <string name="weather_detailed_weather_settings_summary">Choose how to display the detailed weather view</string>
+
+    <!-- Detailed weather -->
+    <string name="detailed_weather_show_location_title">Show location</string>
+    <string name="detailed_weather_show_location_summary">Enable to show the location</string>
+    <string name="detailed_weather_condition_icon_title">Condition icon</string>
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Power menu</string>

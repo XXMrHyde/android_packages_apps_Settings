@@ -52,4 +52,16 @@ limitations under the License.
             android:fragment="com.android.settings.darkkat.ThemeColorNotifications" />
 
 	</PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="theme_color_cat_detailed_weather"
+        android:title="@string/detailed_weather_title">
+
+        <PreferenceScreen
+            android:key="theme_color_customize_detailed_weather"
+            android:title="@string/customize_title"
+            android:summary="@string/theme_color_customize_detailed_weather_summary"
+            android:fragment="com.android.settings.darkkat.ThemeColorDetailedWeather" />
+
+	</PreferenceCategory>
 </PreferenceScreen>

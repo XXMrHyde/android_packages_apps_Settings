@@ -23,19 +23,32 @@
     <string name="dlg_reset_theme_default_colors_message">Farben auf Theme Standard zurück setzen?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
+    <string name="action_show_detailed_weather_view_title">Detaillierte Wetteransicht anzeigen</string>
     <string name="status_bar_title">Statusleiste</string>
     <string name="status_bar_expanded_title">Erweiterte-Statusleiste</string>
     <string name="header_title">Kopfzeile</string>
     <string name="qs_title">Schnelleinstellungen</string>
+    <string name="weather_title">Wetter</string>
+    <string name="detailed_weather_title">Detaillierte Wetteransicht</string>
+    <string name="weather_service_missing_title">\"DK Wetter Dienst\" ist nicht installiert</string>
+    <string name="weather_service_missing_summary">Um die Wetter Funtion nutzen zu können, muss die App DKWeatherService \"DK Wetter Dienst\" installiert sein</string>
+    <string name="weather_service_disabled_title">\"DK Wetter Dienst\" ist deaktiviert</string>
+    <string name="weather_service_disabled_summary">Um die Wetter Funtion nutzen zu können, aktiviere die App DKWeatherService \"DK Wetter Dienst\" und starte das Telefon neu</string>
+    <string name="weather_service_disabled_tablet_summary">Um die Wetter Funtion nutzen zu können, aktiviere die App DKWeatherService \"DK Wetter Dienst\" und starte das Tablet neu</string>
     <string name="theme_title">Theme</string>
     <string name="theme_material_title">Material</string>
     <string name="theme_material_light_title">Material-Light</string>
     <string name="theme_darkkat_title">DarkKat</string>
     <string name="theme_darkkat_blue_title">DarkKat-Blau</string>
+    <string name="customize_title">Anpassen</string>
     <string name="colors_general_title">Farben allgemein</string>
     <string name="colors_general_dark_mode_title">Farben allgemein (helle Statusleiste)</string>
     <string name="colors_battery_title">Farben Akkustatus</string>
     <string name="colors_battery_dark_mode_title">Farben Akkustatus (helle Statusleiste)</string>
+    <string name="colors_background_title">Hintergrund Farben</string>
+    <string name="colors_text_title">Text Farben</string>
+    <string name="colors_icon_title">Symbol Farben</string>
+    <string name="colors_ripple_title">Ripple Effekt Farben</string>
     <string name="show_title">Anzeigen</string>
     <string name="show_on_lock_screen_title">Auf dem Sperrbildschirm anzeigen</string>
     <string name="hide_title">Verbergen</string>
@@ -46,6 +59,9 @@
     <string name="text_charge_icon_title">Prozentzahl &amp; Ladesymbol</string>
     <string name="icon_title">Symbol</string>
     <string name="ripple_title">Ripple Effect</string>
+    <string name="action_bar_title">Actionsleiste</string>
+    <string name="content_title">Inhalt</string>
+    <string name="cards_title">Karten</string>
     <string name="normal_title">Normal</string>
     <string name="hidden_title">Verborgen</string>
     <string name="position_title">Position</string>
@@ -90,6 +106,9 @@
     <string name="no_notifications_title">Keine Benachrichtigungen</string>
     <string name="dismiss_all_title">Alle schließen</string>
     <string name="appearance_title">Darstellung</string>
+    <string name="weather_icon_monochrome_title">Einfarbig</string>
+    <string name="weather_icon_colored_title">Farbig</string>
+    <string name="weather_icon_vclouds_title">VClouds</string>
 
     <!-- Color picker -->
     <string name="color_picker_fragment_title">Farbauswahl</string>
@@ -148,11 +167,16 @@
     <!-- Theme & colors -->
     <string name="theme_color_power_menu_boot_dialog_title">Ein&#47;Aus-Menü &amp; Boot-Dialog</string>
     <string name="theme_color_power_menu_boot_dialog_summary">Wähle das Ein&#47;Aus-Menü &amp; Boot-Dialog Theme</string>
+    <string name="theme_color_customize_detailed_weather_summary">Wähle das Theme und die Farben mit denen die Detaillierte Wetteransicht eingefärbt wird</string>
 
     <!-- Theme & colors (status bar) -->
     <string name="theme_color_status_bar_summary">Wähle die Farben mit denen Text und Symbole in der Statusleiste eingefärbt werden</string>
     <string name="theme_color_header_summary">Wähle die Farben mit denen Hintergrund, Akzent, Text, Symbole, und Ripple Effekt der Kopfzeile in der Erweiterten-Statusleiste eingefärbt werden</string>
     <string name="theme_color_qs_summary">Wähle die Farben mit denen Hintergrund, Akzent, Text, Symbole, und Ripple Effekt in den Schnelleinstellungen eingefärbt werden</string>
+
+    <!-- Theme & colors (detailed weather view) -->
+    <string name="theme_color_detailed_weather_customize_colors_title">Farben anpassen</string>
+    <string name="theme_color_detailed_weather_customize_colors_summary">Aktieren um eigene Farben zu benutzen</string>
 
     <!-- Status bar -->
     <string name="status_bar_network_names_settings_title">Netzwerk Namen</string>
@@ -209,6 +233,16 @@
     <string name="qs_appearance_show_dnd_detail_on_click_summary">Aktivieren um die Nicht stören Detailansicht anzuzeigen, deaktivieren um den Nicht stören Status umzuschalten</string>
     <string name="qs_wifi_title">WLAN</string>
     <string name="qs_appearance_show_wifi_detail_on_click_summary">Aktivieren um die WLAN Detailansicht anzuzeigen, deaktivieren um den WLAN Status umzuschalten</string>
+
+    <!-- Weather -->
+    <string name="weather_config_title">Konfiguration</string>
+    <string name="weather_config_summary">Das Wetter konfigurieren</string>
+    <string name="weather_detailed_weather_settings_summary">Wähle wie die Detaillierte Wetteransicht dargestellt wird</string>
+
+    <!-- Detailed weather -->
+    <string name="detailed_weather_show_location_title">Standort anzeigen</string>
+    <string name="detailed_weather_show_location_summary">Aktivieren um den Standort anzuzeigen</string>
+    <string name="detailed_weather_condition_icon_title">Wetterlage Symbol</string>
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Ein&#47;Aus-Menü</string>

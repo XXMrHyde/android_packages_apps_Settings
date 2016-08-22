@@ -2136,6 +2136,7 @@
         <activity android:name=".darkkat.ThemeColorSettings" />
         <activity android:name=".darkkat.Statusbar" />
         <activity android:name=".darkkat.StatusbarExpanded" />
+        <activity android:name=".darkkat.Weather" />
         <activity android:name=".darkkat.ButtonSettings" />
 
         <!-- DarkKat activities end -->

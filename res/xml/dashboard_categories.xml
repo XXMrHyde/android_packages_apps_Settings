@@ -101,6 +101,13 @@
                 android:icon="@drawable/ic_settings_status_bar_expanded"
                 />
 
+        <!-- Weather -->
+        <dashboard-tile
+                android:id="@+id/weather"
+                android:title="@string/weather_title"
+                android:fragment="com.android.settings.darkkat.Weather"
+                android:icon="@drawable/ic_settings_weather" />
+
     </dashboard-category>
 
     <!-- DEVICE -->
