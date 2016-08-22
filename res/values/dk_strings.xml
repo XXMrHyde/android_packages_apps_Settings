@@ -49,6 +49,7 @@
     <string name="colors_text_title">Text colors</string>
     <string name="colors_icon_title">Icon colors</string>
     <string name="colors_ripple_title">Ripple effect colors</string>
+    <string name="accent_color_title">Accent color</string>
     <string name="show_title">Show</string>
     <string name="show_on_lock_screen_title">Show on lock screen</string>
     <string name="hide_title">Hide</string>

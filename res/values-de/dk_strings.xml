@@ -49,6 +49,7 @@
     <string name="colors_text_title">Text Farben</string>
     <string name="colors_icon_title">Symbol Farben</string>
     <string name="colors_ripple_title">Ripple Effekt Farben</string>
+    <string name="accent_color_title">Akzent Farbe</string>
     <string name="show_title">Anzeigen</string>
     <string name="show_on_lock_screen_title">Auf dem Sperrbildschirm anzeigen</string>
     <string name="hide_title">Verbergen</string>

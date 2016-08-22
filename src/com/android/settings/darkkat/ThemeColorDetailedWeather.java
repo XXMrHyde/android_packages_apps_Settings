@@ -61,6 +61,8 @@ public class ThemeColorDetailedWeather extends SettingsPreferenceFragment implem
             "theme_color_detailed_weather_theme";
     private static final String PREF_CUSTOMIZE_COLORS =
             "theme_color_detailed_weather_customize_colors";
+    private static final String PREF_ACCENT_COLOR =
+            "theme_color_detailed_weather_accent_color";
     private static final String PREF_STATUS_BAR_BG_COLOR =
             "theme_color_detailed_weather_status_bar_bg_color";
     private static final String PREF_ACTION_BAR_BG_COLOR =
@@ -88,6 +90,7 @@ public class ThemeColorDetailedWeather extends SettingsPreferenceFragment implem
 
     private ListPreference mTheme;
     private SwitchPreference mCustomizeColors;
+    private ColorPickerPreference mAccentColor;
     private ColorPickerPreference mStatusBarBgColor;
     private ColorPickerPreference mActionBarBgColor;
     private ColorPickerPreference mContentBgColor;
@@ -143,6 +146,17 @@ public class ThemeColorDetailedWeather extends SettingsPreferenceFragment implem
             int intColor;
             String hexColor;
             int defaultColor;
+
+            mAccentColor =
+                    (ColorPickerPreference) findPreference(PREF_ACCENT_COLOR);
+            intColor = DetailedWeatherHelper.getAccentColor(getActivity());
+            mAccentColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mAccentColor.setSummary(hexColor);
+            defaultColor = getThemeDefaultColor(DetailedWeatherHelper.INDEX_ACCENT_COLOR);
+            mAccentColor.setResetColor(defaultColor);
+            mAccentColor.setResetColorTitle(R.string.reset_theme_default_title);
+            mAccentColor.setOnPreferenceChangeListener(this);
 
             mStatusBarBgColor =
                     (ColorPickerPreference) findPreference(PREF_STATUS_BAR_BG_COLOR);
@@ -321,6 +335,14 @@ public class ThemeColorDetailedWeather extends SettingsPreferenceFragment implem
                     Settings.System.DETAILED_WEATHER_CUSTOMIZE_COLORS, value ? 1 : 0);
             refreshSettings();
             return true;
+        } else if (preference == mAccentColor) {
+            hex = ColorPickerPreference.convertToARGB(Integer.valueOf(
+                    String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.DETAILED_WEATHER_ACCENT_COLOR, intHex);
+            refreshSettings();
+            return true;
         } else if (preference == mStatusBarBgColor) {
             hex = ColorPickerPreference.convertToARGB(Integer.valueOf(
                     String.valueOf(newValue)));
@@ -437,6 +459,10 @@ public class ThemeColorDetailedWeather extends SettingsPreferenceFragment implem
                     .setPositiveButton(R.string.dlg_ok,
                             new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.DETAILED_WEATHER_ACCENT_COLOR,
+                                    getOwner().getThemeDefaultColor(
+                                    DetailedWeatherHelper.INDEX_ACCENT_COLOR));
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.DETAILED_WEATHER_STATUS_BAR_BG_COLOR,
                                     DetailedWeatherHelper.MATERIAL_BLUE_700);
